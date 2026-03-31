@@ -21,11 +21,20 @@ from src.utils import load_config
 
 def build_summary_stats(matched: pd.DataFrame, output_path: str) -> dict:
     """Generate summary statistics JSON for the landing page."""
+    qty_col = "quantity" if "quantity" in matched.columns else None
+    has_qty = qty_col is not None
+    matched_mask = matched["factset_entity_id"].notna() & (matched["factset_entity_id"] != "") & (matched["factset_entity_id"] != "None")
+
+    total_qty = matched[qty_col].sum() if has_qty else 0
+    matched_qty = matched.loc[matched_mask, qty_col].sum() if has_qty else 0
+
     stats = {
         "last_updated": datetime.now().strftime("%Y-%m-%d"),
         "total_retirements": int(len(matched)),
-        "matched_retirements": int(matched["factset_entity_id"].notna().sum()),
-        "unique_firms": int(matched["factset_entity_id"].nunique()),
+        "matched_retirements": int(matched_mask.sum()),
+        "unique_firms": int(matched.loc[matched_mask, "factset_entity_id"].nunique()),
+        "total_mtco2": round(total_qty / 1e6, 1) if has_qty else 0,
+        "matched_mtco2": round(matched_qty / 1e6, 1) if has_qty else 0,
         "registries": {},
         "years": {},
         "match_methods": {},
@@ -34,18 +43,24 @@ def build_summary_stats(matched: pd.DataFrame, output_path: str) -> dict:
     # By registry
     for reg in matched["registry"].unique():
         sub = matched[matched["registry"] == reg]
+        sub_matched = sub[matched_mask.reindex(sub.index)]
         stats["registries"][reg] = {
             "total": int(len(sub)),
-            "matched": int(sub["factset_entity_id"].notna().sum()),
+            "matched": int(len(sub_matched)),
+            "total_mtco2": round(sub[qty_col].sum() / 1e6, 1) if has_qty else 0,
+            "matched_mtco2": round(sub_matched[qty_col].sum() / 1e6, 1) if has_qty else 0,
         }
 
     # By year (if retirement date available)
     if "retirement_year" in matched.columns:
         for yr in sorted(matched["retirement_year"].dropna().unique()):
             sub = matched[matched["retirement_year"] == yr]
+            sub_matched = sub[matched_mask.reindex(sub.index)]
             stats["years"][str(int(yr))] = {
                 "total": int(len(sub)),
-                "matched": int(sub["factset_entity_id"].notna().sum()),
+                "matched": int(len(sub_matched)),
+                "total_mtco2": round(sub[qty_col].sum() / 1e6, 1) if has_qty else 0,
+                "matched_mtco2": round(sub_matched[qty_col].sum() / 1e6, 1) if has_qty else 0,
             }
 
     # By match method
@@ -66,6 +81,60 @@ def build_summary_stats(matched: pd.DataFrame, output_path: str) -> dict:
     return stats
 
 
+# Country name → ISO3 lookup for project map (Berkeley uses full country names)
+_COUNTRY_TO_ISO3 = {
+    "Afghanistan": "AFG", "Albania": "ALB", "Algeria": "DZA", "Argentina": "ARG",
+    "Armenia": "ARM", "Australia": "AUS", "Austria": "AUT", "Azerbaijan": "AZE",
+    "Bangladesh": "BGD", "Belarus": "BLR", "Belgium": "BEL", "Belize": "BLZ",
+    "Benin": "BEN", "Bhutan": "BTN", "Bolivia": "BOL", "Bosnia and Herzegovina": "BIH",
+    "Botswana": "BWA", "Brazil": "BRA", "Brunei": "BRN", "Bulgaria": "BGR",
+    "Burkina Faso": "BFA", "Burundi": "BDI", "Cambodia": "KHM", "Cameroon": "CMR",
+    "Canada": "CAN", "Central African Republic": "CAF", "Chad": "TCD", "Chile": "CHL",
+    "China": "CHN", "Colombia": "COL", "Comoros": "COM", "Congo": "COG",
+    "Costa Rica": "CRI", "Croatia": "HRV", "Cuba": "CUB", "Cyprus": "CYP",
+    "Czech Republic": "CZE", "Czechia": "CZE",
+    "Democratic Republic of the Congo": "COD", "Dem. Rep. Congo": "COD",
+    "Denmark": "DNK", "Djibouti": "DJI", "Dominican Republic": "DOM",
+    "Ecuador": "ECU", "Egypt": "EGY", "El Salvador": "SLV", "Equatorial Guinea": "GNQ",
+    "Eritrea": "ERI", "Estonia": "EST", "Eswatini": "SWZ", "Ethiopia": "ETH",
+    "Fiji": "FJI", "Finland": "FIN", "France": "FRA", "Gabon": "GAB", "Gambia": "GMB",
+    "Georgia": "GEO", "Germany": "DEU", "Ghana": "GHA", "Greece": "GRC",
+    "Guatemala": "GTM", "Guinea": "GIN", "Guinea-Bissau": "GNB", "Guyana": "GUY",
+    "Haiti": "HTI", "Honduras": "HND", "Hungary": "HUN", "Iceland": "ISL",
+    "India": "IND", "Indonesia": "IDN", "Iran": "IRN", "Iraq": "IRQ", "Ireland": "IRL",
+    "Israel": "ISR", "Italy": "ITA", "Ivory Coast": "CIV", "Cote d'Ivoire": "CIV",
+    "Jamaica": "JAM", "Japan": "JPN", "Jordan": "JOR", "Kazakhstan": "KAZ",
+    "Kenya": "KEN", "Korea, South": "KOR", "South Korea": "KOR",
+    "Korea, Republic of": "KOR", "Kuwait": "KWT",
+    "Kyrgyzstan": "KGZ", "Laos": "LAO", "Lao People's Democratic Republic": "LAO",
+    "Latvia": "LVA", "Lebanon": "LBN", "Lesotho": "LSO", "Liberia": "LBR",
+    "Libya": "LBY", "Lithuania": "LTU", "Luxembourg": "LUX",
+    "Madagascar": "MDG", "Malawi": "MWI", "Malaysia": "MYS", "Maldives": "MDV",
+    "Mali": "MLI", "Malta": "MLT", "Mauritania": "MRT", "Mauritius": "MUS",
+    "Mexico": "MEX", "Moldova": "MDA", "Mongolia": "MNG", "Montenegro": "MNE",
+    "Morocco": "MAR", "Mozambique": "MOZ", "Myanmar": "MMR", "Namibia": "NAM",
+    "Nepal": "NPL", "Netherlands": "NLD", "New Zealand": "NZL", "Nicaragua": "NIC",
+    "Niger": "NER", "Nigeria": "NGA", "North Macedonia": "MKD", "Norway": "NOR",
+    "Oman": "OMN", "Pakistan": "PAK", "Palestine": "PSE", "Panama": "PAN",
+    "Papua New Guinea": "PNG", "Paraguay": "PRY", "Peru": "PER", "Philippines": "PHL",
+    "Poland": "POL", "Portugal": "PRT", "Qatar": "QAT", "Romania": "ROU",
+    "Russia": "RUS", "Russian Federation": "RUS", "Rwanda": "RWA",
+    "Saudi Arabia": "SAU", "Senegal": "SEN", "Serbia": "SRB", "Sierra Leone": "SLE",
+    "Singapore": "SGP", "Slovakia": "SVK", "Slovenia": "SVN", "Solomon Islands": "SLB",
+    "Somalia": "SOM", "South Africa": "ZAF", "South Sudan": "SSD", "Spain": "ESP",
+    "Sri Lanka": "LKA", "Sudan": "SDN", "Suriname": "SUR", "Sweden": "SWE",
+    "Switzerland": "CHE", "Syria": "SYR", "Taiwan": "TWN",
+    "Tajikistan": "TJK", "Tanzania": "TZA", "United Republic of Tanzania": "TZA",
+    "Thailand": "THA", "Timor-Leste": "TLS", "Togo": "TGO",
+    "Trinidad and Tobago": "TTO", "Tunisia": "TUN", "Turkey": "TUR", "Turkiye": "TUR",
+    "Turkmenistan": "TKM", "Uganda": "UGA", "Ukraine": "UKR",
+    "United Arab Emirates": "ARE", "United Kingdom": "GBR",
+    "United States": "USA", "United States of America": "USA",
+    "Uruguay": "URY", "Uzbekistan": "UZB", "Vanuatu": "VUT",
+    "Venezuela": "VEN", "Vietnam": "VNM", "Viet Nam": "VNM",
+    "Yemen": "YEM", "Zambia": "ZMB", "Zimbabwe": "ZWE",
+}
+
 # ISO2 → ISO3 lookup for HQ map
 _ISO2TO3 = {
     "US": "USA", "BR": "BRA", "DE": "DEU", "GB": "GBR", "AU": "AUS", "JP": "JPN",
@@ -84,13 +153,25 @@ _ISO2TO3 = {
 
 def build_map_data(matched: pd.DataFrame, public_firms: pd.DataFrame):
     """Generate map_data.json for the landing page choropleths."""
-    listed = matched[matched["factset_entity_id"].notna() & (matched["factset_entity_id"] != "")]
+    listed = matched[matched["factset_entity_id"].notna() & (matched["factset_entity_id"] != "") & (matched["factset_entity_id"] != "None")]
 
-    # Project country map (isocode is ISO3)
+    qty_col = "quantity" if "quantity" in listed.columns else None
+    if qty_col is None:
+        print("Warning: no quantity column found, skipping map data")
+        return
+
+    # Project country map
+    # Try isocode (ISO3) first, then country (full name -> ISO3)
     if "isocode" in listed.columns:
-        proj = listed.groupby("isocode")["quantity"].sum().reset_index()
+        proj = listed.groupby("isocode")[qty_col].sum().reset_index()
         proj.columns = ["iso3", "tonnes"]
         proj = proj[proj["tonnes"] > 0]
+    elif "country" in listed.columns:
+        proj = listed.groupby("country")[qty_col].sum().reset_index()
+        proj.columns = ["country_name", "tonnes"]
+        proj["iso3"] = proj["country_name"].map(_COUNTRY_TO_ISO3)
+        proj = proj.dropna(subset=["iso3"])
+        proj = proj[proj["tonnes"] > 0][["iso3", "tonnes"]]
     else:
         proj = pd.DataFrame(columns=["iso3", "tonnes"])
 
@@ -100,7 +181,7 @@ def build_map_data(matched: pd.DataFrame, public_firms: pd.DataFrame):
             public_firms[["factset_entity_id", "iso_country"]],
             on="factset_entity_id", how="left",
         )
-        hq = merged.groupby("iso_country")["quantity"].sum().reset_index()
+        hq = merged.groupby("iso_country")[qty_col].sum().reset_index()
         hq.columns = ["iso2", "tonnes"]
         hq["iso3"] = hq["iso2"].map(_ISO2TO3)
         hq = hq.dropna(subset=["iso3"])
@@ -210,12 +291,24 @@ def run_pipeline(config: dict, skip_download: bool = False, skip_llm: bool = Fal
     print("\n=== Saving outputs ===")
     out_path = Path(config["output"]["matched_retirements"])
     out_path.parent.mkdir(parents=True, exist_ok=True)
+
+    # Convert mixed-type object columns to string to avoid parquet errors
+    # Skip columns that should stay as-is (datetime, numeric)
+    for col in combined.select_dtypes(include=["object"]).columns:
+        combined[col] = combined[col].fillna("").astype(str).replace("nan", "").replace("None", "")
+
     combined.to_parquet(out_path, index=False)
     print(f"  Matched retirements: {out_path} ({len(combined):,} rows)")
 
-    # Also save as CSV for easy download
+    # Also save as CSV for easy download (matched only, key columns)
     csv_path = out_path.with_suffix(".csv")
-    combined.to_csv(csv_path, index=False)
+    key_cols = [c for c in [
+        "raw_beneficiary", "matched_name", "factset_entity_id", "registry",
+        "retirement_year", "country", "quantity", "match_confidence", "match_method",
+        "projectname", "projecttype", "vintage",
+    ] if c in combined.columns]
+    matched_only = combined[combined["factset_entity_id"].notna() & (combined["factset_entity_id"] != "")]
+    matched_only[key_cols].to_csv(csv_path, index=False)
 
     # Summary stats
     stats = build_summary_stats(combined, config["output"]["summary_stats"])

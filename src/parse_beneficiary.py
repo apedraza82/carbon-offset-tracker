@@ -78,7 +78,7 @@ def parse_gold(row: pd.Series) -> BeneficiaryResult | None:
     Primary: '* Using Entity'
     Fallback: 'Note' (parse "on behalf of X" / "for X")
     """
-    using = row.get("* Using Entity", "")
+    using = row.get("* Using Entity", "") or row.get("Using Entity", "")
     if isinstance(using, str) and using.strip():
         cleaned = clean_raw_name(using)
         if cleaned:
@@ -144,6 +144,43 @@ PARSERS = {
 }
 
 
+# Column name harmonization: registry-specific -> unified names
+_COLUMN_RENAMES = {
+    "verra": {
+        "Quantity Issued": "quantity",
+        "Country/Area": "country",
+        "Retirement/Cancellation Date": "retirement_date",
+        "Name": "projectname",
+        "Project Type": "projecttype",
+        "ID": "project_id",
+    },
+    "gold": {
+        "Quantity": "quantity",
+        "Country": "country",
+        "Retirement Date": "retirement_date",
+        "Project Name": "projectname",
+        "Project Type": "projecttype",
+        "GSID": "project_id",
+    },
+    "acr": {
+        "Quantity of Credits": "quantity",
+        "Project Site Country": "country",
+        "Status Effective (GMT)": "retirement_date",
+        "Project Name": "projectname",
+        "Project Type": "projecttype",
+        "Project ID": "project_id",
+    },
+    "car": {
+        "Quantity of Offset Credits": "quantity",
+        "Project Site Country": "country",
+        "Status Effective": "retirement_date",
+        "Project Name": "projectname",
+        "Project Type": "projecttype",
+        "Project ID": "project_id",
+    },
+}
+
+
 def parse_retirements(df: pd.DataFrame, registry: str) -> pd.DataFrame:
     """Parse beneficiary names from a registry DataFrame.
 
@@ -153,7 +190,7 @@ def parse_retirements(df: pd.DataFrame, registry: str) -> pd.DataFrame:
 
     Returns:
         DataFrame with columns: raw_beneficiary, source_field, registry,
-        plus all original columns.
+        plus harmonized columns (quantity, country, retirement_date, etc.).
     """
     parser = PARSERS.get(registry.lower())
     if parser is None:
@@ -177,6 +214,27 @@ def parse_retirements(df: pd.DataFrame, registry: str) -> pd.DataFrame:
     # Merge back original columns
     parsed = parsed.set_index("original_index")
     out = df.join(parsed, how="inner")
+
+    # Harmonize column names (rename registry-specific -> unified)
+    renames = _COLUMN_RENAMES.get(registry.lower(), {})
+    # Only rename columns that exist and whose target doesn't already exist
+    actual_renames = {k: v for k, v in renames.items() if k in out.columns and v not in out.columns}
+    out = out.rename(columns=actual_renames)
+
+    # Ensure quantity is numeric
+    if "quantity" in out.columns:
+        out["quantity"] = pd.to_numeric(out["quantity"], errors="coerce").fillna(0)
+
+    # Parse retirement year
+    if "retirement_date" in out.columns:
+        out["retirement_date"] = pd.to_datetime(out["retirement_date"], errors="coerce")
+        out["retirement_year"] = out["retirement_date"].dt.year
+
+    # Parse vintage
+    if "Vintage Start" in out.columns and "vintage" not in out.columns:
+        out["vintage"] = pd.to_datetime(out["Vintage Start"], errors="coerce").dt.year
+    elif "Vintage" in out.columns and "vintage" not in out.columns:
+        out.rename(columns={"Vintage": "vintage"}, inplace=True)
 
     print(f"  [{registry.upper()}] Parsed {len(out):,} / {len(df):,} rows "
           f"({100*len(out)/len(df):.1f}%)")
