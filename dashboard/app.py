@@ -26,13 +26,13 @@ DATA_DIR = Path(__file__).parent.parent / "data"
 @st.cache_data(ttl=3600)
 def load_data():
     """Load matched retirements data."""
-    parquet_path = DATA_DIR / "matched_retirements.parquet"
     csv_path = DATA_DIR / "matched_retirements.csv"
+    parquet_path = DATA_DIR / "matched_retirements.parquet"
 
-    if parquet_path.exists():
-        df = pd.read_parquet(parquet_path)
-    elif csv_path.exists():
+    if csv_path.exists():
         df = pd.read_csv(csv_path)
+    elif parquet_path.exists():
+        df = pd.read_parquet(parquet_path)
     else:
         return None
 
