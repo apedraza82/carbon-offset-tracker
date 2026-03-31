@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carbon Offset Tracker — Corporate Retirements Matched to Listed Firms</title>
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NJQVWWDZL9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-NJQVWWDZL9');
+    </script>
     <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
     <style>
         :root {
@@ -162,7 +170,7 @@
         <div class="buttons">
             <a href="https://github.com/apedraza82/carbon-offset-tracker/raw/master/data/matched_retirements.csv" class="btn btn-primary" id="download-btn">Download Dataset (CSV)</a>
             <a href="https://carbon-offset-tracker-dsxjevtd5fj7bife2dnxmr.streamlit.app/" class="btn btn-secondary" id="dashboard-link">Interactive Dashboard</a>
-            <a href="https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099338203162614529" class="btn btn-outline">Research Paper</a>
+            <a href="https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099338203162614529" class="btn btn-outline" id="paper-link">Research Paper</a>
         </div>
 
         <!-- Charts -->
@@ -374,6 +382,17 @@
                 }], mapLayout, { responsive: true });
             })
             .catch(err => console.log('Map data not loaded:', err));
+
+        // --- GA4 custom event tracking ---
+        document.getElementById('download-btn').addEventListener('click', function() {
+            gtag('event', 'download_csv', { event_category: 'engagement' });
+        });
+        document.getElementById('dashboard-link').addEventListener('click', function() {
+            gtag('event', 'open_dashboard', { event_category: 'engagement' });
+        });
+        document.getElementById('paper-link').addEventListener('click', function() {
+            gtag('event', 'open_paper', { event_category: 'engagement' });
+        });
     </script>
 </body>
 </html>
