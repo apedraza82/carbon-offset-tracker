@@ -43,6 +43,9 @@ def load_data():
             df["retirement_year"] = df["retirement_date"].dt.year
             break
 
+    # Filter to matched only
+    df = df[df["factset_entity_id"].notna() & (df["factset_entity_id"] != "")].copy()
+
     return df
 
 
@@ -56,11 +59,20 @@ def load_stats():
     return None
 
 
+def fmt_tonnes(t):
+    """Format tonnes as human-readable string."""
+    if t >= 1e6:
+        return f"{t/1e6:.1f}M"
+    if t >= 1e3:
+        return f"{t/1e3:.0f}K"
+    return f"{t:,.0f}"
+
+
 def main():
     st.title("Carbon Offset Tracker")
     st.markdown(
         "**Corporate Carbon Offset Retirements Matched to Listed Firms** "
-        "| [Paper](https://example.com) | [GitHub](https://github.com/carbon-offset-tracker)"
+        "| [Paper](https://example.com) | [GitHub](https://github.com/apedraza82/carbon-offset-tracker)"
     )
 
     df = load_data()
@@ -69,6 +81,9 @@ def main():
         return
 
     stats = load_stats()
+
+    # Quantity column
+    qty_col = "quantity" if "quantity" in df.columns else "Quantity" if "Quantity" in df.columns else None
 
     # --- Sidebar Filters ---
     st.sidebar.header("Filters")
@@ -92,9 +107,6 @@ def main():
     else:
         year_range = None
 
-    # Match status filter
-    match_filter = st.sidebar.radio("Match Status", ["All", "Matched only", "Unmatched only"])
-
     # Country filter
     country_col = next((c for c in ["country", "Country/Area", "Country"] if c in df.columns), None)
     if country_col:
@@ -113,11 +125,6 @@ def main():
     if year_range and "retirement_year" in df.columns:
         mask &= df["retirement_year"].between(*year_range)
 
-    if match_filter == "Matched only":
-        mask &= df["factset_entity_id"].notna() & (df["factset_entity_id"] != "")
-    elif match_filter == "Unmatched only":
-        mask &= df["factset_entity_id"].isna() | (df["factset_entity_id"] == "")
-
     if country_col and selected_countries:
         mask &= df[country_col].isin(selected_countries)
 
@@ -129,14 +136,12 @@ def main():
 
     # --- Key Metrics ---
     col1, col2, col3, col4 = st.columns(4)
-    col1.metric("Total Retirements", f"{len(filtered):,}")
-    matched_count = (filtered["factset_entity_id"].notna() & (filtered["factset_entity_id"] != "")).sum()
-    col2.metric("Matched to Firms", f"{matched_count:,}")
-    col3.metric("Unique Firms", f"{filtered['factset_entity_id'].nunique():,}" if "factset_entity_id" in filtered.columns else "N/A")
-    if "quantity" in filtered.columns:
-        col4.metric("Total Credits", f"{filtered['quantity'].sum():,.0f}")
-    elif "Quantity" in filtered.columns:
-        col4.metric("Total Credits", f"{filtered['Quantity'].sum():,.0f}")
+    total_qty = filtered[qty_col].sum() if qty_col else 0
+    col1.metric("Total Quantity Retired", fmt_tonnes(total_qty) + " tCO2")
+    col2.metric("Transactions", f"{len(filtered):,}")
+    col3.metric("Unique Firms", f"{filtered['factset_entity_id'].nunique():,}")
+    if country_col:
+        col4.metric("Countries", f"{filtered[country_col].nunique():,}")
 
     if stats:
         st.caption(f"Last updated: {stats.get('last_updated', 'unknown')}")
@@ -145,83 +150,83 @@ def main():
     st.markdown("---")
     chart_col1, chart_col2 = st.columns(2)
 
-    # Retirements over time
+    # Quantity retired over time
     with chart_col1:
-        st.subheader("Retirements Over Time")
-        if "retirement_year" in filtered.columns:
-            yearly = filtered.groupby(["retirement_year", "registry"]).size().reset_index(name="count")
-            fig = px.bar(yearly, x="retirement_year", y="count", color="registry",
-                         labels={"retirement_year": "Year", "count": "Retirements"},
+        st.subheader("Quantity Retired Over Time")
+        if "retirement_year" in filtered.columns and qty_col:
+            yearly = filtered.groupby(["retirement_year", "registry"])[qty_col].sum().reset_index()
+            yearly[qty_col] = yearly[qty_col] / 1e6  # Convert to MtCO2
+            fig = px.bar(yearly, x="retirement_year", y=qty_col, color="registry",
+                         labels={"retirement_year": "Year", qty_col: "MtCO2"},
                          color_discrete_sequence=px.colors.qualitative.Set2)
             fig.update_layout(height=400, margin=dict(l=20, r=20, t=30, b=20))
             st.plotly_chart(fig, use_container_width=True)
 
     # By registry
     with chart_col2:
-        st.subheader("By Registry")
-        if "registry" in filtered.columns:
-            reg_counts = filtered["registry"].value_counts().reset_index()
-            reg_counts.columns = ["Registry", "Count"]
-            fig = px.pie(reg_counts, values="Count", names="Registry",
+        st.subheader("Quantity by Registry")
+        if "registry" in filtered.columns and qty_col:
+            reg_qty = filtered.groupby("registry")[qty_col].sum().reset_index()
+            reg_qty.columns = ["Registry", "Tonnes"]
+            fig = px.pie(reg_qty, values="Tonnes", names="Registry",
                          color_discrete_sequence=px.colors.qualitative.Set2)
             fig.update_layout(height=400, margin=dict(l=20, r=20, t=30, b=20))
             st.plotly_chart(fig, use_container_width=True)
 
     # Geographic distribution
-    if country_col and len(filtered) > 0:
-        st.subheader("Geographic Distribution (Top 20 Countries)")
-        top_countries = filtered[country_col].value_counts().head(20).reset_index()
-        top_countries.columns = ["Country", "Retirements"]
-        fig = px.bar(top_countries, x="Country", y="Retirements",
+    if country_col and qty_col and len(filtered) > 0:
+        st.subheader("Top 20 Countries by Quantity Retired (tCO2)")
+        top_countries = filtered.groupby(country_col)[qty_col].sum().nlargest(20).reset_index()
+        top_countries.columns = ["Country", "Tonnes"]
+        fig = px.bar(top_countries, x="Country", y="Tonnes",
+                     labels={"Tonnes": "tCO2"},
                      color_discrete_sequence=["#2E86AB"])
         fig.update_layout(height=400, margin=dict(l=20, r=20, t=30, b=20))
         st.plotly_chart(fig, use_container_width=True)
 
     # Top firms
-    if matched_count > 0:
-        st.subheader("Top 20 Firms by Retirement Count")
+    if qty_col:
+        st.subheader("Top 20 Firms by Quantity Retired (tCO2)")
         name_col = "matched_name" if "matched_name" in filtered.columns else "raw_beneficiary"
-        matched_df = filtered[filtered["factset_entity_id"].notna() & (filtered["factset_entity_id"] != "")]
-        top_firms = matched_df[name_col].value_counts().head(20).reset_index()
-        top_firms.columns = ["Firm", "Retirements"]
-        fig = px.bar(top_firms, x="Retirements", y="Firm", orientation="h",
+        top_firms = filtered.groupby(name_col)[qty_col].sum().nlargest(20).reset_index()
+        top_firms.columns = ["Firm", "Tonnes"]
+        fig = px.bar(top_firms, x="Tonnes", y="Firm", orientation="h",
+                     labels={"Tonnes": "tCO2"},
                      color_discrete_sequence=["#A23B72"])
         fig.update_layout(height=500, margin=dict(l=20, r=20, t=30, b=20), yaxis=dict(autorange="reversed"))
         st.plotly_chart(fig, use_container_width=True)
 
-    # --- Data Table ---
+    # --- Data Table (matched only) ---
     st.markdown("---")
     st.subheader("Data Explorer")
 
     display_cols = [c for c in [
-        "raw_beneficiary", "matched_name", "factset_entity_id", "registry",
+        "matched_name", "factset_entity_id", "registry",
         "retirement_year", "country", "Country/Area", "quantity", "Quantity",
-        "match_confidence", "match_method",
+        "projectname", "projecttype", "vintage",
     ] if c in filtered.columns]
 
     st.dataframe(filtered[display_cols].head(500), use_container_width=True, height=400)
 
-    # --- Download (matched observations only, no MSCI) ---
+    # --- Download (matched only, no MSCI) ---
     st.markdown("---")
     download_cols = [c for c in display_cols if c not in ("rating_msci", "numrating_msci")]
-    matched_filtered = filtered[filtered["factset_entity_id"].notna() & (filtered["factset_entity_id"] != "")]
-    matched_full = df[df["factset_entity_id"].notna() & (df["factset_entity_id"] != "")]
 
     col_dl1, col_dl2 = st.columns(2)
 
     with col_dl1:
-        csv_data = matched_filtered[download_cols].to_csv(index=False)
+        csv_data = filtered[download_cols].to_csv(index=False)
         st.download_button(
-            label=f"Download Filtered Data ({len(matched_filtered):,} matched rows)",
+            label=f"Download Filtered Data ({len(filtered):,} rows)",
             data=csv_data,
             file_name="carbon_offset_retirements_filtered.csv",
             mime="text/csv",
         )
 
     with col_dl2:
-        full_csv = matched_full[download_cols].to_csv(index=False)
+        full_csv = df[download_cols].to_csv(index=False)
         st.download_button(
-            label=f"Download Full Dataset ({len(matched_full):,} matched rows)",
+            label=f"Download Full Dataset ({len(df):,} rows)",
             data=full_csv,
             file_name="carbon_offset_retirements_full.csv",
             mime="text/csv",
