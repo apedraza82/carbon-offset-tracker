@@ -297,7 +297,15 @@
             });
 
         // Load map data
-        const mapColorscale = [
+        const greenScale = [
+            [0, '#F7FCF5'],
+            [0.2, '#C7E9C0'],
+            [0.4, '#74C476'],
+            [0.6, '#238B45'],
+            [0.8, '#005A32'],
+            [1, '#00291A']
+        ];
+        const redScale = [
             [0, '#FFFFCC'],
             [0.2, '#FED976'],
             [0.4, '#FD8D3C'],
@@ -328,7 +336,7 @@
                     locations: mapData.project_countries.iso3,
                     z: projLogTonnes,
                     customdata: mapData.project_countries.tonnes,
-                    colorscale: mapColorscale,
+                    colorscale: greenScale,
                     reversescale: false,
                     showscale: true,
                     colorbar: {
@@ -347,7 +355,7 @@
                     locations: mapData.hq_countries.iso3,
                     z: hqLogTonnes,
                     customdata: mapData.hq_countries.tonnes,
-                    colorscale: mapColorscale,
+                    colorscale: redScale,
                     reversescale: false,
                     showscale: true,
                     colorbar: {
