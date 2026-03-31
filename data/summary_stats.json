@@ -1,90 +1,132 @@
 {
   "last_updated": "2026-03-31",
+  "total_mtco2": 761.0,
+  "matched_mtco2": 221.6,
   "total_retirements": 348341,
   "matched_retirements": 21048,
   "unique_firms": 1450,
   "registries": {
     "Verra": {
       "total": 199078,
-      "matched": 14096
+      "matched": 14096,
+      "total_mtco2": 458.9,
+      "matched_mtco2": 172.0
     },
     "Acr": {
       "total": 6318,
-      "matched": 999
+      "matched": 999,
+      "total_mtco2": 39.6,
+      "matched_mtco2": 17.2
     },
     "Car": {
       "total": 8356,
-      "matched": 1274
+      "matched": 1274,
+      "total_mtco2": 70.1,
+      "matched_mtco2": 11.6
     },
     "Gold": {
       "total": 134589,
-      "matched": 4679
+      "matched": 4679,
+      "total_mtco2": 192.4,
+      "matched_mtco2": 20.7
     }
   },
   "years": {
     "2009": {
       "total": 781,
-      "matched": 62
+      "matched": 62,
+      "total_mtco2": 2.62,
+      "matched_mtco2": 1.27
     },
     "2010": {
       "total": 1150,
-      "matched": 112
+      "matched": 112,
+      "total_mtco2": 5.69,
+      "matched_mtco2": 1.38
     },
     "2011": {
       "total": 2223,
-      "matched": 242
+      "matched": 242,
+      "total_mtco2": 10.71,
+      "matched_mtco2": 2.9
     },
     "2012": {
       "total": 3573,
-      "matched": 365
+      "matched": 365,
+      "total_mtco2": 15.54,
+      "matched_mtco2": 6.67
     },
     "2013": {
       "total": 5827,
-      "matched": 339
+      "matched": 339,
+      "total_mtco2": 21.97,
+      "matched_mtco2": 2.8
     },
     "2014": {
       "total": 4519,
-      "matched": 341
+      "matched": 341,
+      "total_mtco2": 20.71,
+      "matched_mtco2": 2.17
     },
     "2015": {
       "total": 36771,
-      "matched": 481
+      "matched": 481,
+      "total_mtco2": 29.07,
+      "matched_mtco2": 4.72
     },
     "2016": {
       "total": 17391,
-      "matched": 520
+      "matched": 520,
+      "total_mtco2": 24.83,
+      "matched_mtco2": 5.08
     },
     "2017": {
       "total": 12121,
-      "matched": 850
+      "matched": 850,
+      "total_mtco2": 31.45,
+      "matched_mtco2": 9.44
     },
     "2018": {
       "total": 13436,
-      "matched": 1013
+      "matched": 1013,
+      "total_mtco2": 39.32,
+      "matched_mtco2": 12.24
     },
     "2019": {
       "total": 25284,
-      "matched": 920
+      "matched": 920,
+      "total_mtco2": 49.97,
+      "matched_mtco2": 10.0
     },
     "2020": {
       "total": 27971,
-      "matched": 1193
+      "matched": 1193,
+      "total_mtco2": 66.33,
+      "matched_mtco2": 21.56
     },
     "2021": {
       "total": 45650,
-      "matched": 3563
+      "matched": 3563,
+      "total_mtco2": 113.07,
+      "matched_mtco2": 31.49
     },
     "2022": {
       "total": 41157,
-      "matched": 2852
+      "matched": 2852,
+      "total_mtco2": 101.38,
+      "matched_mtco2": 31.05
     },
     "2023": {
       "total": 50496,
-      "matched": 3929
+      "matched": 3929,
+      "total_mtco2": 113.17,
+      "matched_mtco2": 37.69
     },
     "2024": {
       "total": 59991,
-      "matched": 4266
+      "matched": 4266,
+      "total_mtco2": 115.19,
+      "matched_mtco2": 41.11
     }
   }
 }

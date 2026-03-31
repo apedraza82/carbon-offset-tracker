@@ -142,11 +142,11 @@
         <div class="stats-grid" id="stats-grid">
             <div class="stat-card">
                 <div class="number" id="stat-retirements">—</div>
-                <div class="label">Total Retirements</div>
+                <div class="label">Million Tons CO2 Retired</div>
             </div>
             <div class="stat-card">
                 <div class="number" id="stat-matched">—</div>
-                <div class="label">Matched to Listed Firms</div>
+                <div class="label">MtCO2 Matched to Listed Firms</div>
             </div>
             <div class="stat-card">
                 <div class="number" id="stat-firms">—</div>
@@ -221,7 +221,7 @@
             .then(stats => {
                 // Badges
                 document.getElementById('badge-retirements').textContent =
-                    `${(stats.total_retirements || 0).toLocaleString()} retirements`;
+                    `${(stats.total_mtco2 || 0)} MtCO2 retired`;
                 document.getElementById('badge-firms').textContent =
                     `${(stats.unique_firms || 0).toLocaleString()} firms`;
                 document.getElementById('badge-updated').textContent =
@@ -229,9 +229,9 @@
 
                 // Stats cards
                 document.getElementById('stat-retirements').textContent =
-                    (stats.total_retirements || 0).toLocaleString();
+                    (stats.total_mtco2 || 0);
                 document.getElementById('stat-matched').textContent =
-                    (stats.matched_retirements || 0).toLocaleString();
+                    (stats.matched_mtco2 || 0);
                 document.getElementById('stat-firms').textContent =
                     (stats.unique_firms || 0).toLocaleString();
 
