@@ -201,23 +201,27 @@ def main():
 
     st.dataframe(filtered[display_cols].head(500), use_container_width=True, height=400)
 
-    # --- Download ---
+    # --- Download (matched observations only, no MSCI) ---
     st.markdown("---")
+    download_cols = [c for c in display_cols if c not in ("rating_msci", "numrating_msci")]
+    matched_filtered = filtered[filtered["factset_entity_id"].notna() & (filtered["factset_entity_id"] != "")]
+    matched_full = df[df["factset_entity_id"].notna() & (df["factset_entity_id"] != "")]
+
     col_dl1, col_dl2 = st.columns(2)
 
     with col_dl1:
-        csv_data = filtered[display_cols].to_csv(index=False)
+        csv_data = matched_filtered[download_cols].to_csv(index=False)
         st.download_button(
-            label="Download Filtered Data (CSV)",
+            label=f"Download Filtered Data ({len(matched_filtered):,} matched rows)",
             data=csv_data,
             file_name="carbon_offset_retirements_filtered.csv",
             mime="text/csv",
         )
 
     with col_dl2:
-        full_csv = df.to_csv(index=False)
+        full_csv = matched_full[download_cols].to_csv(index=False)
         st.download_button(
-            label="Download Full Dataset (CSV)",
+            label=f"Download Full Dataset ({len(matched_full):,} matched rows)",
             data=full_csv,
             file_name="carbon_offset_retirements_full.csv",
             mime="text/csv",
