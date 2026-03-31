@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Data (large files - tracked via releases)
+data/raw/
+data/previous/
+data/public_firms.parquet
+
+# Keep these in repo
+!data/known_matches.csv
+!data/summary_stats.json
+!data/matched_retirements.csv
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env

@@ -1,0 +1,82 @@
+# Carbon Offset Tracker Configuration
+
+# Data sources
+sources:
+  # Existing matched retirements (for building known_matches)
+  matched_retirements: "C:/Users/alvar/OneDrive/Documents/Research/OperationalPresence/Replication Package/Data/Temp/Retirements_&_ListedFirms_Full.parquet"
+
+  # FactSet entity universe
+  factset_entity_coverage: "C:/Users/alvar/Dropbox/SupplyChain/Replication Package/Data/Raw/Proprietary/FS/_ent/ent_v1_ent_entity_coverage.dta"
+  factset_entity_identifiers: "C:/Users/alvar/Dropbox/SupplyChain/Replication Package/Data/Raw/Proprietary/FS/_ent/ent_v1_ent_entity_identifiers.dta"
+
+  # Raw registry files
+  registry_dir: "C:/Users/alvar/Dropbox/Offsets_Investors/Data/Issuances & Retirements/1_original_datasets/Update2024"
+  registry_files:
+    verra: "VERRA_vcus.xlsx"
+    gold: "Gold Retirements.xlsx"
+    acr: "ACR Retirements.xlsx"
+    car: "CAR Retirements.xlsx"
+
+  # Berkeley Carbon Trading Project
+  berkeley_url: "https://gspp.berkeley.edu/research/osf-bctp/offsets-database"
+
+# Output paths (relative to repo root)
+output:
+  known_matches: "data/known_matches.csv"
+  public_firms: "data/public_firms.parquet"
+  matched_retirements: "data/matched_retirements.parquet"
+  summary_stats: "data/summary_stats.json"
+
+# LLM matching
+matching:
+  model: "claude-haiku-4-5-20251001"
+  max_tokens: 300
+  confidence_threshold_auto: "medium"  # auto-accept medium and above
+  batch_size: 20  # names per API call
+  cache_hit_skip: true
+
+# Name normalization
+normalization:
+  legal_suffixes:
+    - "inc"
+    - "incorporated"
+    - "corp"
+    - "corporation"
+    - "ltd"
+    - "limited"
+    - "llc"
+    - "llp"
+    - "lp"
+    - "plc"
+    - "sa"
+    - "s.a."
+    - "s.a"
+    - "se"
+    - "ag"
+    - "gmbh"
+    - "co"
+    - "company"
+    - "group"
+    - "holdings"
+    - "holding"
+    - "nv"
+    - "n.v."
+    - "bv"
+    - "b.v."
+    - "pty"
+    - "pte"
+    - "srl"
+    - "s.r.l."
+    - "spa"
+    - "s.p.a."
+    - "ab"
+    - "asa"
+    - "as"
+    - "a/s"
+    - "oyj"
+    - "tbk"
+    - "bhd"
+    - "sdn"
+    - "sarl"
+    - "kk"
+    - "kabushiki kaisha"

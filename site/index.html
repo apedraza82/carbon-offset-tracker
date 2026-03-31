@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Offset Tracker — Corporate Retirements Matched to Listed Firms</title>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <style>
+        :root {
+            --primary: #2E86AB;
+            --secondary: #A23B72;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --text: #333333;
+            --text-light: #666666;
+            --border: #E0E0E0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        header {
+            background: linear-gradient(135deg, var(--primary), #1B5E7B);
+            color: white;
+            padding: 48px 0 36px;
+        }
+        header h1 { font-size: 2rem; margin-bottom: 8px; }
+        header p { font-size: 1.1rem; opacity: 0.9; max-width: 700px; }
+        .badges { margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap; }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            background: rgba(255,255,255,0.2);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 32px 0;
+        }
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .stat-card .label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+        section { padding: 40px 0; }
+        section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 8px;
+        }
+        .chart-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 24px 0;
+        }
+        @media (max-width: 768px) { .chart-grid { grid-template-columns: 1fr; } }
+        .chart-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+        }
+        .chart-card h3 { font-size: 1rem; color: var(--text-light); margin-bottom: 12px; }
+        .buttons { display: flex; gap: 12px; flex-wrap: wrap; margin: 24px 0; }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.1s;
+        }
+        .btn:hover { transform: translateY(-1px); }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-secondary { background: var(--secondary); color: white; }
+        .btn-outline { border: 2px solid var(--primary); color: var(--primary); }
+        .methodology {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        .methodology h3 { margin-bottom: 12px; }
+        .methodology ul { margin-left: 20px; }
+        .methodology li { margin-bottom: 6px; }
+        .citation {
+            background: #F5F5F5;
+            border-left: 4px solid var(--primary);
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+        footer {
+            background: var(--text);
+            color: #CCC;
+            padding: 32px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        footer a { color: #AAA; }
+        #last-updated { font-size: 0.85rem; opacity: 0.7; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Carbon Offset Tracker</h1>
+            <p>A public dataset matching voluntary carbon offset retirements to publicly listed firms, updated monthly from registry data.</p>
+            <div class="badges">
+                <span class="badge" id="badge-retirements">Loading...</span>
+                <span class="badge" id="badge-firms">Loading...</span>
+                <span class="badge" id="badge-updated">Loading...</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Key Stats -->
+        <div class="stats-grid" id="stats-grid">
+            <div class="stat-card">
+                <div class="number" id="stat-retirements">—</div>
+                <div class="label">Total Retirements</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" id="stat-matched">—</div>
+                <div class="label">Matched to Listed Firms</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" id="stat-firms">—</div>
+                <div class="label">Unique Public Firms</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" id="stat-registries">4</div>
+                <div class="label">Carbon Registries</div>
+            </div>
+        </div>
+
+        <!-- Download + Dashboard links -->
+        <div class="buttons">
+            <a href="data/matched_retirements.csv" class="btn btn-primary" id="download-btn">Download Dataset (CSV)</a>
+            <a href="#" class="btn btn-secondary" id="dashboard-link">Interactive Dashboard</a>
+            <a href="https://github.com/" class="btn btn-outline" id="github-link">GitHub Repository</a>
+        </div>
+
+        <!-- Charts -->
+        <section>
+            <h2>Overview</h2>
+            <div class="chart-grid">
+                <div class="chart-card">
+                    <h3>Retirements by Year</h3>
+                    <div id="chart-yearly" style="height:350px;"></div>
+                </div>
+                <div class="chart-card">
+                    <h3>By Registry</h3>
+                    <div id="chart-registry" style="height:350px;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodology -->
+        <section>
+            <h2>Methodology</h2>
+            <div class="methodology">
+                <h3>How We Match Retirements to Firms</h3>
+                <ul>
+                    <li><strong>Data Sources:</strong> Retirement records from Verra (VCS), Gold Standard, American Carbon Registry (ACR), and Climate Action Reserve (CAR), sourced from the <a href="https://gspp.berkeley.edu/research/osf-bctp/offsets-database">Berkeley Carbon Trading Project</a>.</li>
+                    <li><strong>Beneficiary Extraction:</strong> Registry-specific parsing of retirement beneficiary fields, with fallback text extraction from notes and details fields.</li>
+                    <li><strong>Firm Matching:</strong> Two-stage process: (1) exact and normalized name matching against a cache of 3,600+ known beneficiary-to-firm mappings; (2) LLM-assisted entity resolution for new names, resolving subsidiaries and brands to parent listed firms.</li>
+                    <li><strong>Firm Universe:</strong> Publicly listed companies identified via FactSet entity IDs, covering ~50,000 global public firms.</li>
+                    <li><strong>Quality Control:</strong> LLM matches are assigned confidence scores (high/medium/low). Only high and medium matches are auto-accepted; low-confidence matches are flagged for manual review.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Citation -->
+        <section>
+            <h2>Citation</h2>
+            <div class="citation">
+                Pedraza, A., Williams, T., &amp; Zeni, F. (2025). "Local Visibility vs. Global Integrity: Evidence from Corporate Carbon Offset Portfolios." Working Paper.
+            </div>
+            <p style="margin-top:12px; color: var(--text-light);">
+                If you use this dataset in your research, please cite the paper above and include a link to this page.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Carbon Offset Tracker &mdash; Pedraza, Williams &amp; Zeni</p>
+            <p style="margin-top:8px;" id="last-updated"></p>
+        </div>
+    </footer>
+
+    <script>
+        // Load summary stats and populate page
+        fetch('data/summary_stats.json')
+            .then(r => r.json())
+            .then(stats => {
+                // Badges
+                document.getElementById('badge-retirements').textContent =
+                    `${(stats.total_retirements || 0).toLocaleString()} retirements`;
+                document.getElementById('badge-firms').textContent =
+                    `${(stats.unique_firms || 0).toLocaleString()} firms`;
+                document.getElementById('badge-updated').textContent =
+                    `Updated: ${stats.last_updated || 'unknown'}`;
+
+                // Stats cards
+                document.getElementById('stat-retirements').textContent =
+                    (stats.total_retirements || 0).toLocaleString();
+                document.getElementById('stat-matched').textContent =
+                    (stats.matched_retirements || 0).toLocaleString();
+                document.getElementById('stat-firms').textContent =
+                    (stats.unique_firms || 0).toLocaleString();
+
+                // Footer
+                document.getElementById('last-updated').textContent =
+                    `Last updated: ${stats.last_updated || 'unknown'}`;
+
+                // Registry pie chart
+                if (stats.registries) {
+                    const regNames = Object.keys(stats.registries);
+                    const regValues = regNames.map(r => stats.registries[r].total);
+                    Plotly.newPlot('chart-registry', [{
+                        type: 'pie',
+                        labels: regNames,
+                        values: regValues,
+                        marker: { colors: ['#2E86AB', '#A23B72', '#F18F01', '#44BBA4'] },
+                        textinfo: 'label+percent',
+                    }], {
+                        margin: { l: 20, r: 20, t: 20, b: 20 },
+                        showlegend: false,
+                    }, { responsive: true });
+                }
+
+                // Yearly bar chart
+                if (stats.years) {
+                    const years = Object.keys(stats.years).sort();
+                    const totals = years.map(y => stats.years[y].total);
+                    const matched = years.map(y => stats.years[y].matched);
+                    Plotly.newPlot('chart-yearly', [
+                        { x: years, y: totals, name: 'Total', type: 'bar', marker: { color: '#2E86AB' } },
+                        { x: years, y: matched, name: 'Matched', type: 'bar', marker: { color: '#A23B72' } },
+                    ], {
+                        barmode: 'overlay',
+                        margin: { l: 40, r: 20, t: 20, b: 40 },
+                        xaxis: { title: 'Year' },
+                        yaxis: { title: 'Retirements' },
+                        legend: { x: 0.02, y: 0.98 },
+                    }, { responsive: true });
+                }
+            })
+            .catch(err => {
+                console.log('Stats not loaded:', err);
+                document.getElementById('badge-retirements').textContent = 'Data loading...';
+            });
+    </script>
+</body>
+</html>
