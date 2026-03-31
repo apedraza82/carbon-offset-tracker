@@ -208,107 +208,227 @@ def build_map_data(matched: pd.DataFrame, public_firms: pd.DataFrame):
     print(f"Map data saved: {len(proj)} project countries, {len(hq)} HQ countries")
 
 
+# Serial number column per registry (Berkeley column names)
+_SERIAL_COL = {
+    "verra": "Serial Number",
+    "gold": "Serial Number",
+    "acr": "Credit Serial Numbers",
+    "car": "Offset Credit Serial Numbers",
+}
+
+# Unified output columns
+_OUTPUT_COLS = [
+    "raw_beneficiary", "matched_name", "factset_entity_id", "registry",
+    "retirement_year", "country", "quantity", "match_confidence", "match_method",
+    "projectname", "projecttype", "vintage", "isocode",
+]
+
+
+def _load_base_dataset(config: dict) -> pd.DataFrame:
+    """Load the existing matched retirements as the base dataset."""
+    source_path = Path(config["sources"]["matched_retirements"])
+    if not source_path.exists():
+        print("  No base dataset found, starting from scratch")
+        return pd.DataFrame()
+
+    print(f"  Loading base dataset from {source_path}")
+    base = pd.read_parquet(source_path)
+    print(f"  Base: {len(base):,} rows, {(base['factset_entity_id'] != '').sum():,} matched")
+
+    # Harmonize column names from original dataset
+    renames = {
+        "company": "raw_beneficiary",
+        "official_name": "matched_name",
+        "retirementdate": "retirement_date_str",
+    }
+    base = base.rename(columns={k: v for k, v in renames.items() if k in base.columns})
+
+    # Parse retirement year from ret_date
+    if "ret_date" in base.columns and "retirement_year" not in base.columns:
+        base["retirement_date"] = pd.to_datetime(base["ret_date"], errors="coerce")
+        base["retirement_year"] = base["retirement_date"].dt.year
+    elif "year" in base.columns and "retirement_year" not in base.columns:
+        base["retirement_year"] = base["year"]
+
+    # Add match fields for existing data
+    if "match_confidence" not in base.columns:
+        base["match_confidence"] = base["factset_entity_id"].apply(
+            lambda x: "high" if x and x != "" else "none"
+        )
+    if "match_method" not in base.columns:
+        base["match_method"] = base["factset_entity_id"].apply(
+            lambda x: "original" if x and x != "" else "unmatched"
+        )
+
+    return base
+
+
+def _find_new_retirements(
+    registry_data: dict[str, pd.DataFrame],
+    base: pd.DataFrame,
+) -> dict[str, pd.DataFrame]:
+    """Find retirements in Berkeley data not present in the base dataset.
+
+    Uses serial numbers for deduplication.
+    """
+    # Collect all serial numbers from base dataset
+    base_serials = set()
+    if "serialnumber" in base.columns:
+        base_serials = set(base["serialnumber"].dropna().astype(str))
+    elif "serialnumber_fixed" in base.columns:
+        base_serials = set(base["serialnumber_fixed"].dropna().astype(str))
+    print(f"  Base serial numbers: {len(base_serials):,}")
+
+    new_data = {}
+    for registry, df in registry_data.items():
+        serial_col = _SERIAL_COL.get(registry, "Serial Number")
+        if serial_col not in df.columns:
+            print(f"  [{registry.upper()}] No serial column '{serial_col}', taking all rows")
+            new_data[registry] = df
+            continue
+
+        # Find rows with serial numbers not in base
+        df_serials = df[serial_col].astype(str)
+        new_mask = ~df_serials.isin(base_serials)
+        new_rows = df[new_mask]
+        print(f"  [{registry.upper()}] {len(new_rows):,} new rows (of {len(df):,} total)")
+        if len(new_rows) > 0:
+            new_data[registry] = new_rows
+
+    return new_data
+
+
 def run_pipeline(config: dict, skip_download: bool = False, skip_llm: bool = False):
-    """Run the full pipeline."""
+    """Run the incremental pipeline.
+
+    Loads the existing matched retirements as a base, downloads new data from
+    Berkeley, finds new retirements not in the base, parses and matches them,
+    then combines everything.
+    """
+
+    # Step 0: Load base dataset
+    print("=== Loading base dataset ===")
+    base = _load_base_dataset(config)
 
     # Step 1: Download new data
     if skip_download:
-        print("=== Skipping download (using local registry files) ===")
-        # Load from local registry files
+        print("\n=== Skipping download (using local registry files) ===")
         registry_dir = Path(config["sources"]["registry_dir"])
-        new_retirements = {}
+        registry_data = {}
         for reg, fname in config["sources"]["registry_files"].items():
             fpath = registry_dir / fname
             if fpath.exists():
                 print(f"  Loading {reg} from {fpath}")
-                new_retirements[reg] = pd.read_excel(fpath)
+                registry_data[reg] = pd.read_excel(fpath)
             else:
                 print(f"  Warning: {fpath} not found")
     else:
         version = config.get("sources", {}).get("berkeley_version")
-        new_retirements = run_download_pipeline(config, version=version)
+        registry_data = run_download_pipeline(config, version=version)
 
-    if not new_retirements:
-        print("No new retirements to process.")
+    if not registry_data:
+        print("No registry data to process.")
         return
 
-    # Step 2: Parse beneficiary names
-    print("\n=== Parsing beneficiary names ===")
-    all_parsed = []
-    for registry, df in new_retirements.items():
-        parsed = parse_retirements(df, registry)
-        all_parsed.append(parsed)
+    # Step 2: Find new retirements not in base
+    print("\n=== Finding new retirements ===")
+    new_retirements = _find_new_retirements(registry_data, base)
 
-    combined = pd.concat(all_parsed, ignore_index=True)
-    print(f"  Total parsed: {len(combined):,}")
+    if not new_retirements:
+        print("No new retirements found. Base dataset is up to date.")
+        # Still regenerate outputs from base
+        combined = base
+    else:
+        # Step 3: Parse beneficiary names from new retirements
+        print("\n=== Parsing new beneficiary names ===")
+        all_parsed = []
+        for registry, df in new_retirements.items():
+            parsed = parse_retirements(df, registry)
+            all_parsed.append(parsed)
 
-    # Step 3: Match to firms
-    print("\n=== Matching to firms ===")
-    matcher = FirmMatcher.from_files(config)
+        new_parsed = pd.concat(all_parsed, ignore_index=True)
+        print(f"  Total new parsed: {len(new_parsed):,}")
 
-    unique_names = combined["raw_beneficiary"].unique().tolist()
-    print(f"  Unique beneficiary names: {len(unique_names):,}")
+        # Step 4: Match new names to firms
+        print("\n=== Matching new names to firms ===")
+        matcher = FirmMatcher.from_files(config)
 
-    # Cache matching
-    cache_results, unmatched_names = matcher.match_batch_cache(unique_names)
-    print(f"  Cache hits: {len(cache_results):,}")
-    print(f"  Unmatched: {len(unmatched_names):,}")
+        unique_names = new_parsed["raw_beneficiary"].unique().tolist()
+        print(f"  Unique new beneficiary names: {len(unique_names):,}")
 
-    # LLM matching for remaining
-    llm_results = []
-    if not skip_llm and unmatched_names:
-        print(f"\n  Sending {len(unmatched_names):,} names to LLM...")
-        llm_results = matcher.match_batch_llm(unmatched_names)
+        cache_results, unmatched_names = matcher.match_batch_cache(unique_names)
+        print(f"  Cache hits: {len(cache_results):,}")
+        print(f"  Unmatched: {len(unmatched_names):,}")
 
-        # Update cache with new matches
-        matcher.update_cache(llm_results)
+        # LLM matching
+        llm_results = []
+        if not skip_llm and unmatched_names:
+            print(f"\n  Sending {len(unmatched_names):,} names to LLM...")
+            llm_results = matcher.match_batch_llm(unmatched_names)
+            matcher.update_cache(llm_results)
+            matched_by_llm = sum(1 for r in llm_results if r.factset_entity_id)
+            print(f"  LLM matched: {matched_by_llm:,} / {len(unmatched_names):,}")
 
-        matched_by_llm = sum(1 for r in llm_results if r.factset_entity_id)
-        print(f"  LLM matched: {matched_by_llm:,} / {len(unmatched_names):,}")
+        # Build name->result lookup
+        all_results = cache_results + llm_results
+        result_map = {r.raw_name: r for r in all_results if r.factset_entity_id}
 
-    # Build name→result lookup
-    all_results = cache_results + llm_results
-    result_map = {}
-    for r in all_results:
-        if r.factset_entity_id:
-            result_map[r.raw_name] = r
+        # Apply matches to new data
+        new_parsed["factset_entity_id"] = new_parsed["raw_beneficiary"].map(
+            lambda x: result_map[x].factset_entity_id if x in result_map else ""
+        )
+        new_parsed["matched_name"] = new_parsed["raw_beneficiary"].map(
+            lambda x: result_map[x].matched_name if x in result_map else ""
+        )
+        new_parsed["match_confidence"] = new_parsed["raw_beneficiary"].map(
+            lambda x: result_map[x].confidence if x in result_map else "none"
+        )
+        new_parsed["match_method"] = new_parsed["raw_beneficiary"].map(
+            lambda x: result_map[x].match_method if x in result_map else "unmatched"
+        )
 
-    # Merge matches back to retirement data
-    combined["factset_entity_id"] = combined["raw_beneficiary"].map(
-        lambda x: result_map[x].factset_entity_id if x in result_map else None
-    )
-    combined["matched_name"] = combined["raw_beneficiary"].map(
-        lambda x: result_map[x].matched_name if x in result_map else None
-    )
-    combined["match_confidence"] = combined["raw_beneficiary"].map(
-        lambda x: result_map[x].confidence if x in result_map else "none"
-    )
-    combined["match_method"] = combined["raw_beneficiary"].map(
-        lambda x: result_map[x].match_method if x in result_map else "unmatched"
-    )
+        new_matched = new_parsed["factset_entity_id"].apply(lambda x: x != "").sum()
+        print(f"  New retirements matched: {new_matched:,}")
 
-    # Step 4: Save output
+        # Step 5: Combine base + new
+        print("\n=== Combining base + new retirements ===")
+        # Ensure both have the same output columns
+        for col in _OUTPUT_COLS:
+            if col not in base.columns:
+                base[col] = ""
+            if col not in new_parsed.columns:
+                new_parsed[col] = ""
+
+        combined = pd.concat(
+            [base[_OUTPUT_COLS], new_parsed[_OUTPUT_COLS]],
+            ignore_index=True,
+        )
+        print(f"  Base: {len(base):,} + New: {len(new_parsed):,} = Combined: {len(combined):,}")
+
+    # Step 6: Save output
     print("\n=== Saving outputs ===")
     out_path = Path(config["output"]["matched_retirements"])
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
+    # Ensure quantity is numeric
+    if "quantity" in combined.columns:
+        combined["quantity"] = pd.to_numeric(combined["quantity"], errors="coerce").fillna(0)
+    if "retirement_year" in combined.columns:
+        combined["retirement_year"] = pd.to_numeric(combined["retirement_year"], errors="coerce")
+
     # Convert mixed-type object columns to string to avoid parquet errors
-    # Skip columns that should stay as-is (datetime, numeric)
     for col in combined.select_dtypes(include=["object"]).columns:
         combined[col] = combined[col].fillna("").astype(str).replace("nan", "").replace("None", "")
 
     combined.to_parquet(out_path, index=False)
     print(f"  Matched retirements: {out_path} ({len(combined):,} rows)")
 
-    # Also save as CSV for easy download (matched only, key columns)
+    # Save CSV for download (matched only, key columns)
     csv_path = out_path.with_suffix(".csv")
-    key_cols = [c for c in [
-        "raw_beneficiary", "matched_name", "factset_entity_id", "registry",
-        "retirement_year", "country", "quantity", "match_confidence", "match_method",
-        "projectname", "projecttype", "vintage",
-    ] if c in combined.columns]
+    key_cols = [c for c in _OUTPUT_COLS if c in combined.columns]
     matched_only = combined[combined["factset_entity_id"].notna() & (combined["factset_entity_id"] != "")]
     matched_only[key_cols].to_csv(csv_path, index=False)
+    print(f"  CSV (matched only): {csv_path} ({len(matched_only):,} rows)")
 
     # Summary stats
     stats = build_summary_stats(combined, config["output"]["summary_stats"])
@@ -322,6 +442,8 @@ def run_pipeline(config: dict, skip_download: bool = False, skip_llm: bool = Fal
     print(f"  Total retirements: {stats['total_retirements']:,}")
     print(f"  Matched to firms: {stats['matched_retirements']:,}")
     print(f"  Unique firms: {stats['unique_firms']:,}")
+    print(f"  Total MtCO2: {stats['total_mtco2']}")
+    print(f"  Matched MtCO2: {stats['matched_mtco2']}")
 
 
 def main():
