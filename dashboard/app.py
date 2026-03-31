@@ -223,6 +223,18 @@ def main():
             mime="text/csv",
         )
 
+    # --- Citation ---
+    st.markdown("---")
+    st.subheader("Citation")
+    st.info(
+        "If you use this dataset in your research, please cite:\n\n"
+        "> Pedraza, A., Williams, T., & Zeni, F. (2025). "
+        "\"Local Visibility vs. Global Integrity: Evidence from Corporate Carbon Offset Portfolios.\" "
+        "Working Paper.\n\n"
+        "Data source: [Berkeley Carbon Trading Project](https://gspp.berkeley.edu/research/osf-bctp/offsets-database). "
+        "Firm matching via [FactSet](https://www.factset.com/)."
+    )
+
 
 if __name__ == "__main__":
     main()
