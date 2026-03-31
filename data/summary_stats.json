@@ -1,14 +1,14 @@
 {
   "last_updated": "2026-03-31",
   "total_retirements": 354619,
-  "matched_retirements": 21603,
-  "unique_firms": 1450,
+  "matched_retirements": 21606,
+  "unique_firms": 1452,
   "total_mtco2": 787.9,
   "matched_mtco2": 237.6,
   "registries": {
     "Verra": {
       "total": 203314,
-      "matched": 14489,
+      "matched": 14492,
       "total_mtco2": 479.8,
       "matched_mtco2": 186.2
     },
@@ -160,15 +160,16 @@
     },
     "2025": {
       "total": 4596,
-      "matched": 444,
+      "matched": 447,
       "total_mtco2": 21.6,
       "matched_mtco2": 14.5
     }
   },
   "match_methods": {
-    "unmatched": 333016,
+    "unmatched": 333013,
     "original": 21048,
-    "cache_exact": 451,
-    "cache_normalized": 104
+    "cache_exact": 452,
+    "cache_normalized": 104,
+    "llm": 2
   }
 }

@@ -338,7 +338,7 @@ Respond with a JSON array of match results, one per name."""
             # Save updated cache
             out_path = Path(self.config["output"]["known_matches"])
             self.known_matches.to_csv(out_path, index=False)
-            print(f"  Updated cache: +{len(new_entries)} entries → {len(self.known_matches):,} total")
+            print(f"  Updated cache: +{len(new_entries)} entries -> {len(self.known_matches):,} total")
 
 
 def _extract_json_array(text: str) -> str | None:
