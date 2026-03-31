@@ -50,6 +50,10 @@ def load_data():
     if "projecttype" in df.columns:
         df["project_category"] = df["projecttype"].apply(classify_project_type)
 
+    # Add full HQ country name
+    if "hq_country" in df.columns:
+        df["hq_country_name"] = df["hq_country"].map(_ISO2_TO_NAME)
+
     return df
 
 
@@ -70,6 +74,24 @@ def fmt_tonnes(t):
     if t >= 1e3:
         return f"{t/1e3:.0f}K"
     return f"{t:,.0f}"
+
+
+_ISO2_TO_NAME = {
+    "AE": "United Arab Emirates", "AR": "Argentina", "AT": "Austria", "AU": "Australia",
+    "BD": "Bangladesh", "BE": "Belgium", "BM": "Bermuda", "BR": "Brazil", "CA": "Canada",
+    "CH": "Switzerland", "CL": "Chile", "CN": "China", "CO": "Colombia", "CR": "Costa Rica",
+    "CY": "Cyprus", "CZ": "Czech Republic", "DE": "Germany", "DK": "Denmark", "EG": "Egypt",
+    "ES": "Spain", "FI": "Finland", "FR": "France", "GB": "United Kingdom", "GR": "Greece",
+    "GT": "Guatemala", "HK": "Hong Kong", "HU": "Hungary", "ID": "Indonesia", "IE": "Ireland",
+    "IL": "Israel", "IN": "India", "IT": "Italy", "JE": "Jersey", "JP": "Japan",
+    "KE": "Kenya", "KR": "South Korea", "KY": "Cayman Islands", "LR": "Liberia",
+    "LU": "Luxembourg", "MU": "Mauritius", "MX": "Mexico", "MY": "Malaysia", "NG": "Nigeria",
+    "NL": "Netherlands", "NO": "Norway", "NZ": "New Zealand", "PA": "Panama", "PE": "Peru",
+    "PH": "Philippines", "PK": "Pakistan", "PL": "Poland", "PT": "Portugal", "RO": "Romania",
+    "RU": "Russia", "SA": "Saudi Arabia", "SE": "Sweden", "SG": "Singapore", "TH": "Thailand",
+    "TR": "Turkey", "TW": "Taiwan", "UA": "Ukraine", "US": "United States", "VN": "Vietnam",
+    "ZA": "South Africa",
+}
 
 
 def classify_project_type(ptype):
@@ -130,10 +152,10 @@ def main():
                 value=(int(min(years)), int(max(years))),
             )
 
-    # HQ country filter
+    # HQ country filter (full names)
     selected_hq = []
-    if "hq_country" in df.columns:
-        hq_countries = sorted(df["hq_country"].dropna().unique())
+    if "hq_country_name" in df.columns:
+        hq_countries = sorted(df["hq_country_name"].dropna().unique())
         selected_hq = st.sidebar.multiselect("HQ Country (firm)", hq_countries, default=[])
 
     # Country filter (project)
@@ -158,8 +180,8 @@ def main():
     if year_range and "retirement_year" in df.columns:
         mask &= df["retirement_year"].between(*year_range)
 
-    if selected_hq and "hq_country" in df.columns:
-        mask &= df["hq_country"].isin(selected_hq)
+    if selected_hq and "hq_country_name" in df.columns:
+        mask &= df["hq_country_name"].isin(selected_hq)
 
     if country_col and selected_countries:
         mask &= df[country_col].isin(selected_countries)
@@ -241,7 +263,7 @@ def main():
     st.subheader("Data Explorer")
 
     display_cols = [c for c in [
-        "matched_name", "factset_entity_id", "hq_country", "registry",
+        "matched_name", "factset_entity_id", "hq_country_name", "registry",
         "retirement_year", "country", "Country/Area", "quantity", "Quantity",
         "projectname", "projecttype", "vintage",
     ] if c in filtered.columns]
