@@ -242,8 +242,19 @@ def main():
             cat_qty = filtered.groupby("project_category")[qty_col].sum().reset_index()
             cat_qty.columns = ["Category", "Tonnes"]
             cat_qty = cat_qty.sort_values("Tonnes", ascending=False)
+            # Hide text labels for slices below 1%
+            total = cat_qty["Tonnes"].sum()
+            cat_qty["pct"] = cat_qty["Tonnes"] / total * 100
+            text_labels = [f"{row.pct:.1f}%" if row.pct >= 1 else "" for row in cat_qty.itertuples()]
             fig = px.pie(cat_qty, values="Tonnes", names="Category",
                          color_discrete_sequence=px.colors.qualitative.Set2)
+            fig.update_traces(text=text_labels, textinfo="text+label",
+                              insidetextorientation="radial")
+            # Hide label for tiny slices too
+            fig.update_traces(texttemplate=[
+                "%{label}<br>%{text}" if pct >= 1 else ""
+                for pct in cat_qty["pct"]
+            ])
             fig.update_layout(height=400, margin=dict(l=20, r=20, t=30, b=20))
             st.plotly_chart(fig, use_container_width=True)
 
