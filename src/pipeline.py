@@ -144,7 +144,8 @@ def run_pipeline(config: dict, skip_download: bool = False, skip_llm: bool = Fal
             else:
                 print(f"  Warning: {fpath} not found")
     else:
-        new_retirements = run_download_pipeline(config)
+        version = config.get("sources", {}).get("berkeley_version")
+        new_retirements = run_download_pipeline(config, version=version)
 
     if not new_retirements:
         print("No new retirements to process.")
@@ -234,10 +235,13 @@ def main():
     parser = argparse.ArgumentParser(description="Run carbon offset matching pipeline")
     parser.add_argument("--skip-download", action="store_true", help="Use local registry files instead of downloading")
     parser.add_argument("--skip-llm", action="store_true", help="Skip LLM matching (cache only)")
+    parser.add_argument("--version", type=str, default=None, help="Berkeley VROD version (e.g. 2026-02)")
     parser.add_argument("--config", type=str, default=None, help="Path to config.yaml")
     args = parser.parse_args()
 
     config = load_config(args.config)
+    if args.version:
+        config.setdefault("sources", {})["berkeley_version"] = args.version
     run_pipeline(config, skip_download=args.skip_download, skip_llm=args.skip_llm)
 
 

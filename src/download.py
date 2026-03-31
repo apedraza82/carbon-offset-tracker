@@ -16,12 +16,21 @@ from tqdm import tqdm
 
 from src.utils import load_config
 
-# Berkeley data URLs (updated periodically)
-BERKELEY_DOWNLOAD_URLS = {
-    "verra": "https://gspp.berkeley.edu/assets/uploads/research/pdfs/verra-offsets-database.xlsx",
-    "gold": "https://gspp.berkeley.edu/assets/uploads/research/pdfs/gold-standard-offsets-database.xlsx",
-    "acr": "https://gspp.berkeley.edu/assets/uploads/research/pdfs/acr-offsets-database.xlsx",
-    "car": "https://gspp.berkeley.edu/assets/uploads/research/pdfs/car-offsets-database.xlsx",
+# Berkeley VROD raw registry file (single file with all registries as separate sheets)
+# URL pattern: VROD-registry-files--YYYY-MM.xlsx
+# The page at https://gspp.berkeley.edu/berkeley-carbon-trading-project/offsets-database
+# lists the latest version. Update the date suffix for newer releases.
+BERKELEY_RAW_REGISTRY_URL = (
+    "https://gspp.berkeley.edu/assets/uploads/page/VROD-registry-files--{version}.xlsx"
+)
+BERKELEY_LATEST_VERSION = "2026-02"
+
+# Sheet name -> registry key mapping
+BERKELEY_SHEETS = {
+    "Verra VCUS": "verra",
+    "Gold Retirements": "gold",
+    "ACR Retirements": "acr",
+    "CAR Retirements": "car",
 }
 
 RAW_DIR = Path("data/raw")
@@ -59,21 +68,40 @@ def file_hash(path: Path) -> str:
     return h.hexdigest()
 
 
-def download_all_registries(urls: dict | None = None) -> dict[str, Path]:
-    """Download all registry files from Berkeley."""
-    if urls is None:
-        urls = BERKELEY_DOWNLOAD_URLS
+def download_berkeley_registry(version: str | None = None) -> dict[str, pd.DataFrame]:
+    """Download Berkeley VROD raw registry file and extract retirement sheets.
 
+    Args:
+        version: VROD version string (e.g. '2026-02'). Uses latest if None.
+
+    Returns:
+        Dict mapping registry key to DataFrame of retirements.
+    """
+    if version is None:
+        version = BERKELEY_LATEST_VERSION
+
+    url = BERKELEY_RAW_REGISTRY_URL.format(version=version)
+    dest = RAW_DIR / f"VROD-registry-files--{version}.xlsx"
     RAW_DIR.mkdir(parents=True, exist_ok=True)
-    downloaded = {}
 
-    for registry, url in urls.items():
-        dest = RAW_DIR / f"{registry}_latest.xlsx"
-        print(f"Downloading {registry}...")
-        if download_file(url, dest):
-            downloaded[registry] = dest
+    print(f"Downloading Berkeley VROD v{version}...")
+    if not download_file(url, dest):
+        raise RuntimeError(f"Failed to download {url}")
 
-    return downloaded
+    print("Extracting retirement sheets...")
+    registry_data = {}
+    for sheet_name, registry_key in BERKELEY_SHEETS.items():
+        try:
+            df = pd.read_excel(dest, sheet_name=sheet_name)
+            # Filter to retirements only (Verra sheet has all transaction types)
+            if registry_key == "verra" and "Retirement/Cancellation Date" in df.columns:
+                df = df[df["Retirement/Cancellation Date"].notna()]
+            registry_data[registry_key] = df
+            print(f"  [{registry_key.upper()}] {len(df):,} rows")
+        except Exception as e:
+            print(f"  [{registry_key.upper()}] Error: {e}")
+
+    return registry_data
 
 
 def diff_retirements(new_file: Path, prev_file: Path, registry: str) -> pd.DataFrame:
@@ -106,45 +134,32 @@ def diff_retirements(new_file: Path, prev_file: Path, registry: str) -> pd.DataF
     return new_rows
 
 
-def run_download_pipeline(config: dict | None = None) -> dict:
-    """Full download pipeline: download, diff, return new retirements."""
+def run_download_pipeline(config: dict | None = None, version: str | None = None) -> dict:
+    """Full download pipeline: download Berkeley VROD, return all retirements."""
     if config is None:
         config = load_config()
 
-    print("=== Downloading registry data ===")
-    downloaded = download_all_registries()
-
-    print("\n=== Identifying new retirements ===")
-    new_retirements = {}
-    for registry, new_path in downloaded.items():
-        prev_path = PREV_DIR / f"{registry}_previous.xlsx"
-        new_rows = diff_retirements(new_path, prev_path, registry)
-        if len(new_rows) > 0:
-            new_retirements[registry] = new_rows
-
-    # Archive current as previous for next run
-    PREV_DIR.mkdir(parents=True, exist_ok=True)
-    for registry, new_path in downloaded.items():
-        prev_path = PREV_DIR / f"{registry}_previous.xlsx"
-        import shutil
-        shutil.copy2(new_path, prev_path)
+    print("=== Downloading registry data from Berkeley ===")
+    registry_data = download_berkeley_registry(version)
 
     # Save download metadata
     meta = {
         "download_date": datetime.now().isoformat(),
+        "version": version or BERKELEY_LATEST_VERSION,
         "registries": {
-            reg: {"rows": len(df), "file": str(downloaded.get(reg, ""))}
-            for reg, df in new_retirements.items()
+            reg: {"rows": len(df)}
+            for reg, df in registry_data.items()
         },
     }
+    RAW_DIR.mkdir(parents=True, exist_ok=True)
     meta_path = RAW_DIR / "download_meta.json"
     with open(meta_path, "w") as f:
         json.dump(meta, f, indent=2)
 
-    total_new = sum(len(df) for df in new_retirements.values())
-    print(f"\n  Total new retirements: {total_new:,}")
+    total = sum(len(df) for df in registry_data.values())
+    print(f"\n  Total retirements: {total:,}")
 
-    return new_retirements
+    return registry_data
 
 
 if __name__ == "__main__":
