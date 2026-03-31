@@ -50,6 +50,18 @@ def load_data():
     if "projecttype" in df.columns:
         df["project_category"] = df["projecttype"].apply(classify_project_type)
 
+    # Clean up long country names
+    _COUNTRY_RENAMES = {
+        "Congo, The Democratic Republic of The": "DR Congo",
+        "Congo, the Democratic Republic of the": "DR Congo",
+        "Korea, Republic of": "South Korea",
+        "Tanzania, United Republic of": "Tanzania",
+        "Lao People's Democratic Republic": "Laos",
+    }
+    for col in ["country", "Country/Area", "Country"]:
+        if col in df.columns:
+            df[col] = df[col].replace(_COUNTRY_RENAMES)
+
     # Add full HQ country name
     if "hq_country" in df.columns:
         df["hq_country_name"] = df["hq_country"].map(_ISO2_TO_NAME)
