@@ -1,0 +1,90 @@
+{
+  "last_updated": "2026-03-31",
+  "total_retirements": 348341,
+  "matched_retirements": 21048,
+  "unique_firms": 1450,
+  "registries": {
+    "Verra": {
+      "total": 199078,
+      "matched": 14096
+    },
+    "Acr": {
+      "total": 6318,
+      "matched": 999
+    },
+    "Car": {
+      "total": 8356,
+      "matched": 1274
+    },
+    "Gold": {
+      "total": 134589,
+      "matched": 4679
+    }
+  },
+  "years": {
+    "2009": {
+      "total": 781,
+      "matched": 62
+    },
+    "2010": {
+      "total": 1150,
+      "matched": 112
+    },
+    "2011": {
+      "total": 2223,
+      "matched": 242
+    },
+    "2012": {
+      "total": 3573,
+      "matched": 365
+    },
+    "2013": {
+      "total": 5827,
+      "matched": 339
+    },
+    "2014": {
+      "total": 4519,
+      "matched": 341
+    },
+    "2015": {
+      "total": 36771,
+      "matched": 481
+    },
+    "2016": {
+      "total": 17391,
+      "matched": 520
+    },
+    "2017": {
+      "total": 12121,
+      "matched": 850
+    },
+    "2018": {
+      "total": 13436,
+      "matched": 1013
+    },
+    "2019": {
+      "total": 25284,
+      "matched": 920
+    },
+    "2020": {
+      "total": 27971,
+      "matched": 1193
+    },
+    "2021": {
+      "total": 45650,
+      "matched": 3563
+    },
+    "2022": {
+      "total": 41157,
+      "matched": 2852
+    },
+    "2023": {
+      "total": 50496,
+      "matched": 3929
+    },
+    "2024": {
+      "total": 59991,
+      "matched": 4266
+    }
+  }
+}
