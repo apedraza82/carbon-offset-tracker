@@ -56,8 +56,75 @@ def build_summary_stats(matched: pd.DataFrame, output_path: str) -> dict:
     with open(output_path, "w") as f:
         json.dump(stats, f, indent=2)
 
-    print(f"Summary stats saved to {output_path}")
+    # Copy to docs/ for GitHub Pages
+    docs_path = Path("docs/data") / Path(output_path).name
+    docs_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(docs_path, "w") as f:
+        json.dump(stats, f, indent=2)
+
+    print(f"Summary stats saved to {output_path} + {docs_path}")
     return stats
+
+
+# ISO2 → ISO3 lookup for HQ map
+_ISO2TO3 = {
+    "US": "USA", "BR": "BRA", "DE": "DEU", "GB": "GBR", "AU": "AUS", "JP": "JPN",
+    "FR": "FRA", "CH": "CHE", "CN": "CHN", "CO": "COL", "KR": "KOR", "IN": "IND",
+    "IT": "ITA", "CA": "CAN", "ES": "ESP", "NL": "NLD", "SE": "SWE", "NO": "NOR",
+    "DK": "DNK", "FI": "FIN", "AT": "AUT", "BE": "BEL", "IE": "IRL", "PT": "PRT",
+    "MX": "MEX", "CL": "CHL", "ZA": "ZAF", "NZ": "NZL", "SG": "SGP", "HK": "HKG",
+    "TW": "TWN", "TH": "THA", "MY": "MYS", "ID": "IDN", "PH": "PHL", "TR": "TUR",
+    "PL": "POL", "CZ": "CZE", "HU": "HUN", "RO": "ROU", "GR": "GRC", "IL": "ISR",
+    "AE": "ARE", "SA": "SAU", "RU": "RUS", "UA": "UKR", "AR": "ARG", "PE": "PER",
+    "KE": "KEN", "NG": "NGA", "EG": "EGY", "PK": "PAK", "BD": "BGD", "VN": "VNM",
+    "LU": "LUX", "PA": "PAN", "CR": "CRI", "GT": "GTM", "BM": "BMU", "JE": "JEY",
+    "KY": "CYM", "LR": "LBR", "MU": "MUS",
+}
+
+
+def build_map_data(matched: pd.DataFrame, public_firms: pd.DataFrame):
+    """Generate map_data.json for the landing page choropleths."""
+    listed = matched[matched["factset_entity_id"].notna() & (matched["factset_entity_id"] != "")]
+
+    # Project country map (isocode is ISO3)
+    if "isocode" in listed.columns:
+        proj = listed.groupby("isocode")["quantity"].sum().reset_index()
+        proj.columns = ["iso3", "tonnes"]
+        proj = proj[proj["tonnes"] > 0]
+    else:
+        proj = pd.DataFrame(columns=["iso3", "tonnes"])
+
+    # HQ country map (merge with public_firms for iso_country)
+    if not public_firms.empty:
+        merged = listed.merge(
+            public_firms[["factset_entity_id", "iso_country"]],
+            on="factset_entity_id", how="left",
+        )
+        hq = merged.groupby("iso_country")["quantity"].sum().reset_index()
+        hq.columns = ["iso2", "tonnes"]
+        hq["iso3"] = hq["iso2"].map(_ISO2TO3)
+        hq = hq.dropna(subset=["iso3"])
+        hq = hq[hq["tonnes"] > 0]
+    else:
+        hq = pd.DataFrame(columns=["iso3", "tonnes"])
+
+    map_data = {
+        "project_countries": {
+            "iso3": proj["iso3"].tolist(),
+            "tonnes": proj["tonnes"].astype(int).tolist(),
+        },
+        "hq_countries": {
+            "iso3": hq["iso3"].tolist(),
+            "tonnes": hq["tonnes"].astype(int).tolist(),
+        },
+    }
+
+    out_path = Path("docs/data/map_data.json")
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(out_path, "w") as f:
+        json.dump(map_data, f)
+
+    print(f"Map data saved: {len(proj)} project countries, {len(hq)} HQ countries")
 
 
 def run_pipeline(config: dict, skip_download: bool = False, skip_llm: bool = False):
@@ -151,6 +218,12 @@ def run_pipeline(config: dict, skip_download: bool = False, skip_llm: bool = Fal
 
     # Summary stats
     stats = build_summary_stats(combined, config["output"]["summary_stats"])
+
+    # Map data
+    pf_path = Path(config["output"]["public_firms"])
+    public_firms = pd.read_parquet(pf_path) if pf_path.exists() else pd.DataFrame()
+    build_map_data(combined, public_firms)
+
     print(f"\n=== Pipeline complete ===")
     print(f"  Total retirements: {stats['total_retirements']:,}")
     print(f"  Matched to firms: {stats['matched_retirements']:,}")

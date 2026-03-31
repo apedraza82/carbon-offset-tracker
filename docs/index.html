@@ -178,6 +178,24 @@
                     <div id="chart-registry" style="height:350px;"></div>
                 </div>
             </div>
+
+            <!-- Maps -->
+            <div class="chart-grid" style="margin-top:24px;">
+                <div class="chart-card">
+                    <h3>Where Listed Firms Retire Offsets</h3>
+                    <p style="font-size:0.85rem; color:var(--text-light); margin-bottom:8px;">
+                        Location of offset projects, weighted by retired volume (tonnes). Log scale.
+                    </p>
+                    <div id="map-projects" style="height:380px;"></div>
+                </div>
+                <div class="chart-card">
+                    <h3>Where Retiring Firms Are Headquartered</h3>
+                    <p style="font-size:0.85rem; color:var(--text-light); margin-bottom:8px;">
+                        Headquarters of listed firms, weighted by retired volume (tonnes). Log scale.
+                    </p>
+                    <div id="map-hq" style="height:380px;"></div>
+                </div>
+            </div>
         </section>
 
         <!-- Methodology -->
@@ -277,6 +295,71 @@
                 console.log('Stats not loaded:', err);
                 document.getElementById('badge-retirements').textContent = 'Data loading...';
             });
+
+        // Load map data
+        const mapColorscale = [
+            [0, '#FFFFCC'],
+            [0.2, '#FED976'],
+            [0.4, '#FD8D3C'],
+            [0.6, '#E31A1C'],
+            [0.8, '#BD0026'],
+            [1, '#4D0019']
+        ];
+        const mapLayout = {
+            geo: {
+                showframe: false,
+                showcoastlines: true,
+                coastlinecolor: '#CCC',
+                projection: { type: 'natural earth' },
+                showland: true,
+                landcolor: '#F0F0F0',
+                countrycolor: '#CCC',
+            },
+            margin: { l: 0, r: 0, t: 0, b: 0 },
+        };
+
+        fetch('data/map_data.json')
+            .then(r => r.json())
+            .then(mapData => {
+                // Project locations map
+                const projLogTonnes = mapData.project_countries.tonnes.map(t => Math.log10(t + 1));
+                Plotly.newPlot('map-projects', [{
+                    type: 'choropleth',
+                    locations: mapData.project_countries.iso3,
+                    z: projLogTonnes,
+                    customdata: mapData.project_countries.tonnes,
+                    colorscale: mapColorscale,
+                    reversescale: false,
+                    showscale: true,
+                    colorbar: {
+                        title: 'Tonnes',
+                        tickvals: [0, 1, 2, 3, 4, 5, 6, 7],
+                        ticktext: ['0', '10', '100', '1K', '10K', '100K', '1M', '10M'],
+                        len: 0.8,
+                    },
+                    hovertemplate: '%{location}: %{customdata:,.0f} tonnes<extra></extra>',
+                }], mapLayout, { responsive: true });
+
+                // HQ locations map
+                const hqLogTonnes = mapData.hq_countries.tonnes.map(t => Math.log10(t + 1));
+                Plotly.newPlot('map-hq', [{
+                    type: 'choropleth',
+                    locations: mapData.hq_countries.iso3,
+                    z: hqLogTonnes,
+                    customdata: mapData.hq_countries.tonnes,
+                    colorscale: mapColorscale,
+                    reversescale: false,
+                    showscale: true,
+                    colorbar: {
+                        title: 'Tonnes',
+                        tickvals: [0, 1, 2, 3, 4, 5, 6, 7],
+                        ticktext: ['0', '10', '100', '1K', '10K', '100K', '1M', '10M'],
+                        len: 0.8,
+                    },
+                    hovertemplate: '%{location}: %{customdata:,.0f} tonnes<extra></extra>',
+                }], mapLayout, { responsive: true });
+            })
+            .catch(err => console.log('Map data not loaded:', err));
     </script>
 </body>
 </html>
