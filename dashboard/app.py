@@ -107,11 +107,23 @@ def main():
     else:
         year_range = None
 
-    # Country filter
+    # Country filter (project)
     country_col = next((c for c in ["country", "Country/Area", "Country"] if c in df.columns), None)
     if country_col:
         countries = sorted(df[country_col].dropna().unique())
-        selected_countries = st.sidebar.multiselect("Country (project)", countries[:50], default=[])
+        selected_countries = st.sidebar.multiselect("Country (project)", countries, default=[])
+
+    # HQ country filter
+    selected_hq = []
+    if "hq_country" in df.columns:
+        hq_countries = sorted(df["hq_country"].dropna().unique())
+        selected_hq = st.sidebar.multiselect("HQ Country (firm)", hq_countries, default=[])
+
+    # Project type filter
+    selected_ptypes = []
+    if "projecttype" in df.columns:
+        ptypes = sorted(df["projecttype"].dropna().unique())
+        selected_ptypes = st.sidebar.multiselect("Project Type", ptypes, default=[])
 
     # Firm search
     firm_search = st.sidebar.text_input("Search firm name")
@@ -127,6 +139,12 @@ def main():
 
     if country_col and selected_countries:
         mask &= df[country_col].isin(selected_countries)
+
+    if selected_hq and "hq_country" in df.columns:
+        mask &= df["hq_country"].isin(selected_hq)
+
+    if selected_ptypes and "projecttype" in df.columns:
+        mask &= df["projecttype"].isin(selected_ptypes)
 
     if firm_search:
         name_col = "matched_name" if "matched_name" in df.columns else "raw_beneficiary"
@@ -201,7 +219,7 @@ def main():
     st.subheader("Data Explorer")
 
     display_cols = [c for c in [
-        "matched_name", "factset_entity_id", "registry",
+        "matched_name", "factset_entity_id", "hq_country", "registry",
         "retirement_year", "country", "Country/Area", "quantity", "Quantity",
         "projectname", "projecttype", "vintage",
     ] if c in filtered.columns]
