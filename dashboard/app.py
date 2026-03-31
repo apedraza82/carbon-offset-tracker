@@ -46,6 +46,10 @@ def load_data():
     # Filter to matched only
     df = df[df["factset_entity_id"].notna() & (df["factset_entity_id"] != "")].copy()
 
+    # Add grouped project type
+    if "projecttype" in df.columns:
+        df["project_category"] = df["projecttype"].apply(classify_project_type)
+
     return df
 
 
@@ -68,6 +72,32 @@ def fmt_tonnes(t):
     return f"{t:,.0f}"
 
 
+def classify_project_type(ptype):
+    """Group granular project types into broad categories."""
+    if not isinstance(ptype, str):
+        return "Other"
+    p = ptype.lower()
+    if any(x in p for x in ["forest", "a/r", "redd", "afforestation", "avoided conversion", "avoided grassland"]):
+        return "Forestry & Land Use"
+    if any(x in p for x in ["agriculture", "soil", "agricultural", "livestock", "manure"]):
+        return "Agriculture & Livestock"
+    if any(x in p for x in ["renewable", "wind", "solar", "hydro", "geothermal", "biomass", "biogas", "biofuel"]):
+        return "Renewable Energy"
+    if any(x in p for x in ["energy efficiency", "energy demand", "energy distribution"]):
+        return "Energy Efficiency"
+    if any(x in p for x in ["landfill", "waste", "composting", "digestion"]):
+        return "Waste Management"
+    if any(x in p for x in ["industrial", "manufacturing", "mining", "chemical", "adipic", "nitric", "cement"]):
+        return "Industrial Processes"
+    if any(x in p for x in ["ozone", "halocarbon", "hfc", "refrigerant", "industrial gas"]):
+        return "Ozone & Industrial Gases"
+    if any(x in p for x in ["transport", "fleet"]):
+        return "Transport"
+    if any(x in p for x in ["carbon capture", "ccs"]):
+        return "Carbon Capture"
+    return "Other"
+
+
 def main():
     st.title("Carbon Offset Tracker")
     st.markdown(
@@ -88,11 +118,8 @@ def main():
     # --- Sidebar Filters ---
     st.sidebar.header("Filters")
 
-    # Registry filter
-    registries = sorted(df["registry"].dropna().unique()) if "registry" in df.columns else []
-    selected_registries = st.sidebar.multiselect("Registry", registries, default=registries)
-
     # Year filter
+    year_range = None
     if "retirement_year" in df.columns:
         years = sorted(df["retirement_year"].dropna().unique())
         if years:
@@ -102,16 +129,6 @@ def main():
                 max_value=int(max(years)),
                 value=(int(min(years)), int(max(years))),
             )
-        else:
-            year_range = None
-    else:
-        year_range = None
-
-    # Country filter (project)
-    country_col = next((c for c in ["country", "Country/Area", "Country"] if c in df.columns), None)
-    if country_col:
-        countries = sorted(df[country_col].dropna().unique())
-        selected_countries = st.sidebar.multiselect("Country (project)", countries, default=[])
 
     # HQ country filter
     selected_hq = []
@@ -119,11 +136,18 @@ def main():
         hq_countries = sorted(df["hq_country"].dropna().unique())
         selected_hq = st.sidebar.multiselect("HQ Country (firm)", hq_countries, default=[])
 
-    # Project type filter
-    selected_ptypes = []
-    if "projecttype" in df.columns:
-        ptypes = sorted(df["projecttype"].dropna().unique())
-        selected_ptypes = st.sidebar.multiselect("Project Type", ptypes, default=[])
+    # Country filter (project)
+    country_col = next((c for c in ["country", "Country/Area", "Country"] if c in df.columns), None)
+    selected_countries = []
+    if country_col:
+        countries = sorted(df[country_col].dropna().unique())
+        selected_countries = st.sidebar.multiselect("Project Country", countries, default=[])
+
+    # Project category filter
+    selected_categories = []
+    if "project_category" in df.columns:
+        categories = sorted(df["project_category"].dropna().unique())
+        selected_categories = st.sidebar.multiselect("Project Type", categories, default=[])
 
     # Firm search
     firm_search = st.sidebar.text_input("Search firm name")
@@ -131,20 +155,17 @@ def main():
     # --- Apply Filters ---
     mask = pd.Series(True, index=df.index)
 
-    if selected_registries and "registry" in df.columns:
-        mask &= df["registry"].isin(selected_registries)
-
     if year_range and "retirement_year" in df.columns:
         mask &= df["retirement_year"].between(*year_range)
-
-    if country_col and selected_countries:
-        mask &= df[country_col].isin(selected_countries)
 
     if selected_hq and "hq_country" in df.columns:
         mask &= df["hq_country"].isin(selected_hq)
 
-    if selected_ptypes and "projecttype" in df.columns:
-        mask &= df["projecttype"].isin(selected_ptypes)
+    if country_col and selected_countries:
+        mask &= df[country_col].isin(selected_countries)
+
+    if selected_categories and "project_category" in df.columns:
+        mask &= df["project_category"].isin(selected_categories)
 
     if firm_search:
         name_col = "matched_name" if "matched_name" in df.columns else "raw_beneficiary"
@@ -172,21 +193,22 @@ def main():
     with chart_col1:
         st.subheader("Quantity Retired Over Time")
         if "retirement_year" in filtered.columns and qty_col:
-            yearly = filtered.groupby(["retirement_year", "registry"])[qty_col].sum().reset_index()
+            yearly = filtered.groupby("retirement_year")[qty_col].sum().reset_index()
             yearly[qty_col] = yearly[qty_col] / 1e6  # Convert to MtCO2
-            fig = px.bar(yearly, x="retirement_year", y=qty_col, color="registry",
+            fig = px.bar(yearly, x="retirement_year", y=qty_col,
                          labels={"retirement_year": "Year", qty_col: "MtCO2"},
-                         color_discrete_sequence=px.colors.qualitative.Set2)
+                         color_discrete_sequence=["#2E86AB"])
             fig.update_layout(height=400, margin=dict(l=20, r=20, t=30, b=20))
             st.plotly_chart(fig, use_container_width=True)
 
-    # By registry
+    # By project category
     with chart_col2:
-        st.subheader("Quantity by Registry")
-        if "registry" in filtered.columns and qty_col:
-            reg_qty = filtered.groupby("registry")[qty_col].sum().reset_index()
-            reg_qty.columns = ["Registry", "Tonnes"]
-            fig = px.pie(reg_qty, values="Tonnes", names="Registry",
+        st.subheader("Quantity by Project Type")
+        if "project_category" in filtered.columns and qty_col:
+            cat_qty = filtered.groupby("project_category")[qty_col].sum().reset_index()
+            cat_qty.columns = ["Category", "Tonnes"]
+            cat_qty = cat_qty.sort_values("Tonnes", ascending=False)
+            fig = px.pie(cat_qty, values="Tonnes", names="Category",
                          color_discrete_sequence=px.colors.qualitative.Set2)
             fig.update_layout(height=400, margin=dict(l=20, r=20, t=30, b=20))
             st.plotly_chart(fig, use_container_width=True)
