@@ -78,7 +78,7 @@ def fmt_tonnes(t):
 
 _ISO2_TO_NAME = {
     "AE": "United Arab Emirates", "AR": "Argentina", "AT": "Austria", "AU": "Australia",
-    "BD": "Bangladesh", "BE": "Belgium", "BM": "Bermuda", "BR": "Brazil", "CA": "Canada",
+    "BD": "Bangladesh", "BE": "Belgium", "BM": "Bermuda", "BR": "Brazil", "CA": "Canada", "CD": "DR Congo",
     "CH": "Switzerland", "CL": "Chile", "CN": "China", "CO": "Colombia", "CR": "Costa Rica",
     "CY": "Cyprus", "CZ": "Czech Republic", "DE": "Germany", "DK": "Denmark", "EG": "Egypt",
     "ES": "Spain", "FI": "Finland", "FR": "France", "GB": "United Kingdom", "GR": "Greece",

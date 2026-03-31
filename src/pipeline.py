@@ -94,6 +94,7 @@ _COUNTRY_TO_ISO3 = {
     "Costa Rica": "CRI", "Croatia": "HRV", "Cuba": "CUB", "Cyprus": "CYP",
     "Czech Republic": "CZE", "Czechia": "CZE",
     "Democratic Republic of the Congo": "COD", "Dem. Rep. Congo": "COD",
+    "Congo, The Democratic Republic of The": "COD", "DR Congo": "COD",
     "Denmark": "DNK", "Djibouti": "DJI", "Dominican Republic": "DOM",
     "Ecuador": "ECU", "Egypt": "EGY", "El Salvador": "SLV", "Equatorial Guinea": "GNQ",
     "Eritrea": "ERI", "Estonia": "EST", "Eswatini": "SWZ", "Ethiopia": "ETH",
@@ -218,7 +219,7 @@ _SERIAL_COL = {
 
 # Unified output columns
 _OUTPUT_COLS = [
-    "raw_beneficiary", "matched_name", "factset_entity_id", "registry",
+    "raw_beneficiary", "matched_name", "factset_entity_id", "hq_country", "registry",
     "retirement_year", "country", "quantity", "match_confidence", "match_method",
     "projectname", "projecttype", "vintage", "isocode",
 ]
@@ -410,7 +411,16 @@ def run_pipeline(config: dict, skip_download: bool = False, skip_llm: bool = Fal
         )
         print(f"  Base: {len(base):,} + New: {len(new_parsed):,} = Combined: {len(combined):,}")
 
-    # Step 6: Save output
+    # Step 6: Add HQ country from public_firms
+    pf_path = Path(config["output"]["public_firms"])
+    public_firms = pd.read_parquet(pf_path) if pf_path.exists() else pd.DataFrame()
+    if not public_firms.empty:
+        hq_map = public_firms.set_index("factset_entity_id")["iso_country"].to_dict()
+        combined["hq_country"] = combined["factset_entity_id"].map(hq_map).fillna("")
+    else:
+        combined["hq_country"] = ""
+
+    # Step 7: Save output
     print("\n=== Saving outputs ===")
     out_path = Path(config["output"]["matched_retirements"])
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -438,9 +448,7 @@ def run_pipeline(config: dict, skip_download: bool = False, skip_llm: bool = Fal
     # Summary stats
     stats = build_summary_stats(combined, config["output"]["summary_stats"])
 
-    # Map data
-    pf_path = Path(config["output"]["public_firms"])
-    public_firms = pd.read_parquet(pf_path) if pf_path.exists() else pd.DataFrame()
+    # Map data (public_firms already loaded above)
     build_map_data(combined, public_firms)
 
     print(f"\n=== Pipeline complete ===")
