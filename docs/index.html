@@ -170,11 +170,11 @@
             <h2>Overview</h2>
             <div class="chart-grid">
                 <div class="chart-card">
-                    <h3>Retirements by Year</h3>
+                    <h3>Quantity Retired by Year (MtCO2)</h3>
                     <div id="chart-yearly" style="height:350px;"></div>
                 </div>
                 <div class="chart-card">
-                    <h3>By Registry</h3>
+                    <h3>Share of Quantity by Registry (MtCO2)</h3>
                     <div id="chart-registry" style="height:350px;"></div>
                 </div>
             </div>
@@ -239,35 +239,36 @@
                 document.getElementById('last-updated').textContent =
                     `Last updated: ${stats.last_updated || 'unknown'}`;
 
-                // Registry pie chart
+                // Registry pie chart (by MtCO2)
                 if (stats.registries) {
                     const regNames = Object.keys(stats.registries);
-                    const regValues = regNames.map(r => stats.registries[r].total);
+                    const regValues = regNames.map(r => stats.registries[r].total_mtco2);
                     Plotly.newPlot('chart-registry', [{
                         type: 'pie',
                         labels: regNames,
                         values: regValues,
                         marker: { colors: ['#2E86AB', '#A23B72', '#F18F01', '#44BBA4'] },
                         textinfo: 'label+percent',
+                        hovertemplate: '%{label}: %{value} MtCO2<extra></extra>',
                     }], {
                         margin: { l: 20, r: 20, t: 20, b: 20 },
                         showlegend: false,
                     }, { responsive: true });
                 }
 
-                // Yearly bar chart
+                // Yearly bar chart (by MtCO2)
                 if (stats.years) {
                     const years = Object.keys(stats.years).sort();
-                    const totals = years.map(y => stats.years[y].total);
-                    const matched = years.map(y => stats.years[y].matched);
+                    const totals = years.map(y => stats.years[y].total_mtco2);
+                    const matched = years.map(y => stats.years[y].matched_mtco2);
                     Plotly.newPlot('chart-yearly', [
                         { x: years, y: totals, name: 'Total', type: 'bar', marker: { color: '#2E86AB' } },
-                        { x: years, y: matched, name: 'Matched', type: 'bar', marker: { color: '#A23B72' } },
+                        { x: years, y: matched, name: 'Matched to Firms', type: 'bar', marker: { color: '#A23B72' } },
                     ], {
                         barmode: 'overlay',
-                        margin: { l: 40, r: 20, t: 20, b: 40 },
+                        margin: { l: 50, r: 20, t: 20, b: 40 },
                         xaxis: { title: 'Year' },
-                        yaxis: { title: 'Retirements' },
+                        yaxis: { title: 'MtCO2' },
                         legend: { x: 0.02, y: 0.98 },
                     }, { responsive: true });
                 }
