@@ -286,7 +286,7 @@ def main():
     st.subheader("Data Explorer")
 
     display_cols = [c for c in [
-        "matched_name", "factset_entity_id", "hq_country_name", "registry",
+        "matched_name", "hq_country_name", "registry",
         "retirement_year", "country", "Country/Area", "quantity", "Quantity",
         "projectname", "projecttype", "vintage",
     ] if c in filtered.columns]
