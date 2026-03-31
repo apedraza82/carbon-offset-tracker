@@ -241,7 +241,7 @@
                 document.getElementById('badge-retirements').textContent =
                     `${(stats.total_mtco2 || 0)} MtCO2 retired`;
                 document.getElementById('badge-firms').textContent =
-                    `${(stats.unique_firms || 0).toLocaleString()} firms`;
+                    `${(stats.total_retirements || 0).toLocaleString()} retirements`;
                 document.getElementById('badge-updated').textContent =
                     `Updated: ${stats.last_updated || 'unknown'}`;
 
@@ -257,10 +257,16 @@
                 document.getElementById('last-updated').textContent =
                     `Last updated: ${stats.last_updated || 'unknown'}`;
 
-                // Registry pie chart (by MtCO2)
+                // Registry pie chart (by MtCO2) — merge case variants
                 if (stats.registries) {
-                    const regNames = Object.keys(stats.registries);
-                    const regValues = regNames.map(r => stats.registries[r].total_mtco2);
+                    const merged = {};
+                    for (const [key, val] of Object.entries(stats.registries)) {
+                        const norm = key.toUpperCase() === 'VERRA' ? 'Verra' :
+                                     key.toUpperCase() === 'GOLD' ? 'Gold Standard' : key.toUpperCase();
+                        merged[norm] = (merged[norm] || 0) + (val.total_mtco2 || 0);
+                    }
+                    const regNames = Object.keys(merged);
+                    const regValues = regNames.map(r => merged[r]);
                     Plotly.newPlot('chart-registry', [{
                         type: 'pie',
                         labels: regNames,

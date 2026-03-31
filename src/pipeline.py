@@ -250,6 +250,11 @@ def _load_base_dataset(config: dict) -> pd.DataFrame:
     elif "year" in base.columns and "retirement_year" not in base.columns:
         base["retirement_year"] = base["year"]
 
+    # Normalize registry names (base has "Acr", "Car"; Berkeley uses "ACR", "CAR")
+    _REG_NORM = {"Acr": "ACR", "Car": "CAR", "gold": "Gold", "verra": "Verra"}
+    if "registry" in base.columns:
+        base["registry"] = base["registry"].replace(_REG_NORM)
+
     # Add match fields for existing data
     if "match_confidence" not in base.columns:
         base["match_confidence"] = base["factset_entity_id"].apply(

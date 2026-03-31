@@ -1,46 +1,34 @@
 {
   "last_updated": "2026-03-31",
-  "total_retirements": 404018,
-  "matched_retirements": 24235,
+  "total_retirements": 354619,
+  "matched_retirements": 21603,
   "unique_firms": 1450,
-  "total_mtco2": 896.9,
-  "matched_mtco2": 264.1,
+  "total_mtco2": 787.9,
+  "matched_mtco2": 237.6,
   "registries": {
     "Verra": {
-      "total": 235563,
-      "matched": 15537,
-      "total_mtco2": 526.3,
-      "matched_mtco2": 202.4
-    },
-    "Acr": {
-      "total": 6318,
-      "matched": 999,
-      "total_mtco2": 39.6,
-      "matched_mtco2": 17.2
-    },
-    "Car": {
-      "total": 8356,
-      "matched": 1274,
-      "total_mtco2": 70.1,
-      "matched_mtco2": 11.6
-    },
-    "Gold": {
-      "total": 148566,
-      "matched": 5936,
-      "total_mtco2": 236.3,
-      "matched_mtco2": 26.8
+      "total": 203314,
+      "matched": 14489,
+      "total_mtco2": 479.8,
+      "matched_mtco2": 186.2
     },
     "ACR": {
-      "total": 3272,
-      "matched": 385,
-      "total_mtco2": 13.5,
-      "matched_mtco2": 5.3
+      "total": 7326,
+      "matched": 1100,
+      "total_mtco2": 43.5,
+      "matched_mtco2": 19.1
     },
     "CAR": {
-      "total": 1943,
-      "matched": 104,
-      "total_mtco2": 11.1,
-      "matched_mtco2": 0.7
+      "total": 8637,
+      "matched": 1286,
+      "total_mtco2": 71.8,
+      "matched_mtco2": 11.7
+    },
+    "Gold": {
+      "total": 135342,
+      "matched": 4728,
+      "total_mtco2": 192.7,
+      "matched_mtco2": 20.7
     }
   },
   "years": {
@@ -87,39 +75,39 @@
       "matched_mtco2": 1.4
     },
     "2011": {
-      "total": 2230,
+      "total": 2226,
       "matched": 242,
       "total_mtco2": 10.7,
       "matched_mtco2": 2.9
     },
     "2012": {
-      "total": 3579,
+      "total": 3576,
       "matched": 365,
       "total_mtco2": 15.6,
       "matched_mtco2": 6.7
     },
     "2013": {
-      "total": 5831,
+      "total": 5828,
       "matched": 339,
       "total_mtco2": 22.0,
       "matched_mtco2": 2.8
     },
     "2014": {
-      "total": 4522,
+      "total": 4519,
       "matched": 341,
       "total_mtco2": 20.7,
       "matched_mtco2": 2.2
     },
     "2015": {
-      "total": 36774,
+      "total": 36771,
       "matched": 481,
       "total_mtco2": 29.1,
       "matched_mtco2": 4.7
     },
     "2016": {
-      "total": 17396,
+      "total": 17391,
       "matched": 520,
-      "total_mtco2": 24.9,
+      "total_mtco2": 24.8,
       "matched_mtco2": 5.1
     },
     "2017": {
@@ -129,64 +117,58 @@
       "matched_mtco2": 9.4
     },
     "2018": {
-      "total": 13441,
+      "total": 13439,
       "matched": 1016,
       "total_mtco2": 39.4,
       "matched_mtco2": 12.3
     },
     "2019": {
-      "total": 25294,
+      "total": 25291,
       "matched": 920,
       "total_mtco2": 50.0,
       "matched_mtco2": 10.0
     },
     "2020": {
-      "total": 27988,
+      "total": 27986,
       "matched": 1193,
       "total_mtco2": 66.4,
       "matched_mtco2": 21.6
     },
     "2021": {
-      "total": 45720,
-      "matched": 3566,
-      "total_mtco2": 113.4,
-      "matched_mtco2": 31.6
+      "total": 45708,
+      "matched": 3565,
+      "total_mtco2": 113.3,
+      "matched_mtco2": 31.5
     },
     "2022": {
-      "total": 41254,
+      "total": 41226,
       "matched": 2861,
       "total_mtco2": 102.3,
       "matched_mtco2": 31.1
     },
     "2023": {
-      "total": 50653,
-      "matched": 3954,
+      "total": 50636,
+      "matched": 3953,
       "total_mtco2": 114.0,
       "matched_mtco2": 38.1
     },
     "2024": {
-      "total": 60193,
-      "matched": 4292,
+      "total": 60183,
+      "matched": 4283,
       "total_mtco2": 115.8,
       "matched_mtco2": 41.6
     },
     "2025": {
-      "total": 48122,
-      "matched": 2691,
-      "total_mtco2": 107.1,
-      "matched_mtco2": 30.6
-    },
-    "2026": {
-      "total": 5774,
-      "matched": 374,
-      "total_mtco2": 23.2,
-      "matched_mtco2": 10.2
+      "total": 4596,
+      "matched": 444,
+      "total_mtco2": 21.6,
+      "matched_mtco2": 14.5
     }
   },
   "match_methods": {
-    "unmatched": 379783,
+    "unmatched": 333016,
     "original": 21048,
-    "cache_exact": 2484,
-    "cache_normalized": 703
+    "cache_exact": 451,
+    "cache_normalized": 104
   }
 }
