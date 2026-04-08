@@ -418,14 +418,20 @@ def run_pipeline(config: dict, skip_download: bool = False, skip_llm: bool = Fal
         )
         print(f"  Base: {len(base):,} + New: {len(new_parsed):,} = Combined: {len(combined):,}")
 
-    # Step 6: Add HQ country from public_firms
+    # Step 6: Add HQ country from public_firms + populate isocode
     pf_path = Path(config["output"]["public_firms"])
     public_firms = pd.read_parquet(pf_path) if pf_path.exists() else pd.DataFrame()
     if not public_firms.empty:
-        hq_map = public_firms.set_index("factset_entity_id")["iso_country"].to_dict()
+        hq_map = public_firms.drop_duplicates("factset_entity_id").set_index("factset_entity_id")["iso_country"].to_dict()
         combined["hq_country"] = combined["factset_entity_id"].map(hq_map).fillna("")
     else:
         combined["hq_country"] = ""
+
+    # Populate isocode from country name if missing/empty
+    if "country" in combined.columns:
+        needs_iso = combined["isocode"].isna() | (combined["isocode"].astype(str).str.strip() == "")
+        if needs_iso.any():
+            combined.loc[needs_iso, "isocode"] = combined.loc[needs_iso, "country"].map(_COUNTRY_TO_ISO3).fillna("")
 
     # Step 7: Save output
     print("\n=== Saving outputs ===")
