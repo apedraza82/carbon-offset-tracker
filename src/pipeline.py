@@ -83,7 +83,10 @@ def build_summary_stats(matched: pd.DataFrame, output_path: str) -> dict:
 
 # Country name → ISO3 lookup for project map (Berkeley uses full country names)
 _COUNTRY_TO_ISO3 = {
-    "Afghanistan": "AFG", "Albania": "ALB", "Algeria": "DZA", "Argentina": "ARG",
+    # Short codes appearing in data
+    "US": "USA", "BR": "BRA", "CA": "CAN", "FR": "FRA", "MX": "MEX", "TH": "THA",
+    "Bolivia Plurinational State of": "BOL", "New Caledonia": "NCL",
+    "Afghanistan": "AFG", "Albania": "ALB", "Algeria": "DZA", "Angola": "AGO", "Argentina": "ARG",
     "Armenia": "ARM", "Australia": "AUS", "Austria": "AUT", "Azerbaijan": "AZE",
     "Bangladesh": "BGD", "Belarus": "BLR", "Belgium": "BEL", "Belize": "BLZ",
     "Benin": "BEN", "Bhutan": "BTN", "Bolivia": "BOL", "Bosnia and Herzegovina": "BIH",
@@ -149,6 +152,7 @@ _ISO2TO3 = {
     "KE": "KEN", "NG": "NGA", "EG": "EGY", "PK": "PAK", "BD": "BGD", "VN": "VNM",
     "LU": "LUX", "PA": "PAN", "CR": "CRI", "GT": "GTM", "BM": "BMU", "JE": "JEY",
     "KY": "CYM", "LR": "LBR", "MU": "MUS",
+    "BH": "BHR", "KW": "KWT", "LK": "LKA", "MO": "MAC", "OM": "OMN",
 }
 
 
@@ -163,9 +167,12 @@ def build_map_data(matched: pd.DataFrame, public_firms: pd.DataFrame):
 
     # Project country map
     # Try isocode (ISO3) first, then country (full name -> ISO3)
-    if "isocode" in listed.columns:
+    has_isocode = ("isocode" in listed.columns
+                   and listed["isocode"].str.strip().replace("", pd.NA).notna().any())
+    if has_isocode:
         proj = listed.groupby("isocode")[qty_col].sum().reset_index()
         proj.columns = ["iso3", "tonnes"]
+        proj = proj[proj["iso3"].str.strip() != ""]
         proj = proj[proj["tonnes"] > 0]
     elif "country" in listed.columns:
         proj = listed.groupby("country")[qty_col].sum().reset_index()
