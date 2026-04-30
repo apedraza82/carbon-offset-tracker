@@ -242,7 +242,8 @@
 
     <script>
         // Load summary stats and populate page
-        fetch('data/summary_stats.json')
+        const cacheBust = '?v=' + Date.now();
+        fetch('data/summary_stats.json' + cacheBust)
             .then(r => r.json())
             .then(stats => {
                 // Badges
@@ -347,7 +348,7 @@
             margin: { l: 0, r: 0, t: 0, b: 0 },
         };
 
-        fetch('data/map_data.json')
+        fetch('data/map_data.json' + cacheBust)
             .then(r => r.json())
             .then(mapData => {
                 // Project locations map
