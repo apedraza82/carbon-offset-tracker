@@ -302,8 +302,10 @@
                     const years = Object.keys(stats.years).sort();
                     const totals = years.map(y => stats.years[y].total_mtco2);
                     const matched = years.map(y => stats.years[y].matched_mtco2);
-                    const totalColors = years.map(y => parseInt(y) >= currentYear ? 'rgba(46,134,171,0.4)' : '#2E86AB');
-                    const matchedColors = years.map(y => parseInt(y) >= currentYear ? 'rgba(162,59,114,0.4)' : '#A23B72');
+                    // VROD data lags ~6 months; years after last_complete_year are partial
+                    const lastCompleteYear = stats.last_complete_year || (currentYear - 2);
+                    const totalColors = years.map(y => parseInt(y) > lastCompleteYear ? 'rgba(46,134,171,0.4)' : '#2E86AB');
+                    const matchedColors = years.map(y => parseInt(y) > lastCompleteYear ? 'rgba(162,59,114,0.4)' : '#A23B72');
                     Plotly.newPlot('chart-yearly', [
                         { x: years, y: totals, name: 'Total', type: 'bar', marker: { color: totalColors } },
                         { x: years, y: matched, name: 'Matched to Firms', type: 'bar', marker: { color: matchedColors } },
