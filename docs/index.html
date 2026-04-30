@@ -296,9 +296,10 @@
                     }, { responsive: true });
                 }
 
-                // Yearly bar chart (by MtCO2)
+                // Yearly bar chart (by MtCO2) — exclude partial years
                 if (stats.years) {
-                    const years = Object.keys(stats.years).sort();
+                    const currentYear = new Date().getFullYear();
+                    const years = Object.keys(stats.years).sort().filter(y => parseInt(y) < currentYear);
                     const totals = years.map(y => stats.years[y].total_mtco2);
                     const matched = years.map(y => stats.years[y].matched_mtco2);
                     Plotly.newPlot('chart-yearly', [
@@ -306,10 +307,18 @@
                         { x: years, y: matched, name: 'Matched to Firms', type: 'bar', marker: { color: '#A23B72' } },
                     ], {
                         barmode: 'overlay',
-                        margin: { l: 50, r: 20, t: 20, b: 40 },
+                        margin: { l: 50, r: 20, t: 30, b: 40 },
                         xaxis: { title: 'Year' },
                         yaxis: { title: 'MtCO2' },
                         legend: { x: 0.02, y: 0.98 },
+                        annotations: [{
+                            text: 'Note: current and future partial years excluded',
+                            xref: 'paper', yref: 'paper',
+                            x: 1, y: 1.06,
+                            showarrow: false,
+                            font: { size: 11, color: '#999' },
+                            xanchor: 'right',
+                        }],
                     }, { responsive: true });
                 }
             })
