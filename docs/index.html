@@ -296,33 +296,20 @@
                     }, { responsive: true });
                 }
 
-                // Yearly bar chart (by MtCO2) — dim partial years
+                // Yearly bar chart (by MtCO2)
                 if (stats.years) {
-                    const currentYear = new Date().getFullYear();
                     const years = Object.keys(stats.years).sort();
                     const totals = years.map(y => stats.years[y].total_mtco2);
                     const matched = years.map(y => stats.years[y].matched_mtco2);
-                    // VROD data lags ~6 months; years after last_complete_year are partial
-                    const lastCompleteYear = stats.last_complete_year || (currentYear - 2);
-                    const totalColors = years.map(y => parseInt(y) > lastCompleteYear ? 'rgba(46,134,171,0.4)' : '#2E86AB');
-                    const matchedColors = years.map(y => parseInt(y) > lastCompleteYear ? 'rgba(162,59,114,0.4)' : '#A23B72');
                     Plotly.newPlot('chart-yearly', [
-                        { x: years, y: totals, name: 'Total', type: 'bar', marker: { color: totalColors } },
-                        { x: years, y: matched, name: 'Matched to Firms', type: 'bar', marker: { color: matchedColors } },
+                        { x: years, y: totals, name: 'Total', type: 'bar', marker: { color: '#2E86AB' } },
+                        { x: years, y: matched, name: 'Matched to Firms', type: 'bar', marker: { color: '#A23B72' } },
                     ], {
                         barmode: 'overlay',
-                        margin: { l: 50, r: 20, t: 30, b: 40 },
+                        margin: { l: 50, r: 20, t: 20, b: 40 },
                         xaxis: { title: 'Year' },
                         yaxis: { title: 'MtCO2' },
                         legend: { x: 0.02, y: 0.98 },
-                        annotations: [{
-                            text: 'Faded bars = partial year',
-                            xref: 'paper', yref: 'paper',
-                            x: 1, y: 1.06,
-                            showarrow: false,
-                            font: { size: 11, color: '#999' },
-                            xanchor: 'right',
-                        }],
                     }, { responsive: true });
                 }
             })

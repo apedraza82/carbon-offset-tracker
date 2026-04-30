@@ -348,15 +348,32 @@ def run_pipeline(config: dict, skip_download: bool = False, skip_llm: bool = Fal
     # Step 1: Download new data
     if skip_download:
         print("\n=== Skipping download (using local registry files) ===")
-        registry_dir = Path(config["sources"]["registry_dir"])
+        # Prefer VROD file in data/raw/ over individual Dropbox files
+        from src.download import BERKELEY_SHEETS
+        vrod_version = config.get("sources", {}).get("berkeley_version", "2026-02")
+        vrod_path = Path("data/raw") / f"VROD-registry-files--{vrod_version}.xlsx"
         registry_data = {}
-        for reg, fname in config["sources"]["registry_files"].items():
-            fpath = registry_dir / fname
-            if fpath.exists():
-                print(f"  Loading {reg} from {fpath}")
-                registry_data[reg] = pd.read_excel(fpath)
-            else:
-                print(f"  Warning: {fpath} not found")
+        if vrod_path.exists():
+            print(f"  Using VROD file: {vrod_path}")
+            for sheet_name, registry_key in BERKELEY_SHEETS.items():
+                try:
+                    df = pd.read_excel(vrod_path, sheet_name=sheet_name)
+                    if registry_key == "verra" and "Retirement/Cancellation Date" in df.columns:
+                        df = df[df["Retirement/Cancellation Date"].notna()]
+                    registry_data[registry_key] = df
+                    print(f"  [{registry_key.upper()}] {len(df):,} rows")
+                except Exception as e:
+                    print(f"  [{registry_key.upper()}] Error: {e}")
+        else:
+            # Fallback to individual files from config
+            registry_dir = Path(config["sources"]["registry_dir"])
+            for reg, fname in config["sources"]["registry_files"].items():
+                fpath = registry_dir / fname
+                if fpath.exists():
+                    print(f"  Loading {reg} from {fpath}")
+                    registry_data[reg] = pd.read_excel(fpath)
+                else:
+                    print(f"  Warning: {fpath} not found")
     else:
         version = config.get("sources", {}).get("berkeley_version")
         registry_data = run_download_pipeline(config, version=version)

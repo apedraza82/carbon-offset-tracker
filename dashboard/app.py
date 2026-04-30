@@ -234,22 +234,17 @@ def main():
     st.markdown("---")
     chart_col1, chart_col2 = st.columns(2)
 
-    # Quantity retired over time (dim partial years)
-    # VROD data lags ~6 months; 2024 is the last complete year
-    LAST_COMPLETE_YEAR = 2024
+    # Quantity retired over time
     with chart_col1:
         st.subheader("Quantity Retired Over Time")
         if "retirement_year" in filtered.columns and qty_col:
             yearly = filtered.groupby("retirement_year")[qty_col].sum().reset_index()
             yearly[qty_col] = yearly[qty_col] / 1e6  # Convert to MtCO2
-            colors = ["rgba(46,134,171,0.4)" if y > LAST_COMPLETE_YEAR else "#2E86AB"
-                      for y in yearly["retirement_year"]]
             fig = px.bar(yearly, x="retirement_year", y=qty_col,
-                         labels={"retirement_year": "Year", qty_col: "MtCO2"})
-            fig.update_traces(marker_color=colors)
+                         labels={"retirement_year": "Year", qty_col: "MtCO2"},
+                         color_discrete_sequence=["#2E86AB"])
             fig.update_layout(height=400, margin=dict(l=20, r=20, t=30, b=20))
             st.plotly_chart(fig, use_container_width=True)
-            st.caption("Faded bars = partial year (registry data not yet complete).")
 
     # By project category
     with chart_col2:
