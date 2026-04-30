@@ -234,21 +234,22 @@ def main():
     st.markdown("---")
     chart_col1, chart_col2 = st.columns(2)
 
-    # Quantity retired over time (exclude partial current/future years)
+    # Quantity retired over time (dim partial years)
     with chart_col1:
         st.subheader("Quantity Retired Over Time")
         if "retirement_year" in filtered.columns and qty_col:
             import datetime
             current_year = datetime.date.today().year
-            yearly_data = filtered[filtered["retirement_year"] < current_year]
-            yearly = yearly_data.groupby("retirement_year")[qty_col].sum().reset_index()
+            yearly = filtered.groupby("retirement_year")[qty_col].sum().reset_index()
             yearly[qty_col] = yearly[qty_col] / 1e6  # Convert to MtCO2
+            colors = ["rgba(46,134,171,0.4)" if y >= current_year else "#2E86AB"
+                      for y in yearly["retirement_year"]]
             fig = px.bar(yearly, x="retirement_year", y=qty_col,
-                         labels={"retirement_year": "Year", qty_col: "MtCO2"},
-                         color_discrete_sequence=["#2E86AB"])
+                         labels={"retirement_year": "Year", qty_col: "MtCO2"})
+            fig.update_traces(marker_color=colors)
             fig.update_layout(height=400, margin=dict(l=20, r=20, t=30, b=20))
             st.plotly_chart(fig, use_container_width=True)
-            st.caption("Note: current and future partial years excluded.")
+            st.caption("Faded bars = partial year.")
 
     # By project category
     with chart_col2:
