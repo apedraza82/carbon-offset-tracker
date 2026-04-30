@@ -35,10 +35,16 @@ def normalize_name(name: str, legal_suffixes: list[str] | None = None) -> str:
     # Lowercase
     name = name.lower()
 
-    # Remove common tax IDs (Brazilian CNPJ, etc.)
+    # Remove common tax IDs (Brazilian CNPJ, Colombian NIT, etc.)
     name = re.sub(r"\b\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}\b", "", name)  # CNPJ
     name = re.sub(r"\b\d{3}-\d{2}-\d{4}\b", "", name)  # SSN-like
     name = re.sub(r"\bein[:\s]*\d+-\d+\b", "", name)  # EIN
+    name = re.sub(r"\bnit[:\s]*[\d.\-]+\b", "", name)  # Colombian NIT
+    name = re.sub(r"\b\d{3}\.?\d{3}\.?\d{3}[\-.]?\d\b", "", name)  # NIT without prefix (9+ digits with check digit)
+
+    # Normalize dotted legal forms before punctuation removal (S.A.S. -> SAS, etc.)
+    name = re.sub(r"\b([A-Za-z])\.([A-Za-z])\.([A-Za-z])\.?\b", r"\1\2\3", name)
+    name = re.sub(r"\b([A-Za-z])\.([A-Za-z])\.?\b", r"\1\2", name)
 
     # Remove punctuation (keep alphanumeric and spaces)
     name = re.sub(r"[^\w\s]", " ", name)

@@ -34,6 +34,12 @@ def clean_raw_name(name: str) -> str:
     # Remove Brazilian CNPJ (XX.XXX.XXX/XXXX-XX)
     name = re.sub(r"\s*\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}\s*", " ", name)
 
+    # Remove Colombian NIT (e.g., NIT 890.903.938-4 or NIT: 890903938-4)
+    name = re.sub(r"\s*\bNIT[:\s]*[\d.\-]+\s*", " ", name, flags=re.IGNORECASE)
+
+    # Remove standalone NIT-like patterns (9-10 digits with optional check digit)
+    name = re.sub(r"\s+\d{3}\.?\d{3}\.?\d{3}[\-.]?\d\b", "", name)
+
     # Remove generic tax ID patterns at end
     name = re.sub(r"\s*[-–]\s*\d{5,}$", "", name)
 
@@ -114,6 +120,40 @@ def parse_acr(row: pd.Series) -> BeneficiaryResult | None:
     return None
 
 
+def parse_ecoregistry(row: pd.Series) -> BeneficiaryResult | None:
+    """Extract beneficiary from EcoRegistry (Cercarbono) retirement row.
+
+    Primary: 'final_user'
+    """
+    name = row.get("final_user", "")
+    if isinstance(name, str) and name.strip():
+        cleaned = clean_raw_name(name)
+        if cleaned:
+            return BeneficiaryResult(raw_name=cleaned, source_field="final_user", registry="EcoRegistry")
+    return None
+
+
+def parse_biocarbon(row: pd.Series) -> BeneficiaryResult | None:
+    """Extract beneficiary from BioCarbon (Global CarbonTrace) retirement row.
+
+    Primary: 'beneficiary' (to_name — the entity that retired)
+    Fallback: 'final_user' (end user, sometimes different from beneficiary)
+    """
+    name = row.get("beneficiary", "")
+    if isinstance(name, str) and name.strip():
+        cleaned = clean_raw_name(name)
+        if cleaned:
+            return BeneficiaryResult(raw_name=cleaned, source_field="beneficiary", registry="BioCarbon")
+
+    name = row.get("final_user", "")
+    if isinstance(name, str) and name.strip():
+        cleaned = clean_raw_name(name)
+        if cleaned:
+            return BeneficiaryResult(raw_name=cleaned, source_field="final_user", registry="BioCarbon")
+
+    return None
+
+
 def parse_car(row: pd.Series) -> BeneficiaryResult | None:
     """Extract beneficiary from CAR retirement row.
 
@@ -141,6 +181,8 @@ PARSERS = {
     "gold": parse_gold,
     "acr": parse_acr,
     "car": parse_car,
+    "ecoregistry": parse_ecoregistry,
+    "biocarbon": parse_biocarbon,
 }
 
 
@@ -177,6 +219,26 @@ _COLUMN_RENAMES = {
         "Project Name": "projectname",
         "Project Type": "projecttype",
         "Project ID": "project_id",
+    },
+    "ecoregistry": {
+        "quantity": "quantity",
+        "country_final_user": "country",
+        "date": "retirement_date",
+        "reason_using": "retirement_reason",
+        "serial": "serialnumber",
+        "project_id": "project_id",
+        "methodology": "projecttype",
+        "sector": "sector",
+    },
+    "biocarbon": {
+        "volume": "quantity",
+        "destination": "country",
+        "retirement_date": "retirement_date",
+        "retirement_reason": "retirement_reason",
+        "serial": "serialnumber",
+        "project_id": "project_id",
+        "project_name": "projectname",
+        "market_type": "market_type",
     },
 }
 

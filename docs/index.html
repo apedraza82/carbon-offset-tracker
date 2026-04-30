@@ -161,7 +161,7 @@
                 <div class="label">Unique Public Firms</div>
             </div>
             <div class="stat-card">
-                <div class="number" id="stat-registries">4</div>
+                <div class="number" id="stat-registries">6</div>
                 <div class="label">Carbon Registries</div>
             </div>
         </div>
@@ -212,7 +212,7 @@
             <div class="methodology">
                 <h3>How We Match Retirements to Firms</h3>
                 <ul>
-                    <li><strong>Data Sources:</strong> Retirement records from Verra (VCS), Gold Standard, American Carbon Registry (ACR), and Climate Action Reserve (CAR), sourced from the <a href="https://gspp.berkeley.edu/research/osf-bctp/offsets-database">Berkeley Carbon Trading Project</a>.</li>
+                    <li><strong>Data Sources:</strong> Retirement records from Verra (VCS), Gold Standard, American Carbon Registry (ACR), and Climate Action Reserve (CAR) via the <a href="https://gspp.berkeley.edu/research/osf-bctp/offsets-database">Berkeley Carbon Trading Project</a>; plus <a href="https://www.ecoregistry.io/">EcoRegistry</a> (Cercarbono standard) and <a href="https://globalcarbontrace.io/">BioCarbon Registry</a> (Global CarbonTrace) via their public APIs.</li>
                     <li><strong>Beneficiary Extraction:</strong> Registry-specific parsing of retirement beneficiary fields, with fallback text extraction from notes and details fields.</li>
                     <li><strong>Firm Matching:</strong> Two-stage process: (1) exact and normalized name matching against a cache of 3,600+ known beneficiary-to-firm mappings; (2) LLM-assisted entity resolution for new names, resolving subsidiaries and brands to parent listed firms.</li>
                     <li><strong>Firm Universe:</strong> Publicly listed companies identified via FactSet entity IDs, covering ~50,000 global public firms.</li>
@@ -265,12 +265,19 @@
                 document.getElementById('last-updated').textContent =
                     `Last updated: ${stats.last_updated || 'unknown'}`;
 
-                // Registry pie chart (by MtCO2) — merge case variants
+                // Registry pie chart (by MtCO2) — normalize names
                 if (stats.registries) {
+                    const nameMap = {
+                        'verra': 'Verra', 'Verra': 'Verra',
+                        'gold': 'Gold Standard', 'Gold': 'Gold Standard',
+                        'acr': 'ACR', 'ACR': 'ACR',
+                        'car': 'CAR', 'CAR': 'CAR',
+                        'ecoregistry': 'EcoRegistry', 'EcoRegistry': 'EcoRegistry',
+                        'biocarbon': 'BioCarbon', 'BioCarbon': 'BioCarbon',
+                    };
                     const merged = {};
                     for (const [key, val] of Object.entries(stats.registries)) {
-                        const norm = key.toUpperCase() === 'VERRA' ? 'Verra' :
-                                     key.toUpperCase() === 'GOLD' ? 'Gold Standard' : key.toUpperCase();
+                        const norm = nameMap[key] || key;
                         merged[norm] = (merged[norm] || 0) + (val.total_mtco2 || 0);
                     }
                     const regNames = Object.keys(merged);
@@ -279,7 +286,7 @@
                         type: 'pie',
                         labels: regNames,
                         values: regValues,
-                        marker: { colors: ['#2E86AB', '#A23B72', '#F18F01', '#44BBA4'] },
+                        marker: { colors: ['#2E86AB', '#A23B72', '#F18F01', '#44BBA4', '#6B4C9A', '#E8575A'] },
                         textinfo: 'label+percent',
                         hovertemplate: '%{label}: %{value} MtCO2<extra></extra>',
                     }], {

@@ -1,0 +1,137 @@
+company_raw,company_normalized,official_name,factset_entity_id
+PRIMAX COLOMBIA S.A.,primax colombia,Primax S.A.,NOT_LISTED
+"Primax Colombia S.A",primax colombia,Primax S.A.,NOT_LISTED
+"Primax Colombia SA",primax colombia,Primax S.A.,NOT_LISTED
+"Primax Colombia S.A.",primax colombia,Primax S.A.,NOT_LISTED
+"PRIMAX COLOMBIA SA",primax colombia,Primax S.A.,NOT_LISTED
+AEROVIAS DEL CONTINENTE AMERICANO S.A.,aerovias del continente americano,Avianca Group International Limited,0H62NM-E
+BIOMAX SA,biomax,Ecopetrol SA,0649LY-E
+BIOMAX S.A.,biomax,Ecopetrol SA,0649LY-E
+BIOMAX BIOCOMBUSTIBLES S.A.,biomax biocombustibles,Ecopetrol SA,0649LY-E
+BIOMAX BIOCOMBUSTIBLES S.A,biomax biocombustibles,Ecopetrol SA,0649LY-E
+BIOMAX COMBUSTIBLES SA,biomax combustibles,Ecopetrol SA,0649LY-E
+"REFINERÍA DE CARTAGENA S.A.S.",refineria de cartagena,Ecopetrol SA,0649LY-E
+"REFINERIA DE CARTAGENA S.A.S.",refineria de cartagena,Ecopetrol SA,0649LY-E
+"REFINERÍA DE CARTAGENA S.A.S",refineria de cartagena,Ecopetrol SA,0649LY-E
+"CONSTRUCCIONES EL CONDOR S.A.",construcciones el condor,Construcciones el Condor SA,07VD8W-E
+Concretos Argos S.A.S,concretos argos,Cementos Argos SA,06C3Z9-E
+Cementos Argos S.A.,cementos argos,Cementos Argos SA,06C3Z9-E
+CEMEX COLOMBIA SA,cemex colombia,CEMEX S.A.B. de C.V.,05KS1C-E
+CEMEX TRANSPORTES DE COLOMBIA SA,cemex transportes de colombia,CEMEX S.A.B. de C.V.,05KS1C-E
+TAM LINHAS AEREAS S.A,tam linhas aereas,LATAM Airlines Group S.A.,09ZKC0-E
+LATAM Airlines Ecuador S.A.,latam airlines ecuador,LATAM Airlines Group S.A.,09ZKC0-E
+"LATAM Airlines Ecuador S.A. (EX AEROLANE)",latam airlines ecuador ex aerolane,LATAM Airlines Group S.A.,09ZKC0-E
+LATAM AIRLINES ECUADOR,latam airlines ecuador,LATAM Airlines Group S.A.,09ZKC0-E
+LATAM AIRLINES,latam airlines,LATAM Airlines Group S.A.,09ZKC0-E
+"LATAM AIRLINES COLOMBIA - Aerovías de Integración Regional S.A.- Aires S.A.",latam airlines colombia,LATAM Airlines Group S.A.,09ZKC0-E
+LATAM AIRLINES CHILE-LA-,latam airlines chile,LATAM Airlines Group S.A.,09ZKC0-E
+"LATAM AIRLINES BRASIL - AEROLÍNEAS BRASILEIRAS S.A (ABSA)",latam airlines brasil,LATAM Airlines Group S.A.,09ZKC0-E
+"Aerolineas Brasileiras S.A. (ABSA)",aerolineas brasileiras absa,LATAM Airlines Group S.A.,09ZKC0-E
+LAN Cargo S.A.,lan cargo,LATAM Airlines Group S.A.,09ZKC0-E
+LAN CARGO S.A,lan cargo,LATAM Airlines Group S.A.,09ZKC0-E
+LAN CARGO S.A.,lan cargo,LATAM Airlines Group S.A.,09ZKC0-E
+"Línea Aérea Carguera de Colombia S.A.",linea aerea carguera de colombia,LATAM Airlines Group S.A.,09ZKC0-E
+"FRONTERA ENERGY COLOMBIA CORP., SUCURSAL COLOMBIA",frontera energy colombia,Frontera Energy Corporation,0D0DNB-E
+"FRONTERA ENERGY COLOMBIA CORP., SUCURSAL COLOMBIA.",frontera energy colombia,Frontera Energy Corporation,0D0DNB-E
+"Frontera Energy Colombia Corp., Sucursal Colombia",frontera energy colombia,Frontera Energy Corporation,0D0DNB-E
+"WORLD FUEL SERVICES COMPANY, LLC SUCURSAL COLOMBIA",world fuel services,World Fuel Services Corp.,001K4D-E
+Tecnoglass Inc,tecnoglass,Tecnoglass Inc.,00DK1Y-E
+Tecnoglass Inc.,tecnoglass,Tecnoglass Inc.,00DK1Y-E
+"ALMACENES ÉXITO S.A.",almacenes exito,Almacenes Exito SA,05J0LG-E
+"HOLCIM (COLOMBIA) S.A.",holcim colombia,Holcim Ltd.,05KZ90-E
+OLEODUCTO CENTRAL OCENSA S.A,oleoducto central ocensa,Ecopetrol SA,0649LY-E
+"OLEODUCTO CENTRAL S.A.",oleoducto central,Ecopetrol SA,0649LY-E
+"Oleoducto Central S.A",oleoducto central,Ecopetrol SA,0649LY-E
+OLEODUCTO DE COLOMBIA S.A.,oleoducto de colombia,Ecopetrol SA,0649LY-E
+"CENIT Transporte y Logística de Hidrocarburos S.A.S",cenit transporte,Ecopetrol SA,0649LY-E
+"CENIT Transporte y Logística de Hidrocarburos S.A.S.",cenit transporte,Ecopetrol SA,0649LY-E
+"CENIT TRANSPORTE Y LOGÍSTICA DE HIDROCARBUROS S.A.S.",cenit transporte,Ecopetrol SA,0649LY-E
+"CENIT TRANSPORTE Y LOGISTICA DE HIDROCARBUROS S.A.S",cenit transporte,Ecopetrol SA,0649LY-E
+COMERCIAL NUTRESA S.A.S.,comercial nutresa,Grupo Nutresa SA,05J103-E
+ALIMENTOS CARNICOS S.A.S.,alimentos carnicos,Grupo Nutresa SA,05J103-E
+"COMPAÑÍA NACIONAL DE CHOCOLATE S.A.S",compania nacional de chocolate,Grupo Nutresa SA,05J103-E
+NOVAVENTA S.A.S.,novaventa,Grupo Nutresa SA,05J103-E
+"INDUSTRIA COLOMBIANA DE CAFÉ S.A.S",industria colombiana de cafe,Grupo Nutresa SA,05J103-E
+"COMPAÑÍA DE GALLETAS NOEL S.A.S",compania de galletas noel,Grupo Nutresa SA,05J103-E
+MEALS MERCADO DE ALIMENTOS S.A.S,meals mercado de alimentos,Grupo Nutresa SA,05J103-E
+BIMBO SA,bimbo,Grupo Bimbo S.A.B. de C.V.,05L0DP-E
+"CORPORACION FINANCIERA COLOMBIANA S.A.",corporacion financiera colombiana,Corporacion Financiera Colombiana SA,06C5SR-E
+"CORPORACIÓN FINANCIERA COLOMBIANA S.A.",corporacion financiera colombiana,Corporacion Financiera Colombiana SA,06C5SR-E
+Sodimac Colombia S.A.,sodimac colombia,S.A.C.I. Falabella,05LGXS-E
+Delta Air Lines For DL 2021 Carbon Neutrality,delta air lines,Delta Air Lines Inc.,001GCM-E
+AERO REPÚBLICA S.A.,aero republica,Copa Holdings S.A.,0B7V0T-E
+Automotores Toyota Colombia S.A.S.,automotores toyota colombia,Toyota Motor Corp.,004NV8-E
+ENGIE Energía Chile S.A,engie energia chile,ENGIE SA,05L79F-E
+ENGIE Energía Chile S.A.,engie energia chile,ENGIE SA,05L79F-E
+Enel Generación Chile S.A.,enel generacion chile,Enel S.p.A.,05LN3R-E
+"FLOWSERVE COLOMBIA S.A.S.",flowserve colombia,Flowserve Corp.,000GRQ-E
+"CHAMPIONX DE COLOMBIA LTDA",championx de colombia,ChampionX Corp.,0Q5N23-E
+"ECHEVERRIA IZQUIERDO MONTAJES INDUSTRIALES S. A.",echeverria izquierdo montajes,Echeverria Izquierdo S.A.,05LGFR-E
+"ECHEVERRÍA IZQUIERDO MONTAJES INDUSTRIALES S.A",echeverria izquierdo montajes,Echeverria Izquierdo S.A.,05LGFR-E
+"Compañía Minera Teck Quebrada Blanca S.A.",compania minera teck quebrada blanca,Teck Resources Ltd.,001TJJ-E
+"COMPAÑIA MINERA TECK QUEBRADA BLANCA S.A",compania minera teck quebrada blanca,Teck Resources Ltd.,001TJJ-E
+Mineros Aluvial S.A,mineros aluvial,Mineros SA,05JLWX-E
+"GASEOSAS POSADA TOBON S.A.",gaseosas posada tobon,Postobon S.A.,NOT_LISTED
+"SAAM TOWAGE COLOMBIA S.A.S.",saam towage colombia,SAAM S.A.,05LG9D-E
+"INGENIERIA Y CONST. SIGDO KOPPERS S.A",ingenieria y const sigdo koppers,Sigdo Koppers S.A.,0648TF-E
+"PRODUCTOS FAMILIA S.A.",productos familia,Essity AB,0GVFTL-E
+"Transportadora de Gas Internacional S.A. ESP",transportadora de gas internacional,Grupo Energia Bogota SA ESP,094R7W-E
+AMERISUR EXPLORACION COLOMBIA,amerisur exploracion colombia,GeoPark Ltd.,0088W8-E
+"GASEOSAS LUX SAS",gaseosas lux,Postobon S.A.,NOT_LISTED
+CARVAJAL EMPAQUES S.A.,carvajal empaques,Carvajal Empaques SA,0963P4-E
+"CARVAJAL PULPA Y PAPEL S.A.",carvajal pulpa y papel,Carvajal S.A.,NOT_LISTED
+"TECHINT CHILE S.A",techint chile,Tenaris S.A.,05J1FX-E
+CONCONCRETO PROYECTOS SAS,conconcreto proyectos,Constructora Conconcreto SA,07VDVN-E
+Alpina Productos Alimenticios S.A.,alpina productos alimenticios,Alpina S.A.,NOT_LISTED
+"Alpina Productos Alimenticios S.A. BIC.",alpina productos alimenticios,Alpina S.A.,NOT_LISTED
+"SOCIEDAD DISTRIBUIDORA DE COMBUSTIBLE LA CRUZ DE MAYO SAS",sociedad distribuidora,NOT_MATCHED,
+Promigas subsidiary,promigas,Promigas SA ESP,05J0MH-E
+"Proquinal S.A.S",proquinal,Mexichem S.A.B. de C.V.,NOT_LISTED
+"Proquinal SAS",proquinal,Mexichem S.A.B. de C.V.,NOT_LISTED
+"PETROBRAS COLOMBIA COMBUSTIBLES S.A",petrobras colombia combustibles,Petroleo Brasileiro SA,003LG0-E
+Ingenio Providencia S.A.,ingenio providencia,Riopaila Castilla SA,08PGYT-E
+"Azul S.A",azul,Azul S.A.,0CN05R-E
+"PETROLEOS DEL MILENIO S.A.",petroleos del milenio,NOT_MATCHED,
+"PETROLEOS DEL MILENIO S.A.S",petroleos del milenio,NOT_MATCHED,
+Octano de Colombia S.A.S.,octano de colombia,NOT_MATCHED,
+"PLUS+ ENERGY S.A.S",plus energy,NOT_MATCHED,
+"PLUS+ COMBUSTIBLES SUCURSAL COLOMBIA",plus combustibles,NOT_MATCHED,
+"PLUS + ENERGY S.A.S",plus energy,NOT_MATCHED,
+"C.I. PRODEXPORT DE COLOMBIA S.A.S.",ci prodexport de colombia,NOT_MATCHED,
+"C.I. ECOS S.A.",ci ecos,NOT_MATCHED,
+Ultragas SA,ultragas,Ultrapar Participacoes SA,05JG8G-E
+"Guacolda Energía SpA",guacolda energia,NOT_LISTED
+"SOCIEDAD SERVICIOS INGENIERIA Y MANTENCION INTEGRAL MPM LTDA",sociedad servicios mpm,NOT_MATCHED,
+Ingenio del Cauca,ingenio del cauca,Riopaila Castilla SA,08PGYT-E
+"COMPAÑÍA ELÉCTRICA DE SOCHAGOTA S.A.S E.S.P - TERMOPAIPA IV",compania electrica de sochagota,Grupo Energia Bogota SA ESP,094R7W-E
+Fast Colombia SAS,fast colombia,NOT_MATCHED,
+"Estaciones Innovadoras S.A.S",estaciones innovadoras,NOT_MATCHED,
+"INVERSIONES GLP SAS ESP",inversiones glp,NOT_MATCHED,
+ZEUSS PETROLEUM S.A.S,zeuss petroleum,NOT_MATCHED,
+"ZEUSS PETROLEUM S.A.",zeuss petroleum,NOT_MATCHED,
+ZEUSS SAS,zeuss,NOT_MATCHED,
+"DISTRIBUIDORA DE COMBUSTIBLES DISCOM SAS",distribuidora de combustibles discom,NOT_MATCHED,
+"Masser S.A.S.",masser,NOT_MATCHED,
+"GLOBE AIR FUEL S.A.S",globe air fuel,NOT_MATCHED,
+Industrias Haceb S.A.,industrias haceb,NOT_MATCHED,
+Plastilene S.A.S,plastilene,NOT_MATCHED,
+PLASTILENE S.A.S.,plastilene,NOT_MATCHED,
+"TUSCAN SOUTH AMERICA LTD. SUCURSAL COLOMBIA",tuscany south america,Gran Tierra Energy Inc.,05WKCF-E
+"TUSCANY SOUTH AMERICA LTD. SUCURSAL COLOMBIA",tuscany south america,Gran Tierra Energy Inc.,05WKCF-E
+"PERENCO OIL AND GAS COLOMBIA LIMITED",perenco oil and gas colombia,NOT_LISTED
+"PERENCO COLOMBIA LIMITED",perenco colombia,NOT_LISTED
+"CONFIPETROL S.A.S",confipetrol,NOT_MATCHED,
+"PETROLEOS Y DERIVADOS DE COLOMBIA SA",petroleos y derivados de colombia,NOT_MATCHED,
+"ITALCOL S.A.",italcol,NOT_MATCHED,
+"C.I. EMPRESA COLOMBIANA DE SERVICIOS PETROLEROS S.A",ci empresa colombiana de servicios petroleros,NOT_MATCHED,
+"New Granada Energy Corporation Sucursal Colombia",new granada energy,NOT_MATCHED,
+"ECODIESEL COLOMBIA S.A.",ecodiesel colombia,Ecopetrol SA,0649LY-E
+"MOVILGAS LTDA",movilgas,NOT_MATCHED,
+Renting Colombia S.A.S.,renting colombia,Suramericana SA,05J27C-E
+ISMOCOL SA,ismocol,NOT_MATCHED,
+"HARINERA DEL VALLE S.A.",harinera del valle,NOT_MATCHED,
+"INDUSTRIAS CANNON DE COLOMBIA S.A.",industrias cannon de colombia,NOT_MATCHED,
+"PLASTIC FILMS INTERNACIONAL S.A.",plastic films internacional,NOT_MATCHED,
+"Hurtigruten Global Sales AS",hurtigruten global sales,NOT_LISTED
+"MANE SUCURSAL COLOMBIA",mane sucursal colombia,NOT_LISTED
+"GEODIS COLOMBIA LTDA.",geodis colombia,NOT_LISTED

@@ -185,6 +185,12 @@ def main():
         categories = sorted(df["project_category"].dropna().unique())
         selected_categories = st.sidebar.multiselect("Project Type", categories, default=[])
 
+    # Registry filter
+    selected_registries = []
+    if "registry" in df.columns:
+        registries = sorted(df["registry"].dropna().unique())
+        selected_registries = st.sidebar.multiselect("Registry", registries, default=[])
+
     # Firm search
     firm_search = st.sidebar.text_input("Search firm name")
 
@@ -202,6 +208,9 @@ def main():
 
     if selected_categories and "project_category" in df.columns:
         mask &= df["project_category"].isin(selected_categories)
+
+    if selected_registries and "registry" in df.columns:
+        mask &= df["registry"].isin(selected_registries)
 
     if firm_search:
         name_col = "matched_name" if "matched_name" in df.columns else "raw_beneficiary"
@@ -260,6 +269,18 @@ def main():
             fig.update_layout(height=400, margin=dict(l=20, r=20, t=30, b=20))
             st.plotly_chart(fig, use_container_width=True)
 
+    # Registry breakdown
+    if "registry" in filtered.columns and qty_col and len(filtered) > 0:
+        st.subheader("Quantity by Registry")
+        reg_qty = filtered.groupby("registry")[qty_col].sum().reset_index()
+        reg_qty.columns = ["Registry", "Tonnes"]
+        reg_qty = reg_qty.sort_values("Tonnes", ascending=False)
+        fig = px.bar(reg_qty, x="Registry", y="Tonnes",
+                     labels={"Tonnes": "tCO2"},
+                     color_discrete_sequence=["#2E86AB"])
+        fig.update_layout(height=350, margin=dict(l=20, r=20, t=30, b=20))
+        st.plotly_chart(fig, use_container_width=True)
+
     # Geographic distribution
     if country_col and qty_col and len(filtered) > 0:
         st.subheader("Top 20 Countries by Quantity Retired (tCO2)")
@@ -291,6 +312,7 @@ def main():
         "matched_name", "hq_country_name", "registry",
         "retirement_year", "country", "Country/Area", "quantity", "Quantity",
         "projectname", "projecttype", "vintage",
+        "retirement_reason", "market_type",
     ] if c in filtered.columns]
 
     st.dataframe(filtered[display_cols].head(500), use_container_width=True, height=400)
@@ -328,7 +350,8 @@ def main():
         "\"[Local Visibility vs. Global Integrity: Evidence from Corporate Carbon Offsetting]"
         "(https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099338203162614529),\" "
         "Policy Research Working Paper Series 11331, The World Bank.\n\n"
-        "Data source: [Berkeley Carbon Trading Project](https://gspp.berkeley.edu/research/osf-bctp/offsets-database). "
+        "Data sources: [Berkeley Carbon Trading Project](https://gspp.berkeley.edu/research/osf-bctp/offsets-database), "
+        "[EcoRegistry](https://www.ecoregistry.io/) (Cercarbono), [BioCarbon Registry](https://globalcarbontrace.io/). "
         "Firm matching via [FactSet](https://www.factset.com/)."
     )
 

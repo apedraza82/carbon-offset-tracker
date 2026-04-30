@@ -222,13 +222,16 @@ _SERIAL_COL = {
     "gold": "Serial Number",
     "acr": "Credit Serial Numbers",
     "car": "Offset Credit Serial Numbers",
+    "ecoregistry": "serial",
+    "biocarbon": "serial",
 }
 
 # Unified output columns
 _OUTPUT_COLS = [
     "raw_beneficiary", "matched_name", "factset_entity_id", "hq_country", "registry",
     "retirement_year", "country", "quantity", "match_confidence", "match_method",
-    "projectname", "projecttype", "vintage", "isocode",
+    "projectname", "projecttype", "vintage", "isocode", "serialnumber",
+    "retirement_reason", "market_type",
 ]
 
 
@@ -311,6 +314,25 @@ def _find_new_retirements(
     return new_data
 
 
+def _load_additional_registries() -> dict[str, pd.DataFrame]:
+    """Load EcoRegistry and BioCarbon data from data/raw/ if available."""
+    additional = {}
+
+    eco_path = Path("data/raw/ecoregistry/ecoregistry_retirements.csv")
+    if eco_path.exists():
+        df = pd.read_csv(eco_path, encoding="utf-8-sig")
+        print(f"  Loaded EcoRegistry: {len(df):,} retirements")
+        additional["ecoregistry"] = df
+
+    bio_path = Path("data/raw/biocarbon/biocarbon_gei_retirements.csv")
+    if bio_path.exists():
+        df = pd.read_csv(bio_path, encoding="utf-8-sig")
+        print(f"  Loaded BioCarbon: {len(df):,} retirements")
+        additional["biocarbon"] = df
+
+    return additional
+
+
 def run_pipeline(config: dict, skip_download: bool = False, skip_llm: bool = False):
     """Run the incremental pipeline.
 
@@ -338,6 +360,11 @@ def run_pipeline(config: dict, skip_download: bool = False, skip_llm: bool = Fal
     else:
         version = config.get("sources", {}).get("berkeley_version")
         registry_data = run_download_pipeline(config, version=version)
+
+    # Load additional registries (EcoRegistry, BioCarbon)
+    print("\n=== Loading additional registries ===")
+    additional = _load_additional_registries()
+    registry_data.update(additional)
 
     if not registry_data:
         print("No registry data to process.")
