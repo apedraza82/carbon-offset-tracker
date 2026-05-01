@@ -1,56 +1,56 @@
 {
   "last_updated": "2026-05-01",
   "total_retirements": 428464,
-  "matched_retirements": 37224,
-  "unique_firms": 1811,
+  "matched_retirements": 38307,
+  "unique_firms": 1897,
   "total_mtco2": 1056.6,
-  "matched_mtco2": 332.9,
+  "matched_mtco2": 335.8,
   "registries": {
     "Verra": {
       "total": 235563,
-      "matched": 16870,
+      "matched": 17629,
       "total_mtco2": 526.3,
-      "matched_mtco2": 211.8
+      "matched_mtco2": 214.0
     },
     "ACR": {
       "total": 9590,
-      "matched": 1662,
+      "matched": 1841,
       "total_mtco2": 53.1,
-      "matched_mtco2": 23.5
+      "matched_mtco2": 23.7
     },
     "CAR": {
       "total": 10299,
-      "matched": 1526,
+      "matched": 1532,
       "total_mtco2": 81.2,
       "matched_mtco2": 14.7
     },
     "Gold": {
       "total": 148566,
-      "matched": 6399,
+      "matched": 6474,
       "total_mtco2": 236.3,
-      "matched_mtco2": 31.5
+      "matched_mtco2": 31.7
     },
     "EcoRegistry": {
       "total": 8695,
-      "matched": 1665,
+      "matched": 1721,
       "total_mtco2": 58.4,
-      "matched_mtco2": 30.0
+      "matched_mtco2": 30.1
     },
     "BioCarbon": {
       "total": 10078,
-      "matched": 8114,
+      "matched": 8115,
       "total_mtco2": 2.2,
       "matched_mtco2": 2.0
     },
     "Puro": {
       "total": 1443,
-      "matched": 299,
+      "matched": 300,
       "total_mtco2": 1.0,
       "matched_mtco2": 0.3
     },
     "CDM": {
       "total": 4230,
-      "matched": 689,
+      "matched": 695,
       "total_mtco2": 98.2,
       "matched_mtco2": 19.2
     }
@@ -160,47 +160,47 @@
     },
     "2021": {
       "total": 47421,
-      "matched": 4039,
+      "matched": 4044,
       "total_mtco2": 145.3,
       "matched_mtco2": 43.1
     },
     "2022": {
       "total": 43689,
-      "matched": 3526,
+      "matched": 3532,
       "total_mtco2": 134.5,
       "matched_mtco2": 44.4
     },
     "2023": {
       "total": 54354,
-      "matched": 5652,
+      "matched": 5667,
       "total_mtco2": 133.1,
-      "matched_mtco2": 44.7
+      "matched_mtco2": 44.8
     },
     "2024": {
       "total": 65699,
-      "matched": 7130,
+      "matched": 7136,
       "total_mtco2": 129.2,
       "matched_mtco2": 47.2
     },
     "2025": {
       "total": 55002,
-      "matched": 7946,
+      "matched": 8819,
       "total_mtco2": 124.2,
-      "matched_mtco2": 51.9
+      "matched_mtco2": 53.5
     },
     "2026": {
       "total": 8297,
-      "matched": 1921,
+      "matched": 2098,
       "total_mtco2": 28.1,
-      "matched_mtco2": 16.1
+      "matched_mtco2": 17.3
     }
   },
   "match_methods": {
-    "unmatched": 391240,
+    "unmatched": 390157,
     "original": 21048,
-    "cache_exact": 8053,
-    "cache_normalized": 8123
+    "cache_exact": 9114,
+    "cache_normalized": 8145
   },
-  "project_countries": 126,
-  "hq_countries": 60
+  "project_countries": 127,
+  "hq_countries": 62
 }
