@@ -164,6 +164,10 @@
                 <div class="number" id="stat-registries">6</div>
                 <div class="label">Carbon Registries</div>
             </div>
+            <div class="stat-card">
+                <div class="number" id="stat-countries">—</div>
+                <div class="label">Project Countries</div>
+            </div>
         </div>
 
         <!-- Download + Dashboard links -->
@@ -182,7 +186,7 @@
                     <div id="chart-yearly" style="height:350px;"></div>
                 </div>
                 <div class="chart-card">
-                    <h3>Share of Quantity by Registry (MtCO2)</h3>
+                    <h3>Matched Quantity by Registry (MtCO2)</h3>
                     <div id="chart-registry" style="height:350px;"></div>
                 </div>
             </div>
@@ -266,7 +270,7 @@
                 document.getElementById('last-updated').textContent =
                     `Last updated: ${stats.last_updated || 'unknown'}`;
 
-                // Registry pie chart (by MtCO2) — normalize names
+                // Registry pie chart (by matched MtCO2) — normalize names
                 if (stats.registries) {
                     const nameMap = {
                         'verra': 'Verra', 'Verra': 'Verra',
@@ -279,7 +283,7 @@
                     const merged = {};
                     for (const [key, val] of Object.entries(stats.registries)) {
                         const norm = nameMap[key] || key;
-                        merged[norm] = (merged[norm] || 0) + (val.total_mtco2 || 0);
+                        merged[norm] = (merged[norm] || 0) + (val.matched_mtco2 || 0);
                     }
                     const regNames = Object.keys(merged);
                     const regValues = regNames.map(r => merged[r]);
@@ -351,6 +355,10 @@
         fetch('data/map_data.json' + cacheBust)
             .then(r => r.json())
             .then(mapData => {
+                // Populate project countries count
+                document.getElementById('stat-countries').textContent =
+                    mapData.project_countries.iso3.length;
+
                 // Project locations map
                 const projLogTonnes = mapData.project_countries.tonnes.map(t => Math.log10(t + 1));
                 Plotly.newPlot('map-projects', [{

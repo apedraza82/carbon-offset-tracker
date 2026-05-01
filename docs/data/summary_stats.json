@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-30",
+  "last_updated": "2026-05-01",
   "total_retirements": 422791,
   "matched_retirements": 33434,
   "unique_firms": 1484,
@@ -188,5 +188,7 @@
     "original": 21048,
     "cache_exact": 4739,
     "cache_normalized": 7647
-  }
+  },
+  "project_countries": 96,
+  "hq_countries": 55
 }

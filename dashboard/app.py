@@ -46,6 +46,27 @@ def load_data():
     # Filter to matched only
     df = df[df["factset_entity_id"].notna() & (df["factset_entity_id"] != "")].copy()
 
+    # Assign canonical firm name per factset_entity_id (most frequent variant)
+    # Avoids duplicates like "Ecopetrol SA" vs "Ecopetrol S.A." in aggregations
+    if "matched_name" in df.columns and "factset_entity_id" in df.columns:
+        def _pick_canonical(names):
+            """Pick best name: skip double-encoded mojibake, then most frequent."""
+            counts = names.value_counts()
+            counts = counts[counts.index.notna() & (counts.index != "")]
+            if len(counts) == 0:
+                return ""
+            # Skip names with double-encoded UTF-8 (e.g., Ã³ instead of ó)
+            clean = [n for n in counts.index
+                     if not any(0x80 <= ord(c) <= 0xBF for c in str(n))]
+            if clean:
+                return clean[0]
+            return counts.index[0]
+
+        canonical = df.groupby("factset_entity_id")["matched_name"].agg(_pick_canonical)
+        df["firm_name"] = df["factset_entity_id"].map(canonical)
+    else:
+        df["firm_name"] = df.get("matched_name", "")
+
     # Add grouped project type
     if "projecttype" in df.columns:
         df["project_category"] = df["projecttype"].apply(classify_project_type)
@@ -105,6 +126,7 @@ _ISO2_TO_NAME = {
     "RU": "Russia", "SA": "Saudi Arabia", "SE": "Sweden", "SG": "Singapore", "TH": "Thailand",
     "TR": "Turkey", "TW": "Taiwan", "UA": "Ukraine", "US": "United States", "VN": "Vietnam",
     "ZA": "South Africa",
+    "GG": "Guernsey", "MT": "Malta", "QA": "Qatar", "IS": "Iceland",
 }
 
 
@@ -113,15 +135,18 @@ def classify_project_type(ptype):
     if not isinstance(ptype, str):
         return "Other"
     p = ptype.lower()
-    if any(x in p for x in ["forest", "a/r", "redd", "afforestation", "avoided conversion", "avoided grassland"]):
+    if any(x in p for x in ["forest", "a/r", "redd", "afforestation", "reforestation",
+                             "avoided conversion", "avoided grassland", "conservation"]):
         return "Forestry & Land Use"
-    if any(x in p for x in ["agriculture", "soil", "agricultural", "livestock", "manure"]):
+    if any(x in p for x in ["agriculture", "soil", "agricultural", "livestock", "manure",
+                             "land use"]):
         return "Agriculture & Livestock"
-    if any(x in p for x in ["renewable", "wind", "solar", "hydro", "geothermal", "biomass", "biogas", "biofuel"]):
+    if any(x in p for x in ["renewable", "wind", "solar", "hydro", "geothermal", "biomass",
+                             "biogas", "biofuel", "energy industries"]):
         return "Renewable Energy"
     if any(x in p for x in ["energy efficiency", "energy demand", "energy distribution"]):
         return "Energy Efficiency"
-    if any(x in p for x in ["landfill", "waste", "composting", "digestion"]):
+    if any(x in p for x in ["landfill", "waste", "composting", "digestion", "compost"]):
         return "Waste Management"
     if any(x in p for x in ["industrial", "manufacturing", "mining", "chemical", "adipic", "nitric", "cement"]):
         return "Industrial Processes"
@@ -213,8 +238,7 @@ def main():
         mask &= df["registry"].isin(selected_registries)
 
     if firm_search:
-        name_col = "matched_name" if "matched_name" in df.columns else "raw_beneficiary"
-        mask &= df[name_col].str.contains(firm_search, case=False, na=False)
+        mask &= df["firm_name"].str.contains(firm_search, case=False, na=False)
 
     filtered = df[mask]
 
@@ -281,9 +305,68 @@ def main():
         fig.update_layout(height=350, margin=dict(l=20, r=20, t=30, b=20))
         st.plotly_chart(fig, use_container_width=True)
 
-    # Geographic distribution
+    # Geographic distribution — choropleth maps
     if country_col and qty_col and len(filtered) > 0:
-        st.subheader("Top 20 Countries by Quantity Retired (tCO2)")
+        st.subheader("Geographic Distribution")
+        map_col1, map_col2 = st.columns(2)
+
+        with map_col1:
+            st.markdown("**Where Listed Firms Retire Offsets**")
+            if "isocode" in filtered.columns:
+                proj_map = filtered.groupby("isocode")[qty_col].sum().reset_index()
+                proj_map.columns = ["iso3", "tonnes"]
+                proj_map = proj_map[proj_map["iso3"].str.strip() != ""]
+                fig = px.choropleth(
+                    proj_map, locations="iso3", color="tonnes",
+                    color_continuous_scale="Greens",
+                    labels={"tonnes": "tCO2"},
+                    hover_name="iso3",
+                )
+                fig.update_layout(
+                    height=380, margin=dict(l=0, r=0, t=0, b=0),
+                    geo=dict(showframe=False, showcoastlines=True,
+                             projection_type="natural earth"),
+                    coloraxis_colorbar=dict(title="tCO2"),
+                )
+                st.plotly_chart(fig, use_container_width=True)
+
+        with map_col2:
+            st.markdown("**Where Retiring Firms Are Headquartered**")
+            if "hq_country" in filtered.columns:
+                _HQ_ISO2TO3 = {
+                    "US": "USA", "BR": "BRA", "DE": "DEU", "GB": "GBR", "AU": "AUS",
+                    "JP": "JPN", "FR": "FRA", "CH": "CHE", "CN": "CHN", "CO": "COL",
+                    "KR": "KOR", "IN": "IND", "IT": "ITA", "CA": "CAN", "ES": "ESP",
+                    "NL": "NLD", "SE": "SWE", "NO": "NOR", "DK": "DNK", "FI": "FIN",
+                    "AT": "AUT", "BE": "BEL", "IE": "IRL", "PT": "PRT", "MX": "MEX",
+                    "CL": "CHL", "ZA": "ZAF", "NZ": "NZL", "SG": "SGP", "HK": "HKG",
+                    "TW": "TWN", "TH": "THA", "MY": "MYS", "ID": "IDN", "PH": "PHL",
+                    "TR": "TUR", "PL": "POL", "GR": "GRC", "AE": "ARE", "SA": "SAU",
+                    "RU": "RUS", "AR": "ARG", "PE": "PER", "KE": "KEN", "LU": "LUX",
+                    "PA": "PAN", "BM": "BMU", "BH": "BHR", "KW": "KWT", "LK": "LKA",
+                    "MO": "MAC", "OM": "OMN", "GG": "GGY", "MT": "MLT", "QA": "QAT",
+                    "IS": "ISL",
+                }
+                hq_map = filtered.groupby("hq_country")[qty_col].sum().reset_index()
+                hq_map.columns = ["iso2", "tonnes"]
+                hq_map["iso3"] = hq_map["iso2"].map(_HQ_ISO2TO3)
+                hq_map = hq_map.dropna(subset=["iso3"])
+                fig = px.choropleth(
+                    hq_map, locations="iso3", color="tonnes",
+                    color_continuous_scale="Reds",
+                    labels={"tonnes": "tCO2"},
+                    hover_name="iso3",
+                )
+                fig.update_layout(
+                    height=380, margin=dict(l=0, r=0, t=0, b=0),
+                    geo=dict(showframe=False, showcoastlines=True,
+                             projection_type="natural earth"),
+                    coloraxis_colorbar=dict(title="tCO2"),
+                )
+                st.plotly_chart(fig, use_container_width=True)
+
+        # Top 20 countries bar chart
+        st.markdown("**Top 20 Project Countries by Quantity Retired**")
         top_countries = filtered.groupby(country_col)[qty_col].sum().nlargest(20).reset_index()
         top_countries.columns = ["Country", "Tonnes"]
         fig = px.bar(top_countries, x="Country", y="Tonnes",
@@ -292,12 +375,15 @@ def main():
         fig.update_layout(height=400, margin=dict(l=20, r=20, t=30, b=20))
         st.plotly_chart(fig, use_container_width=True)
 
-    # Top firms
+    # Top firms (grouped by factset_entity_id, displayed by canonical firm_name)
     if qty_col:
         st.subheader("Top 20 Firms by Quantity Retired (tCO2)")
-        name_col = "matched_name" if "matched_name" in filtered.columns else "raw_beneficiary"
-        top_firms = filtered.groupby(name_col)[qty_col].sum().nlargest(20).reset_index()
-        top_firms.columns = ["Firm", "Tonnes"]
+        firm_qty = filtered.groupby("factset_entity_id")[qty_col].sum().nlargest(20)
+        firm_names = filtered.drop_duplicates("factset_entity_id").set_index("factset_entity_id")["firm_name"]
+        top_firms = firm_qty.reset_index()
+        top_firms.columns = ["factset_entity_id", "Tonnes"]
+        top_firms["Firm"] = top_firms["factset_entity_id"].map(firm_names)
+        top_firms = top_firms[["Firm", "Tonnes"]]
         fig = px.bar(top_firms, x="Tonnes", y="Firm", orientation="h",
                      labels={"Tonnes": "tCO2"},
                      color_discrete_sequence=["#A23B72"])
@@ -309,7 +395,7 @@ def main():
     st.subheader("Data Explorer")
 
     display_cols = [c for c in [
-        "matched_name", "hq_country_name", "registry",
+        "firm_name", "hq_country_name", "registry",
         "retirement_year", "country", "Country/Area", "quantity", "Quantity",
         "projectname", "projecttype", "vintage",
         "retirement_reason", "market_type",

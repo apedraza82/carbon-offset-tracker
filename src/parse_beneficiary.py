@@ -232,13 +232,14 @@ _COLUMN_RENAMES = {
     },
     "biocarbon": {
         "volume": "quantity",
-        "destination": "country",
+        "destination": "market_type",
+        "project_country": "country",
+        "project_type": "projecttype",
         "retirement_date": "retirement_date",
         "retirement_reason": "retirement_reason",
         "serial": "serialnumber",
         "project_id": "project_id",
         "project_name": "projectname",
-        "market_type": "market_type",
     },
 }
 
