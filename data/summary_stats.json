@@ -1,10 +1,10 @@
 {
   "last_updated": "2026-05-01",
-  "total_retirements": 425581,
-  "matched_retirements": 33716,
+  "total_retirements": 428464,
+  "matched_retirements": 33924,
   "unique_firms": 1484,
-  "total_mtco2": 973.3,
-  "matched_mtco2": 295.6,
+  "total_mtco2": 1056.6,
+  "matched_mtco2": 300.8,
   "registries": {
     "Verra": {
       "total": 235563,
@@ -49,10 +49,10 @@
       "matched_mtco2": 0.2
     },
     "CDM": {
-      "total": 1347,
-      "matched": 100,
-      "total_mtco2": 15.0,
-      "matched_mtco2": 3.7
+      "total": 4230,
+      "matched": 308,
+      "total_mtco2": 98.2,
+      "matched_mtco2": 8.9
     }
   },
   "years": {
@@ -105,102 +105,102 @@
       "matched_mtco2": 2.9
     },
     "2012": {
-      "total": 3579,
+      "total": 3585,
       "matched": 365,
       "total_mtco2": 15.6,
       "matched_mtco2": 6.7
     },
     "2013": {
-      "total": 5831,
+      "total": 5841,
       "matched": 339,
       "total_mtco2": 22.0,
       "matched_mtco2": 2.8
     },
     "2014": {
-      "total": 4522,
+      "total": 4531,
       "matched": 341,
-      "total_mtco2": 20.7,
+      "total_mtco2": 21.0,
       "matched_mtco2": 2.2
     },
     "2015": {
-      "total": 36774,
+      "total": 36831,
       "matched": 481,
-      "total_mtco2": 29.1,
+      "total_mtco2": 33.3,
       "matched_mtco2": 4.7
     },
     "2016": {
-      "total": 17396,
-      "matched": 520,
-      "total_mtco2": 24.9,
-      "matched_mtco2": 5.1
+      "total": 17473,
+      "matched": 526,
+      "total_mtco2": 33.5,
+      "matched_mtco2": 5.2
     },
     "2017": {
-      "total": 12123,
-      "matched": 850,
-      "total_mtco2": 31.5,
-      "matched_mtco2": 9.4
+      "total": 12238,
+      "matched": 854,
+      "total_mtco2": 36.6,
+      "matched_mtco2": 9.6
     },
     "2018": {
-      "total": 13441,
-      "matched": 1016,
-      "total_mtco2": 39.4,
-      "matched_mtco2": 12.3
+      "total": 13594,
+      "matched": 1017,
+      "total_mtco2": 40.7,
+      "matched_mtco2": 12.4
     },
     "2019": {
-      "total": 25493,
-      "matched": 1030,
-      "total_mtco2": 51.0,
-      "matched_mtco2": 10.3
+      "total": 25753,
+      "matched": 1035,
+      "total_mtco2": 58.1,
+      "matched_mtco2": 10.5
     },
     "2020": {
-      "total": 28552,
-      "matched": 1320,
-      "total_mtco2": 71.0,
-      "matched_mtco2": 22.1
+      "total": 28802,
+      "matched": 1328,
+      "total_mtco2": 79.9,
+      "matched_mtco2": 22.5
     },
     "2021": {
-      "total": 46906,
-      "matched": 3869,
-      "total_mtco2": 124.7,
-      "matched_mtco2": 37.2
+      "total": 47421,
+      "matched": 3892,
+      "total_mtco2": 145.3,
+      "matched_mtco2": 38.6
     },
     "2022": {
-      "total": 42858,
-      "matched": 3273,
-      "total_mtco2": 114.1,
-      "matched_mtco2": 40.2
-    },
-    "2023": {
-      "total": 54078,
-      "matched": 5482,
-      "total_mtco2": 128.9,
+      "total": 43689,
+      "matched": 3369,
+      "total_mtco2": 134.5,
       "matched_mtco2": 42.2
     },
+    "2023": {
+      "total": 54354,
+      "matched": 5509,
+      "total_mtco2": 133.1,
+      "matched_mtco2": 42.9
+    },
     "2024": {
-      "total": 65740,
-      "matched": 7025,
-      "total_mtco2": 129.3,
+      "total": 65699,
+      "matched": 7024,
+      "total_mtco2": 129.2,
       "matched_mtco2": 46.9
     },
     "2025": {
-      "total": 54662,
-      "matched": 5900,
-      "total_mtco2": 121.9,
-      "matched_mtco2": 35.3
+      "total": 55002,
+      "matched": 5939,
+      "total_mtco2": 124.2,
+      "matched_mtco2": 35.5
     },
     "2026": {
-      "total": 8272,
+      "total": 8297,
       "matched": 1433,
-      "total_mtco2": 27.9,
+      "total_mtco2": 28.1,
       "matched_mtco2": 12.0
     }
   },
   "match_methods": {
-    "unmatched": 391865,
+    "unmatched": 394540,
     "original": 21048,
-    "cache_exact": 4934,
-    "cache_normalized": 7734
+    "cache_exact": 5035,
+    "cache_normalized": 7841
   },
-  "project_countries": 116,
+  "project_countries": 118,
   "hq_countries": 55
 }

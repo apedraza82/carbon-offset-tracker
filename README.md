@@ -8,11 +8,11 @@ A public dataset matching voluntary carbon offset retirements to publicly listed
 
 | Metric | Value |
 |--------|-------|
-| Total retirements | 425,581 |
-| Matched to listed firms | 33,716 |
+| Total retirements | 428,464 |
+| Matched to listed firms | 33,924 |
 | Unique public firms | 1,484 |
-| Total volume | 973 MtCO2 |
-| Matched volume | 296 MtCO2 |
+| Total volume | 1,057 MtCO2 |
+| Matched volume | 301 MtCO2 |
 | Registries | 8 |
 | Project countries | 95 |
 | Coverage | 2004–2026 |
@@ -28,7 +28,7 @@ A public dataset matching voluntary carbon offset retirements to publicly listed
 | EcoRegistry (Cercarbono) | [EcoRegistry API](https://www.ecoregistry.io/) | 8,695 |
 | BioCarbon Registry | [Global CarbonTrace API](https://globalcarbontrace.io/) | 10,078 |
 | Puro.earth | [Puro Registry](https://registry.puro.earth/retirements) | 1,443 |
-| CDM (UNFCCC) | [UNEP CCC Pipeline](https://unepccc.org/cdm-ji-pipeline/) | 2,034 |
+| CDM (UNFCCC) | [CDM Registry](https://cdm.unfccc.int/Registry/vc_attest/) via Wayback Machine | 7,041 |
 
 ## Quick Start
 
@@ -66,7 +66,7 @@ carbon-offset-tracker/
 │   ├── download_ecoregistry.py  # Download EcoRegistry (Cercarbono) data
 │   ├── download_biocarbon.py    # Download BioCarbon (Global CarbonTrace) data
 │   ├── download_puro.py         # Download Puro.earth Registry data
-│   ├── download_cdm.py          # Download CDM/UNFCCC voluntary cancellations
+│   ├── download_cdm.py          # Download CDM/UNFCCC voluntary cancellations (Wayback + archive)
 │   ├── parse_beneficiary.py     # Registry-specific beneficiary extraction
 │   ├── match_firms.py           # Cache lookup + Claude API matching
 │   ├── pipeline.py              # End-to-end orchestration
@@ -99,7 +99,7 @@ carbon-offset-tracker/
    - EcoRegistry: `final_user` field
    - BioCarbon: `beneficiary` field, with fallback to `final_user`
    - Puro.earth: `beneficiary_name` field, with fallback to `account_holder`
-   - CDM: Free-text `Purpose` field (parsed for entity names via multiple patterns)
+   - CDM: Free-text `Purpose`/`Reason/ Beneficiary` field (parsed for entity names via multiple patterns)
 
 2. **Name normalization**: Strip legal suffixes (Inc, SA, SAS, Ltd, etc.), Colombian NIT tax IDs, CNPJ numbers; resolve subsidiary names to parent companies
 
