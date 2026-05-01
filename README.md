@@ -9,12 +9,12 @@ A public dataset matching voluntary carbon offset retirements to publicly listed
 | Metric | Value |
 |--------|-------|
 | Total retirements | 428,464 |
-| Matched to listed firms | 33,924 |
-| Unique public firms | 1,484 |
+| Matched to listed firms | 37,224 |
+| Unique public firms | 1,811 |
 | Total volume | 1,057 MtCO2 |
-| Matched volume | 301 MtCO2 |
+| Matched volume | 333 MtCO2 |
 | Registries | 8 |
-| Project countries | 95 |
+| Project countries | 98 |
 | Coverage | 2004–2026 |
 
 ## Data Sources

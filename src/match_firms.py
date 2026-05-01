@@ -165,20 +165,42 @@ class FirmMatcher:
 
         client = anthropic.Anthropic()
         all_results = []
+        total_batches = (len(names) + batch_size - 1) // batch_size
+        matched_count = 0
 
-        for i in range(0, len(names), batch_size):
-            batch = names[i : i + batch_size]
-            batch_registries = registries[i : i + batch_size] if registries else [None] * len(batch)
-            batch_countries = countries[i : i + batch_size] if countries else [None] * len(batch)
+        try:
+            for i in range(0, len(names), batch_size):
+                batch_num = i // batch_size + 1
+                batch = names[i : i + batch_size]
+                batch_registries = registries[i : i + batch_size] if registries else [None] * len(batch)
+                batch_countries = countries[i : i + batch_size] if countries else [None] * len(batch)
 
-            results = self._call_llm(
-                client, model, max_tokens, batch, batch_registries, batch_countries, firm_context
-            )
-            all_results.extend(results)
+                results = self._call_llm(
+                    client, model, max_tokens, batch, batch_registries, batch_countries, firm_context
+                )
+                all_results.extend(results)
 
-            # Rate limiting
-            if i + batch_size < len(names):
-                time.sleep(0.5)
+                # Count matches in this batch
+                batch_matched = sum(1 for r in results if r.factset_entity_id)
+                matched_count += batch_matched
+
+                # Progress every 10 batches
+                if batch_num % 10 == 0 or batch_num == total_batches:
+                    print(f"  LLM progress: {batch_num}/{total_batches} batches "
+                          f"({i + len(batch)}/{len(names)} names), "
+                          f"{matched_count} matched so far", flush=True)
+
+                # Save cache incrementally every 50 batches
+                if batch_num % 50 == 0:
+                    self.update_cache(all_results)
+
+                # Rate limiting
+                if i + batch_size < len(names):
+                    time.sleep(0.5)
+        except RuntimeError as e:
+            print(f"  LLM matching stopped: {e}", flush=True)
+            # Save whatever we have
+            self.update_cache(all_results)
 
         return all_results
 
@@ -232,33 +254,31 @@ class FirmMatcher:
             name_entries.append(entry)
 
         system_prompt = """You are an entity resolution assistant for carbon offset retirements.
-Your task: match retirement beneficiary names to publicly listed parent companies.
+Your task: match retirement beneficiary names to their publicly listed parent company.
 
 Key rules:
-- Subsidiaries should map to their publicly listed parent (e.g., "Nespresso" → Nestlé)
+- Subsidiaries should map to their publicly listed parent (e.g., "Nespresso" -> Nestle S.A.)
 - Joint ventures map to the majority-owning listed parent
 - Government entities, NGOs, and individuals are NOT matches — return null
-- Brokers/intermediaries (e.g., "South Pole", "3Degrees") are NOT listed firms — return null
-- Only match to the provided public firms list
+- Carbon brokers/intermediaries (e.g., "South Pole", "3Degrees", "ClimeCo") are NOT listed firms — return null
+- Private companies (not traded on any stock exchange) are NOT matches — return null
+- Return the parent company's official name as listed on the stock exchange
 
 For each name, respond with a JSON object:
-{"index": N, "parent_name": "...", "factset_entity_id": "...", "confidence": "high|medium|low", "reasoning": "..."}
+{"index": N, "parent_name": "Official Listed Company Name", "confidence": "high|medium|low", "reasoning": "brief explanation"}
 
 Confidence levels:
-- high: Clear, unambiguous match (exact or near-exact name)
+- high: Clear, unambiguous match (the name IS a listed company or well-known subsidiary)
 - medium: Likely match but requires subsidiary/brand knowledge
-- low: Uncertain, possible match but could be wrong
-- If no match found, use: {"index": N, "parent_name": null, "factset_entity_id": null, "confidence": "none", "reasoning": "..."}"""
+- low: Uncertain, possible match
+- If no match or not a listed firm: {"index": N, "parent_name": null, "confidence": "none", "reasoning": "brief explanation"}"""
 
         user_message = f"""Match these carbon offset retirement beneficiaries to publicly listed firms.
-
-PUBLIC FIRMS REFERENCE (format: factset_id|name|country):
-{firm_context[:8000]}
 
 NAMES TO MATCH:
 {chr(10).join(name_entries)}
 
-Respond with a JSON array of match results, one per name."""
+Respond with a JSON array of match results, one per name. Only return the JSON array, no other text."""
 
         try:
             response = client.messages.create(
@@ -278,16 +298,28 @@ Respond with a JSON array of match results, one per name."""
                 print(f"  Warning: Could not parse LLM response as JSON")
                 return [MatchResult(raw_name=n, match_method="llm_error") for n in names]
 
-            # Convert to MatchResults
+            # Convert to MatchResults, resolving parent_name to FactSet ID
             results = []
             match_dict = {m.get("index", j + 1): m for j, m in enumerate(matches)}
             for j, name in enumerate(names):
                 m = match_dict.get(j + 1, {})
+                parent_name = m.get("parent_name")
+                fid = m.get("factset_entity_id")  # may be provided
+                confidence = m.get("confidence", "none")
+
+                # Resolve parent_name to FactSet ID if not provided
+                if parent_name and not fid:
+                    fid = self._resolve_to_factset(parent_name)
+                    if not fid:
+                        # LLM said it's listed but we can't find it — skip
+                        confidence = "none"
+                        parent_name = None
+
                 results.append(MatchResult(
                     raw_name=name,
-                    matched_name=m.get("parent_name"),
-                    factset_entity_id=m.get("factset_entity_id"),
-                    confidence=m.get("confidence", "none"),
+                    matched_name=parent_name,
+                    factset_entity_id=fid,
+                    confidence=confidence,
                     match_method="llm",
                     reasoning=m.get("reasoning", ""),
                 ))
@@ -295,8 +327,58 @@ Respond with a JSON array of match results, one per name."""
             return results
 
         except Exception as e:
-            print(f"  LLM API error: {e}")
-            return [MatchResult(raw_name=n, match_method="llm_error", reasoning=str(e)) for n in names]
+            error_msg = str(e)
+            print(f"  LLM API error: {error_msg}")
+            # Raise on fatal errors (credit exhaustion) to stop the loop
+            if "credit balance is too low" in error_msg:
+                raise RuntimeError("API credits exhausted") from e
+            return [MatchResult(raw_name=n, match_method="llm_error", reasoning=error_msg) for n in names]
+
+    def _resolve_to_factset(self, parent_name: str) -> str | None:
+        """Resolve a parent company name to a FactSet entity ID."""
+        if self.public_firms.empty or not parent_name:
+            return None
+
+        name_lower = parent_name.lower().strip()
+        suffixes = self.config.get("normalization", {}).get("legal_suffixes")
+        name_norm = normalize_name(parent_name, suffixes)
+
+        # 1. Check known_matches cache first
+        if name_lower in self._exact_lookup:
+            return self._exact_lookup[name_lower][1]
+        if name_norm and name_norm in self._normalized_lookup:
+            return self._normalized_lookup[name_norm][1]
+
+        # 2. Search public_firms by exact normalized name
+        if name_norm and "entity_name_normalized" in self.public_firms.columns:
+            hits = self.public_firms[self.public_firms["entity_name_normalized"] == name_norm]
+            if len(hits) == 1:
+                return hits.iloc[0]["factset_entity_id"]
+
+        # 3. Search by entity_name (case-insensitive)
+        hits = self.public_firms[self.public_firms["entity_name"].str.lower() == name_lower]
+        if len(hits) >= 1:
+            return hits.iloc[0]["factset_entity_id"]
+
+        # 4. Try proper name
+        if "entity_proper_name" in self.public_firms.columns:
+            hits = self.public_firms[
+                self.public_firms["entity_proper_name"].str.lower() == name_lower
+            ]
+            if len(hits) >= 1:
+                return hits.iloc[0]["factset_entity_id"]
+
+        # 5. Try contains match for short unambiguous names
+        if len(name_norm or "") > 5:
+            hits = self.public_firms[
+                self.public_firms["entity_name_normalized"].str.contains(
+                    name_norm, case=False, na=False, regex=False
+                )
+            ]
+            if len(hits) == 1:
+                return hits.iloc[0]["factset_entity_id"]
+
+        return None
 
     def update_cache(self, results: list[MatchResult], min_confidence: str = "medium"):
         """Add successful LLM matches back to the cache."""

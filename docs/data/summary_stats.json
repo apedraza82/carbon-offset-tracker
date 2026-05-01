@@ -1,58 +1,58 @@
 {
   "last_updated": "2026-05-01",
   "total_retirements": 428464,
-  "matched_retirements": 33924,
-  "unique_firms": 1484,
+  "matched_retirements": 37224,
+  "unique_firms": 1811,
   "total_mtco2": 1056.6,
-  "matched_mtco2": 300.8,
+  "matched_mtco2": 332.9,
   "registries": {
     "Verra": {
       "total": 235563,
-      "matched": 15533,
+      "matched": 16870,
       "total_mtco2": 526.3,
-      "matched_mtco2": 202.4
+      "matched_mtco2": 211.8
     },
     "ACR": {
       "total": 9590,
-      "matched": 1387,
+      "matched": 1662,
       "total_mtco2": 53.1,
-      "matched_mtco2": 22.5
+      "matched_mtco2": 23.5
     },
     "CAR": {
       "total": 10299,
-      "matched": 1378,
+      "matched": 1526,
       "total_mtco2": 81.2,
-      "matched_mtco2": 12.4
+      "matched_mtco2": 14.7
     },
     "Gold": {
       "total": 148566,
-      "matched": 5944,
+      "matched": 6399,
       "total_mtco2": 236.3,
-      "matched_mtco2": 26.9
+      "matched_mtco2": 31.5
     },
     "EcoRegistry": {
       "total": 8695,
-      "matched": 1279,
+      "matched": 1665,
       "total_mtco2": 58.4,
-      "matched_mtco2": 25.6
+      "matched_mtco2": 30.0
     },
     "BioCarbon": {
       "total": 10078,
-      "matched": 7913,
+      "matched": 8114,
       "total_mtco2": 2.2,
       "matched_mtco2": 2.0
     },
     "Puro": {
       "total": 1443,
-      "matched": 182,
+      "matched": 299,
       "total_mtco2": 1.0,
-      "matched_mtco2": 0.2
+      "matched_mtco2": 0.3
     },
     "CDM": {
       "total": 4230,
-      "matched": 308,
+      "matched": 689,
       "total_mtco2": 98.2,
-      "matched_mtco2": 8.9
+      "matched_mtco2": 19.2
     }
   },
   "years": {
@@ -118,89 +118,89 @@
     },
     "2014": {
       "total": 4531,
-      "matched": 341,
+      "matched": 342,
       "total_mtco2": 21.0,
       "matched_mtco2": 2.2
     },
     "2015": {
       "total": 36831,
-      "matched": 481,
+      "matched": 483,
       "total_mtco2": 33.3,
       "matched_mtco2": 4.7
     },
     "2016": {
       "total": 17473,
-      "matched": 526,
+      "matched": 529,
       "total_mtco2": 33.5,
-      "matched_mtco2": 5.2
+      "matched_mtco2": 5.8
     },
     "2017": {
       "total": 12238,
-      "matched": 854,
+      "matched": 863,
       "total_mtco2": 36.6,
-      "matched_mtco2": 9.6
+      "matched_mtco2": 9.7
     },
     "2018": {
       "total": 13594,
-      "matched": 1017,
+      "matched": 1020,
       "total_mtco2": 40.7,
       "matched_mtco2": 12.4
     },
     "2019": {
       "total": 25753,
-      "matched": 1035,
+      "matched": 1105,
       "total_mtco2": 58.1,
-      "matched_mtco2": 10.5
+      "matched_mtco2": 11.2
     },
     "2020": {
       "total": 28802,
-      "matched": 1328,
+      "matched": 1480,
       "total_mtco2": 79.9,
-      "matched_mtco2": 22.5
+      "matched_mtco2": 23.6
     },
     "2021": {
       "total": 47421,
-      "matched": 3892,
+      "matched": 4039,
       "total_mtco2": 145.3,
-      "matched_mtco2": 38.6
+      "matched_mtco2": 43.1
     },
     "2022": {
       "total": 43689,
-      "matched": 3369,
+      "matched": 3526,
       "total_mtco2": 134.5,
-      "matched_mtco2": 42.2
+      "matched_mtco2": 44.4
     },
     "2023": {
       "total": 54354,
-      "matched": 5509,
+      "matched": 5652,
       "total_mtco2": 133.1,
-      "matched_mtco2": 42.9
+      "matched_mtco2": 44.7
     },
     "2024": {
       "total": 65699,
-      "matched": 7024,
+      "matched": 7130,
       "total_mtco2": 129.2,
-      "matched_mtco2": 46.9
+      "matched_mtco2": 47.2
     },
     "2025": {
       "total": 55002,
-      "matched": 5939,
+      "matched": 7946,
       "total_mtco2": 124.2,
-      "matched_mtco2": 35.5
+      "matched_mtco2": 51.9
     },
     "2026": {
       "total": 8297,
-      "matched": 1433,
+      "matched": 1921,
       "total_mtco2": 28.1,
-      "matched_mtco2": 12.0
+      "matched_mtco2": 16.1
     }
   },
   "match_methods": {
-    "unmatched": 394540,
+    "unmatched": 391240,
     "original": 21048,
-    "cache_exact": 5035,
-    "cache_normalized": 7841
+    "cache_exact": 8053,
+    "cache_normalized": 8123
   },
-  "project_countries": 118,
-  "hq_countries": 55
+  "project_countries": 126,
+  "hq_countries": 60
 }

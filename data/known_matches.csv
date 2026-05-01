@@ -1,4 +1,4 @@
-﻿company_raw,company_normalized,official_name,factset_entity_id
+company_raw,company_normalized,official_name,factset_entity_id
 Adobe Systems Incorporated,adobe systems,Adobe Inc.,000BJT-E
 AMD,amd,"Advanced Micro Devices, Inc.",000BK7-E
 Aflac,aflac,Aflac Incorporated,000BMH-E
@@ -3071,3 +3071,1169 @@ TUSCAN SOUTH AMERICA LTD. SUCURSAL COLOMBIA,tuscan south america colombia,Gran T
 TUSCANY SOUTH AMERICA LTD. SUCURSAL COLOMBIA,tuscany south america colombia,Gran Tierra Energy Inc.,05WKCF-E
 ECODIESEL COLOMBIA S.A.,ecodiesel colombia,Ecopetrol SA,0649LY-E
 Renting Colombia S.A.S.,renting colombia,Suramericana SA,05J27C-E
+Telef√≥nica S.A.,telef nica,"Telefónica, S.A.",05DZGP-E
+Telef√≥nica Espa√±a,telef nica espa a,"Telefónica, S.A.",05DZGP-E
+"Zhongzhou Contemporary Amperex Technology Co., Ltd",zhongzhou contemporary amperex technology,"Contemporary Amperex Technology Co., Limited",0GT2WV-E
+Ruiting Contemporary Amperex Technology (Shanghai) Limited,ruiting contemporary amperex technology shanghai,"Contemporary Amperex Technology Co., Limited",0GT2WV-E
+SUZANO SA / B PRINT EMBAL E DISPLAYS LTDA,suzano b print embal e displays,Suzano S.A.,05ZYMQ-E
+Telef√¥nica Brasil S.A.,telef nica brasil,"Telefónica, S.A.",05DZGP-E
+"Ningde Funing Contemporary Amperex Technology Co., Limited",ningde funing contemporary amperex technology,"Contemporary Amperex Technology Co., Limited",0GT2WV-E
+Qinghai Contemporary Amperex Technology Limited.,qinghai contemporary amperex technology,"Contemporary Amperex Technology Co., Limited",0GT2WV-E
+MSD MERCK,msd merck,"Merck & Co., Inc.",000PQC-E
+MSD,msd,"Merck & Co., Inc.",000PQC-E
+Eni Plenitude SpA Societ√† Benefit,eni plenitude societ benefit,Eni S.p.A.,05DZHK-E
+WSP CONSULTANTS INDIA PVT. LTD,wsp consultants india pvt,WSP Global Inc.,0BCBB0-E
+Asia Silicones Monomer Limited,asia silicones monomer,"Shin-Etsu Chemical Co., Ltd.",05HWBT-E
+Shin-Etsu Silicones (Thailand) Limited,shin etsu silicones thailand,"Shin-Etsu Chemical Co., Ltd.",05HWBT-E
+Pacific Basin Shipping (HK) Limited,pacific basin shipping hk,Pacific Basin Shipping Limited,0066HJ-E
+Webjet Marketing Pty Ltd (NZ),webjet marketing nz,Webjet Limited,05XD1Y-E
+Wise Payments Ltd,wise payments,Wise plc,0NYPS9-E
+Retired on Behalf of S&P Global Inc.,retired on behalf of s p global,S&P Global Inc.,000PLZ-E
+OTP Bank Nyrt.,otp bank nyrt,OTP Bank Nyrt.,05HWMD-E
+ASUSTek COMPUTER INC.,asustek computer,ASUSTek Computer Inc.,05HWDY-E
+"Retired on behalf of Etsy, Inc., and its affiliates for 2025 emissions",retired on behalf of etsy and its affiliates for 2025 emissions,Etsy Inc.,008HL3-E
+"Retired on behalf of Etsy, Inc., and its affiliates for 2026 emissions",retired on behalf of etsy and its affiliates for 2026 emissions,Etsy Inc.,008HL3-E
+ITAU UNIBANCO,itau unibanco,Itaú Unibanco Holding S.A.,00BSDK-E
+"Mengniu Dairy Products Wuhan Co.,Ltd.",mengniu dairy products wuhan,China Mengniu Dairy Company Limited,05ZB7P-E
+"Mengniu Dairy (Shangzhi) Co., Ltd.",mengniu dairy shangzhi,China Mengniu Dairy Company Limited,05ZB7P-E
+Retired by Patch on behalf of Wesleyan Assurance Society,retired by patch on behalf of wesleyan assurance society,Aviva plc,05G2MG-E
+Howden Group,howden,Howden Group Holdings Limited,05HX7X-E
+Retired on behalf of Aviva Zero policyholders (Nov 24 ‚Äì Dec 25),retired on behalf of aviva zero policyholders nov 24 ai dec 25,Aviva plc,05G2MG-E
+Electrosteel,electrosteel,Electrosteel Castings Limited,05VCY6-E
+The Toronto-Dominion Bank,the toronto dominion bank,Toronto-Dominion Bank,00136Q-E
+VGP N.V.,vgp,VGP N.V.,06ZVFC-E
+Kinnevik AB,kinnevik,Kinnevik AB,05J2W9-E
+Growthpoint Properties,growthpoint properties,Growthpoint Properties,05Q9XS-E
+Fluidra - Retired on behalf of Fluidra to achieve 2025 goals,fluidra retired on behalf of fluidra to achieve 2025 goals,Fluidra S.A.,009PQF-E
+TOPPAN Edge Inc.,toppan edge,Toppan Holdings Inc.,0027GL-E
+Compa√±√≠a de distribuci√≥n y transporte SAS BIC - Ditransa ha compensado las emisiones de gases de efecto invernadero para el cliente Organizaci√≥n Terpel S.A. entre mayo y junio de 2025,compa a de distribuci n y transporte bic ditransa ha compensado las emisiones de gases de efecto invernadero para el cliente organizaci n terpel entre mayo y junio de 2025,Organización Terpel S.A.,076SVK-E
+Compa√±√≠a de distribuci√≥n y transporte SAS BIC-Ditransa ha compensado las emisiones de gases de efecto invernadero realizadas para el cliente Organizaci√≥n Terpel S.A. entre julio a agosto de 2025,compa a de distribuci n y transporte bic ditransa ha compensado las emisiones de gases de efecto invernadero realizadas para el cliente organizaci n terpel entre julio a agosto de 2025,Organización Terpel S.A.,076SVK-E
+Compa√±√≠a de distribuci√≥n y transporte SAS BIC-Ditransa ha compensado las emisiones de gases de efecto invernadero realizadas para el cliente Organizaci√≥n Terpel S.A. Entre septiembre a octubre de 2025,compa a de distribuci n y transporte bic ditransa ha compensado las emisiones de gases de efecto invernadero realizadas para el cliente organizaci n terpel entre septiembre a octubre de 2025,Organización Terpel S.A.,076SVK-E
+Compa√±√≠a de distribuci√≥n y transporte SAS BIC - Ditransa ha compensado las emisiones de gases de efecto invernadero realizadas para el cliente Organizaci√≥n Terpel S.A. Entre Nov a Dic del a√±o 2025,compa a de distribuci n y transporte bic ditransa ha compensado las emisiones de gases de efecto invernadero realizadas para el cliente organizaci n terpel entre nov a dic del a o 2025,Organización Terpel S.A.,076SVK-E
+Eni Gas and Power France,eni gas and power france,Eni S.p.A.,05DZHK-E
+Eni Plenitude S.p. A Societ√† Benefit,eni plenitude sp a societ benefit,Eni S.p.A.,05DZHK-E
+"Cloudflare, Inc.",cloudflare,"Cloudflare, Inc.",00C9MC-E
+Piedmont Natural Gas,piedmont natural gas,Duke Energy Corporation,06F9DV-E
+AESC Group Ltd.,aesc,"Nissan Motor Co., Ltd.",05HK04-E
+Retired on behalf of Aviva Zero policyholders (Nov 25),retired on behalf of aviva zero policyholders nov 25,Aviva plc,05G2MG-E
+Retired on behalf of Aviva Zero policyholders (Nov 25 ‚Äì Dec 25),retired on behalf of aviva zero policyholders nov 25 ai dec 25,Aviva plc,05G2MG-E
+Retired on behalf of Aviva Zero policyholders (Feb 26),retired on behalf of aviva zero policyholders feb 26,Aviva plc,05G2MG-E
+Telefonica Brasil S.A,telefonica brasil,Telefónica S.A.,05DZGP-E
+L'Or√©al Brasil,l or al brasil,L'Oréal S.A.,05H41J-E
+Maturatta - Friboi,maturatta friboi,JBS S.A.,11SPZ2-E
+Seara,seara,JBS S.A.,11SPZ2-E
+Friboi,friboi,JBS S.A.,11SPZ2-E
+Shopee Brasil,shopee brasil,Sea Limited,05J4P8-E
+Ita√∫ Unibanco,ita unibanco,Itaú Unibanco Holding S.A.,00BSDK-E
+Pluxee,pluxee,Sodexo S.A.,0021DS-E
+Rede (Ita√∫),rede ita,Itaú Unibanco Holding S.A.,00BSDK-E
+L'Or√©al,l or al,L'Oréal S.A.,05H41J-E
+IVECO,iveco,CNH Industrial N.V.,0D7GLM-E
+Natura Cosm√©ticos S.A.,natura cosm ticos,Natura &Co Holding S.A.,0L0Y50-E
+Horizon Oil Ltd,horizon oil,Horizon Oil Limited,05JFFB-E
+Bureau Veritas Australia Pty Ltd,bureau veritas australia,Bureau Veritas SE,004175-E
+Stantec Consulting Ltd,stantec consulting,Jacobs Solutions Inc.,0TCQSK-E
+Veritas Events - Daikin,veritas events daikin,Daikin Industries Ltd,05HWG6-E
+Xylem Water Solutions Deutschland GmbH,xylem water solutions deutschland,Xylem Inc.,0C4770-E
+Xylem Water Solutions Herford GmbH,xylem water solutions herford,Xylem Inc.,0C4770-E
+Growthpoint Properties Australia Limited,growthpoint properties australia,Growthpoint Properties Australia Limited,0821BN-E
+"MEETING PLACE (Gmp Property SOCIMI, S.A.)",meeting place gmp property socimi,"GMP Property SOCIMI, S.A.",0DYP00-E
+"SANRIN Co.,Ltd.",sanrin,"Sanrin Co., Ltd.",05J5VR-E
+"ENEX Co.,LTD",enex,"ENEX Co., Ltd.",05JCCT-E
+"Danieli Metallurgical Equipment and Service (China) Co., Ltd.",danieli metallurgical equipment and service china,Danieli & C. Officine Meccaniche S.p.A.,05HQ2V-E
+"INNER MONGOLIA JIN ZE YILI DAIRY CO., LTD.",inner mongolia jin ze yili dairy,China Mengniu Dairy Company Limited,05ZB7P-E
+"DURBERT YILI DAIRY CO., LTD",durbert yili dairy,China Mengniu Dairy Company Limited,05ZB7P-E
+"Bloomage Biotech Co., Ltd. 25th Anniversary Celebration in Jinan, held on Aug. 1st. 2025, VCUs are sponsored by Bloomage Biotech Co., Ltd.",bloomage biotech 25th anniversary celebration in jinan held on aug 1st 2025 vcus are sponsored by bloomage biotech,"Bloomage Biotech Group Co., Ltd.",00BH36-E
+"JIANGSU NARI POWER ELECTRIC CO., LTD.",jiangsu nari power electric,"NARI Technology Co., Ltd.",0608MF-E
+"CPMC Packaging (Daqing) Co.,Ltd.",cpmc packaging daqing,CPMC Holdings Limited,088JL6-E
+"Mengniu Dairy(Qujing) Co.,Ltd.",mengniu dairy qujing,China Mengniu Dairy Company Limited,05ZB7P-E
+DENSO International Europe B.V.,denso international europe,Denso Corporation,05HWC5-E
+Coca-Cola South Pacific Pty Ltd,coca cola south pacific,The Coca-Cola Company,000DWY-E
+Infinitus (CHINA) Company Ltd.,infinitus china,China Natural Resources Ltd.,001533-E
+Betsson Group 2024,betsson 2024,Betsson AB,05SGYG-E
+TOKIO MARINE SEGURADORA S.A.,tokio marine seguradora,Tokio Marine Holdings Inc.,05HWBX-E
+Cogna Educa√ß√£o S/A,cogna educa ß o s a,Cogna Educação S.A.,06VR41-E
+Weleda do Brasil Laboratorio e Farmacia Ltda.,weleda do brasil laboratorio e farmacia,Weleda AG,061YWZ-E
+China Merchants Bank Beijing Branch,china merchants bank beijing branch,"China Merchants Bank Co., Ltd.",0065H3-E
+"Ningbo Hangzhou Bay Geely Auto Parts Co.,Ltd",ningbo hangzhou bay geely auto parts,Geely Automobile Holdings Limited,05SXBK-E
+Investec Group for FY2024 corporate GHG footprint,investec for fy2024 corporate ghg footprint,Investec plc,05JLQY-E
+Investec Group for FY2025 corporate GHG footprint,investec for fy2025 corporate ghg footprint,Investec plc,05JLQY-E
+"Shuangliang Eco-Energy Systems Co., Ltd. & Jiangyin Totem New Energy Technology Co., Ltd.",shuangliang eco energy systems jiangyin totem new energy technology,"Shuangliang Eco-Energy Systems Co., Ltd.",0625WH-E
+"Jiangsu Shuangliang Boiler Co., Ltd.",jiangsu shuangliang boiler,"Shuangliang Eco-Energy Systems Co., Ltd.",0625WH-E
+"Jiangsu Shuangliang Cooling System Co., Ltd",jiangsu shuangliang cooling system,"Shuangliang Eco-Energy Systems Co., Ltd.",0625WH-E
+"Jiangsu Shuangliang New Energy EquipmentCo., Ltd. & Jiangsu Shuangliang Hydrogen Energy Technology Co., Ltd.",jiangsu shuangliang new energy equipmentco jiangsu shuangliang hydrogen energy technology,"Shuangliang Eco-Energy Systems Co., Ltd.",0625WH-E
+Suntec Real Estate Investment Trust,suntec real estate investment trust,Suntec Real Estate Investment Trust,006MR8-E
+Swiggy Ltd.,swiggy,Swiggy Limited,0FFN3V-E
+Climes on behalf of TATA Consumer Products Ltd.,climes on behalf of tata consumer products,TATA Consumer Products Limited,05J20N-E
+Ageas Asia Services Limited,ageas asia services,Ageas SA/NV,002HKJ-E
+"ITC MXD, ITC Tower-1 Kolkata",itc mxd itc tower 1 kolkata,ITC Limited,003JK0-E
+"ITC MXD, ITC Tower-2 Kolkata",itc mxd itc tower 2 kolkata,ITC Limited,003JK0-E
+"ITC MXD, Knowledge Centre Kolkata",itc mxd knowledge centre kolkata,ITC Limited,003JK0-E
+"Candriam, partnership limited by shares",candriam partnership by shares,BNP Paribas,0028BD-E
+Mitie PLC,mitie,Mitie PLC,05HZ2V-E
+Yelp Inc.,yelp,Yelp Inc.,007SJT-E
+Eni Plenitude France SAS,eni plenitude france,Eni S.p.A.,05DZHK-E
+Arcadis N.V.,arcadis,Arcadis N.V.,05J1H4-E
+"Schneider Electric Equipment and Engineering (Xi'an) Co., Ltd.",schneider electric equipment and engineering xi an,Schneider Electric SE,05HFTC-E
+"Shanghai Baosteel & Arcelor Tailor Metal Co., Ltd.",shanghai baosteel arcelor tailor metal,ArcelorMittal S.A.,05HK0W-E
+Guangzhou Bao-Mit Toyotsu Automotive Steel Co. Ltd.,guangzhou bao mit toyotsu automotive steel,ArcelorMittal S.A.,05HK0W-E
+"Chicony Power Technology(SuZhou) Co.,Ltd.",chicony power technology suzhou,"Chicony Electronics Co., Ltd.",05HZXF-E
+Bank of Communications Shanghai Jiaoyindasha Sub-branch,bank of communications shanghai jiaoyindasha sub branch,"Bank of Communications Co., Ltd.",05Z1CG-E
+"Delixi Electric (Puyang) Co., Ltd.",delixi electric puyang,"Delixi Group Co., Ltd.",0GQ8DS-E
+"Schneider Shanghai Low Voltage Terminal Apparatus Co.,Ltd.",schneider shanghai low voltage terminal apparatus,Schneider Electric SE,05HFTC-E
+"Trina Solar Yiwu Technology Co., Ltd.",trina solar yiwu technology,Trina Solar Limited,008V0H-E
+"Schneider Shanghai IndustrialControl Co., Ltd.",schneider shanghai industrialcontrol,Schneider Electric SE,05HFTC-E
+"Sigma-Aldrich (Wuxi) Biochemical Technology Co., Ltd.",sigma aldrich wuxi biochemical technology,Merck KGaA,001L0T-E
+Stala Oy,stala oy,Outokumpu Oyj,05HHKF-E
+Mandatum Plc,mandatum,Mandatum Plc,0XFGZX-E
+Weleda do Brasil Laboratorio e Farmacia Ltda. (CNPJ: ),weleda do brasil laboratorio e farmacia cnpj,Weleda AG,061YWZ-E
+Localiza Rent a Car (CNPJ: ),localiza rent a car cnpj,Localiza Rent a Car S.A.,002Y51-E
+Cogna Educa√ß√£o S/A (CNPJ: ),cogna educa ß o s a cnpj,Cogna Educação S.A.,06VR41-E
+"Santen Pharmaceutical (China)Co., Ltd.",santen pharmaceutical china,"Santen Pharmaceutical Co., Ltd.",05HXHT-E
+"Hisense Ronshen (Guangdong) Freezer Co., Ltd",hisense ronshen guangdong freezer,"Hisense Visual Technology Co., Ltd.",062XT9-E
+"Jiangsu Midea Cleaning Appliances CO.,LTD",jiangsu midea cleaning appliances,"Midea Group Co., Ltd.",060G1Y-E
+"Sinopec Senmei (Fujian) Petroleum Co., Ltd., Longyan Zhangping Xiyuan Gas Station",sinopec senmei fujian petroleum longyan zhangping xiyuan gas station,China Petroleum & Chemical Corporation,003V50-E
+"ZheJiang Viewshine Intelligent Meter Stock Co.,Ltd.",zhejiang viewshine intelligent meter stock,"Zhejiang Viewshine Intelligent Meter Co., Ltd.",0CVV0V-E
+"Sinopec Senmei (Fujian) Petroleum Co., Ltd. Longyan Liancheng Jianglin Gas Station",sinopec senmei fujian petroleum longyan liancheng jianglin gas station,China Petroleum & Chemical Corporation,003V50-E
+"CECEP Solar Energy Technology (Zhenjiang) Co.,Ltd",cecep solar energy technology zhenjiang,China Energy Engineering Group Corporation Limited,0FQKHT-E
+Brother Industries (U.K.) Ltd.,brother industries uk,"Brother Industries, Ltd.",05HWZY-E
+Localiza Rent a Car,localiza rent a car,Localiza Rent a Car,002Y51-E
+Banco Galicia y Buenos Aires S.A.U,banco galicia y buenos aires sau,Grupo Financiero Galicia S.A.,00354M-E
+"Sichuan Danone Foods & Beverage Co., Ltd.",sichuan danone foods beverage,Danone S.A.,001YMJ-E
+"Hubei Danone Foods & Beverage Co., Ltd.",hubei danone foods beverage,Danone S.A.,001YMJ-E
+"Danone (China) Food & Beverage Co., Ltd.",danone china food beverage,Danone S.A.,001YMJ-E
+"Danone (Shaanxi) Foods & Beverage Co., Ltd.",danone shaanxi foods beverage,Danone S.A.,001YMJ-E
+"Danone (Fengrun) Foods & Beverage Co., Ltd.",danone fengrun foods beverage,Danone S.A.,001YMJ-E
+"LONGi Solar Technology (Jia xing) Co., Ltd.",longi solar technology jia xing,"LONGi Green Energy Technology Co., Ltd.",0BYK40-E
+Contemporary Amperex Technology Thuringia AG,contemporary amperex technology thuringia,"Contemporary Amperex Technology Co., Limited",0GT2WV-E
+"‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Â±±‰∏úÊû£Â∫ÑÊªïÂ∑ûÁ¨¨‰∫åÂçÅ‰∏ÉÂä†Ê≤πÁ´ô Sinopec Sales Co., Ltd. Shandong Zaozhuang Tengzhou 27th Gas Station",aoωau aaneiaaiæec aωeuaeoeao ae a ueu a neaia ua aaca eaa e πa o sinopec sales shandong zaozhuang tengzhou 27th gas station,China Petroleum & Chemical Corporation,003V50-E
+"‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Â±±‰∏úËé±ËäúÁ¨¨ÂÖ≠ÂçÅ‰∏âÂä†Ê≤πÁ´ô Sinopec Sales Co., Ltd. Shandong Laiwu No.63 Gas Station",aoωau aaneiaaiæec aωeuaeoeao ae a uee eaua ao aca aaa e πa o sinopec sales shandong laiwu no 63 gas station,China Petroleum & Chemical Corporation,003V50-E
+"‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Â±±‰∏úËÅäÂüé‰∏úÈòøÁ¨¨‰∫åÂä†Ê≤πÁ´ô Sinopec Sales Co., Ltd. Shandong Liaocheng Dong'e No.2 Gas Station",aoωau aaneiaaiæec aωeuaeoeao ae a ueaaaue ueoøa aaa e πa o sinopec sales shandong liaocheng dong e no 2 gas station,China Petroleum & Chemical Corporation,003V50-E
+"‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Â±±‰∏úÊΩçÂùäÁ¨¨ÂçÅ‰∏âÂä†Ê≤πÁ´ô Sinopec Sales Co.,Ltd. Shandong Weifang 13th Gas Station",aoωau aaneiaaiæec aωeuaeoeao ae a ueωcauaa aca aaa e πa o sinopec sales shandong weifang 13th gas station,China Petroleum & Chemical Corporation,003V50-E
+"‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Â±±‰∏úÊó•ÁÖß‰∫îËé≤Á¨¨‰∫åÂçÅÂÖ≠Âä†Ê≤πÁ´ô Sinopec Sales Co.,Ltd. Shandong Petroleum Branch, Rizhao Wulian No. 26 gasoline Station",aoωau aaneiaaiæec aωeuaeoeao ae a ueo aoß iee a aacaao aa e πa o sinopec sales shandong petroleum branch rizhao wulian no 26 gasoline station,China Petroleum & Chemical Corporation,003V50-E
+"‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Â±±‰∏úÊµéÂÆÅÁü≥Ê≤πÂàÜÂÖ¨Âè∏ÂåóÊπñÁ¨¨‰∏ÄÂä†Ê≤πÁ´ô Sinopec Sales Co.,Ltd. Shandong Petroleum Branch, Jining Beihu No. 1 gasoline station",aoωau aaneiaaiæec aωeuaeoeao ae a ueμeaæaau e πaauao ae aaoeπna aaa e πa o sinopec sales shandong petroleum branch jining beihu no 1 gasoline station,China Petroleum & Chemical Corporation,003V50-E
+"‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Âçé‰∏úÂàÜÂÖ¨Âè∏ÈôàÂ±±Ê≤πÂ∫ì EASTERN CHINA SUBSIDIARY OF SINOPEC MARKETING CO.,LTD. , CHENSHAN OIL DEPOT",aoωau aaneiaaiæec aωeuaeoeao ae ace uaauao ae eoaa e πa i eastern china subsidiary of sinopec marketing chenshan oil depot,China Petroleum & Chemical Corporation,003V50-E
+"EASTERN CHINA SUBSIDIARY OF SINOPEC MARKETING CO.,LTD. Ôºå CHENSHAN OIL DEPOT",eastern china subsidiary of sinopec marketing ooa chenshan oil depot,China Petroleum & Chemical Corporation,003V50-E
+"On behalf of Etsy, Inc., and its affiliates",on behalf of etsy and its affiliates,"Etsy, Inc.",008HL3-E
+Smith International Italia S.p.A.,smith international italia,Schlumberger Limited,0015N4-E
+Cameron Italy S.r.l.,cameron italy,Schlumberger Limited,0015N4-E
+Schlumberger Italiana S.p.A.,schlumberger italiana,Schlumberger Limited,0015N4-E
+"Bridgestone India Private Limited, Address -Plot No. A43, Phase-II, MIDC Chakan,Village Sawardari, Taluka Khed,Pune, 410501, Maharashtra, INDIA",bridgestone india private address plot no a43 phase ii midc chakan village sawardari taluka khed pune 410501 maharashtra india,Bridgestone Corporation,001B7B-E
+Karoon Energy,karoon energy,Karoon Energy Limited,0066RY-E
+BANCO DE GALICIA Y BUENOS AIRES SAU,banco de galicia y buenos aires sau,Grupo Financiero Galicia,00354M-E
+TELECOM ARGENTINA S.A.,telecom argentina,Telecom Argentina S.A.,001KQ6-E
+SMURFIT WESTROCK,smurfit westrock,WestRock Company,0KBSXG-E
+MAPFRE Brasil,mapfre brasil,MAPFRE S.A.,003HWW-E
+Retirement on behalf of our customer thyssenkrupp Steel Europe AG,retirement on behalf of our customer thyssenkrupp steel europe,thyssenkrupp AG,05HGS3-E
+Compensaci√≥n del e-commerce de Cencosud Retail Per√∫ S.A. - 2023,compensaci n del e commerce de cencosud retail per 2023,Cencosud S.A.,05SK9R-E
+Huella de Carbono RIMAC 2024,huella de carbono rimac 2024,RIMAC Seguros,05JFLY-E
+Adidas-Rimac Lima 42k - Marat√≥n de Lima gestionada por Peru Runners 1984 SAC,adidas rimac lima 42k marat n de lima gestionada por peru runners 1984 sac,Adidas AG,06GPMP-E
+BOSCH REXROTH S.A.C. por la neutralizacioÃÅn de GEI generadas por la medicioÃÅn de la huella de carbono organizacional del anÃÉo 2023,bosch rexroth sac por la neutralizacioaan de gei generadas por la medicioaan de la huella de carbono organizacional del anaeo 2023,Bosch GmbH,05J1S3-E
+Supermercados Peruanos S.A.,supermercados peruanos,Ahold Delhaize,0GF794-E
+Toyota del Per√∫,toyota del per,Toyota Motor Corporation,003K89-E
+"FERROVIAL CORPORACION, S.A.",ferrovial corporacion,Ferrovial S.A.,0Q1NM3-E
+"Cr√©ditos para compensar emisiones del Banco de Cr√©dito de Bolivia SA 2024 para reducir nuestras emisiones netas de 20% respecto a la l√≠nea base 2022, en l√≠nea con el compromiso ambiental de Credicorp",cr ditos para compensar emisiones del banco de cr dito de bolivia 2024 para reducir nuestras emisiones netas de 20 respecto a la l nea base 2022 en l nea con el compromiso ambiental de credicorp,Credicorp Ltd.,001MPG-E
+"‰∏≠ÂõΩÁü≥ÂåñÁáÉÊñôÊ≤πÈîÄÂîÆÊúâÈôêÂÖ¨Âè∏Âπø‰∏ú‰ΩõÂ±±ÈªÑÂ°òÊ∞¥‰∏äÂä†Ê≤πÁ´ô SINOPEC Fuel Oil Sales Co.,Ltd. Guangdong Foshan Huangtang Water Gas Station",aoωau aanaaeenoe πeiaaiæeuaeoeao ae aπø u ωoa eana oe aaa e πa o sinopec fuel oil sales guangdong foshan huangtang water gas station,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Liaoning Tieling Diaobingshan Chengdong Gas Station",sinopec sales liaoning tieling diaobingshan chengdong gas station,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Liaoning Tieling Xingkai Street Gas Station",sinopec sales liaoning tieling xingkai street gas station,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Liaoning Tieling Ganjiang Road Gas Station",sinopec sales liaoning tieling ganjiang road gas station,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Ningxia Shizuishan Pingluo Pingda Gas Station",sinopec sales ningxia shizuishan pingluo pingda gas station,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Ningxia Wuzhong Changhe Gas Station",sinopec sales ningxia wuzhong changhe gas station,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Ningxia shizuishan longhu Gas Station",sinopec sales ningxia shizuishan longhu gas station,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Jilin Tonghua Petroleum Branch Qihe Gas Station",sinopec sales jilin tonghua petroleum branch qihe gas station,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Heilongjiang Suihua Petroleum Branch Changgang Gas Station",sinopec sales heilongjiang suihua petroleum branch changgang gas station,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Heilongjiang Harbin Petroleum Branch Green Island Gas Station",sinopec sales heilongjiang harbin petroleum branch green island gas station,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Heilongjiang Qiqihar Petroleum Branch Kedong Gas Station",sinopec sales heilongjiang qiqihar petroleum branch kedong gas station,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Jilin Yanbian Petroleum Branch Xing'an Gas Station",sinopec sales jilin yanbian petroleum branch xing an gas station,China Petroleum & Chemical Corporation,003V50-E
+Keppel REIT for Pinnacle Office Park,keppel reit for pinnacle office park,Keppel Corporation Limited,05HWVR-E
+Nestl√©,nestl,Nestlé S.A.,001XQ4-E
+"GROHE AG - GROHE locations in Germany, Portugal and Thailand, Scope 1 and Scope 3 emissions; for consumption period 01.04.2024 - 31.03.2025",grohe grohe locations in germany portugal and thailand scope 1 and scope 3 emissions for consumption period 01 04 2024 31 03 2025,Lixil Group Corporation,05HWFM-E
+"GROHE AG - GROHE locations in Germany, Portugal and Thailand, Scope 1 and Scope 3 emissions; for consumption period 01.04.2025 - 31.03.2026",grohe grohe locations in germany portugal and thailand scope 1 and scope 3 emissions for consumption period 01 04 2025 31 03 2026,Lixil Group Corporation,05HWFM-E
+The Trustee for Suntec REIT 55 Trust,the trustee for suntec reit 55 trust,Suntec Real Estate Investment Trust,006MR8-E
+Heidelberg Materials Australia Group Pty Ltd,heidelberg materials australia,Heidelberg Materials AG,05HL4P-E
+SUZANO / NOVA PAGINA IND GRAF LTDA,suzano nova pagina ind graf,Suzano S.A.,05ZYMQ-E
+SUZANO SA / 43 SA GRAF E EDITORA,suzano 43 graf e editora,Suzano S.A.,05ZYMQ-E
+SUZANO / KINGRAF IND GRAF LTDA,suzano kingraf ind graf,Suzano S.A.,05ZYMQ-E
+V√•r Energi ASA,v r energi,Vår Energi ASA,0KDXRZ-E
+Valmet Oyj,valmet,Valmet Oyj,0DH64Z-E
+Flutter Entertainments - On Behalf of Flutter Entertainment‚Äôs 2024 Scope 1 and 2 offsetting requirements.,flutter entertainments on behalf of flutter entertainment aos 2024 scope 1 and 2 offsetting requirements,Flutter Entertainment plc,0G1LBR-E
+"Siemens Mobility, S.L.U. and Siemens Rail Automation S.A.U.",siemens mobility slu and siemens rail automation sau,Siemens AG,002Q21-E
+"Siemens Ltd, Binh Duong Branch No.02, Street 10, VSIP 1, Thuan An, Binh Duong, Viet Nam",siemens binh duong branch no 02 street 10 vsip 1 thuan an binh duong viet nam,Siemens AG,002Q21-E
+"Siemens Numerical Control Ltd., Nanjing",siemens numerical control nanjing,Siemens AG,002Q21-E
+"Siemens Industrial Automation Products Ltd., Chengdu",siemens industrial automation products chengdu,Siemens AG,002Q21-E
+GitLab Inc.,gitlab,GitLab Inc.,0FCWKX-E
+"Retired on behalf of Workday, Inc.",retired on behalf of workday,"Workday, Inc.",06ZK05-E
+Project Banksia (CSL Seqirus),project banksia csl seqirus,CSL Limited,003Q91-E
+"Severfield plc, Severs House, Dalton Airfield Industrial Estate, Dalton, Thirsk, North Yorkshire, YO7 3JN",severfield severs house dalton airfield industrial estate dalton thirsk north yorkshire yo7 3jn,Severfield plc,05J425-E
+China Construction Bank Corporation Yunnan Branch,china construction bank yunnan branch,China Construction Bank Corporation,05W4FW-E
+China Construction Bank Dalian Branch,china construction bank dalian branch,China Construction Bank Corporation,05W4FW-E
+China Construction Bank Jilin Branch,china construction bank jilin branch,China Construction Bank Corporation,05W4FW-E
+China Construction Bank Shanxi Branch,china construction bank shanxi branch,China Construction Bank Corporation,05W4FW-E
+China Construction Bank Corporation Pu'er Branch,china construction bank pu er branch,China Construction Bank Corporation,05W4FW-E
+China Construction Bank Corporation Limited Qingdao Sifang Sub-branch,china construction bank qingdao sifang sub branch,China Construction Bank Corporation,05W4FW-E
+China Construction Bank Tieling Branch,china construction bank tieling branch,China Construction Bank Corporation,05W4FW-E
+Carl Zeiss Vision (China) Ltd. - Offsetting the unavoidable Scope 1 and 2 emissions of Carl Zeiss Vision (China) Ltd. for fiscal year 2024/2025,carl zeiss vision china offsetting the unavoidable scope 1 and 2 emissions of carl zeiss vision china for fiscal year 2024 2025,Carl Zeiss AG,05J5W9-E
+‰∏≠ÂõΩÂÜú‰∏öÈì∂Ë°åËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Â§™ÂéüÈò≥ÂÖâÊ±æÊ≤≥ÊπæÊîØË°å Agricultural Bank of China Limited Taiyuan Sunshine Fenhe Bay Branch,aoωauu oei e aec aωeuaeoeao ae a tmaeueo aoae æe eπæeiøe a agricultural bank of china taiyuan sunshine fenhe bay branch,Agricultural Bank of China Limited,05MKV6-E
+For the unavoidable carbon emissions of the Mercedes-AMG PETRONAS Formula 1 Team,for the unavoidable carbon emissions of the mercedes amg petronas formula 1 team,Mercedes-Benz Group AG,0025F0-E
+Retired by Zurich ICAV on behalf of the Zurich Carbon Neutral Funds,retired by zurich icav on behalf of the zurich carbon neutral funds,Zurich Insurance Company Ltd,05GGL5-E
+Retired on behalf of Zurich Insurance Company Ltd,retired on behalf of zurich insurance,Zurich Insurance Company Ltd,05GGL5-E
+Zurich Invest ICAV on behalf of Zurich Climate Focus Funds,zurich invest icav on behalf of zurich climate focus funds,Zurich Insurance Company Ltd,05GGL5-E
+Air Canada,air canada,Air Canada,0019S0-E
+CIE AUTOMOTIVE INDIA LTD,cie automotive india,CIE Automotive S.A.,05HVZW-E
+"CLARIANT INDIA PRIVATE LIMITED, Bonthapally, Telangana, India",clariant india private bonthapally telangana india,Clariant AG,05HL3L-E
+Acea Energia SPA - Annullamento certificati per l‚Äôanno 2025 (acconto 1) da parte di Acea Energia SPA per i clienti MM comprensivi dei prodotti WINDTRE.,acea energia annullamento certificati per l aoanno 2025 acconto 1 da parte di acea energia per i clienti mm comprensivi dei prodotti windtre,Acea S.p.A.,05HGSK-E
+Alfa Financial Software Holdings plc,alfa financial software,Alfa Financial Software Holdings plc,0H0SKF-E
+Brockmans Gin Limited,brockmans gin,Diageo plc,0012V7-E
+Great Packaging a nombre de Cencosud,great packaging a nombre de cencosud,Cencosud S.A.,05SK9R-E
+Retired on behalf of Treasury Wine Estates for the Lindemans wine brands,retired on behalf of treasury wine estates for the lindemans wine brands,Treasury Wine Estates Limited,0B0T5B-E
+Mastek UK Limited,mastek uk,Mastek Limited,05J4FX-E
+"SASOL, 101044",sasol 101044,Sasol Limited,05HWDM-E
+Fujitsu Services Limited,fujitsu services,Fujitsu Limited,001R4R-E
+Acea Energia SPA - Annullamento certificati per l‚Äôanno 2024 (conguaglio 1) da parte di Acea Energia SPA per i clienti MM comprensivi dei prodotti WINDTRE.,acea energia annullamento certificati per l aoanno 2024 conguaglio 1 da parte di acea energia per i clienti mm comprensivi dei prodotti windtre,Acea SpA,05HGSK-E
+Acea Energia SPA - annullamento certificati per l‚Äôanno 2025 (acconto 2) da parte di Acea Energia SPA per i clienti MM comprensivi dei prodotti WINDTRE,acea energia annullamento certificati per l aoanno 2025 acconto 2 da parte di acea energia per i clienti mm comprensivi dei prodotti windtre,Acea SpA,05HGSK-E
+"HUNAN CRRC TIMES ELECTRIC DRIVE TECHNOLOGY CO., LTD.",hunan crrc times electric drive technology,CRRC Corporation Limited,07C4LK-E
+"CERATIZIT India Pvt. Ltd, PLOT NO 56, ULUBERIA INDUSTRIAL GROWTH CENTRE Birshibpur ULUBERIA - Howrah 711316",ceratizit india pvt plot no 56 uluberia industrial growth centre birshibpur uluberia howrah 711316,Sandvik AB,003PSQ-E
+"CERATIZIT India Pvt. Ltd, 124/A, Bommasandra Indl Area Bangalore 560099",ceratizit india pvt 124 a bommasandra indl area bangalore 560099,Sandvik AB,003PSQ-E
+"CERATIZIT India Pvt. Ltd, 16J, Attibele Industrial Area Bangalore 562107",ceratizit india pvt 16j attibele industrial area bangalore 562107,Sandvik AB,003PSQ-E
+"Sanofi Healthcare India Private Limited, The Spire, Tower 100, Plot No. 4, Survey No. 83/1, Silpa Gram Craft Village, HITEC City, Hyderabad, Telangana 500081",sanofi healthcare india private the spire tower 100 plot no 4 survey no 83 1 silpa gram craft village hitec city hyderabad telangana 500081,Sanofi SE,005M9Z-E
+SYLVAMO SWEDEN,sylvamo sweden,Sylvamo Corporation,0P7WF0-E
+"KOREAN AIR LINES CO., LTD",korean air lines,"Korean Air Lines Co., Ltd.",05HXFM-E
+Saudi Aramco,saudi aramco,Saudi Aramco,06ZD6N-E
+Tata Steel Limited,tata steel,Tata Steel Limited,05LYCN-E
+Premier Miton Group Plc,premier miton,Premier Miton Group Plc,098DHK-E
+"ATTA≈û ALARKO TUR. TES. A.≈û. Hillside Beach Club, aligned with Alarko Group‚Äôs 2050 net-zero vision, has offset its 2024 emissions, underscoring its commitment to climate action and sustainability.",atta u alarko tur tes a u hillside beach club aligned with alarko aos 2050 net zero vision has offset its 2024 emissions underscoring its commitment to climate action and sustainability,Alarko Holding A.S.,05J1JX-E
+Banco Ita√∫ Uruguay S.A,banco ita uruguay,Banco Itaú Uruguay S.A.,00BSDK-E
+"Chengdu CRRC Rail Equipment Co., Ltd.",chengdu crrc rail equipment,CRRC Corporation Limited,07C4LK-E
+Petrochina Company Limited Hebei Xingtai Sales Branch No.41 Gas Station,petrochina hebei xingtai sales branch no 41 gas station,PetroChina Company Limited,0035C7-E
+Petrochina Company Limited Hebei Langfang Sales Branch No.97 Gas Station,petrochina hebei langfang sales branch no 97 gas station,PetroChina Company Limited,0035C7-E
+"The Jintong Road Gas Station of Sinopec Sales Co., Ltd. Chongqing Branch",the jintong road gas station of sinopec sales chongqing branch,China Petroleum & Chemical Corporation,003V50-E
+CO2 Compensation FUCHS 2026,co2 compensation fuchs 2026,Fuchs Petrolub SE,05J50C-E
+Retired on behalf of Aviva Zero policyholders (Nov 24),retired on behalf of aviva zero policyholders nov 24,Aviva plc,05G2MG-E
+Retired on behalf of Aviva Zero policyholders,retired on behalf of aviva zero policyholders,Aviva plc,05G2MG-E
+Retired on behalf of Aviva Zero policyholders for (Apr 25 ‚Äì Jul 25),retired on behalf of aviva zero policyholders for apr 25 ai jul 25,Aviva plc,05G2MG-E
+Retired on behalf of Aviva Zero policyholders (APR 25 - JUL 25),retired on behalf of aviva zero policyholders apr 25 jul 25,Aviva plc,05G2MG-E
+Retired on behalf of Aviva Zero policyholders for (Nov 24 ‚Äì Mar 25),retired on behalf of aviva zero policyholders for nov 24 ai mar 25,Aviva plc,05G2MG-E
+Retired on behalf of Aviva Zero policyholders (Jun 25 ‚Äì Jul 25),retired on behalf of aviva zero policyholders jun 25 ai jul 25,Aviva plc,05G2MG-E
+Retired on behalf of Aviva Zero policyholders for (FEB 25 - APR 25),retired on behalf of aviva zero policyholders for feb 25 apr 25,Aviva plc,05G2MG-E
+Comerica Bank,comerica bank,Comerica Incorporated,000F01-E
+Retired on behalf of Aviva Zero policyholders (Sep 24 ‚Äì Oct 24),retired on behalf of aviva zero policyholders sep 24 ai oct 24,Aviva plc,05G2MG-E
+Retired on behalf of Aviva Zero policyholders for (JUL 25 ‚Äì SEP 25),retired on behalf of aviva zero policyholders for jul 25 ai sep 25,Aviva plc,05G2MG-E
+Retired on behalf of Aviva Zero policyholders for (7/25 ‚Äì 11/25),retired on behalf of aviva zero policyholders for 7 25 ai 11 25,Aviva plc,05G2MG-E
+Retired on behalf of Aviva Zero policyholders (Aug 25 ‚Äì Jan 26),retired on behalf of aviva zero policyholders aug 25 ai jan 26,Aviva plc,05G2MG-E
+"BELLSYSTEM24 HOLDINGS,INC.",bellsystem24,NTT DATA Corporation,05HWC7-E
+"Ledman Optoelectronic Co.,Ltd.",ledman optoelectronic,"Ledman Optoelectronic Co.,Ltd.",0BCNK2-E
+"Anheuser-Busch InBev (Jiamusi) Brewery Co.,Ltd.",anheuser busch inbev jiamusi brewery,Anheuser-Busch InBev SA/NV,0GH7WP-E
+"Anheuser-Busch Inbev Sedrin (Zhangzhou) Brewery Co., Ltd.",anheuser busch inbev sedrin zhangzhou brewery,Anheuser-Busch InBev SA/NV,0GH7WP-E
+"Anheuser-Busch InBev (Sichuan) Brewery Co., Ltd.",anheuser busch inbev sichuan brewery,Anheuser-Busch InBev SA/NV,0GH7WP-E
+Asahi Beverages Pty Ltd,asahi beverages,"Asahi Group Holdings, Inc.",05HWGB-E
+"On behalf of Autodesk, Inc.",on behalf of autodesk,"Autodesk, Inc.",000CFP-E
+Retiring on behalf of and for the benefit of JPMorgan Chase,retiring on behalf of and for the benefit of jpmorgan chase,JPMorgan Chase & Co.,0035K2-E
+OCBC Bank (Malaysia) Berhad,ocbc bank malaysia berhad,Oversea-Chinese Banking Corporation Limited,05SGLV-E
+Retired on behalf of Atlassian,retired on behalf of atlassian,Atlassian Corporation PLC,0TT8NS-E
+"Retired on behalf of Autodesk, Inc.",retired on behalf of autodesk,"Autodesk, Inc.",000CFP-E
+Retired on behalf of Zeta Global Corp.,retired on behalf of zeta global,Zeta Global Holdings Corp.,0M4SMC-E
+"SKODA AUTO Volkswagen India Private Ltd Plot No. A-1/1, Shendra, Five Star Industrial Area, MIDC, Chhatrapati Sambhajinagar(CSN) - 431201 Maharashtra, INDIA.",skoda auto volkswagen india private plot no a 1 1 shendra five star industrial area midc chhatrapati sambhajinagar csn 431201 maharashtra india,Volkswagen AG,001YFZ-E
+Vedant Fashions Limited,vedant fashions,Vedant Fashions Limited,0HCN7K-E
+Shearwater Group PLC (April 2024 - June 2025),shearwater april 2024 june 2025,Shearwater Group PLC,005R9G-E
+Cochlear Limited ABN,cochlear abn,Cochlear Limited,05HXCK-E
+Cochlear America,cochlear america,Cochlear Limited,05HXCK-E
+Ferrovial,ferrovial,"Ferrovial, S.A.",0Q1NM3-E
+"SILC IMMOBLES, S.A.",silc immobles,"CaixaBank, S.A.",06Y6NS-E
+CAIXABANK TECH SLU,caixabank tech slu,"CaixaBank, S.A.",06Y6NS-E
+"CAIXABANK ADVANCED BUSINESS ANALYTICS, S.A.U",caixabank advanced business analytics sau,"CaixaBank, S.A.",06Y6NS-E
+CaixaBank Wealth Management Luxembourg S.A,caixabank wealth management luxembourg,"CaixaBank, S.A.",06Y6NS-E
+"CaixaBank Operational Services, S.A.U.",caixabank operational services sau,"CaixaBank, S.A.",06Y6NS-E
+CAIXABANK PAYMENTS & CONSUMER,caixabank payments consumer,"CaixaBank, S.A.",06Y6NS-E
+"CaixaBank Facilities Management, S.A.",caixabank facilities management,"CaixaBank, S.A.",06Y6NS-E
+"VidaCaixa, S.A.U",vidacaixa sau,"CaixaBank, S.A.",06Y6NS-E
+"CaixaBank Asset Management SGIIC, S.A.U.",caixabank asset management sgiic sau,"CaixaBank, S.A.",06Y6NS-E
+"TPG, Inc",tpg,TPG Inc.,0PY4VR-E
+China Airlines Ltd.,china airlines,China Airlines Ltd.,05HXPW-E
+Retired on behalf of Aviva Zero policyholders (Feb 25 ‚Äì Mar 25),retired on behalf of aviva zero policyholders feb 25 ai mar 25,Aviva plc,05G2MG-E
+Retired on behalf of Aviva Zero policyholders (Mar 25),retired on behalf of aviva zero policyholders mar 25,Aviva plc,05G2MG-E
+Retired on behalf of Aviva Zero policyholders (Jan 25 ‚Äì Mar 25),retired on behalf of aviva zero policyholders jan 25 ai mar 25,Aviva plc,05G2MG-E
+Retired on behalf of Aviva Zero policyholders (Mar 25 - Apr 25),retired on behalf of aviva zero policyholders mar 25 apr 25,Aviva plc,05G2MG-E
+Retired on behalf of Aviva Zero policyholders for (MAR 25 ‚Äì MAY 25),retired on behalf of aviva zero policyholders for mar 25 ai may 25,Aviva plc,05G2MG-E
+Retired on behalf of Aviva Zero policyholders (Jan 25 ‚Äì Aug 25),retired on behalf of aviva zero policyholders jan 25 ai aug 25,Aviva plc,05G2MG-E
+Retired on behalf of Aviva Zero policyholders for (MAR 25 ‚Äì JUN 25),retired on behalf of aviva zero policyholders for mar 25 ai jun 25,Aviva plc,05G2MG-E
+Retired on behalf of Aviva Zero policyholders (Jan 25 ‚Äì Apr 25),retired on behalf of aviva zero policyholders jan 25 ai apr 25,Aviva plc,05G2MG-E
+Retired on behalf of Aviva Zero policyholders (May 25 ‚Äì Aug 25),retired on behalf of aviva zero policyholders may 25 ai aug 25,Aviva plc,05G2MG-E
+Bolsas y Mercados Argentinos S.A.,bolsas y mercados argentinos,Bolsas y Mercados Argentinos S.A.,0H2BBG-E
+MODDO MARKETING por L`Oreal Aqua Fusion.,moddo marketing por l oreal aqua fusion,L'Oréal S.A.,05H41J-E
+Sunshine Lab Compensa 2 tn CO2eq. como acci√≥n de impacto por L`Oreal Aqua Fusion,sunshine lab compensa 2 tn co2eq como acci n de impacto por l oreal aqua fusion,L'Oréal S.A.,05H41J-E
+Sunshine Lab por las emisiones generadas por Avon Make Up Truck,sunshine lab por las emisiones generadas por avon make up truck,Natura &Co Holding S.A.,0L0Y50-E
+EnergyAustralia Pty Ltd,energyaustralia,Origin Energy Limited,003KJL-E
+"Bank of Beijing Co., Ltd",bank of beijing,"Bank of Beijing Co., Ltd",0625PW-E
+"Sinopec Sales Co., Ltd. Shanxi Jincheng Oil Products Branch",sinopec sales shanxi jincheng oil products branch,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Shanxi Linfen Petroleum Branch Quwo Oil Depot",sinopec sales shanxi linfen petroleum branch quwo oil depot,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Liaoning Dalian Jinwan Gas Station",sinopec sales liaoning dalian jinwan gas station,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Liaoning Huludao Dongcheng No.6 Gas Station",sinopec sales liaoning huludao dongcheng no 6 gas station,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Liaoning Fushun North Ring Gas Station",sinopec sales liaoning fushun north ring gas station,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Liaoning Fushun Gaoyang Road Gas Station",sinopec sales liaoning fushun gaoyang road gas station,China Petroleum & Chemical Corporation,003V50-E
+Orient Securities asset management Company Limited,orient securities asset management,"Orient Securities Co., Ltd",0FCQN6-E
+"Â®ÅÊµ∑Èì∂Ë°åËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Â§©Ê¥•ÂàÜË°å ÔºàWeihai Bank Co., Ltd. Tianjin BranchÔºâ",a aeμ ei e aec aωeuaeoeao ae a e aaue a ooaweihai bank tianjin branchooa,"Weihai Bank Co., Ltd.",0D1XW7-E
+OMV Petrom Marketing SRL,omv petrom marketing,OMV,003JKC-E
+OMV Downstream GmbH,omv downstream,OMV,003JKC-E
+OMV Hung√°ria √Åsv√°nyolaj Kft.,omv hung ria asv nyolaj kft,OMV,003JKC-E
+Acea Energia SPA - annullamento certificati per l‚Äôanno 2025 (acconto 3) da parte di Acea Energia SPA per i clienti MM comprensivi dei prodotti WINDTRE.,acea energia annullamento certificati per l aoanno 2025 acconto 3 da parte di acea energia per i clienti mm comprensivi dei prodotti windtre,ACEA S.p.A.,05HGSK-E
+Grupo Mapfre en Espa√±a,grupo mapfre en espa a,Mapfre S.A.,003HWW-E
+BB PREVIDENCIA FUNDO DE PENS√ÉO BANCO DO BRASIL,bb previdencia fundo de pens eo banco do brasil,Banco do Brasil S.A.,05HWPQ-E
+Glaxosmithkline Brasil LTDA,glaxosmithkline brasil,GSK plc,05FT2R-E
+Uber,uber,"Uber Technologies, Inc.",0B49NF-E
+Mapfre Group in Germany,mapfre in germany,Mapfre S.A.,003HWW-E
+Mapfre Group in Malta,mapfre in malta,Mapfre S.A.,003HWW-E
+Bristol Myers Squibb Farmac√™utica Ltda,bristol myers squibb farmac tmutica,Bristol Myers Squibb Co.,000D1R-E
+VALMET CELULOSE PAPEL E ENERGIA LTDA,valmet celulose papel e energia,Valmet Oyj,0DH64Z-E
+Aon Holdings Corretores de Seguros LTDA.,aon corretores de seguros,Aon plc,0D7CFN-E
+Hitachi Energy Brasil LTDA,hitachi energy brasil,"Hitachi, Ltd.",000LQ5-E
+YDUQS PARTICIPA√á√ïES S.A,yduqs participa a ies,YDUQS Participações S.A.,06W5ZY-E
+Daikin Ar-Condicionado Brasil Ltda,daikin ar condicionado brasil,"Daikin Industries, Ltd.",05HWG6-E
+1 Ano de Desestatiza√ß√£o SABESP | esg&voc√™,1 ano de desestatiza ß o sabesp esg voc tm,Sabesp,05HX85-E
+EDP RENOVAVEIS BRASIL S/A,edp renovaveis brasil s a,"EDP Renováveis, S.A.",0785HP-E
+ROCHE DIAGNOSTICA BRASIL LTDA.,roche diagnostica brasil,Roche Holding AG,000VJ8-E
+"TCL DELONGHI HOME APPLIANCES(ZHONGSHAN) CO.,LTD",tcl delonghi home appliances zhongshan,TCL Electronics Holdings Limited,05HYYP-E
+"CHINA CONSTRUCTION THIRD ENGINEERING BUREAU GROUP CO.,LTD",china construction third engineering bureau,China State Construction Engineering Corporation,05Q1QY-E
+"Panasonic Energy (SuZhou) Co.,Ltd.",panasonic energy suzhou,Panasonic Corporation,001RJ7-E
+BOE Sustainable Development Brand Release,boe sustainable development brand release,"BOE Technology Group Co., Ltd.",05J44K-E
+"Cboe Bats, LLC",cboe bats,"Cboe Global Markets, Inc.",008Z4S-E
+Grupo Mapfre en Per√∫,grupo mapfre en per,"Mapfre, S.A.",003HWW-E
+Mercure Hotel Suites & Apartments FZ - LLC,mercure hotel suites apartments fz,Accor S.A.,002KZL-E
+Movenpick Hotel - Jumeirah Beach,movenpick hotel jumeirah beach,Accor S.A.,002KZL-E
+Smith International Italia Spa,smith international italia,TechnipFMC plc,0GG8BZ-E
+Cameron Italy Srl,cameron italy,TechnipFMC plc,0GG8BZ-E
+Immobiliare Dolce S.r.l.,immobiliare dolce,LVMH Moët Hennessy Louis Vuitton SE,002LGW-E
+Dolce & Gabbana S.r.l,dolce gabbana,LVMH Moët Hennessy Louis Vuitton SE,002LGW-E
+Evento Enel Com Voc√™ | 2 Edi√ß√µes 2025 | RJ,evento enel com voc tm 2 edi ß μes 2025 rj,Enel S.p.A.,0031L0-E
+PROSEGUR COMPA√ë√çA DE SEGURIDAD S.A.,prosegur compa e ca de seguridad,"Prosegur Compañía de Seguridad, S.A.",05HXMQ-E
+M DIAS BRANCO S.A. INDUSTRIA E COMERCIO DE ALIMENTOS,m dias branco industria e comercio de alimentos,M. Dias Branco S.A. - Indústria e Comércio de Alimentos,05W87Z-E
+Quota di compensazione emissioni 2024 per FPT Industrial Testing Torino & ePowertrain plant,quota di compensazione emissioni 2024 per fpt industrial testing torino epowertrain plant,CNH Industrial N.V.,0D7GLM-E
+"Emissions offsetting 2024 FPT Industrial tradeshows (ACT @Las Vegas, MEE @Dubai, SMM @Amburgo IAA @Hannover EIMA@Bologna)",emissions offsetting 2024 fpt industrial tradeshows act las vegas mee dubai smm amburgo iaa hannover eima bologna,CNH Industrial N.V.,0D7GLM-E
+Dentsu Italia,dentsu italia,Dentsu Group Inc.,003LPK-E
+PetroChina International Company Limited (‚ÄúPCI‚Äù),petrochina international aupci au,PetroChina Company Limited,0035C7-E
+AECOM,aecom,AECOM,05MQRP-E
+Great Eastern Holdings Limited,great eastern,Great Eastern Holdings Limited,05HWK2-E
+Dexus managed portfolio,dexus managed portfolio,Dexus,0748R3-E
+Goodman Industrial Funds Management Limited as Trustee of Goodman Lidcombe Industrial Trust,goodman industrial funds management trustee of goodman lidcombe industrial trust,Goodman Group,062QWJ-E
+Dexus Property Services Pty Ltd,dexus property services,Dexus,0748R3-E
+Haleon,haleon,Haleon plc,0Q39YC-E
+"ASE Technology Holding Co., Ltd.",ase technology,"ASE Technology Holding Co., Ltd.",0JH2SY-E
+Goodman Funds Management Australia Limited as Responsible Entity for Goodman Australia Industrial Trust No. 2,goodman funds management australia responsible entity for goodman australia industrial trust no 2,Goodman Group,062QWJ-E
+Goodman Funds Management Australia Limited as Responsible Entity of Goodman Australia Industrial Trust No. 1,goodman funds management australia responsible entity of goodman australia industrial trust no 1,Goodman Group,062QWJ-E
+Canagan Group (Symply Pet Foods Ltd),canagan symply pet foods,"Mars, Incorporated",05J03Q-E
+Dexus Office and Industrial Pty Ltd,dexus office and industrial,Dexus,0748R3-E
+Dexus Shopping Centres Pty Ltd,dexus shopping centres,Dexus,0748R3-E
+Regents Park Estate-391 Park Rd Regents Park (Dexus Property Services Pty Ltd),regents park estate 391 park rd regents park dexus property services,Dexus,0748R3-E
+The Trustee for the Brookfield 123 St Georges Terrace¬†Landowning Trust,the trustee for the brookfield 123 st georges terrace landowning trust,Brookfield Asset Management,0JXC2L-E
+Goodman Funds Management Australia Limited as Trustee of GAI1 Vic 3 Chifley Trust,goodman funds management australia trustee of gai1 vic 3 chifley trust,Goodman Group,062QWJ-E
+Goodman Funds Management Australia Limited as Trustee of Creek Trust,goodman funds management australia trustee of creek trust,Goodman Group,062QWJ-E
+Goodman Property Services (Aust) Pty Limited,goodman property services aust,Goodman Group,062QWJ-E
+"Gas Station at Zheng Yang Expressway Entrance/Exit, Chongqing Qianjiang Branch of Sinopec Sales Co., Ltd.",gas station at zheng yang expressway entrance exit chongqing qianjiang branch of sinopec sales,China Petroleum & Chemical Corporation,003V50-E
+Master KongÔºà Tingyi Holding Corp.Ôºâ,master kongooa tingyi ooa,Tingyi Holding Corp.,05HX4G-E
+"‰∏≠ÂõΩÈì∂Ë°åËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Âõ¥Âú∫ÊîØË°å/ Bank of China, Hebei Province Chengde BranchÔºåWeichang Subbranch",aoωei e aec aωeuaeoeao ae ao au eiøe a bank of china hebei province chengde branchooaweichang subbranch,Bank of China Limited,05KR5Y-E
+"Sinopec Senmei (Fujian) Petroleum Co., Ltd. NanPing Shuibei Gas Station",sinopec senmei fujian petroleum nanping shuibei gas station,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Chongqing Fuling Petroleum Branch Lidu Yuping refueling station",sinopec sales chongqing fuling petroleum branch lidu yuping refueling station,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Chongqing Petroleum Branch Yongchuan Chenshi gas station",sinopec sales chongqing petroleum branch yongchuan chenshi gas station,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Chongqing Three Gorges Petroleum Branch moat refueling station",sinopec sales chongqing three gorges petroleum branch moat refueling station,China Petroleum & Chemical Corporation,003V50-E
+StepStone Group LP,stepstone,Stepstone Group Inc.,0M5K84-E
+Kasikorn Bank Thailand,kasikorn bank thailand,Kasikornbank Public Company Limited,05GGL6-E
+Sunshine Lab Compensa 1 tn CO2eq. como acci√≥n de impacto por las emisiones generadas en la activaci√≥n de Garnier en Bioferia 2025,sunshine lab compensa 1 tn co2eq como acci n de impacto por las emisiones generadas en la activaci n de garnier en bioferia 2025,L'Oréal S.A.,05H41J-E
+"Sunshine Lab Compensa 3 tn CO2eq. como acci√≥n de impacto por las emisiones generadas en el evento de Nespresso, de la gu√≠a Michelin",sunshine lab compensa 3 tn co2eq como acci n de impacto por las emisiones generadas en el evento de nespresso de la gu a michelin,Nestle S.A.,001XQ4-E
+Sunshine Lab Compensa 1 tn CO2eq. como acci√≥n de impacto por las emisiones generadas en el evento de Lanzamiento de Garnier Fructis,sunshine lab compensa 1 tn co2eq como acci n de impacto por las emisiones generadas en el evento de lanzamiento de garnier fructis,L'Oréal S.A.,05H41J-E
+Sunshine Lab Compensa 4 tn CO2eq. como acci√≥n de impacto por las emisiones generadas en la activaci√≥n de GARNIER VERANO 2025,sunshine lab compensa 4 tn co2eq como acci n de impacto por las emisiones generadas en la activaci n de garnier verano 2025,L'Oréal S.A.,05H41J-E
+"Sunshine Lab Compensa 6 tn CO2eq. como acci√≥n de impacto por las emisiones generadas en el evento (de L¬¥oreal Paris UV Defender , Bariloche)",sunshine lab compensa 6 tn co2eq como acci n de impacto por las emisiones generadas en el evento de l oreal paris uv defender bariloche,L'Oréal S.A.,05H41J-E
+"Sunshine Lab Compensa 4 tn CO2eq. como acci√≥n de impacto por las emisiones generadas en el evento (Anthelios La roche Posay, Bariloche)",sunshine lab compensa 4 tn co2eq como acci n de impacto por las emisiones generadas en el evento anthelios la roche posay bariloche,L'Oréal S.A.,05H41J-E
+Gogo Business Aviation,gogo business aviation,Gogo Inc.,00DN0Z-E
+"38728.858t 200 GSM White Coated Top Liner produced by Shandong Century Sunshine Paper Group Co., Ltd.",38728 858t 200 gsm white coated top liner produced by shandong century sunshine paper,Shandong Chenming Paper Holdings Limited,05J2L1-E
+"8029.994t 180 GSM White Coated Top Liner products produced by Shandong Century Sunshine Paper Group Co., Ltd.",8029 994t 180 gsm white coated top liner products produced by shandong century sunshine paper,Shandong Chenming Paper Holdings Limited,05J2L1-E
+"Offset the GHG of scope 1 generated from operation of Shanghai Chint Low Voltage Electrical Technology Co., Ltd.ÔºåRoom 107, Building 51, No. 3255, Sixian Road, Songjiang District, Shanghai, in 2024",offset the ghg of scope 1 generated from operation of shanghai chint low voltage electrical technology ooaroom 107 building 51 no 3255 sixian road songjiang district shanghai in 2024,"CHINT Electric Co., Ltd.",087QX3-E
+"Offset the GHG of scope 1 generated from operation of Zhejiang Chint IoT Technology Co.,Ltd.,Bridge Industrial Park,Office Building 1,1st Floor Laboratory;Production Building 4,3rd-5th Floors,in 2024",offset the ghg of scope 1 generated from operation of zhejiang chint iot technology bridge industrial park office building 1 1st floor laboratory production building 4 3rd 5th floors in 2024,"CHINT Electric Co., Ltd.",087QX3-E
+"Offset the GHG of scope 1 generated from operation of Zhejiang CHINT Instrument & Meter Co., Ltd., Surveying industrial park, No. 1, Liangce Road, Beibaoxiang Town, Yueqing City, Zhejiang ,in 2024",offset the ghg of scope 1 generated from operation of zhejiang chint instrument meter surveying industrial park no 1 liangce road beibaoxiang town yueqing city zhejiang in 2024,"CHINT Electric Co., Ltd.",087QX3-E
+"Offset the GHG of scope 1 generated from operation of Zhejiang Chint Electrics Co.,Ltd.,Phase I and III of Bridge Industrial Park,Phase I and II of Intelligent Industrial Park,in 2024",offset the ghg of scope 1 generated from operation of zhejiang chint electrics phase i and iii of bridge industrial park phase i and ii of intelligent industrial park in 2024,"CHINT Electric Co., Ltd.",087QX3-E
+China Construction Bank Corporation Foshan Liguanglu Branch,china construction bank foshan liguanglu branch,China Construction Bank Corporation,05W4FW-E
+China Construction Bank Corporation Foshan Yicuixinyuan Branch,china construction bank foshan yicuixinyuan branch,China Construction Bank Corporation,05W4FW-E
+China Construction Bank Corporation Foshan Xingtan Branch,china construction bank foshan xingtan branch,China Construction Bank Corporation,05W4FW-E
+China Construction Bank Corporation Yangjiang Qiaole Branch,china construction bank yangjiang qiaole branch,China Construction Bank Corporation,05W4FW-E
+China Construction Bank Corporation Yangjiang Yangdong Branch,china construction bank yangjiang yangdong branch,China Construction Bank Corporation,05W4FW-E
+China Construction Bank Corporation Guangzhou Panyu Tianan Branch,china construction bank guangzhou panyu tianan branch,China Construction Bank Corporation,05W4FW-E
+China Construction Bank Corporation Huizhou City Times Branch,china construction bank huizhou city times branch,China Construction Bank Corporation,05W4FW-E
+China Construction Bank Corporation Huizhou Renmin Road Branch,china construction bank huizhou renmin road branch,China Construction Bank Corporation,05W4FW-E
+China Construction Bank Corporation Huizhou Shangyang Branch,china construction bank huizhou shangyang branch,China Construction Bank Corporation,05W4FW-E
+"Âçó‰∫¨Â••ÊâòÁ´ãÂ§´Ê±ΩËΩ¶ÂÆâÂÖ®Á≥ªÁªüÊúâÈôêÂÖ¨Âè∏ Autoliv (Nanjing) Vehicle Safety Systems Co., Ltd",aco a eaoa aa e ωeω aæaao a aaaueuaeoeao ae autoliv nanjing vehicle safety systems,"Autoliv, Inc.",001MF2-E
+"Schneider Electric (Xiamen) Switchgear Equipment Co., Ltd.",schneider electric xiamen switchgear equipment,Schneider Electric SE,05HFTC-E
+"Schneider Merlin Gerin Low Voltage (Tianjin) Co., Ltd.",schneider merlin gerin low voltage tianjin,Schneider Electric SE,05HFTC-E
+"SCHNEIDER(WUXI) DRIVES CO.,LTD.",schneider wuxi drives,Schneider Electric SE,05HFTC-E
+"Wuxi Pro-Face Co.,Ltd.",wuxi pro face,Schneider Electric SE,05HFTC-E
+PTT Plc.,ptt,PTT Public Company Limited,05HWNP-E
+Woodside Energy (North West Shelf) Pty Ltd & Woodside Energy Ltd,woodside energy north west shelf woodside energy,Woodside Energy Limited,003JR4-E
+"Applus+ (Shanghai) Quality Inspection Co., Ltd.",applus shanghai quality inspection,Applus+,0DN6Y4-E
+Bayer ‚Äì Additional Climate Contribution 2024,bayer ai additional climate contribution 2024,Bayer AG,0028L7-E
+AGILENT TECHNOLOGIES ITALIA S.P.A.,agilent technologies italia,Agilent Technologies Inc.,002LV5-E
+Enag√°s Transporte SAU,enag s transporte sau,"Enagás, S.A.",05JLQW-E
+TIM S/A¬† (CNPJ: ),tim s a cnpj,Telecom Italia S.p.A.,002111-E
+CCR Engenharia Ltda,ccr engenharia,CCR S.A.,05HZBC-E
+Pegasus Airlines customers,pegasus airlines customers,Pegasus Airlines,061K84-E
+Pegasus Hava Ta≈üƒ±macƒ±lƒ±ƒüƒ± Anonim ≈ûirketi (Pegasus Airlines),pegasus hava ta uƒ macƒ lƒ ƒuƒ anonim uirketi pegasus airlines,Pegasus Airlines,061K84-E
+Movida Participa√ß√µes S/A - Estande da Movida no The Town 2025,movida participa ß μes s a estande da movida no the town 2025,Movida Participações S.A.,0G1RKD-E
+Regal Hotels International,regal hotels international,Regal Hotels International Holdings Limited,05J5MJ-E
+"PHINIA Delphi Automotive Systems (Shanghai) Co., Ltd",phinia delphi automotive systems shanghai,PHINIA Inc.,0WMH53-E
+"Cancellation of carbon credits on behalf of Engie, BU N-GBU for its Business Travels 2024",cancellation of carbon credits on behalf of engie bu n gbu for its business travels 2024,ENGIE SE,06X2JD-E
+"Cancellation of carbon credits on behalf of Engie, BU LEI for its Business Travels 2024",cancellation of carbon credits on behalf of engie bu lei for its business travels 2024,ENGIE SE,06X2JD-E
+"Cancellation of carbon credits on behalf of Engie, BU Tractebel Engineering for its Business Travels 2024",cancellation of carbon credits on behalf of engie bu tractebel engineering for its business travels 2024,ENGIE SE,06X2JD-E
+Korn Ferry,korn ferry,Korn Ferry,0025XP-E
+On behalf of Steelcase Inc.,on behalf of steelcase,Steelcase Inc.,001VRS-E
+"Retired on Behalf of Williams-Sonoma, Inc.¬†",retired on behalf of williams sonoma,"Williams-Sonoma, Inc.",000YWZ-E
+"The Co-operative Bank,",the operative bank,The Co-operative Group Limited,07M2RJ-E
+SONDA S A,sonda s a,SONDA S.A.,05RVKX-E
+PolyNovo for its Climate Active Organisational Certification,polynovo for its climate active organisational certification,PolyNovo Limited,05S7MR-E
+Retired on behalf of Caixabank Group. Offsetting GHG emissions of Scope 1 & 2 and corporate travels for 2023,retired on behalf of caixabank offsetting ghg emissions of scope 1 2 and corporate travels for 2023,"CaixaBank, S.A.",06Y6NS-E
+"Schneider Electric Manufacturing (Wuhan) Co., Ltd.",schneider electric manufacturing wuhan,Schneider Electric SE,05HFTC-E
+Hitachi Industrial Equipment (Malaysia) Sdn. Bhd.,hitachi industrial equipment malaysia,"Hitachi, Ltd.",000LQ5-E
+"Hitachi Industrial Equipment Systems Co., Ltd Taga business office",hitachi industrial equipment systems taga business office,"Hitachi, Ltd.",000LQ5-E
+"ÁõêÂüéÂ§ß‰∏∞ÈòøÁâπÊñØÈò≥ÂÖâÁîµÂäõÁßëÊäÄÊúâÈôêÂÖ¨Âè∏/ CSI Modules (DaFeng) Co., Ltd.",aoeauea ß eoøaaπenøeo aoaaiμaaoaßeeaaeuaeoeao ae csi modules dafeng,Canadian Solar Inc.,008QJ5-E
+"ÁõêÂüéÂ∏ÇÂ§ß‰∏∞ÈòøÁâπÊñØÂÇ®ËÉΩÁßëÊäÄÊúâÈôêÂÖ¨Âè∏/ CSI Energy Storage Technology (Dafeng) Co., Ltd.",aoeauea ca ß eoøaaπenøac eeωaßeeaaeuaeoeao ae csi energy storage technology dafeng,Canadian Solar Inc.,008QJ5-E
+"Xiamen ABB Electrical Equipment Co., Ltd",xiamen abb electrical equipment,ABB Ltd.,0036X2-E
+"SCHNEIDER ELECTRIC INFORMATION TECHNOLOGY (XIAMEN) CO., LTD.",schneider electric information technology xiamen,Schneider Electric SE,05HFTC-E
+MAPFRE Group in Italy,mapfre in italy,Mapfre S.A.,003HWW-E
+Mapfre Group in Portugal,mapfre in portugal,Mapfre S.A.,003HWW-E
+MAPFRE PRAICO INSURANCE COMPANY,mapfre praico insurance,Mapfre S.A.,003HWW-E
+Rebl Group Oyj,rebl,Rebl Group Oyj,060DZP-E
+Gruppo Mapfre Italia,gruppo mapfre italia,Mapfre S.A.,003HWW-E
+Grupo Mapfre en M√©xico,grupo mapfre en m xico,Mapfre S.A.,003HWW-E
+MAPFRE USA Corp.,mapfre usa,Mapfre S.A.,003HWW-E
+Grupo MAPFRE en Portugal,grupo mapfre en portugal,Mapfre S.A.,003HWW-E
+Altius Minerals Corporation / Altius Royalty Corporation,altius minerals altius royalty,Altius Minerals Corporation,003M92-E
+Femsa | Fibra.AG - Neutraliza√ß√£o de Carbono do Evento Premium Supplier 2024,femsa fibra neutraliza ß o de carbono do evento premium supplier 2024,"Fomento Económico Mexicano, S.A.B. de C.V.",0027QS-E
+Uber Dominican Republic,uber dominican republic,Uber Technologies Inc.,0B49NF-E
+"VADO, a Division of Norcros Group",vado a division of norcros,Norcros plc,05LQ1L-E
+"DENSO International America, Inc.",denso international america,Denso Corporation,05HWC5-E
+ELIOR RISTORAZIONE SPA,elior ristorazione,Elior Group,05ZN4D-E
+Offsetting of CO2 emission due to Alcantara Spa activities from 01 April 2024 - 31 March 2025,offsetting of co2 emission due to alcantara activities from 01 april 2024 31 march 2025,Alcantara S.p.A.,05FMFC-E
+Offsetting of CO2 emission due to Alcantara Spa activities from 01 April 2025 - 31 March 2026,offsetting of co2 emission due to alcantara activities from 01 april 2025 31 march 2026,Alcantara S.p.A.,05FMFC-E
+BRF ‚Äì Veg&Tal Carbono Neutro,brf ai veg tal carbono neutro,JBS S.A.,11SPZ2-E
+DENSO do Brasil Ltda,denso do brasil,Denso Corporation,05HWC5-E
+Mapfre Seguros,mapfre seguros,Mapfre S.A.,003HWW-E
+MSIG Asia Pte. Ltd.,msig asia,MS&AD Insurance Group Holdings,09MW66-E
+Penske,penske,"Penske Automotive Group, Inc.",0019FP-E
+Spire Healthcare,spire healthcare,Spire Healthcare Group plc,0DRQ72-E
+Lenovo Ireland International Ltd,lenovo ireland international,Lenovo Group Limited,05HWJY-E
+Colgate-Palmolive (H.K.) Holding Limited,colgate palmolive hk,Colgate-Palmolive Company,000DXS-E
+"Schaeffler Iberia, S.L.U",schaeffler iberia slu,Schaeffler AG,0CBVXX-E
+"Palantir Techologies, Inc",palantir techologies,"Palantir Technologies, Inc.",00726J-E
+Saigon Filmes - O Botic√°rio - Liz,saigon filmes o botic rio liz,L'Oréal S.A.,05H41J-E
+Suunto Oy,suunto oy,Amer Sports Corporation,0Y5NM3-E
+Perfetti Van Melle - PVM UK,perfetti van melle pvm uk,"Mondelez International, Inc.",002RNG-E
+Wales & West Utilities Limited,wales west utilities,Centrica plc,003JJM-E
+Carbon Offset for bunker consumption from Gas Dream Voy.114 loading propylene cargo LOTTE CHEMICAL TITAN (M) SDN. BHD. (B/L date 19/10/24),carbon offset for bunker consumption from gas dream voy 114 loading propylene cargo lotte chemical titan m b l date 19 10 24,Lotte Chemical Corporation,05HZ79-E
+AIA International Limited,aia international,AIA Group Limited,05SJM3-E
+"Tianneng Group Guizhou Energy Technology Co., Ltd.",tianneng guizhou energy technology,"Tianneng Battery Group Co., Ltd.",0CH15P-E
+Belden Hirschmann Industries (Suzhou) Limited,belden hirschmann industries suzhou,Belden Inc.,06S131-E
+ABB Beijing Switchgear Limited,abb beijing switchgear,ABB Ltd.,0036X2-E
+"Yingda Taihe Property Insurance Co., Ltd",yingda taihe property insurance,China Pacific Insurance Company Limited,06BF43-E
+"Yingda Asset Management Co., Ltd.‚Äå",yingda asset management aa,China Pacific Insurance Company Limited,06BF43-E
+"Panasonic Energy (Wuxi) Co., Ltd.",panasonic energy wuxi,Panasonic Corporation,001RJ7-E
+"Sinopec Boyang (Shanghai) Marine Fuel Supply Co., Ltd.",sinopec boyang shanghai marine fuel supply,China Petroleum & Chemical Corporation,003V50-E
+"YINGDA INSURANCE ASSET MANAGEMENT CO., LTD.‚Äå",yingda insurance asset management aa,China Pacific Insurance Company Limited,06BF43-E
+"BYD Lithium Battery Co., Ltd.",byd lithium battery,BYD Company Limited,05JZZW-E
+"Hefei Midea Laundry Appliance Co., Ltd.",hefei midea laundry appliance,"Midea Group Co., Ltd.",060G1Y-E
+"CRRC TIMES ELECTRIC VEHICLE CO., LTD.",crrc times electric vehicle,CRRC Corporation Limited,07C4LK-E
+ÊñØÂáØÂ≠öÔºàÂ§ßËøûÔºâËΩ¥Êâø‰∏éÁ≤æÂØÜÊäÄÊúØ‰∫ßÂìÅÊúâÈôêÂÖ¨Âè∏ÔºàSKF(Dalian) Bearings and Precision Technologies Co LtdÔºâ,enøaaøa oooaa ßeøuooaeω eaø ea æaøueaaeuø ßaiaeuaeoeao ae ooaskf dalian bearings and precision technologies ltdooa,SKF AB,05HWXZ-E
+"Sinopec Sales Co., Ltd. Henan Zhong'yuan Oil Branch NO.21 Gas Station(‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Ê≤≥Âçó‰∏≠ÂéüÁü≥Ê≤πÂàÜÂÖ¨Âè∏Á¨¨‰∫åÂçÅ‰∏ÄÂä†Ê≤πÁ´ô)",sinopec sales henan zhong yuan oil branch no 21 gas station aoωau aaneiaaiæec aωeuaeoeao ae e aco aeuau e πaauao ae a aaca aaa e πa o,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Henan Ji'yuan NO.37 Gas Station(‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Ê≤≥ÂçóÊµéÊ∫êÁ¨¨‰∏âÂçÅ‰∏ÉÂä†Ê≤πÂä†Ê∞îÁ´ô)",sinopec sales henan ji yuan no 37 gas station aoωau aaneiaaiæec aωeuaeoeao ae e acoeμee ea aaca eaa e πaa e ia o,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Henan Puyang Oil Branch Dianchang Road Gas Station(‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Ê≤≥ÂçóÊøÆÈò≥Áü≥Ê≤πÂàÜÂÖ¨Âè∏ÁîµÂéÇË∑ØÂä†Ê≤πÁ´ô)",sinopec sales henan puyang oil branch dianchang road gas station aoωau aaneiaaiæec aωeuaeoeao ae e acoeøæeo au e πaauao ae aiμaece øaa e πa o,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Henan Hebi Oil Branch NO.28 Gas Station(‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Ê≤≥ÂçóÈπ§Â£ÅÁü≥Ê≤πÂàÜÂÖ¨Âè∏Á¨¨‰∫åÂçÅÂÖ´Âä†Ê≤πÂä†Ê∞îÁ´ô)",sinopec sales henan hebi oil branch no 28 gas station aoωau aaneiaaiæec aωeuaeoeao ae e acoeπ a aau e πaauao ae a aacaao aa e πaa e ia o,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Henan Sanmenxia Oil Branch Shaogong Road Gas Station(‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Ê≤≥Âçó‰∏âÈó®Â≥°Áü≥Ê≤πÂàÜÂÖ¨Âè∏Âè¨ÂÖ¨Ë∑ØÂä†Ê≤πÁ´ô)",sinopec sales henan sanmenxia oil branch shaogong road gas station aoωau aaneiaaiæec aωeuaeoeao ae e aco aeo a au e πaauao ae ae ao e øaa e πa o,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Henan Anyang Oil Branch Tangyin NO.3 Gas StationÔºà‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Ê≤≥ÂçóÂÆâÈò≥Áü≥Ê≤πÂàÜÂÖ¨Âè∏Ê±§Èò¥Á¨¨‰∏âÂä†Ê≤πÁ´ôÔºâ",sinopec sales henan anyang oil branch tangyin no 3 gas stationooa aoωau aaneiaaiæec aωeuaeoeao ae e acoaæaeo au e πaauao ae e eo a aaa e πa oooa,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Henan Xinxiang South Second Ring Oil, Hydrogen and Power Combined StationÔºà‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Ê≤≥ÂçóÊñ∞‰π°Âçó‰∫åÁéØÊ≤πÊ∞¢ÁîµÂêàÂª∫Á´ôÔºâ",sinopec sales henan xinxiang south second ring oil hydrogen and power combined stationooa aoωau aaneiaaiæec aωeuaeoeao ae e acoen π aco aaeøe πe aiμaeaaa a oooa,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Henan Jiaozuo Oil Branch Renmin West Road Gas StationÔºà‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Ê≤≥ÂçóÁÑ¶‰ΩúÁü≥Ê≤πÂàÜÂÖ¨Âè∏‰∫∫Ê∞ëË•øË∑ØÂä†Ê≤πÁ´ôÔºâ",sinopec sales henan jiaozuo oil branch renmin west road gas stationooa aoωau aaneiaaiæec aωeuaeoeao ae e acoan ωuau e πaauao ae e ee øe øaa e πa oooa,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Henan Xuchang Beizu Village Gas Station (‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Ê≤≥ÂçóËÆ∏ÊòåÂåó‰øéÂ∫ÑÂä†Ê≤πÂä†Ê∞îÁ´ô)",sinopec sales henan xuchang beizu village gas station aoωau aaneiaaiæec aωeuaeoeao ae e acoeæ eoaaao øea naa e πaa e ia o,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Henan Luohe Linying Oil Branch NO.11 Gas Station Ôºà‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Ê≤≥ÂçóÊºØÊ≤≥‰∏¥È¢çÁü≥Ê≤πÂàÜÂÖ¨Âè∏Á¨¨ÂçÅ‰∏ÄÂä†Ê≤πÁ´ôÔºâ",sinopec sales henan luohe linying oil branch no 11 gas station ooa aoωau aaneiaaiæec aωeuaeoeao ae e acoeoøe e cau e πaauao ae a aca aaa e πa oooa,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Henan Nanyang Oil Branch Xinnan Expressway Tanghe West City entrance and exit Gas StationÔºà‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Ê≤≥ÂçóÂçóÈò≥Áü≥Ê≤πÂàÜÂÖ¨Âè∏‰ø°ÂçóÈ´òÈÄüÂîêÊ≤≥ÂüéË•ø‰∏ä‰∏ãÂè£Âä†Ê≤πÁ´ôÔºâ",sinopec sales henan nanyang oil branch xinnan expressway tanghe west city entrance and exit gas stationooa aoωau aaneiaaiæec aωeuaeoeao ae e acoacoeo au e πaauao ae ø acoe oeauaiee auee ø a aae aa e πa oooa,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Henan Zhumadian Xincai Oil Branch Renmin Road Gas StationÔºà‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Ê≤≥ÂçóÈ©ªÈ©¨Â∫óÊñ∞Ëî°Áü≥Ê≤πÂàÜÂÖ¨Âè∏‰∫∫Ê∞ëË∑ØÂä†Ê≤πÁ´ôÔºâ",sinopec sales henan zhumadian xincai oil branch renmin road gas stationooa aoωau aaneiaaiæec aωeuaeoeao ae e acoe ae a oen ei au e πaauao ae e ee øaa e πa oooa,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Henan Xinxiang Oil Branch NO.165 Gas Station Ôºà‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Ê≤≥ÂçóÊñ∞‰π°Áü≥Ê≤πÂàÜÂÖ¨Âè∏Á¨¨165Âä†Ê≤πÁ´ôÔºâ",sinopec sales henan xinxiang oil branch no 165 gas station ooa aoωau aaneiaaiæec aωeuaeoeao ae e acoen π au e πaauao ae a 165aa e πa oooa,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Henan Xinxiang NO.51 Gas StationÔºà‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Ê≤≥ÂçóÊñ∞‰π°Á¨¨‰∫îÂçÅ‰∏ÄÂä†Ê≤πÁ´ôÔºâ",sinopec sales henan xinxiang no 51 gas stationooa aoωau aaneiaaiæec aωeuaeoeao ae e acoen π a iaca aaa e πa oooa,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Henan Kaifeng Lankao central Gas Station Ôºà‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Ê≤≥ÂçóÂºÄÂ∞ÅÂÖ∞ËÄÉ‰∏≠ÂøÉÂä†Ê≤πÁ´ôÔºâ",sinopec sales henan kaifeng lankao central gas station ooa aoωau aaneiaaiæec aωeuaeoeao ae e acoaoaa aao eae aøeaa e πa oooa,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Henan Zhoukou Development Zone Gas Station (‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Ê≤≥ÂçóÂë®Âè£ÂºÄÂèëÂå∫Âä†Ê≤πÁ´ô)",sinopec sales henan zhoukou development zone gas station aoωau aaneiaaiæec aωeuaeoeao ae e acoae ae aoaaeeaa aa e πa o,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Henan Nanyang Wolong Oil Branch NO.22 Gas Station Ôºà‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Ê≤≥ÂçóÂçóÈò≥ÂçßÈæôÁü≥Ê≤πÂàÜÂÖ¨Âè∏Á¨¨‰∫åÂçÅ‰∫åÂä†Ê≤πÁ´ôÔºâ",sinopec sales henan nanyang wolong oil branch no 22 gas station ooa aoωau aaneiaaiæec aωeuaeoeao ae e acoacoeo acßeæoau e πaauao ae a aaca aaa e πa oooa,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Henan Nanyang Nanzhao Oil Branch Chengdong Gas StationÔºà‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Ê≤≥ÂçóÂçóÈò≥ÂçóÂè¨Áü≥Ê≤πÂàÜÂÖ¨Âè∏Âüé‰∏úÂä†Ê≤πÁ´ôÔºâ",sinopec sales henan nanyang nanzhao oil branch chengdong gas stationooa aoωau aaneiaaiæec aωeuaeoeao ae e acoacoeo acoae au e πaauao ae aue uaa e πa oooa,China Petroleum & Chemical Corporation,003V50-E
+"SINOPEC JIANGSU FUEL OIL SALES CO., LTD",sinopec jiangsu fuel oil sales,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Henan Shangqiu Oil Branch New District Gas Station Ôºà‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Ê≤≥ÂçóÂïÜ‰∏òÁü≥Ê≤πÂàÜÂÖ¨Âè∏Êñ∞Âå∫Âä†Ê≤πÁ´ôÔºâ",sinopec sales henan shangqiu oil branch new district gas station ooa aoωau aaneiaaiæec aωeuaeoeao ae e acoaiu oau e πaauao ae en aa aa e πa oooa,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Henan Pingdingshan Oil Branch Longxiang Avenue Gas StationÔºà‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Ê≤≥ÂçóÂπ≥È°∂Â±±Áü≥Ê≤πÂàÜÂÖ¨Âè∏ÈæôÁøîÂ§ßÈÅìÂä†Ê≤πÁ´ôÔºâ",sinopec sales henan pingdingshan oil branch longxiang avenue gas stationooa aoωau aaneiaaiæec aωeuaeoeao ae e acoaπ e a au e πaauao ae eæoaøia ßeaiaa e πa oooa,China Petroleum & Chemical Corporation,003V50-E
+"Danone Specialized Nutrition (Changsha) Co., Ltd.",danone specialized nutrition changsha,Danone S.A.,001YMJ-E
+"Sinopec Sales Co., Ltd. Henan Xinyang Qiaobei Gas StationÔºà‰∏≠ÂõΩÁü≥ÂåñÈîÄÂîÆËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏Ê≤≥Âçó‰ø°Èò≥Ê°•ÂåóÂä†Ê≤πÁ´ôÔºâ",sinopec sales henan xinyang qiaobei gas stationooa aoωau aaneiaaiæec aωeuaeoeao ae e aco ø eo e aaoaa e πa oooa,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Sales Co., Ltd. Fujian Xiamen Petroleum Branch",sinopec sales fujian xiamen petroleum branch,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Senmei (Fujian) Petroleum Co., Ltd. Quanzhou Nan'an Yuxing Gas Station",sinopec senmei fujian petroleum quanzhou nan an yuxing gas station,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Senmei (Fujian) Petroleum Co., Ltd. Putian Shangwu Gas Station",sinopec senmei fujian petroleum putian shangwu gas station,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Senmei (Fujian) Petroleum Co., Ltd. NingDe Xiapu Yacheng Gas Station",sinopec senmei fujian petroleum ningde xiapu yacheng gas station,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Senmei (Fujian) Petroleum Co., Ltd. NanPing Jianou New District Gas Station",sinopec senmei fujian petroleum nanping jianou new district gas station,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Senmei (Fujian) Petroleum Co., Ltd. Fuzhou Industrial Road Gas Station",sinopec senmei fujian petroleum fuzhou industrial road gas station,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Senmei (Fujian) Petroleum Co., Ltd. Sanming Yong'an Dongpo Gas Station",sinopec senmei fujian petroleum sanming yong an dongpo gas station,China Petroleum & Chemical Corporation,003V50-E
+"Sinopec Senmei (Fujian) Petroleum Co., Ltd. Zhangzhou Chaoyang Gas Station",sinopec senmei fujian petroleum zhangzhou chaoyang gas station,China Petroleum & Chemical Corporation,003V50-E
+China Resources Land Limited (Runxiang Nanchang Co. Limited),china resources land runxiang nanchang,China Resources Land Limited,05J0MK-E
+cyient.com,cyient com,Cyient Limited,05J518-E
+"≈†KODA AUTO Volkswagen India Private Limited, E1, MIDC Industrial Area, Phase III, Village Nigoje, Mhalunge Kharabwadi, Tal Khed, Chakan Pune, Maharashtra 410501",koda auto volkswagen india private e1 midc industrial area phase iii village nigoje mhalunge kharabwadi tal khed chakan pune maharashtra 410501,Volkswagen AG,001YFZ-E
+Onesubsea Malaysia Systems Sdn Bhd,onesubsea malaysia systems,Schlumberger Limited,0015N4-E
+Breedon Trading Limited,breedon trading,Breedon Group plc,09ZPPM-E
+Lotus Bakeries,lotus bakeries,Lotus Bakeries NV,05J9W6-E
+ACBC - Piquadro Group ‚Äì Piquadro,acbc piquadro ai piquadro,Piquadro S.p.A.,05VM56-E
+ACBC - Piquadro Group ‚Äì The Bridge,acbc piquadro ai the bridge,Piquadro S.p.A.,05VM56-E
+ACBC - Piquadro Group ‚Äì Lancel,acbc piquadro ai lancel,Piquadro S.p.A.,05VM56-E
+"MAGNA SEATING VIGO, S.A.U.",magna seating vigo sau,Magna International Inc.,000PCN-E
+Nedbank Limited COAS account number 101020,nedbank coas account number 101020,Nedbank Group Limited,003RMC-E
+Blue Bottle Coffee,blue bottle coffee,Nestlé S.A.,001XQ4-E
+Siemens Aktiengesellschaft,siemens aktiengesellschaft,Siemens AG,002Q21-E
+ZURICH ARGENTINA COMPA√ë√çA DE SEGUROS SA,zurich argentina compa e ca de seguros,Zurich Insurance Group,05GGL5-E
+Panasonic do Brasil Ltda,panasonic do brasil,Panasonic Corporation,001RJ7-E
+Comerc Energia S.A,comerc energia,Comerc Energia S.A.,0P5XG3-E
+Cemig Run 2025,cemig run 2025,Companhia Energética de Minas Gerais,05HX9G-E
+Karsten S.A.,karsten,Karsten S.A.,05JRPD-E
+DUPONT - INNOVATION BUILDING,dupont innovation building,DuPont de Nemours Inc.,0G3777-E
+Comercial Her Code - O Botic√°rio,comercial her code o botic rio,Natura &CO Holding S.A.,0L0Y50-E
+VULCABRAS,vulcabras,Vulcabras S.A.,006SMB-E
+O BOTIC√ÅRIO,o botic ario,Natura &CO Holding S.A.,0L0Y50-E
+MAN VOLKSWAGEN CAMINH√ïES,man volkswagen caminh ies,Volkswagen AG,001YFZ-E
+NIDEC GLOBAL APPLIANCE BRASIL LTDA,nidec global appliance brasil,Nidec Corporation,003HN5-E
+"Filme MALBEC, de O Botic√°rio Produtora: Stink Filmes",filme malbec de o botic rio produtora stink filmes,Natura &Co Holding S.A.,0L0Y50-E
+Movida Participa√ß√µes S.A.,movida participa ß μes,Movida Participações S.A.,0G1RKD-E
+EVEN-SP 15/10 EMPREENDIMENTOS IMOBILIARIOS LTDA,even sp 15 10 empreendimentos imobiliarios,Even Construtora e Incorporadora S.A.,009370-E
+TULUM EVEN EMPREENDIMENTOS IMOBILIARIOS LTDA,tulum even empreendimentos imobiliarios,Even Construtora e Incorporadora S.A.,009370-E
+CGI IT UK Limited,cgi it uk,CGI Inc.,002VBG-E
+NetNada Pty Ltd (client ZIP Co Limited),netnada client zip,ZIP Co Limited,0FRZ2M-E
+ENAG√ÅS S.A.,enag,ENAGÁS S.A.,05JLQW-E
+Alcantara SpA - Offsetting of CO2 emissions due to energy services sold to Alcantara by ENGIE SERVIZI S.P.A. 01.04.2024 to 31.03.2025,alcantara offsetting of co2 emissions due to energy services sold to alcantara by engie servizi 01 04 2024 to 31 03 2025,Alcántara S.p.A.,05HWH8-E
+Gratifii Limited (ASX:GTI) (ABN 47 125 688 940),gratifii asx gti abn 47 125 688 940,Gratifii Limited,0H448S-E
+Kempower Oyj,kempower,Kempower Oyj,0M9NGK-E
+BOE IPC 2025,boe ipc 2025,"BOE Technology Group Co., Ltd.",05J44K-E
+British American Tobacco Jordan - Redeemed on behalf of British American Tobacco Jordan for December 2025 - November 2026 consumption.,british american tobacco jordan redeemed on behalf of british american tobacco jordan for december 2025 november 2026 consumption,British American Tobacco p.l.c.,000CN6-E
+Offsetting of CO2 emission due to Transport Services sold to Alcantara by UPS from 01.04.2024 to 31.03.2025,offsetting of co2 emission due to transport services sold to alcantara by ups from 01 04 2024 to 31 03 2025,"United Parcel Service, Inc.",000Y4G-E
+Offsetting of CO2 emission due to Transport Services sold to Alcantara by FEDEX from 01.04.2024 to 31.03.2025,offsetting of co2 emission due to transport services sold to alcantara by fedex from 01 04 2024 to 31 03 2025,FedEx Corporation,001TR0-E
+Offsetting of CO2 emission due to Raw Materials sold to Alcantara by Nippon Gases Italia S.r.l. from 01.04.2024 to 31.03.2025,offsetting of co2 emission due to raw materials sold to alcantara by nippon gases italia from 01 04 2024 to 31 03 2025,Air Liquide S.A.,05HFMC-E
+Offsetting of CO2 emission due to Raw Materials sold to Alcantara by ARCHROMA from 01.04.2024 to 31.03.2025,offsetting of co2 emission due to raw materials sold to alcantara by archroma from 01 04 2024 to 31 03 2025,Clariant AG,05HL3L-E
+Offsetting of CO2 emission due to Raw Materials sold to Alcantara by ARCHROMA DISTRIBUTION AND MANAGEMENT from 01.04.2024 to 31.03.2025,offsetting of co2 emission due to raw materials sold to alcantara by archroma distribution and management from 01 04 2024 to 31 03 2025,Clariant AG,05HL3L-E
+Offsetting of CO2 emission due to Raw Materials sold to Alcantara by DYSTAR from 01.04.2024 to 31.03.2025,offsetting of co2 emission due to raw materials sold to alcantara by dystar from 01 04 2024 to 31 03 2025,Clariant AG,05HL3L-E
+Sorgenia,sorgenia,Eni S.p.A.,05DZHK-E
+Queue-It,queue it,Zendesk Inc.,07N5YW-E
+GROHE,grohe,Lixil Group Corporation,05HWFM-E
+Bamb√∫ Sustentable por el mural de la campa√±a HELLMANN'S,bamb sustentable por el mural de la campa a hellmann s,Unilever PLC,002BV8-E
+Bamb√∫ Sustentable por el mural y los grafittis de la campa√±a GATORADE GREEN MANGO,bamb sustentable por el mural y los grafittis de la campa a gatorade green mango,"PepsiCo, Inc.",000T99-E
+Bamb√∫ Sustentable por el mural y los grafittis de la campa√±a MUFASA,bamb sustentable por el mural y los grafittis de la campa a mufasa,The Walt Disney Company,000HLG-E
+Bamb√∫ Sustentable por el mural de la campa√±a TAKIS,bamb sustentable por el mural de la campa a takis,"PepsiCo, Inc.",000T99-E
+Bamb√∫ Sustentable por los grafittis de la campa√±a MASTERCARD,bamb sustentable por los grafittis de la campa a mastercard,Mastercard Incorporated,0038M5-E
+Bamb√∫ Sustentable por el mural de la campa√±a KFC,bamb sustentable por el mural de la campa a kfc,"Yum! Brands, Inc.",001QFL-E
+Bamb√∫ Sustentable por el mural de la campa√±a COCA COLA NAVIDAD,bamb sustentable por el mural de la campa a coca cola navidad,The Coca-Cola Company,000DWY-E
+Bamb√∫ Sustentable por los grafittis de la campa√±a NETFLIX CALAMAR,bamb sustentable por los grafittis de la campa a netflix calamar,"Netflix, Inc.",002X9M-E
+Bamb√∫ Sustentable por el mural de la campa√±a SPOTIFY LUKRA,bamb sustentable por el mural de la campa a spotify lukra,Spotify Technology S.A.,00BJ65-E
+Bamb√∫ Sustentable por el mural de la campa√±a MICHELIN,bamb sustentable por el mural de la campa a michelin,Michelin S.A.,05HGJH-E
+Bamb√∫ Sustentable por el evento de la campa√±a DISNEY INTENSAMENTE,bamb sustentable por el evento de la campa a disney intensamente,The Walt Disney Company,000HLG-E
+Bamb√∫ Sustentable por los grafittis de la campa√±a TELECOM FIBRA OPTICA,bamb sustentable por los grafittis de la campa a telecom fibra optica,Telefónica S.A.,05DZGP-E
+Bamb√∫ Sustentable por el mural de la campa√±a TAKIS URUGUAY,bamb sustentable por el mural de la campa a takis uruguay,"PepsiCo, Inc.",000T99-E
+Bamb√∫ Sustentable por el mural de la campa√±a COCA COLA COSTA RICA,bamb sustentable por el mural de la campa a coca cola costa rica,The Coca-Cola Company,000DWY-E
+Bamb√∫ Sustentable por el mural de la campa√±a PILSEN COSTA RICA,bamb sustentable por el mural de la campa a pilsen costa rica,Ambev S.A.,00F8B5-E
+Bamb√∫ Sustentable por el mural de la campa√±a DIDI MEXICO,bamb sustentable por el mural de la campa a didi mexico,Didi Global Inc.,0GXMM8-E
+Bamb√∫ Sustentable por los grafittis de la campa√±a NISSAN MEXICO,bamb sustentable por los grafittis de la campa a nissan mexico,"Nissan Motor Co., Ltd.",05HK04-E
+Bamb√∫ Sustentable por el mural de la campa√±a HYUNDAI,bamb sustentable por el mural de la campa a hyundai,Hyundai Motor Company,001MFB-E
+R-Biopharm Rh√¥ne Ltd.,r biopharm rh ne,Merck KGaA,001L0T-E
+"Retired on behalf of Indian Energy Exchange (IEX) Limited to support their carbon neutrality claim for FY25, Scope1+2 and Scope 3(Category 5,6,7,8)",retired on behalf of indian energy exchange iex to support their carbon neutrality claim for fy25 scope1 2 and scope 3 category 5 6 7 8,Indian Energy Exchange Limited,08CZZB-E
+AtkinsRealis,atkinsrealis,AtkinsRealis Group Inc.,003QDH-E
+Retirement on behalf of our customer Brenntag GmbH,retirement on behalf of our customer brenntag,Brenntag SE,09M3P3-E
+Retirement on behalf of our customer BASF SE,retirement on behalf of our customer basf,BASF SE,002YCC-E
+Retirement on behalf of our customer Brenntag Nordic AB,retirement on behalf of our customer brenntag nordic,Brenntag SE,09M3P3-E
+Ferrovial Corporaci√≥n,ferrovial corporaci n,Ferrovial S.E.,0Q1NM3-E
+"Cranswick plc: Riverside, Hull",cranswick riverside hull,Cranswick plc,05J0L0-E
+Cranswick plc: Gourmet Pastry Limited (Yorkshire Baker),cranswick gourmet pastry yorkshire baker,Cranswick plc,05J0L0-E
+Greensafe IT (111t); Charterhouse Development Capital (100t); Dynamic Planner (30t); WSP UK Ltd (128t); HSO Enterprise Solutions Ltd (274t);,greensafe it 111t charterhouse development capital 100t dynamic planner 30t wsp uk 128t hso enterprise solutions 274t,WSP Global Inc.,0BCBB0-E
+First Commercial BankÔºàÁ¨¨‰∏ÄÈäÄË°åÔºâ,first commercial bankooaa aeaae aooa,"First Financial Holding Co., Ltd.",05LHVP-E
+Bank of TaiwanÔºàËá∫ÁÅ£ÈäÄË°åÔºâ,bank of taiwanooaea aa eaae aooa,Bank of Taiwan,05J0LN-E
+Cathay Financial HoldingsÔºàÂúãÊ≥∞ÈáëÊéßÔºâ,cathay financial holdingsooaauae eaeeeßooa,"Cathay Financial Holdings Co., Ltd.",05HWD3-E
+CTBC Financial HoldingÔºà‰∏≠Âúã‰ø°Ë®óÈáëÊéßÔºâ,ctbc financial holdingooa aua ø e oeaeeeßooa,"CTBC Financial Holding Co., Ltd.",05HWH4-E
+E. Sun Commercial BankÔºàÁéâÂ±±ÈäÄË°åÔºâ,e sun commercial bankooaaeaa eaae aooa,"E.SUN Financial Holding Co., Ltd.",05J4CT-E
+Far Eastern International BankÔºàÈÅ†Êù±ÈäÄË°åÔºâ,far eastern international bankooaea eu eaae aooa,Far Eastern International Bank,05J0MD-E
+HSBC (Taiwan)ÔºàÊªôË±êÈäÄË°åÔºâ,hsbc taiwan ooaeaoe eeaae aooa,HSBC Holdings plc,002J95-E
+Hua Nan Commercial BankÔºàËèØÂçóÂïÜÊ•≠ÈäÄË°åÔºâ,hua nan commercial bankooaeeøacoaiue eaae aooa,"Hua Nan Financial Holding Co., Ltd.",05HWJS-E
+KGI Financial HoldingÔºàÂá±Âü∫ÈáëÊéßÔºâ,kgi financial holdingooaaa au eaeeeßooa,"KGI Financial Holding Co., Ltd.",05HWG1-E
+Mega International Commercial BankÔºàÂÖÜË±êÈäÄË°åÔºâ,mega international commercial bankooaaoue eeaae aooa,"Mega International Commercial Bank Co., Ltd.",09GSX9-E
+Standard Chartered Bank (Singapore),standard chartered bank singapore,Standard Chartered PLC,003J9T-E
+Taichung Commercial BankÔºàÂè∞‰∏≠ÈäÄË°åÔºâ,taichung commercial bankooaae eaae aooa,"Taichung Commercial Bank Co., Ltd.",05J0HK-E
+Kering Americas Inc.,kering americas,Kering SA,05HFMZ-E
+"Panasonic ManufacturingÔºàBeijingÔºâCo., Ltd.",panasonic manufacturingooabeijingooaco,Panasonic Holdings Corporation,001RJ7-E
+"Suzhou CRRC Rail Transport Co., Ltd",suzhou crrc rail transport,CRRC Corporation Limited,07C4LK-E
+Alaska Airlines customers,alaska airlines customers,"Alaska Air Group, Inc.",000BNX-E
+Nedbank Limited,nedbank,Nedbank Limited,003RMC-E
+Obrasc√≥n Huarte La√≠n S. A.,obrasc n huarte la n s a,Obrascón Huarte Laín S.A.,05HKW1-E
+"SMA Solar Technology AG, Sonnenallee 1, 34266 Niestetal",sma solar technology sonnenallee 1 34266 niestetal,SMA Solar Technology AG,07979W-E
+Grupo Mapfre en Panam√°,grupo mapfre en panam,Grupo Mapfre,003HWW-E
+"Empresas Copec S.A., para compensar emisiones GEI asociadas a los alcances 1, 2 y 3 de sus Oficinas Corporativas durante el per√≠odo 2024",empresas copec para compensar emisiones gei asociadas a los alcances 1 2 y 3 de sus oficinas corporativas durante el per odo 2024,Empresas Copec S.A.,05KVF4-E
+Gold Fields - Certificaci√≥n Stand Expomin 2025 CO2e Neutral ‚Äì SCX ID 0161-E11020B41,gold fields certificaci n stand expomin 2025 co2e neutral ai scx id 0161 e11020b41,Gold Fields Limited,05HQ0P-E
+Employee Gathering PT Pertamina Geothermal Energy Tbk,employee gathering pt pertamina geothermal energy,PT Pertamina Geothermal Energy Tbk,0CR6KH-E
+Goodman Funds Management Australia Ltd,goodman funds management australia,Goodman Group,062QWJ-E
+nib holdings limited,nib,nib holdings limited,009R4K-E
+"Tokyo Gas Co., Ltd. for the LNG cargo delivered on 5th July, 2025 from Gorgon LNG Plant",tokyo gas for the lng cargo delivered on 5th july 2025 from gorgon lng plant,"Tokyo Gas Co., Ltd.",05HWDF-E
+Unilever Hong Kong Limited,unilever hong kong,Unilever plc,002BV8-E
+Northwest Natural Gas Sales Center of Sinopec Natural Gas Company Limited,northwest natural gas sales center of sinopec natural gas,China Petrochemical Corporation,05J131-E
+"Sacyr, S.A. - Compensation of emissions generated by our executives' business travel in 2025",sacyr compensation of emissions generated by our executives business travel in 2025,"Sacyr, S.A.",05HX4H-E
+Schneider Electric,schneider electric,Schneider Electric SE,05HFTC-E
+Hotel Renaissance Santiago,hotel renaissance santiago,"Marriott International, Inc.",001YRD-E
+Gold Fields - Stand CO2e Neutral en FOREDE 2024 ‚Äì SCX ID 0156-E11020B36,gold fields stand co2e neutral en forede 2024 ai scx id 0156 e11020b36,Gold Fields Limited,05HQ0P-E
+ENGIE Energ√≠a Chile S.A,engie energ a chile,ENGIE S.A.,06X2JD-E
+Turkcell ƒ∞leti≈üim Hizmetleri A.≈û. ve T√ºrkiye‚Äôde faaliyet g√∂steren diƒüer ≈üirketler,turkcell ƒ leti uim hizmetleri a u ve t orkiye aode faaliyet g steren diƒuer uirketler,Turkcell,0035DF-E
+Computacenter B.V.,computacenter,Computacenter,05HXMK-E
+Centralpoint B.V. h.o.d.n. Dustin Nederland,centralpoint hodn dustin nederland,Dustin,08DLMY-E
+Bechtle B.V.,bechtle,Bechtle,05J3LV-E
+Swiss Re Management Ltd,swiss re management,Swiss Re Ltd,0BT2BZ-E
+BayWa AG,baywa,BayWa AG,05J2JC-E
+"MItsui O.S.K Lines, Ltd",mitsui osk lines,"Mitsui O.S.K. Lines, Ltd.",05HWKV-E
+NZX Limited,nzx,NZX Limited,05WMZJ-E
+Deutsche B√∂rse Group,deutsche b rse,Deutsche Börse Group,05HL2T-E
+"YAPI VE KREDƒ∞ BANKASI A.≈û.,",yapi ve kredƒ bankasi a u,Yapı Ve Kredi Bankası A.Ş.,05HWS3-E
+ANZ Bank New Zealand Limited,anz bank new zealand,Australia and New Zealand Banking Group Limited,003MPQ-E
+ALARKO HOLDƒ∞NG A.≈û,alarko holdƒ ng a u,Alarko Holding A.S.,05J1JX-E
+ALSƒ∞M ALARKO SANAYƒ∞ TESƒ∞SLERƒ∞ VE Tƒ∞CARET A.≈û.,alsƒ m alarko sanayƒ tesƒ slerƒ ve tƒ caret a u,Alarko Holding A.S.,05J1JX-E
+OCBC e2 Power (Shenzhen) Company Limited,ocbc e2 power shenzhen,Oversea-Chinese Banking Corporation Limited,05SGLV-E
+"SIG Combibloc (Suzhou) Co., Ltd, 399, Xinlong Street, 215126, Suzhou",sig combibloc suzhou 399 xinlong street 215126 suzhou,SIG Combibloc Group AG,05HXRK-E
+Racing Bulls S.p.A.,racing bulls,Oracle Corporation,000SY8-E
+Banco Santander de Negocios Colombia S.A,banco santander de negocios colombia,"Banco Santander, S.A.",06WSS6-E
+Banco Santander Brasil S.A. (CNPJ ),banco santander brasil cnpj,"Banco Santander, S.A.",06WSS6-E
+Breville Group Limited,breville,Breville Group Limited,05M2LQ-E
+Subsea 7 (UK Service Company) Ltd,subsea 7 uk service,Subsea 7 Inc.,00CZ99-E
+Scout24 SE,scout24,Scout24 SE,0DL7SP-E
+Compass Group Nederland B.V.,compass nederland,Compass Group PLC,05HFH4-E
+Mutares SE & Co. KGaA,mutares kgaa,Mutares SE & Co. KGaA,07D16C-E
+Cadence Design Systems (India) Private Limited,cadence design systems india private,"Cadence Design Systems, Inc.",000D69-E
+FedEx Logistics India Private Limited,fedex logistics india private,FedEx Corporation,001TR0-E
+Movenpick Living,movenpick living,Accor S.A.,002KZL-E
+HAMPTON BY HILTON SAKARYA,hampton by hilton sakarya,Hilton Worldwide Holdings Inc.,00FPNC-E
+LondonMetric Property Plc,londonmetric property,LondonMetric Property Plc,0B3BTM-E
+Vattenfall Sales Nederland N.V.,vattenfall sales nederland,Vattenfall AB,05HM77-E
+H&M HENNES & MAURITZ RO SERVICES S.R.L.,h m hennes mauritz ro services,Hennes & Mauritz AB,05HFMB-E
+TENNANT ROMANIA SRL,tennant romania,Tennant Company,000XNB-E
+PROCTER & GAMBLE MARKETING ROMANIA SRL,procter gamble marketing romania,Procter & Gamble Co.,000TRY-E
+METRO CASH & CARRY ROMANIA SRL,metro cash carry romania,METRO AG,0H06SK-E
+PHILIPS ROMANIA SRL,philips romania,Koninklijke Philips N.V.,000TCK-E
+WELLA INTERNATIONAL OPERATIONS SWITZERLAND,wella international operations switzerland,Coty Inc.,05SKTK-E
+EDENRED ROMANIA SRL,edenred romania,Edenred SE,09P854-E
+KERSIA ROMANIA SRL,kersia romania,Ecolab Inc.,000HXM-E
+DR. REDDY‚ÄôS LABORATORIES ROMANIA S.R.L.,dr reddy aos laboratories romania,Dr. Reddy's Laboratories Limited,0037C0-E
+ASSA ABLOY ENTRANCE SYSTEMS PRODUCTION ROMANIA SRL,assa abloy entrance systems production romania,ASSA ABLOY AB,05HJCV-E
+GEALAN ROMANIA SRL,gealan romania,Deceuninck N.V.,05HZR5-E
+MONDELEZ ROMANIA SA,mondelez romania,"Mondelez International, Inc.",002RNG-E
+OMV PETROM S.A.,omv petrom,OMV PETROM S.A.,05STXZ-E
+OMV PETROM MARKETING S.R.L,omv petrom marketing,OMV Petrom S.A.,05STXZ-E
+BUNZL ROMANIA SRL,bunzl romania,Bunzl plc,00288B-E
+PHILIP MORRIS TRADING S.R.L.,philip morris trading,Philip Morris International Inc.,072GKL-E
+KIMBALL ELECTRONICS ROMANIA SRL,kimball electronics romania,"Kimball Electronics, Inc.",07PBPT-E
+BEKO ROMANIA SA,beko romania,Arçelik A.Ş.,05HXPV-E
+ZAREA SA,zarea,Zarea SA,10QJV3-E
+TECHTRONIC INDUSTRIES EASTERN EUROPE SP. Z O. O.,techtronic industries eastern europe sp z o o,Techtronic Industries Company Limited,003JQR-E
+PROCTER and GAMBLE INTERNATIONAL OPERATIONS SA REPREZ. FISCAL PRIN DETERGENTI S.A,procter and gamble international operations reprez fiscal prin detergenti,Procter & Gamble Co.,000TRY-E
+PROCTER & GAMBLE DISTRIBUTION SRL,procter gamble distribution,Procter & Gamble Co.,000TRY-E
+LINDAB SRL,lindab,Lindab International AB,05PS76-E
+INTERSNACK ROMANIA SRL,intersnack romania,PepsiCo Inc.,000T99-E
+HOLCIM (ROMANIA) SA,holcim romania,Holcim Ltd,0FKYKN-E
+H&M HENNES & MAURITZ SRL,h m hennes mauritz,H&M Hennes & Mauritz AB,05HFMB-E
+HALEON ROMANIA S.R.L.,haleon romania,Haleon PLC,0Q39YC-E
+AKZO NOBEL COATINGS SRL,akzo nobel coatings,Akzo Nobel N.V.,003P6Z-E
+DM DROGERIE MARKT SRL,dm drogerie markt,"Walgreens Boots Alliance, Inc.",0DVRCL-E
+CARREFOUR ROMANIA SA,carrefour romania,Carrefour S.A.,002D1X-E
+BRITISH - AMERICAN TOBACCO ROMANIA INVESTMENT SRL,british american tobacco romania investment,British American Tobacco p.l.c.,000CN6-E
+BRITISH AMERICAN TOBACCO (ROMANIA) TRADING SRL,british american tobacco romania trading,British American Tobacco p.l.c.,000CN6-E
+KYOCERA AVX COMPONENTS S.R.L.,kyocera avx components,Kyocera Corporation,002CB8-E
+ASSA ABLOY OPENING SOLUTIONS ROMANIA SRL,assa abloy opening solutions romania,ASSA ABLOY AB,05HJCV-E
+ANTALIS SA,antalis,Smurfit Westrock,0KBSXG-E
+ALFA LAVAL S.R.L.,alfa laval,Alfa Laval AB,05JLR1-E
+AGL | Perth Energy,agl perth energy,AGL Energy Limited,06KVM8-E
+Swire Energy Services Limited,swire energy services,Swire Pacific Limited,003S4P-E
+Lifecell ƒ∞leti≈üim Teknolojileri ve Dijital Servisler A.≈û.,lifecell ƒ leti uim teknolojileri ve dijital servisler a u,Turkcell,0035DF-E
+Paycell LLC,paycell,Turkcell,0035DF-E
+Paycell Europe GMBH,paycell europe,Turkcell,0035DF-E
+Lifecell Digital Limited,lifecell digital,Turkcell,0035DF-E
+Rehberlik Hizmetleri Servisi A.≈û.,rehberlik hizmetleri servisi a u,Turkcell,0035DF-E
+TURKCELL Sƒ∞GORTA ARACILIK Hƒ∞ZMETLERƒ∞ ANONƒ∞M ≈ûƒ∞RKETƒ∞,turkcell sƒ gorta aracilik hƒ zmetlerƒ anonƒ m uƒ rketƒ,Turkcell,0035DF-E
+TURKCELL SATI≈û A.≈û.,turkcell sati u a u,Turkcell,0035DF-E
+TURKCELL GAYRƒ∞MENKUL Hƒ∞ZMETLERƒ∞ A.≈û.,turkcell gayrƒ menkul hƒ zmetlerƒ a u,Turkcell,0035DF-E
+Sofra Kurumsal ve √ñd√ºllendirme Hizmetleri A.≈û.,sofra kurumsal ve nd ollendirme hizmetleri a u,Turkcell,0035DF-E
+TURKCELL ENERJƒ∞ √á√ñZ√úMLERƒ∞ VE ELEKTRƒ∞K SATI≈û Tƒ∞CARET A.≈û.,turkcell enerjƒ a nz umlerƒ ve elektrƒ k sati u tƒ caret a u,Turkcell İletişim Hizmetleri A.Ş.,0035DF-E
+TURKCELL Dƒ∞Jƒ∞TAL Sƒ∞GORTA ANONƒ∞M ≈ûƒ∞RKETƒ∞,turkcell dƒ jƒ tal sƒ gorta anonƒ m uƒ rketƒ,Turkcell İletişim Hizmetleri A.Ş.,0035DF-E
+TURKCELL Dƒ∞Jƒ∞TAL ƒ∞≈û SERVƒ∞SLERƒ∞ ANONƒ∞M ≈ûƒ∞RKETƒ∞,turkcell dƒ jƒ tal ƒ u servƒ slerƒ anonƒ m uƒ rketƒ,Turkcell İletişim Hizmetleri A.Ş.,0035DF-E
+TURKCELL Fƒ∞NANSMAN ANONƒ∞M ≈ûƒ∞RKETƒ∞,turkcell fƒ nansman anonƒ m uƒ rketƒ,Turkcell İletişim Hizmetleri A.Ş.,0035DF-E
+TURKCELL √ñDEME Hƒ∞ZMETLERƒ∞ ANONƒ∞M ≈ûƒ∞RKETƒ∞,turkcell ndeme hƒ zmetlerƒ anonƒ m uƒ rketƒ,Turkcell İletişim Hizmetleri A.Ş.,0035DF-E
+Turkcell Dijital Teknolojileri Limited,turkcell dijital teknolojileri,Turkcell İletişim Hizmetleri A.Ş.,0035DF-E
+TURKCELL TEKNOLOJƒ∞ ARA≈ûTIRMA VE GELƒ∞≈ûTƒ∞RME A.≈û.,turkcell teknolojƒ ara utirma ve gelƒ utƒ rme a u,Turkcell İletişim Hizmetleri A.Ş.,0035DF-E
+Turkcell ƒ∞leti≈üim Hizmetleri Anonim ≈ûirketi,turkcell ƒ leti uim hizmetleri anonim uirketi,Turkcell İletişim Hizmetleri A.Ş.,0035DF-E
+Ten Square Games S.A,ten square games,Ten Square Games S.A.,0HTH2Z-E
+NIPPO Corporation,nippo,NIPPO Corporation,05JG69-E
+Sandstorm Gold Ltd.,sandstorm gold,Sandstorm Gold Ltd.,009B2L-E
+KSB Bombas e Valvulas S.A,ksb bombas e valvulas,KSB SE & Co. KGaA,05J4GT-E
+"Etex Australia (Siniat Opt-in Plasterboard and Metal Products, Opal plasterboard; and voluntary action)",etex australia siniat opt in plasterboard and metal products opal plasterboard and voluntary action,Etex Group,05KFYC-E
+Grupo Santander/Otros Negocios,grupo santander otros negocios,"Banco Santander, S.A.",06WSS6-E
+Santander Consumer Bank AG,santander consumer bank,"Banco Santander, S.A.",06WSS6-E
+GEA Group,gea,GEA Group,0666P2-E
+Vogue Scandinavia and Stora Enso,vogue scandinavia and stora enso,Stora Enso,002V9S-E
+E.ON Inhouse Consulting GmbH,e on inhouse consulting,E.ON SE,003715-E
+Schneider Electric Industries SAS,schneider electric industries,Schneider Electric SE,05HFTC-E
+bpost SA,bpost,bpost SA,05L2FS-E
+Seadrill Management AME Ltd. (Bermuda),seadrill management ame bermuda,Seadrill Limited,0QJ2JT-E
+AGL | Southern Phone,agl southern phone,AGL Energy Limited,06KVM8-E
+Eurobank S.A.,eurobank,Eurobank S.A.,05HJMN-E
+Ilika,ilika,Ilika plc,09R0HT-E
+Marico Ltd. Perundurai,marico perundurai,Marico Limited,05J4DJ-E
+Randstad Groep Nederland B.V.,randstad groep nederland,Randstad Holding N.V.,05HX1G-E
+TEXTRON SPECIALIZED VEHICLES,textron specialized vehicles,Textron Inc.,000XP9-E
+MediaMarktSaturn Polska,mediamarktsaturn polska,Ceconomy AG,0GWZQH-E
+BioLite,biolite,GoerTek Inc.,077GM4-E
+AJ Bell Business Solutions Limited,aj bell business solutions,AJ Bell plc,08D6TV-E
+Swiss Re Mgmt Ltd,swiss re mgmt,Swiss Re Ltd,0BT2BZ-E
+Enviro-mark Solutions Limited,enviro mark solutions,Smartgroup Corporation Limited,0DR9RD-E
+Kalmar Group,kalmar,Kalmar,0YTRLG-E
+Fonterra Brands Limited,fonterra brands,Fonterra Co-operative Group Limited,05KBSF-E
+"Cathay Life Insurance Co., Ltd",cathay life insurance,"Cathay Financial Holdings Co., Ltd.",05HWD3-E
+"ÂúãÊ≥∞‰∏ñËèØÂïÜÊ•≠ÈäÄË°åËÇ°‰ªΩÊúâÈôêÂÖ¨Âè∏(CATHAY UNITED BANK CO., LTD.)",auae neeøaiue eaae aec aωeuaeoeao ae cathay united bank,"Cathay Financial Holdings Co., Ltd.",05HWD3-E
+Kerry Manufacturing Philippines Inc.,kerry manufacturing philippines,Kerry Group plc,05HWL3-E
+Kerry Ingredients (NZ) Ltd,kerry ingredients nz,Kerry Group plc,05HWL3-E
+"Taiwan Shiseido Co., Ltd.",taiwan shiseido,"Shiseido Company, Limited",003JV2-E
+Seadrill Management Ltd.,seadrill management,Seadrill Limited,0QJ2JT-E
+Animalcare Ltd,animalcare,Animalcare Group plc,072M2F-E
+Alliander,alliander,Allianz SE,0032RQ-E
+TotalEnergies Charging Solutions Deutschland GmbH,totalenergies charging solutions deutschland,TotalEnergies SE,002KX6-E
+Naturgy Commodities Trading SA,naturgy commodities trading,Naturgy Energy Group S.A.,05HDYL-E
+"COLBUN S.A., RUT 96505760-9",colbun rut 96505760 9,Colbún S.A.,05HZ2H-E
+Volvo Group Truck Center B.V.,volvo truck center,Volvo Group AB,003LN0-E
+Onboard Logistics Chile Spa. (Komatsu-Cummins Chile),onboard logistics chile komatsu cummins chile,Komatsu Ltd,002MQ1-E
+Collins Foods Netherlands Operations BV,collins foods netherlands operations,Collins Foods Limited,00DC5X-E
+Collins Food Germany GmbH,collins food germany,Collins Foods Limited,00DC5X-E
+MAPFRE SIGORTA,mapfre sigorta,Mapfre S.A.,003HWW-E
+HomeToGo GmbH,hometogo,Booking Holdings Inc.,0029GL-E
+LifeGate Climate Action for Iveco - Evento 50xBEYOND 2025,lifegate climate action for iveco evento 50xbeyond 2025,CNH Industrial N.V.,0D7GLM-E
+Uber Colombia,uber colombia,Uber Technologies Inc.,0B49NF-E
+VisEra Technologies Company Ltd.,visera technologies,MediaTek Inc.,05HWGQ-E
+"KGI Bank Co., Ltd.",kgi bank,"KGI Financial Holding Co., Ltd.",05HWG1-E
+KGI Securities Co. Ltd.,kgi securities,"KGI Financial Holding Co., Ltd.",05HWG1-E
+"KGI Life Insurance Co., Ltd.",kgi life insurance,KGI Financial Holding Corporation Limited,05HWG1-E
+KGI Financial Holding Corporation Limited,kgi financial,KGI Financial Holding Corporation Limited,05HWG1-E
+"Cathay Securities Investment Trust Co., Ltd.",cathay securities investment trust,"Cathay Financial Holding Co., Ltd.",05HWD3-E
+Cathay Securities Corporation,cathay securities,"Cathay Financial Holding Co., Ltd.",05HWD3-E
+MAPFRE Sƒ∞GORTA ANONƒ∞M ≈ûƒ∞RKETƒ∞.,mapfre sƒ gorta anonƒ m uƒ rketƒ,"MAPFRE, S.A.",003HWW-E
+SAFECHEM Europe GmbH,safechem europe,BASF SE,002YCC-E
+Telstra Super,telstra super,Telstra Corporation Limited,002TQJ-E
+Footwear Industries Pty Ltd T/A Steel Blue,footwear industries t a steel blue,Bluescope Steel Limited,05JLQX-E
+Vattenfall AB V√§rme Sverige,vattenfall v rme sverige,Vattenfall AB,05HM77-E
+Honda Mobilityland Corporation Mobility Resort Motegi,honda mobilityland mobility resort motegi,"Honda Motor Co., Ltd.",003JW8-E
+Andritz Feed en Biofuel BV.,andritz feed en biofuel,Andritz AG,05J0DH-E
+RTL2 Fernsehen GmbH & Co. KG,rtl2 fernsehen kg,RTL Group SE,05HH9H-E
+Cancellati per conto di illimity Bank S.p.A. per la compensazione delle emissioni dirette e indirette relative alle attivit√† proprie del Gruppo Illimity (Scope 1 e Scope 2) dell‚Äôanno 2024.,cancellati per conto di illimity bank per la compensazione delle emissioni dirette e indirette relative alle attivit proprie del gruppo illimity scope 1 e scope 2 dell aoanno 2024,illimity Bank S.p.A.,0HYX3B-E
+UPM,upm,UPM-Kymmene Oyj,002V58-E
+SAP 2021,sap 2021,SAP SE,05HDZK-E
+Mastercard Australian Open Suite 2019,mastercard australian open suite 2019,Mastercard Incorporated,0038M5-E
+Schneider Electric (Australia) Pty Ltd,schneider electric australia,Schneider Electric SE,05HFTC-E
+Georg Fischer Waga N.V.,georg fischer waga,Georg Fischer AG,05HYVW-E
+Hapag Lloyd Rotterdam,hapag lloyd rotterdam,Hapag-Lloyd AG,05HS3K-E
+Lassila & Tikanoja,lassila tikanoja,Lassila & Tikanoja Oyj,05J0K7-E
+L&T Ymp√§rist√∂palvelut Oy,l t ymp rist palvelut oy,Lassila & Tikanoja Oyj,05J0K7-E
+"""SAP SE 2019 1/3""",sap 2019 1 3,SAP SE,05HDZK-E
+"""SAP SE 2019 2/3‚Äù",sap 2019 2 3 au,SAP SE,05HDZK-E
+"""SAP SE 2019 3/3‚Äù",sap 2019 3 3 au,SAP SE,05HDZK-E
+the Competec-Group (Alltron AG BRACK.CH AG Sport360 AG Jamei AG Competec Service AG Competec Logistik AG),the competec alltron brack ch sport360 jamei competec service competec logistik,Alltron AG,007DPL-E
+"the ""Competec-Gruppe (Alltron AG BRACK.CH AG Babym√ºller.ch AG Sport360 AG Jamei AG Competec Service AG Competec Logistik AG)""",the competec gruppe alltron brack ch babym oller ch sport360 jamei competec service competec logistik,Alltron AG,007DPL-E
+the Competec-Group (Alltron AG BRACK.CH AG Competec Service AG),the competec alltron brack ch competec service,Alltron AG,007DPL-E
+Competec Service AG - CH M√§genwil,competec service ch m genwil,Alltron AG,007DPL-E
+Invesco UK Limited,invesco uk,Invesco Ltd.,0033W4-E
+SYSMEX AMERICA INC,sysmex america,Sysmex Corporation,05HZKR-E
+Nucor Tubular Products Inc.,nucor tubular products,Nucor Corporation,000RHT-E
+"Flextronics International USA, Inc.",flextronics international usa,Flex Ltd.,0015XK-E
+DAIFUKU AUTOMOTIVE AMERICA CORPORATION,daifuku automotive america,"Daifuku Co., Ltd.",05HZCB-E
+"Docusign, Inc.",docusign,"DocuSign, Inc.",005WNY-E
+PGE Carty Oregon CO2 Standard,pge carty oregon co2 standard,Portland General Electric Company,05SWQW-E
+PGE Port Westward 2 OR CO2 Standard facility,pge port westward 2 or co2 standard facility,Portland General Electric Company,05SWQW-E
+PGE Carty OR CO2 Standard facility,pge carty or co2 standard facility,Portland General Electric Company,05SWQW-E
+"MetLife Services and Solutions, LLC",metlife services and solutions,"MetLife, Inc.",002PV7-E
+Derwent London Plc,derwent london,Derwent London plc,06LLS9-E
+Samsara,samsara,Samsara Inc.,0FKC9L-E
+"Etsy, Inc., and its affiliates",etsy and its affiliates,"Etsy, Inc.",008HL3-E
+Airgas Participation in Puget Sound Energy RY2025 Carbon Balance program,airgas participation in puget sound energy ry2025 carbon balance program,"Airgas, Inc.",05HFMC-E
+Brooks Running,brooks running,Berkshire Hathaway Inc.,000CS1-E
+Edenred ñ Move for Good Program,edenred n move for good program,Edenred SE,09P854-E
+Guardian Capital Group Limited,guardian capital,Guardian Capital Group Limited,003RWM-E
+Atlassian,atlassian,Atlassian Corporation plc,0TT8NS-E
+Eligible Individuals - Nevada Move2Zero participating pilot program customers of Southwest Gas Corp,eligible individuals nevada move2zero participating pilot program customers of southwest gas,Southwest Gas Corporation,0GR2P2-E
+Lincoln Financial Group,lincoln financial,Lincoln National Corporation,000P5T-E
+Canadian Imperial Bank of Commerce,canadian imperial bank of commerce,Canadian Imperial Bank of Commerce,001VG4-E
+"Greeleaf Foods, fully-owned subsidiary of Maple Leaf Foods",greeleaf foods fully owned subsidiary of maple leaf foods,Maple Leaf Foods Inc.,003NJ1-E
+BCE,bce,BCE Inc.,00282B-E
+Workiva Inc.,workiva,Workiva Inc.,00BGX3-E
+Quickbase,quickbase,"HubSpot, Inc.",009DN2-E
+The Walt Disney Company Italia S.r.l.,the walt disney italia,The Walt Disney Company,000HLG-E
+"Amazon Data Services, Inc.",amazon data services,"Amazon.com, Inc.",001MF1-E
+Thermo Fisher Scientific (Bremen) GmbH,thermo fisher scientific bremen,Thermo Fisher Scientific Inc.,06LJVN-E
+ASML Netherlands BV,asml netherlands,ASML Holding N.V.,000CBQ-E
+BP T&S Carbon Offset Retirement Program,bp t s carbon offset retirement program,BP p.l.c.,001LLD-E
+Asian European Engineering Limited for MONCLER APAC,asian european engineering for moncler apac,Moncler S.p.A.,07FT56-E
+NetJets and NetJets Owners,netjets and netjets owners,Berkshire Hathaway Inc.,000CS1-E
+Weyco Group,weyco,"Weyco Group, Inc.",000YVP-E
+Traditional Medicinals,traditional medicinals,"Mondelez International, Inc.",002RNG-E
+Major League Baseball,major league baseball,Liberty Media Corporation,00F5CL-E
+Skyscanner Limited,skyscanner,Booking Holdings Inc.,0029GL-E
+"Ventas, Inc.",ventas,"Ventas, Inc.",0022L7-E
+Greenleaf Foods,greenleaf foods,Maple Leaf Foods Inc.,003NJ1-E
+American Express for Amex Delta SkyMilesÆ card,american express for amex delta skymilesæ card,American Express Company,000BY7-E
+"Colgate-Palmolive Company for facility located in Burlington, NJ.",colgate palmolive for facility located in burlington nj,Colgate-Palmolive Company,000DXS-E
+Solairus For FMC Corporation,solairus for fmc,FMC Corporation,000KLW-E
+Retired on behalf of Wells Fargo,retired on behalf of wells fargo,Wells Fargo & Company,000RGR-E
+"Waste Management National Services, Inc.",waste management national services,"Waste Management, Inc.",0024XW-E
+Tata Consultancy Services Canada Inc.,tata consultancy services canada,Tata Consultancy Services Limited,05LBFM-E
+TCS e-Serve International Limited,tcs e serve international,Tata Consultancy Services Limited,05LBFM-E
+Tata America International Corporation,tata america international,Tata Consultancy Services Limited,05LBFM-E
+ESPN,espn,The Walt Disney Company,000HLG-E
+"Fifth Third Bank, National Association",fifth third bank national association,Fifth Third Bancorp,000JND-E
+NetJets US,netjets us,Berkshire Hathaway Inc.,000CS1-E
+Dolby Laboratories,dolby laboratories,"Dolby Laboratories, Inc.",05MHNR-E
+Viant Technology Inc.,viant technology,Viant Technology Inc.,0N9C7X-E
+"Avis Budget Car Rental, LLC",avis budget car rental,"Avis Budget Group, Inc.",000FFL-E
+Aramark Services Inc.,aramark services,Aramark Corporation,06V4FD-E
+The Bank of New York Mellon Corporation,the bank of new york mellon,The Bank of New York Mellon Corporation,0091M7-E
+FTI Consulting,fti consulting,"FTI Consulting, Inc.",001B91-E
+Thomson Reuters,thomson reuters,Thomson Reuters Corporation,0761FD-E
+"Empire State Realty OP, LP",empire state realty op,"Empire State Realty Trust, Inc.",00DR0F-E
+Retired by Climate Impact Partners of behalf of Konecranes Finland OY,retired by climate impact partners of behalf of konecranes finland oy,Konecranes Plc,05HZJ9-E
+"Depa Holding (51 credits), Courtney Agencies (83 credits), Saltz (18 credits), Xpand Logistics (19 credits), Ingram Micro (178 credits)",depa 51 credits courtney agencies 83 credits saltz 18 credits xpand logistics 19 credits ingram micro 178 credits,Ingram Micro Inc.,0TQ14F-E
+Ryanair,ryanair,Ryanair Holdings plc,001Y6H-E
+"Hitachi Computer Products (America), Inc.",hitachi computer products america,"Hitachi, Ltd.",000LQ5-E
+Eastman Chemical Company,eastman chemical,Eastman Chemical Company,0019JD-E
+Schneider Electric USA,schneider electric usa,Schneider Electric SE,05HFTC-E
+Colas Group,colas,Bouygues S.A.,05HDYF-E
+Ipsen Pharma SAS,ipsen pharma,Ipsen SE,007SFK-E
+Blue Owl Capital,blue owl capital,Blue Owl Capital Inc.,0NPXTB-E
+Elanders,elanders,Elanders AB,05J5Z6-E
+Retired on behalf of Jacobs,retired on behalf of jacobs,Jacobs Solutions Inc.,0TCQSK-E
+Solairus for The Gap Inc,solairus for the gap,Gap Inc.,000KWJ-E
+Harman,harman,"Harman International Industries, Incorporated",000VPP-E
+Iberdrola,iberdrola,"Iberdrola, S.A.",05HFXJ-E
+"Datadog, Inc.",datadog,"Datadog, Inc.",0BXYRK-E
+Eligible Individuals - Nevada Move2Zero participating customers of Southwest Gas Corp.,eligible individuals nevada move2zero participating customers of southwest gas,Southwest Gas Corporation,0GR2P2-E
+Retired on behalf of the customers of Piedmont Natural Gasí GreenEdge Program,retired on behalf of the customers of piedmont natural gasi greenedge program,Piedmont Natural Gas,06F9DV-E
+"Fidelity Information Servicies, LLC",fidelity information servicies,"Fiserv, Inc.",000KJ3-E
+Flutter Entertainments - On Behalf of Flutter Entertainmentís 2024 Scope 1 and 2 offsetting requirements.,flutter entertainments on behalf of flutter entertainmentis 2024 scope 1 and 2 offsetting requirements,Flutter Entertainment plc,0G1LBR-E
+Christian Dior Couture,christian dior couture,LVMH Moët Hennessy Louis Vuitton SE,002LGW-E
+Cochlear,cochlear,Cochlear Limited,05HXCK-E
+Morgan Stanley Capital Group Inc.,morgan stanley capital,Morgan Stanley,0013TZ-E
+Schneider Electric France,schneider electric france,Schneider Electric SE,05HFTC-E
+"LSB Industries, Inc.",lsb industries,"LSB Industries, Inc.",000P9Q-E
+Royal Bank of Canada,royal bank of canada,Royal Bank of Canada,0018FV-E
+Shell Trading International Limited,shell trading international,Shell plc,066L2H-E
+Washington Gas Energy Services,washington gas energy services,NiSource Inc.,002HW9-E
+CAPGEMINI SERVICE,capgemini service,Capgemini SE,002G6H-E
+Shell Energy North America (Canada) Inc.,shell energy north america canada,Shell plc,066L2H-E
+BP Carbon Trading Ltd,bp carbon trading,BP p.l.c.,001LLD-E
+"StoneX Commodity Solutions, LLC",stonex commodity solutions,StoneX Group Inc.,0013QC-E
+SouthStar Energy Services LLC,southstar energy services,Vistra Corp.,0GL3K3-E
+Dominion Energy North Carolina Gas,dominion energy north carolina gas,"Dominion Energy, Inc.",000HMG-E
+Southwest Gas Corporation,southwest gas,"Southwest Gas Holdings, Inc.",0GR2P2-E
+NRG Power Marketing LLC,nrg power marketing,"NRG Energy, Inc.",0013YQ-E
+Direct Energy Business Marketing LLC,direct energy business marketing,Centrica plc,003JJM-E
+Dominion Energy South Carolina,dominion energy south carolina,"Dominion Energy, Inc.",000HMG-E
+Progressive Casualty Insurance Company,progressive casualty insurance,Progressive Corporation,000TSD-E
+PUMA ENERGY COLOMBIA COMBUSTIBLES S A S.,puma energy colombia combustibles s a s,Puma Energy Holdings,0BZ4HQ-E
+MANE SUCURSAL COLOMBIA,mane colombia,International Flavors & Fragrances Inc.,000N1Z-E
+CONTINENTAL GOLD,continental gold,Continental Gold Ltd.,0GWNRG-E
+YARA INTERNATIONAL SAS,yara international,Yara International ASA,005KQ2-E
+VEOLIA ASEO BUGA S.A. ESP,veolia aseo buga,Veolia Environnement S.A.,0024DP-E
+Alpina Productos Alimenticios S.A.,alpina productos alimenticios,Grupo Nutresa S.A.,05J103-E
+INGREDION COLOMBIA S.A.S.,ingredion colombia,Ingredion Incorporated,001T4T-E
+Johnson Y Johnson de Colombia SA,johnson y johnson de colombia,Johnson & Johnson,000NB6-E
+REPSOL COLOMBIA OIL & GAS LTD,repsol colombia oil gas,Repsol S.A.,05DZH8-E
+SOLUCIONES TECNOLOGICAS PROYECTOS S - ATS DATA CENTER EQUINIX BG02,soluciones tecnologicas proyectos s ats data center equinix bg02,Equinix Inc.,002QWZ-E
+UPL Colombia SAS,upl colombia,UPL Limited,05WD49-E
+LABORATORIOS BAXTER S.A.,laboratorios baxter,Baxter International Inc.,000CNJ-E
+FALABELLA DE COLOMBIA S.A.,falabella de colombia,Falabella,05LF0T-E
+MONDI CARTAGENA S.A.S.,mondi cartagena,Mondi plc,06SRGX-E
+UNIPHOS COLOMBIA PLANT LIMITED,uniphos colombia plant,UPL Limited,05WD49-E
+BASF QUIMICA COLOMBIANA S.A.,basf quimica colombiana,BASF SE,002YCC-E
+PROMIGAS S.A. E.S.P.,promigas,Promigas S.A. E.S.P.,05J0MH-E
+PATRIMONIOS AUTONOMOS CREDICORP CAPITAL FIDUCIARIA S A,patrimonios autonomos credicorp capital fiduciaria s a,Credicorp Ltd.,001MPG-E
+Compañía de Seguros Bolívar S.A.,compania de seguros bolivar,Grupo de Inversiones Suramericana S.A.,05J27C-E
+CROWN COLOMBIANA S.A.,crown colombiana,Huhtamaki Oyj,003MF9-E
+AXALTA POWDER COATING SYSTEMS ANDINA S.A.,axalta powder coating systems andina,Axalta Coating Systems Ltd.,0CSK0C-E
+GEOPARK COLOMBIA S.A.S.,geopark colombia,GeoPark Limited,0088W8-E
+Sociedad Air France,sociedad air france,Air France-KLM,05ZKN9-E
+"INDORAMA VENTURES POLYMERS MEXICO, S. DE R.L DE C.V.",indorama ventures polymers mexico s de rl de cv,Indorama Ventures Public Company Limited,06KVGK-E
+Ascensores Schindler de Colombia S.A.S.,ascensores schindler de colombia,Schindler Holding AG,05HWZT-E
+OLEODUCTO DE LOS LLANOS ORIENTALES S.A.,oleoducto de los llanos orientales,Ecopetrol S.A.,0649LY-E
+OLEODUCTO BICENTENARIO DE COLOMBIA S.A.S.,oleoducto bicentenario de colombia,Ecopetrol S.A.,0649LY-E
+Pepsico Mexico Foods,pepsico mexico foods,"PepsiCo, Inc.",000T99-E
+SGS COLOMBIA S.A.S.,sgs colombia,SGS SA,05HWM3-E
+APPLUS NORCONTROL COLOMBIA LIMITADA,applus norcontrol colombia limitada,APPLUS+,0DN6Y4-E
+Proexcar a Kerry Company,proexcar a kerry,Kerry Group plc,05HWL3-E
+PERNOD RICARD COLOMBIA S.A,pernod ricard colombia,Pernod Ricard SE,003JKK-E
+ORICA COLOMBIA S.A.S.,orica colombia,Orica Limited,05HX18-E
+MIBANCO BANCO DE LA MICROEMPRESA DE COLOMBIA S.A,mibanco banco de la microempresa de colombia,Banco de Crédito e Inversiones,05HYSW-E
+TELEPERFORMANCE COLOMBIA S.A.S.,teleperformance colombia,Teleperformance SE,05HXQ1-E
+CREDICORP CAPITAL COLOMBIA S.A,credicorp capital colombia,Credicorp Ltd.,001MPG-E
+COMPAÑIA DE SEGUROS ECUATORIANO SUIZA S.A.,compania de seguros ecuatoriano suiza,Zurich Insurance Group Ltd.,05GGL5-E
+PUMA ENERGY COLOMBIA COMBUSTIBLES S.A.S,puma energy colombia combustibles,Puma Energy,0BZ4HQ-E
+RAIZEN ARGENTINA S.A.U,raizen argentina sau,Adecoagro S.A.,06V6DH-E
+BANCO DE OCCIDENTE,banco de occidente,Banco de Occidente S.A.,05J1HR-E
+TOYOTA TALLERES DE SERVICIO AUTORIZADO S.A.S.,toyota talleres de servicio autorizado,Toyota Motor Corporation,003K89-E
+Global Sports Innovation Center powered by Microsoft,global sports innovation center powered by microsoft,Microsoft Corporation,000Q07-E
+HALEON COLOMBIA SAS,haleon colombia,Haleon plc,0Q39YC-E
+Alpina Productos Alimenticios S.A.S. BIC.,alpina productos alimenticios bic,Grupo Nutresa S.A.,05J103-E
+ITT GOULDS PUMPS COLOMBIA S.A.S.,itt goulds pumps colombia,ITT Inc.,0G868W-E
+BANCO DE BOGOTA,banco de bogota,Banco de Bogotá S.A.,05HZC7-E
+BANCO POPULAR,banco popular,Banco Popular S.A.,066RTP-E
+ETEX COLOMBIA S.A.,etex colombia,Etex Group,05KFYC-E
+BONCA SAS - EDS TERPEL PALERMO,bonca eds terpel palermo,Ecopetrol S.A.,0649LY-E
+PASION INNOVACION EXPERIENCIA AUTOMOTRIZ SAS - EDS TERPEL CRUZ ROJA,pasion innovacion experiencia automotriz eds terpel cruz roja,Ecopetrol S.A.,0649LY-E
+SANCHEZ Y LOZANO SAS - EDS TERPEL EL RETORNO,sanchez y lozano eds terpel el retorno,Ecopetrol S.A.,0649LY-E
+SANZ TORO SAS - EDS TERPEL LA ALQUERIA,sanz toro eds terpel la alqueria,Ecopetrol S.A.,0649LY-E
+DIAKONOS SAS - EDS TERPEL JAVERIANA,diakonos eds terpel javeriana,Ecopetrol S.A.,0649LY-E
+COMBUSTIBLES FLORENCIA SAS - EDS TERPEL FLORENCIA,combustibles florencia eds terpel florencia,Ecopetrol S.A.,0649LY-E
+CASDAR SAS - EDS PRESIDENTE,casdar eds presidente,Ecopetrol S.A.,0649LY-E
+INVERSIONES CICA SAS - EDS TERPEL TINTAL,inversiones cica eds terpel tintal,Ecopetrol S.A.,0649LY-E
+DISTRIBUCIONES AGUIRRE SIERRA S.A.S - EDS TERPEL NORTE,distribuciones aguirre sierra eds terpel norte,Ecopetrol S.A.,0649LY-E
+DISTRIBUIDORA DE COMBUSTIBLES LOPEZ Y GIRALDO SAS - TERPEL- EDS EL VERGEL,distribuidora de combustibles lopez y giraldo terpel eds el vergel,Ecopetrol S.A.,0649LY-E
+JEMA GASOIL SAS - EDS TERPEL LA 49 NORMANDIA,jema gasoil eds terpel la 49 normandia,Ecopetrol S.A.,0649LY-E
+VALECAR SAS - EDS TERPEL LA 33,valecar eds terpel la 33,Ecopetrol S.A.,0649LY-E
+FAESGO SAS - EDS TERPEL SAN ANTONIO,faesgo eds terpel san antonio,Ecopetrol S.A.,0649LY-E
+COLVIBRA SAS - EDS TERPEL LAS VEGAS,colvibra eds terpel las vegas,Ecopetrol S.A.,0649LY-E
+CAISO SAS - EDS TERPEL SAN AGUSTIN,caiso eds terpel san agustin,Ecopetrol S.A.,0649LY-E
+INVERSIONES SOL SAS - EDS TERPEL ASTILLEROS,inversiones sol eds terpel astilleros,Ecopetrol S.A.,0649LY-E
+INVERSIONES KEYAH SAS - EDS SABANETA,inversiones keyah eds sabaneta,Ecopetrol S.A.,0649LY-E
+EVIMERIA PM S.A.S - EDS TERPEL AMIRA DE LA ROSA,evimeria pm eds terpel amira de la rosa,Ecopetrol S.A.,0649LY-E
+CENCOSUD COLOMBIA SA,cencosud colombia,Cencosud S.A.,05SK9R-E
+CAE COLOMBIA FLIGTH TRAINING SAS,cae colombia fligth training,CAE Inc.,003N1G-E
+Guacolda Energía SpA,guacolda energia,ENEL S.p.A.,0031L0-E
+AXA SA on behalf of AXA Group,axa on behalf of axa,AXA SA,001VPR-E
+Minera Escondida Ltda,minera escondida,BHP Group Limited,0010VG-E
+Interconexión Eléctrica S.A. E.S.P. - ISA,interconexion electrica isa,Interconexión Eléctrica S.A.,05WL8K-E
+Nordex SE,nordex,Nordex SE,05HR9D-E
+XYLEM WATER SOLUTIONS COLOMBIA S.A.S.,xylem water solutions colombia,Xylem Inc.,0C4770-E
+Safran Landing Systems Services Americas S.A. de C.V.,safran landing systems services americas de cv,Safran S.A.,05HWQV-E
+GRAMALOTE COLOMBIA LIMITED,gramalote colombia,Anglogold Ashanti Limited,0WWX4C-E
+"Givaudan de México, S.A. de C.V.",givaudan de mexico de cv,Givaudan SA,05HL4J-E
+BRINKS DE COLOMBIA SA,brinks de colombia,Brink's Company,000TH7-E
+Banco Davivienda (Costa Rica) S.A.,banco davivienda costa rica,Banco Davivienda S.A.,068YWH-E
+CONSORCIO OMIA - SKF,consorcio omia skf,SKF AB,05HWXZ-E
+BANCO POPULAR S. A.,banco popular s a,Banco Popular S.A.,066RTP-E
+COLLECTIVE MINING LIMITED SUCURSAL COLOMBIA,collective mining colombia,Collective Mining Limited,0NGZZM-E
+INGERSOLL - RAND COLOMBIA S A S,ingersoll rand colombia s a s,Ingersoll Rand Inc.,0M2SYP-E
+CAE COLOMBIA FLIGHT TRAINING S.A.S.,cae colombia flight training,CAE Inc.,003N1G-E
+SIKA COLOMBIA S.A.S,sika colombia,Sika AG,05HZFP-E
+COLOMBIA MOVIL SA ESP,colombia movil,Millicom International Cellular S.A.,001KGB-E
+StoneX,stonex,StoneX Group Inc.,0013QC-E
+GRUPO AVAL ACCIONES Y VALORES SA,grupo aval acciones y valores,Grupo Aval Acciones y Valores S.A.,05HXQL-E
+SIGDO KOPPERS TNT,sigdo koppers tnt,Sigdo Koppers S.A.,05W8X0-E
+BESALCO,besalco,Besalco S.A.,05JB0B-E
+ECHEVERRÍA IZQUIERDO MONTAJES,echeverria izquierdo montajes,Echeverría Izquierdo S.A.,0CNJR9-E
+SIGDO KOPPERS,sigdo koppers,Sigdo Koppers S.A.,05W8X0-E
+CHEVRON PETROLUM COMPANY,chevron petrolum,Chevron Corporation,000DP6-E
+LATAM Airlines Brasil - TAM Linhas Aéreas S.A.,latam airlines brasil tam linhas aereas,LATAM Airlines Group S.A.,09ZKC0-E
+MAPFRE SEGUROS GENERALES DE COLOMBIA S.A.,mapfre seguros generales de colombia,MAPFRE S.A.,003HWW-E
+DRUMMOND LTD,drummond,"Drummond Company, Inc.",0JW1GM-E
+PA Credicorp Capital,pa credicorp capital,Credicorp Ltd.,001MPG-E
+ASTRAZENECA COLOMBIA S.A.S.,astrazeneca colombia,AstraZeneca PLC,000Z35-E
+CHEVRON PETROLIUM COMPANY,chevron petrolium,Chevron Corporation,000DP6-E
+Servicios Bolívar S.A.,servicios bolivar,Grupo Bolívar,068YWH-E
+SIEMENS ENERGY INC -OIL & GAS,siemens energy oil gas,Siemens Energy AG,0H3J8P-E
+Schneider Electric de Colombia S.A.S.,schneider electric de colombia,Schneider Electric SE,05HFTC-E
+COMPAGNIE DU PONANT,compagnie du ponant,LVMH Moët Hennessy Louis Vuitton SE,002LGW-E
+Renault Italia S.p.A.,renault italia,Renault S.A.S.,05HDYJ-E
+LATAM CARGO COLOMBIA,latam cargo colombia,LATAM Airlines Group S.A.,09ZKC0-E
+LATAM CARGO CHILE - LAN CARGO S.A.,latam cargo chile lan cargo,LATAM Airlines Group S.A.,09ZKC0-E
+LATAM AIRLINES GROUP S.A. SUCURSAL PARAGUAY,latam airlines paraguay,LATAM Airlines Group S.A.,09ZKC0-E
+MITSUI & CO COLOMBIA LTDA,mitsui colombia,"Mitsui & Co., Ltd.",000Q3S-E
+OGILVY & MATHER COLOMBIA S.A.S,ogilvy mather colombia,WPP plc,0CY4NZ-E
+HUNTSMAN COLOMBIA LTDA.,huntsman colombia,Huntsman Corporation,061SW6-E
+CREDICORP NEGOCIOS DIGITALES S.A.S,credicorp negocios digitales,Credicorp Ltd.,001MPG-E
+CITIPLAS COLOMBIA SAS,citiplas colombia,Huhtamaki Oyj,003MF9-E
+CHEP COLOMBIA S.A.S,chep colombia,Brambles Limited,06K7MS-E
+BIOMERIEUX COLOMBIA S.A.S,biomerieux colombia,bioMérieux S.A.,05MLN0-E
+BARCO COLOMBIA S.A.S,barco colombia,Barco N.V.,05HZ91-E
+RECORDATI RARE DISEASES COLOMBIA S.A.S,recordati rare diseases colombia,Recordati S.p.A.,05HX6X-E
+SANOFI - AVENTIS DE COLOMBIA S.A,sanofi aventis de colombia,Sanofi S.A.,005M9Z-E
+SANOFI PASTEUR S.A.,sanofi pasteur,Sanofi S.A.,005M9Z-E
+SYSMEX COLOMBIA S.A.S,sysmex colombia,Sysmex Corporation,05HZKR-E
+ACERIAS PAZ DEL RIO SA,acerias paz del rio,ACERÍAS PAZ DEL RÍO,05K03S-E
+PROCTER & GAMBLE COLOMBIA LTDA,procter gamble colombia,Procter & Gamble Co.,000TRY-E
+ENKA DE COLOMBIA S.A.,enka de colombia,Enka de Colombia S.A.,00BL30-E
+GRUPO ENERGIA BOGOTÁ S.A. ESP,grupo energia bogota,Grupo Energía Bogotá S.A.,094R7W-E
+ENLAZA GRUPO ENERGIA BOGOTÁ S.A.S ESP,enlaza grupo energia bogota,Grupo Energía Bogotá S.A.,094R7W-E
+Gruppo Cimbali,gruppo cimbali,De'Longhi N.V.,05HYVH-E
+Abengoa Chile S.A.,abengoa chile,Abengoa S.A.,003G1Q-E
+COLOMBIA MOVIL S A E S P,colombia movil s a e s p,Colombia Móvil S.A. E.S.P.,001KGB-E
+EMPRESA COLOMBIANA DE PETROLEOS S.A. - ECOPETROL S.A.,empresa colombiana de petroleos ecopetrol,Ecopetrol S.A.,0649LY-E
+REPSOL SERVICIOS COLOMBIA S.A.,repsol servicios colombia,Repsol S.A.,05DZH8-E
+Upwork,upwork,Upwork Inc.,0F07DJ-E
+"Figma, Inc.",figma,"Figma, Inc.",00FKQ8-E
+Markel International Services Limited,markel international services,Markel Corporation,000PGJ-E
+"Gevo, Inc.",gevo,"Gevo, Inc.",0092S0-E
+"T. Rowe Price Group, Inc",t rowe price,"T. Rowe Price Group, Inc.",002XXL-E
+Sensirion Holding AG,sensirion,Sensirion Holding AG,0C17H9-E
+International Workplace Group plc,international workplace,International Workplace Group plc,0GQHWZ-E
+SEB AB,seb,SEB AB,05HX6D-E
+SEGA Europe Limited,sega europe,Sega Sammy Holdings Inc.,006FXC-E
+"Lauren Kopec, Baker Hughes",lauren kopec baker hughes,Baker Hughes Company,0GY7RC-E
+"Katie McKernan, Salesforce",katie mckernan salesforce,Salesforce Inc.,0058W5-E
+"EdgeConneX, Inc.",edgeconnex,"Digital Realty Trust, Inc.",0067HG-E
+"REPT BATTERO Energy Co., Ltd.",rept battero energy,"REPT BATTERO Energy Co., Ltd.",0VCF4V-E
+Sparebanken Norge,sparebanken norge,Sparebanken Norge ASA,05JB2S-E
+Workspace Group,workspace,Workspace Group PLC,05J0HF-E
+GE Aerospace,ge aerospace,General Electric Company,05SWQW-E
+BLACK ROCK INC,black rock,BlackRock Inc.,002HJD-E
+Helvetia Schweizerische Versicherungsgesellschaft AG,helvetia schweizerische versicherungsgesellschaft,Helvetia Group,05HXJX-E
+Dropbox Inc,dropbox,"Dropbox, Inc.",081V7W-E
+"Confluent, Inc.",confluent,"Confluent, Inc.",05QPSR-E
+Coca-Cola HBC AG,coca cola hbc,Coca-Cola HBC AG,0CSS3M-E
+EQT AB,eqt,EQT AB,0GD9WD-E
+Sharp Electronics Europe Limited,sharp electronics europe,Sharp Corporation,05HWC0-E
+Partners Group AG,partners,Partners Group Holding AG,06F4Y0-E
+British Airways Holidays Ltd,british airways holidays,International Consolidated Airlines Group S.A.,09NBHB-E
+UAB Tele2,uab tele2,Tele2 AB,003K2V-E
+"SIA ""Tele2""",sia tele2,Tele2 AB,003K2V-E
+Tele2 Eesti AS,tele2 eesti,Tele2 AB,003K2V-E
+RWS Holdings Plc,rws,RWS Holdings Plc,0055VS-E
+American Express Global Business Travel (Amex GBT),american express global business travel amex gbt,American Express Company,000BY7-E
+Tele2 Sweden AB,tele2 sweden,Tele2 AB,003K2V-E
+Svenska Handelsbanken AB,svenska handelsbanken,Svenska Handelsbanken AB,05G6QB-E
+Wheaton Precious Metals,wheaton precious metals,Wheaton Precious Metals Corp,0612T2-E
+thyssenkrupp Management Consulting GmbH,thyssenkrupp management consulting,thyssenkrupp AG,05HGS3-E
+"Uber Technologies, Inc.",uber technologies,"Uber Technologies, Inc.",0B49NF-E
+"Apollo Global Management, Inc",apollo global management,"Apollo Global Management, Inc.",0NT7B4-E
+Gofore Plc,gofore,Gofore Oyj,0CY9WX-E
+"Wise, Inc",wise,Wise plc,0NYPS9-E
+"Confluent, In",confluent in,Confluent Inc,05QPSR-E
+Boliden Harjavalta Oy,boliden harjavalta oy,Boliden AB,003RFT-E
+Swiss Life AG,swiss life,Swiss Life AG,05FWCG-E
+Sartorius Biohit Liquid Handling Oy,sartorius biohit liquid handling oy,Sartorius AG,05J4S5-E
+Thermo Fisher Scientific,thermo fisher scientific,Thermo Fisher Scientific Inc.,06LJVN-E
+Cartier International SA,cartier international,Richemont Group,003J1Y-E
+Yara Suomi Oy,yara suomi oy,Yara International ASA,005KQ2-E
+AFRY,afry,AFRY AB,05J4TH-E
+"Swiss Re Management Ltd, Internal Environmental Management",swiss re management internal environmental management,Swiss Re AG,0BT2BZ-E
+Ecorodovias Infraestrutura e Logistica S.A. under “Programa Amigo do Clima.” Details are disclosed at the website of Programa Amigo do Clima (www.amigodoclima.com),ecorodovias infraestrutura e logistica under programa amigo do clima details are disclosed at the website of programa amigo do clima www amigodoclima com,Ecorodovias Infraestrutura e Logistica S.A.,09J0TT-E
+Deutsche Bank AG (2015 company emissions),deutsche bank 2015 emissions,Deutsche Bank AG,001D6B-E
+LB Finance PLC,lb finance,LB Finance PLC,07G0C2-E
+Samsung Display,samsung display,"Samsung Electronics Co., Ltd.",000VPP-E
+Hanwha Corp,hanwha,Hanwha Corp,05J1Y4-E
+"SGS, 1 Place des Alpes, P.O. Box 2152, 1211 Geneva 1, Switzerland. Greening period: Calendar year 2016. City: Geneva. Country: Switzerland. Subject of redemption: Voluntary greening of SGS greenhouse gas",sgs 1 place des alpes po box 2152 1211 geneva 1 switzerland greening period calendar year 2016 city geneva country switzerland subject of redemption voluntary greening of sgs greenhouse gas,SGS S.A.,05HWM3-E
+Australian Paper 2016 carbon neutrality,australian paper 2016 carbon neutrality,"Nippon Paper Industries Co., Ltd.",05M5PH-E
+"GMR Hyderabad International Airport Ltd (GHIAL) is responsible for operation, management and development of Rajiv Gandhi International Airport (RGIA),Shamshabad, India. GHIAL is fully committed for climate change mitigation and to ensure sustainable development of RGIA. Since 2012, RGIA has been participating in Airports Council International’s (ACI) Airport Carbon Accreditation Programme for greenhouse gas emissions management. RGIA achieved “Level 2 : Reduction”",gmr hyderabad international airport ghial is responsible for operation management and development of rajiv gandhi international airport rgia shamshabad india ghial is fully committed for climate change mitigation and to ensure sustainable development of rgia since 2012 rgia has been participating in airports council international s aci airport carbon accreditation programme for greenhouse gas emissions management rgia achieved level 2 reduction,GMR Airports Limited,06J984-E
+Voluntary cancellation in favor of Puma Energy Colombia Combustibles SAS ( ) for,voluntary cancellation in favor of puma energy colombia combustibles for,Puma Energy,0BZ4HQ-E
+Husqvarna AB  Climate Neutral,husqvarna climate neutral,Husqvarna AB,05M30D-E
+"The Cancellation is done for Dr. Y. K. Hamied Non-Executive Chairman, Cipla Ltd., EnKing International is a leading carbon credits developer & supplier of India. It aspires and works to solve the sustainability challenges the Earth is standing today. EnKing International is a Carbon Neutrality Sponsor of 28th IMA INTERNATIONAL MANAGEMENT CONCLAVE 2019, which is organized by Indore Management Association in Indore (M.P.), India on 18th & 19th January 2019. Apart from making the whole event carbon neutral, to further highlight the issues of carbon emissions & global warming and to raise better awareness for the protection of the environment, EnKing International is gifting 5 carbon credits to carbon",the cancellation is done for dr y k hamied non executive chairman cipla enking international is a leading carbon credits developer supplier of india it aspires and works to solve the sustainability challenges the earth is standing today enking international is a carbon neutrality sponsor of 28th ima international management conclave 2019 which is organized by indore management association in indore mp india on 18th 19th january 2019 apart from making the whole event carbon neutral to further highlight the issues of carbon emissions global warming and to raise better awareness for the protection of the environment enking international is gifting 5 carbon credits to carbon,Cipla Ltd.,05HX9N-E
+"Handelsbanken Finland, 2019",handelsbanken finland 2019,Handelsbanken,05G6QB-E
+Voluntary cancellation in favour of Chevron Petroleum Company ( ) for the,voluntary cancellation in favour of chevron petroleum for the,Chevron Corporation,000DP6-E
+Voluntary cancellation in favour of Puma Energy Colombia Combustibles SAS ( ) for the,voluntary cancellation in favour of puma energy colombia combustibles for the,Puma Energy Holdings Limited,0BZ4HQ-E
+Flex Ltd.,flex,Flex Ltd.,0015XK-E
+L'Oréal Brasil - Active Cosmetic Division,l oreal brasil active cosmetic division,L'Oréal S.A.,05H41J-E
+"SCX - Banco de Chile- ""Neutralización HdC 2016 - SCX ID 0074-E2004A57",scx banco de chile neutralizacion hdc 2016 scx id 0074 e2004a57,Banco de Chile,05HWQR-E
+"SCX - Banco de Chile - ""Neutralización HdC 2017 - SCX ID 0079-E2004A63",scx banco de chile neutralizacion hdc 2017 scx id 0079 e2004a63,Banco de Chile,05HWQR-E
+Chumporn Palm Oil Industry Public Company Limited,chumporn palm oil industry public,Chumporn Palm Oil Industry Public Company Limited,05JD8G-E
+FCA Campo Largo Powertrain under Programa Amigo do Clima. Details are provided at www.amigodoclima.com,fca campo largo powertrain under programa amigo do clima details are provided at www amigodoclima com,Stellantis N.V.,0MXD1Z-E
+Voluntary cancellation in favor of CHEVRON PETROLEUM COMPANY ( ) for the,voluntary cancellation in favor of chevron petroleum for the,Chevron Corporation,000DP6-E
+FCA Betim Powertrain under Programa Amigo do Clima. Details are provided at www.amigodoclima.com,fca betim powertrain under programa amigo do clima details are provided at www amigodoclima com,Stellantis N.V.,0MXD1Z-E
+FCA Goiana - Polo Au,fca goiana polo au,Stellantis N.V.,0MXD1Z-E
+FCA Au,fca au,Stellantis N.V.,0MXD1Z-E
+Armazém Mopar Hor,armazem mopar hor,Stellantis N.V.,0MXD1Z-E
+Armazém Mopar Betim under Programa Amigo do Clima. Details are provided at www.amigodoclima.com,armazem mopar betim under programa amigo do clima details are provided at www amigodoclima com,Stellantis N.V.,0MXD1Z-E
+COMPONENTES INTEL DE COSTA RICA S.A,componentes intel de costa rica,Intel Corporation,000N01-E
+Moog MDG SRL,moog mdg,Moog Inc,000Q68-E
+HP Inc Costa Rica Ltda,hp costa rica,HP Inc,000LNN-E
+Uber Costa Rica,uber costa rica,Uber Technologies Inc,0B49NF-E
+Voluntary cancellation in favor of CHEVRON PETROLEUM COMPANY; for,voluntary cancellation in favor of chevron petroleum for,Chevron Corporation,000DP6-E
+Voluntary cancellation in favor of EMPRESA COLOMBIANA DE PETRÓLEOS SA -ECOPETROL SA; for,voluntary cancellation in favor of empresa colombiana de petroleos ecopetrol for,Ecopetrol S.A.,0649LY-E
+Voluntary cancellation in favor of PETROBRAS COLOMBIA COMBUSTIBLES SA; for,voluntary cancellation in favor of petrobras colombia combustibles for,Petróleo Brasileiro S.A.,003LG0-E
+ENGIE Latin America,engie latin america,ENGIE S.A.,06X2JD-E
+Uber Pro,uber pro,"Uber Technologies, Inc.",0B49NF-E
+Uber in Costa Rica,uber in costa rica,"Uber Technologies, Inc.",0B49NF-E
+UberX during November 2019,uberx during november 2019,"Uber Technologies, Inc.",0B49NF-E
+Banco Itaú SA,banco itau,Itaú Unibanco Holding S.A.,00BSDK-E
+"Wienerberger GmbH, Germany, is",wienerberger germany is,Wienerberger AG,05HXBN-E
+"Enel Distribuição São Paulo (Eletropaulo Metropolitana Eletricidade de São Paulo S.A.)"" under Programa Amigo do Clima",enel distribuicao sao paulo eletropaulo metropolitana eletricidade de sao paulo under programa amigo do clima,Enel S.p.A.,0031L0-E
+Retirement  Beneficiary: Anaconda Carbon ; Retirement Reason Details: Voluntary compensation from Uber Costa Rica to,retirement beneficiary anaconda carbon retirement reason details voluntary compensation from uber costa rica to,Uber Technologies Inc.,0B49NF-E
+"Voluntary cancellation made by Environmental Strategy Advisory Division, Mitsubishi UFJ Morgan Stanley Securities Co. Ltd.;",voluntary cancellation made by environmental strategy advisory division mitsubishi ufj morgan stanley securities,Mitsubishi UFJ Financial Group,061WXY-E
+"Jerónimo Martins SGPS, S.A. associated with the production and printing of its corporate magazine Feed",jeronimo martins sgps associated with the production and printing of its corporate magazine feed,"Jerónimo Martins, SGPS, S.A.",05HZ0L-E
+Voluntary compensation from Uber Costa Rica to,voluntary compensation from uber costa rica to,"Uber Technologies, Inc.",0B49NF-E
+"PUMA ENERGY COLOMBIA COMBUSTIBLES S A S., identificada con -5 ha",puma energy colombia combustibles s a s identificada con 5 ha,Puma Energy Holdings Limited,0BZ4HQ-E
+Componentes Intel de Costa Rica S.A. de 3,componentes intel de costa rica de 3,Intel Corporation,000N01-E
+Enel Distribuição São Paulo (Eletropaulo Metropolitana Eletricidade de São Paulo S.A.),enel distribuicao sao paulo eletropaulo metropolitana eletricidade de sao paulo,Enel S.p.A.,0031L0-E
+Popular Seguros,popular seguros,"Popular, Inc.",001NL2-E
+Denso Sistemas Térmicos do Brasil / Unidade Supplier Park Polo Au,denso sistemas termicos do brasil unidade supplier park polo au,Denso Corporation,05HWC5-E
+Fiat Chrysler Au,fiat chrysler au,Stellantis N.V.,0MXD1Z-E
+Pirelli Pneus / Unidade Supplier Park Polo Au,pirelli pneus unidade supplier park polo au,Pirelli S.p.A.,05HGKC-E
+Saint-Gobain do Brasil / Unidade Supplier Park Polo Au,saint gobain do brasil unidade supplier park polo au,Compagnie de Saint-Gobain S.A.,002X73-E
+Lear do Brasil Industria e Comércio de Interiores / Unidade Supplier Park Polo Au,lear do brasil industria e comercio de interiores unidade supplier park polo au,Lear Corporation,0017TG-E
+Santander Sweden,santander sweden,Banco Santander S.A.,06WSS6-E
+Korean Offset Program to hanwha Crop. The beneficiary of CERs cancelled is Hanwha Corp,korean offset program to hanwha crop the beneficiary of cers cancelled is hanwha,Hanwha Corp,05J1Y4-E
+Dilmah Ceylon Tea Company PLC,dilmah ceylon tea,Dilmah Ceylon Tea Company PLC,05JHR2-E
+FRONTERA ENERGY COLOMBIA CORP ( ),frontera energy colombia,Frontera Energy Corporation,009Y31-E
+Voluntary compensation from Uber Mexico to,voluntary compensation from uber mexico to,"Uber Technologies, Inc.",0B49NF-E
+Voluntary compensation from Uber Planet Perú to,voluntary compensation from uber planet peru to,"Uber Technologies, Inc.",0B49NF-E
+AMBEV S.A. and its Units,ambev and its units,AMBEV S.A.,00F8B5-E
+"Retirement Beneficiary - Zomato Limited, Reason for cancellation -",retirement beneficiary zomato reason for cancellation,Zomato Limited,0D0Q79-E
+"Global Fashion Group S.A. , BENEFICIARY: Global Fashion Group S.A",global fashion beneficiary global fashion,Global Fashion Group S.A.,0DWDBB-E
+GE Renewable Management,ge renewable management,General Electric Company,05SWQW-E
+Lojas Americanas S.A,lojas americanas,Lojas Americanas S.A.,06LV3F-E
+HP Inc Costa Rica Limitada,hp costa rica limitada,HP Inc.,000LNN-E
+Accenture,accenture,Accenture PLC,00C5YS-E
+Eni Gas and Power,eni gas and power,Eni S.p.A.,05DZHK-E
+Grupo Danissa (Agencia Datsun,grupo danissa agencia datsun,"Nissan Motor Co., Ltd",05HK04-E
+Simply Energy ABN 67 269 241 237 as part of its carbon neutral commitments under Climate Active (retail electricity),simply energy abn 67 269 241 237 part of its carbon neutral commitments under climate active retail electricity,Origin Energy Limited,003KJL-E
+Simply Energy ABN 67 269 241 237 as part of its carbon neutral commitments under Climate Active (retail gas),simply energy abn 67 269 241 237 part of its carbon neutral commitments under climate active retail gas,Origin Energy Limited,003KJL-E
+BlackBerry Limited,blackberry,BlackBerry Limited,002TMH-E
+"of voluntary cancellation of 200,000 CERs from China Three Gorges Corporation.The cancellation is to achieve carbon neutrality for the Olympic and Paralympic Winter Games Beijing 2022.",of voluntary cancellation of 200 000 cers from china three gorges the cancellation is to achieve carbon neutrality for the olympic and paralympic winter games beijing 2022,China Three Gorges Corporation,074WCN-E
+Lenovo CO2 Compensated Program,lenovo co2 compensated program,Lenovo Group Limited,05HWJY-E
+Verdad Informática de Costa Rica S.A (EQUIFAX),verdad informatica de costa rica equifax,Equifax Inc.,000J81-E
+Panasonic do Brasil Limitada,panasonic do brasil limitada,Panasonic Corporation,001RJ7-E
+Derichebourg Propreté,derichebourg proprete,Derichebourg SE,06V966-E
+Stellantis - ISVOR. The volume is equivalent,stellantis isvor the volume is equivalent,Stellantis N.V.,0MXD1Z-E
+Stellantis - CMP Contagem. The volume is equivalent,stellantis cmp contagem the volume is equivalent,Stellantis N.V.,0MXD1Z-E
+Stellantis Por,stellantis por,Stellantis N.V.,0MXD1Z-E
+Stellantis - Escritório Chile. The volume is equivalent,stellantis escritorio chile the volume is equivalent,Stellantis N.V.,0MXD1Z-E
+Stellantis Betim Powertrain. The volume is equivalent,stellantis betim powertrain the volume is equivalent,Stellantis N.V.,0MXD1Z-E
+Stellantis - Mopar Hor,stellantis mopar hor,Stellantis N.V.,0MXD1Z-E
+Stellantis - FCA Saúde. The volume is equivalent,stellantis fca saude the volume is equivalent,Stellantis N.V.,0MXD1Z-E
+Stellantis Goiana. The volume is equivalent,stellantis goiana the volume is equivalent,Stellantis N.V.,0MXD1Z-E
+Stellantis Au,stellantis au,Stellantis N.V.,0MXD1Z-E
+Stellantis - CMA Goiana. The volume is equivalent,stellantis cma goiana the volume is equivalent,Stellantis N.V.,0MXD1Z-E
+Stellantis - Escritório Brasília. The volume is equivalent,stellantis escritorio brasilia the volume is equivalent,Stellantis N.V.,0MXD1Z-E
+Stellantis Mo,stellantis mo,Stellantis N.V.,0MXD1Z-E
+Stellantis - Mopar Betim. The volume is equivalent,stellantis mopar betim the volume is equivalent,Stellantis N.V.,0MXD1Z-E
+SCHOTT - One further step,schott one further step,Schott AG,0SBLJF-E
+"Evonik Operations GmbH, Business Line Oil Additives",evonik operations business line oil additives,Evonik Industries AG,06XPZ0-E
+OVO Energy,ovo energy,OVO Energy Limited,0FCGPL-E
+Azure Power Global,azure power global,Azure Power Global Limited,0FYYH9-E
+UBS AG as part of offsetting his,ubs part of offsetting his,UBS AG,00G7QL-E
+"B3 S.A.  BRASIL, BOLSA, BALCÃO",b3 brasil bolsa balcao,"B3 S.A. - Brasil, Bolsa, Balcão",0H2HYS-E
+SGS Société Générale de Surveillance SA - 2021,sgs societe generale de surveillance 2021,SGS SA,05HWM3-E
+Ubisoft Entertainment,ubisoft entertainment,Ubisoft Entertainment,05HZLG-E
+"Voluntary cancellation by BANK OF HANGZHOU CO.,LTD. JIANGCHENG SUB-BRANCH to",voluntary cancellation by bank of hangzhou jiangcheng sub branch to,"Bank of Hangzhou Co., Ltd.",0BSG00-E
+EnergyAustralia's Go Neutral product,energyaustralia s go neutral product,EnergyAustralia Holdings Limited,003KJL-E
+Sphere 3D Mining Corp,sphere 3d mining,Sphere 3D Corp.,0CXV11-E
+Fraport TAV Antalya Terminal Management Inc.,fraport tav antalya terminal management,Fraport AG,05HM2F-E
+Danone Nutricia SpA - Voluntary offset of GHG emissions from production and end-of-life of Food & Milk Mellin product's packaging (sales 2021),danone nutricia voluntary offset of ghg emissions from production and end of life of food milk mellin product s packaging sales 2021,Danone S.A.,001YMJ-E
+"Voluntary cancellation by YUEYANG FOREST & PAPER CO.,LTD. (Unified Social Credit Identifier: 914306007225877126) to",voluntary cancellation by yueyang forest paper unified social credit identifier 914306007225877126 to,"Yueyang Forest & Paper Co., Ltd.",062YS6-E
+Genomma Laboratories do Brasil -,genomma laboratories do brasil,"Genomma Lab Internacional, S.A.B. de C.V.",0728HZ-E
+Voluntary cancellation by Agricultural Bank of China (Changxing Sian Green Sub-branch) to,voluntary cancellation by agricultural bank of china changxing si an green sub branch to,"Agricultural Bank of China Co., Ltd.",05MKV6-E
+Voluntary cancellation by Agricultural Bank of China (Hangzhou Jiangnan Sub-branch) to,voluntary cancellation by agricultural bank of china hangzhou jiangnan sub branch to,"Agricultural Bank of China Co., Ltd.",05MKV6-E
+"Chevron Petroleum company, with corporate identification number (NIT) 860005223.",chevron petroleum with corporate identification number nit 860005223,Chevron Corporation,000DP6-E
+Banco PAN referring,banco pan referring,Banco PAN S.A.,073D2G-E
+"GRYPHON DIGITAL MINING, INC",gryphon digital mining,"Gryphon Digital Mining, Inc.",0YSKRR-E
+"Compensacao das emissoes de GEE (gases de efeito estufa) provenientes das operacoes de transporte do Varejo no ano de 2.022 do Grupo Boticario (unidade de negoocio, Aero).",compensacao das emissoes de gee gases de efeito estufa provenientes das operacoes de transporte do varejo no ano de 2 022 do grupo boticario unidade de negoocio aero,NATURA &CO HOLDING S.A.,0L0Y50-E
+DIAGNÓSTICOS DA AMÉRICA S.A,diagnosticos da america,DIAGNÓSTICOS DA AMÉRICA S.A.,05W6CD-E
+Mercia Asset Management PLC,mercia asset management,Mercia Asset Management PLC,0F0R06-E
+"Cielo S.A, including Subsidiaries",cielo including subsidiaries,Cielo S.A.,05W4YC-E
+Costa Rica Marriott Hacienda Belén,costa rica marriott hacienda belen,"Marriott International, Inc.",001YRD-E
+Los sueños Marriott Ocean and Golf Resort,los suenos marriott ocean and golf resort,Marriott International Inc.,001YRD-E
+"Chevron Petroleum Company, with corporate identification number (NIT).",chevron petroleum with corporate identification number nit,Chevron Corporation,000DP6-E
+Fastweb Spa - estimated value of direct emissions (Scope 1) and emissions related,fastweb estimated value of direct emissions scope 1 and emissions related,Swisscom AG,002TZV-E
+Fastweb Spa - estimated value of Scope 3 emissions related,fastweb estimated value of scope 3 emissions related,Swisscom AG,002TZV-E
+XP Inc. referring,xp referring,XP Inc.,0LL2JK-E
+COCA-COLA FEMSA DE PANAMA / VENTAS Y MERCADEO,coca cola femsa de panama ventas y mercadeo,"Coca-Cola Femsa, S.A.B. de C.V.",001XDF-E
+"Xi'an Geely Automobile Co., Ltd.",xi an geely automobile,Geely Automobile Holdings Limited,05SXBK-E
+MRV ENGENHARIA E PARTIPAÇÕES SA,mrv engenharia e partipacoes,MRV Engenharia e Participações S.A.,06NDR6-E
+Voluntary cancellation by Hua Xia Bank (Hangzhou Binjiang Sub-branch) to,voluntary cancellation by hua xia bank hangzhou binjiang sub branch to,"Hua Xia Bank Co., Ltd.",05QMF7-E
+Takeda Pharmaceutical Company Limiteds FY21 Scope 3 Emissions,takeda pharmaceutical s fy21 scope 3 emissions,Takeda Pharmaceutical Company Limited,05HWBL-E
+Chevron Petroleum Company with corporate identification number,chevron petroleum with corporate identification number,Chevron Corporation,000DP6-E
+"Voluntary cancellation by Agricultural Bank of China Co., Ltd. Zhengding County Sub-branch to",voluntary cancellation by agricultural bank of china zhengding county sub branch to,Agricultural Bank of China,05MKV6-E
+2022.11.17 to 2022.11.20 during the 2022 IFLYTEK 1024 developer's Day,2022 11 17 to 2022 11 20 during the 2022 iflytek 1024 developer s day,"iFLYTEK Co., Ltd.",076MM1-E
+Zip Co,zip,Zip Co Limited,0FRZ2M-E
+Thermo King (Trane Technologies International Limited),thermo king trane technologies international,Trane Technologies plc,000M41-E
+Compensacao voluntaria das emissoes de CO2 Nubank referente ao ano de 2021. / Voluntary cancellation to,compensacao voluntaria das emissoes de co2 nubank referente ao ano de 2021 voluntary cancellation to,Nu Holdings Ltd.,0GPS2Y-E
+"HeFei Midea Heating & Ventilating Equipment Co., Ltd.",hefei midea heating ventilating equipment,"Midea Group Co., Ltd.",060G1Y-E
+"Schneider (Beijing) Low Voltage Co., Ltd.",schneider beijing low voltage,Schneider Electric SE,05HFTC-E
