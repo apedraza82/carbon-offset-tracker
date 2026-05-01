@@ -442,7 +442,7 @@ def main():
         "Policy Research Working Paper Series 11331, The World Bank.\n\n"
         "Data sources: [Berkeley Carbon Trading Project](https://gspp.berkeley.edu/research/osf-bctp/offsets-database), "
         "[EcoRegistry](https://www.ecoregistry.io/) (Cercarbono), [BioCarbon Registry](https://globalcarbontrace.io/), "
-        "[Puro.earth](https://registry.puro.earth/). "
+        "[Puro.earth](https://registry.puro.earth/), [CDM/UNFCCC](https://cdm.unfccc.int/Registry/). "
         "Firm matching via [FactSet](https://www.factset.com/)."
     )
 

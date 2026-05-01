@@ -161,7 +161,7 @@
                 <div class="label">Unique Public Firms</div>
             </div>
             <div class="stat-card">
-                <div class="number" id="stat-registries">7</div>
+                <div class="number" id="stat-registries">8</div>
                 <div class="label">Carbon Registries</div>
             </div>
             <div class="stat-card">
@@ -216,7 +216,7 @@
             <div class="methodology">
                 <h3>How We Match Retirements to Firms</h3>
                 <ul>
-                    <li><strong>Data Sources:</strong> Retirement records from Verra (VCS), Gold Standard, American Carbon Registry (ACR), and Climate Action Reserve (CAR) via the <a href="https://gspp.berkeley.edu/research/osf-bctp/offsets-database">Berkeley Carbon Trading Project</a>; plus <a href="https://www.ecoregistry.io/">EcoRegistry</a> (Cercarbono standard), <a href="https://globalcarbontrace.io/">BioCarbon Registry</a> (Global CarbonTrace), and <a href="https://registry.puro.earth/">Puro.earth</a> (carbon removal CORCs) via their public registries.</li>
+                    <li><strong>Data Sources:</strong> Retirement records from Verra (VCS), Gold Standard, American Carbon Registry (ACR), and Climate Action Reserve (CAR) via the <a href="https://gspp.berkeley.edu/research/osf-bctp/offsets-database">Berkeley Carbon Trading Project</a>; plus <a href="https://www.ecoregistry.io/">EcoRegistry</a> (Cercarbono standard), <a href="https://globalcarbontrace.io/">BioCarbon Registry</a> (Global CarbonTrace), and <a href="https://registry.puro.earth/">Puro.earth</a> (carbon removal CORCs) via their public registries; plus <a href="https://cdm.unfccc.int/Registry/">CDM/UNFCCC</a> (CER voluntary cancellations) via the <a href="https://unepccc.org/cdm-ji-pipeline/">UNEP CCC Pipeline</a>.</li>
                     <li><strong>Beneficiary Extraction:</strong> Registry-specific parsing of retirement beneficiary fields, with fallback text extraction from notes and details fields.</li>
                     <li><strong>Firm Matching:</strong> Two-stage process: (1) exact and normalized name matching against a cache of 3,600+ known beneficiary-to-firm mappings; (2) LLM-assisted entity resolution for new names, resolving subsidiaries and brands to parent listed firms.</li>
                     <li><strong>Firm Universe:</strong> Publicly listed companies identified via FactSet entity IDs, covering ~50,000 global public firms.</li>
@@ -280,6 +280,7 @@
                         'ecoregistry': 'EcoRegistry', 'EcoRegistry': 'EcoRegistry',
                         'biocarbon': 'BioCarbon', 'BioCarbon': 'BioCarbon',
                         'puro': 'Puro.earth', 'Puro': 'Puro.earth',
+                        'cdm': 'CDM', 'CDM': 'CDM',
                     };
                     const merged = {};
                     for (const [key, val] of Object.entries(stats.registries)) {
@@ -292,7 +293,7 @@
                         type: 'pie',
                         labels: regNames,
                         values: regValues,
-                        marker: { colors: ['#2E86AB', '#A23B72', '#F18F01', '#44BBA4', '#6B4C9A', '#E8575A', '#3D5A80'] },
+                        marker: { colors: ['#2E86AB', '#A23B72', '#F18F01', '#44BBA4', '#6B4C9A', '#E8575A', '#3D5A80', '#8B4513'] },
                         textinfo: 'label+percent',
                         hovertemplate: '%{label}: %{value} MtCO2<extra></extra>',
                     }], {

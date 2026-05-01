@@ -175,6 +175,165 @@ def parse_car(row: pd.Series) -> BeneficiaryResult | None:
     return None
 
 
+_CDM_JUNK = re.compile(
+    r"(?:identificado|this cancellation|of this|GP-\d+|by Planton|"
+    r"Program Managed by|'s cus$|'s client$)",
+    re.IGNORECASE,
+)
+
+
+def _cdm_clean(name: str) -> str:
+    """Extra cleaning for CDM beneficiary names."""
+    if not name:
+        return ""
+    # Strip trailing "identificado con..." (Colombian NIT pattern)
+    name = re.sub(r"\s+identificado.*$", "", name, flags=re.IGNORECASE)
+    # Strip trailing "in order..." or "in 202X"
+    name = re.sub(r"\s+in\s+(?:order|20\d\d).*$", "", name, flags=re.IGNORECASE)
+    # "Lenovo Clients 1 May..." -> "Lenovo"
+    name = re.sub(r"\s+Clients?\s+\d.*$", "", name)
+    # Strip quotes
+    name = name.strip('"\'')
+    return name.strip()
+
+
+def _cdm_result(name: str) -> BeneficiaryResult | None:
+    """Validate and return a CDM beneficiary result, or None if junk."""
+    name = _cdm_clean(name)
+    cleaned = clean_raw_name(name)
+    if not cleaned or len(cleaned) <= 2:
+        return None
+    if _CDM_JUNK.search(cleaned):
+        return None
+    return BeneficiaryResult(raw_name=cleaned, source_field="Purpose", registry="CDM")
+
+
+def parse_cdm(row: pd.Series) -> BeneficiaryResult | None:
+    """Extract beneficiary from CDM voluntary cancellation row.
+
+    The 'Purpose' field contains free-form text describing who cancelled and why.
+    """
+    purpose = row.get("Purpose", "")
+    if not isinstance(purpose, str) or not purpose.strip():
+        return None
+
+    # Strip leading "Purpose:" prefix and quotes
+    purpose = re.sub(r'^"?\s*Purpose:\s*', '', purpose).strip().strip('"')
+
+    # Try standard "on behalf of" extraction first
+    name = extract_on_behalf_of(purpose)
+    if name:
+        result = _cdm_result(name)
+        if result:
+            return result
+
+    # Try Spanish patterns: "a favor de X" / "a nombre de X"
+    m = re.search(r"(?:a favor de|a nombre de)\s+(.+?)(?:\s+para\s|\s+con\s|$)", purpose, re.IGNORECASE)
+    if m:
+        result = _cdm_result(m.group(1).split(",")[0])
+        if result:
+            return result
+
+    # "Cancelled to neutralize... of/by X" or "To offset... of X"
+    m = re.search(
+        r"(?:neutralize|offset|compensate)\s+(?:the\s+)?(?:carbon\s+)?(?:emissions?\s+)?(?:generated\s+)?(?:by|of|from)\s+(.+?)(?:\s+in\s+\d|\s+from\s|\s+for\s|$)",
+        purpose, re.IGNORECASE
+    )
+    if m:
+        candidate = re.split(r"\s+(?:in|from|for|during)\s+\d", m.group(1).strip().rstrip("."))[0]
+        result = _cdm_result(candidate)
+        if result:
+            return result
+
+    # "X purchase(d) N CERs/tons/credits"
+    m = re.match(r"^(.+?)\s+purchas(?:e[ds]?)\s+\d", purpose, re.IGNORECASE)
+    if m:
+        result = _cdm_result(m.group(1))
+        if result:
+            return result
+
+    # "Sponsored by X"
+    m = re.search(r"[Ss]ponsored by\s+(.+?)(?:,|\s+to\s)", purpose)
+    if m:
+        result = _cdm_result(m.group(1))
+        if result:
+            return result
+
+    # Brazilian pattern: "COMPANY_NAME S.A./LTDA" at start
+    m = re.match(r"^([A-Z][A-Z\s&.]+(?:S\.?A\.?|LTDA|S/A))", purpose)
+    if m:
+        result = _cdm_result(m.group(1))
+        if result:
+            return result
+
+    # "Cancelled by X"
+    m = re.search(r"[Cc]ancelled by\s+(.+?)(?:\s+to\s|\s+for\s|$)", purpose)
+    if m:
+        result = _cdm_result(m.group(1))
+        if result:
+            return result
+
+    # "carbon neutrality/footprint of X" or "GHG emissions of/from X"
+    m = re.search(r"(?:carbon neutrality|carbon footprint|GHG emissions?)\s+(?:of|from)\s+(.+?)(?:\s+in\s+\d|\s+from\s+\d|\s+for\s|$)", purpose, re.IGNORECASE)
+    if m:
+        result = _cdm_result(m.group(1).rstrip("."))
+        if result:
+            return result
+
+    # "COMPANY, CNPJ..." at start (Brazilian with CNPJ)
+    m = re.match(r"^(.+?)(?:,\s*CNPJ|,\s*inscrita|,\s*localizada|\s+neutraliz|\s+offset)", purpose, re.IGNORECASE)
+    if m and len(m.group(1)) > 3:
+        result = _cdm_result(m.group(1))
+        if result:
+            return result
+
+    # "X retires/retired the CERs"
+    m = re.match(r"^(.+?)\s+retire[sd]?\s+(?:the\s+)?(?:CERs|credits)", purpose, re.IGNORECASE)
+    if m:
+        result = _cdm_result(m.group(1))
+        if result:
+            return result
+
+    # German: "Klimaneutrales Unternehmen X, City"
+    m = re.search(r"Klimaneutrales? Unternehmen\s+(.+?)(?:,\s*\w+,\s*(?:für|Deutschland|Germany|Frankreich)|\s+für)", purpose)
+    if m:
+        result = _cdm_result(m.group(1).rstrip(","))
+        if result:
+            return result
+
+    # Spanish: "Cancelación voluntaria realizada por X a favor de Y"
+    m = re.search(r"realizada por\s+\w+\s+(?:\w+\s+)?a favor de[l]?\s+(.+?)(?:\s+para\s|\s+con\s|$)", purpose, re.IGNORECASE)
+    if m:
+        result = _cdm_result(m.group(1).split(",")[0])
+        if result:
+            return result
+
+    # "Voluntary compensation from X to offset"
+    m = re.search(r"[Vv]oluntary (?:compensation|cancellation) from\s+(.+?)\s+to\s+(?:offset|compensate)", purpose)
+    if m:
+        result = _cdm_result(m.group(1))
+        if result:
+            return result
+
+    # Portuguese: "Neutralização/Compensação das emissões... da/do X"
+    m = re.search(r"(?:Neutraliza[çc][aã]o|Compensa[çc][aã]o)\s+.{0,80}?\s+d[aeo]\s+(.+?)(?:\s+entre\s|\s+no\s|\s+em\s|\s+referente|,\s*(?:localizada|CNPJ|entre|no|em))", purpose, re.IGNORECASE)
+    if m:
+        candidate = m.group(1).strip().rstrip(",.")
+        if len(candidate) > 3 and not candidate[0].islower():
+            result = _cdm_result(candidate)
+            if result:
+                return result
+
+    # "Beneficiary: X" or "Beneficiário: X"
+    m = re.search(r"[Bb]enefi[cá]i[aá]r[yo][:.]?\s+(.+?)(?:\s+CNPJ|\s+End:|\s+RUT|$)", purpose)
+    if m:
+        result = _cdm_result(m.group(1).rstrip(","))
+        if result:
+            return result
+
+    return None
+
+
 _PURO_SKIP = {
     "patch buyer", "patch customer", "hidden", "anonymous", "anonymous buyer",
     "cnaught customers",
@@ -239,6 +398,7 @@ PARSERS = {
     "ecoregistry": parse_ecoregistry,
     "biocarbon": parse_biocarbon,
     "puro": parse_puro,
+    "cdm": parse_cdm,
 }
 
 
@@ -306,6 +466,16 @@ _COLUMN_RENAMES = {
         "retirement_purpose": "retirement_reason",
         "retirement_id": "project_id",
         "vintage": "vintage",
+    },
+    "cdm": {
+        "Quantity of units cancelled": "quantity",
+        "Host": "country",
+        "Date": "retirement_date",
+        "Title": "projectname",
+        "Project type": "projecttype",
+        "Ref.": "project_id",
+        "Purpose": "retirement_reason",
+        "Type": "sector",
     },
 }
 

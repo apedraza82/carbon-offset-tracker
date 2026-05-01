@@ -238,6 +238,7 @@ _SERIAL_COL = {
     "ecoregistry": "serial",
     "biocarbon": "serial",
     "puro": "retirement_id",
+    "cdm": "Attestation letter",
 }
 
 # Unified output columns
@@ -365,6 +366,13 @@ def _load_additional_registries() -> dict[str, pd.DataFrame]:
         df = pd.read_csv(puro_path, encoding="utf-8-sig")
         print(f"  Loaded Puro: {len(df):,} retirements")
         additional["puro"] = df
+
+    # CDM (UNFCCC Clean Development Mechanism) — CER cancellations only
+    cdm_path = Path("data/raw/cdm/cdm_cer_cancellations.csv")
+    if cdm_path.exists():
+        df = pd.read_csv(cdm_path, encoding="utf-8-sig")
+        print(f"  Loaded CDM: {len(df):,} CER cancellations")
+        additional["cdm"] = df
 
     return additional
 

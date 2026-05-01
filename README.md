@@ -8,12 +8,12 @@ A public dataset matching voluntary carbon offset retirements to publicly listed
 
 | Metric | Value |
 |--------|-------|
-| Total retirements | 424,234 |
-| Matched to listed firms | 33,616 |
+| Total retirements | 425,581 |
+| Matched to listed firms | 33,716 |
 | Unique public firms | 1,484 |
-| Total volume | 958 MtCO2 |
-| Matched volume | 292 MtCO2 |
-| Registries | 7 |
+| Total volume | 973 MtCO2 |
+| Matched volume | 296 MtCO2 |
+| Registries | 8 |
 | Project countries | 95 |
 | Coverage | 2004–2026 |
 
@@ -28,6 +28,7 @@ A public dataset matching voluntary carbon offset retirements to publicly listed
 | EcoRegistry (Cercarbono) | [EcoRegistry API](https://www.ecoregistry.io/) | 8,695 |
 | BioCarbon Registry | [Global CarbonTrace API](https://globalcarbontrace.io/) | 10,078 |
 | Puro.earth | [Puro Registry](https://registry.puro.earth/retirements) | 1,443 |
+| CDM (UNFCCC) | [UNEP CCC Pipeline](https://unepccc.org/cdm-ji-pipeline/) | 2,034 |
 
 ## Quick Start
 
@@ -49,6 +50,7 @@ python -m src.pipeline
 python -m src.download_ecoregistry
 python -m src.download_biocarbon
 python -m src.download_puro
+python -m src.download_cdm
 
 # Launch interactive dashboard
 streamlit run dashboard/app.py
@@ -64,6 +66,7 @@ carbon-offset-tracker/
 │   ├── download_ecoregistry.py  # Download EcoRegistry (Cercarbono) data
 │   ├── download_biocarbon.py    # Download BioCarbon (Global CarbonTrace) data
 │   ├── download_puro.py         # Download Puro.earth Registry data
+│   ├── download_cdm.py          # Download CDM/UNFCCC voluntary cancellations
 │   ├── parse_beneficiary.py     # Registry-specific beneficiary extraction
 │   ├── match_firms.py           # Cache lookup + Claude API matching
 │   ├── pipeline.py              # End-to-end orchestration
@@ -96,6 +99,7 @@ carbon-offset-tracker/
    - EcoRegistry: `final_user` field
    - BioCarbon: `beneficiary` field, with fallback to `final_user`
    - Puro.earth: `beneficiary_name` field, with fallback to `account_holder`
+   - CDM: Free-text `Purpose` field (parsed for entity names via multiple patterns)
 
 2. **Name normalization**: Strip legal suffixes (Inc, SA, SAS, Ltd, etc.), Colombian NIT tax IDs, CNPJ numbers; resolve subsidiary names to parent companies
 
