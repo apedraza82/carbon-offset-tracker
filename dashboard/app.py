@@ -154,8 +154,12 @@ def classify_project_type(ptype):
         return "Ozone & Industrial Gases"
     if any(x in p for x in ["transport", "fleet"]):
         return "Transport"
-    if any(x in p for x in ["carbon capture", "ccs"]):
+    if any(x in p for x in ["carbon capture", "ccs", "carbonated materials",
+                             "geologically stored"]):
         return "Carbon Capture"
+    if any(x in p for x in ["biochar", "wooden building", "terrestrial storage of biomass",
+                             "enhanced rock weathering"]):
+        return "Carbon Removal"
     return "Other"
 
 
@@ -437,7 +441,8 @@ def main():
         "(https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099338203162614529),\" "
         "Policy Research Working Paper Series 11331, The World Bank.\n\n"
         "Data sources: [Berkeley Carbon Trading Project](https://gspp.berkeley.edu/research/osf-bctp/offsets-database), "
-        "[EcoRegistry](https://www.ecoregistry.io/) (Cercarbono), [BioCarbon Registry](https://globalcarbontrace.io/). "
+        "[EcoRegistry](https://www.ecoregistry.io/) (Cercarbono), [BioCarbon Registry](https://globalcarbontrace.io/), "
+        "[Puro.earth](https://registry.puro.earth/). "
         "Firm matching via [FactSet](https://www.factset.com/)."
     )
 

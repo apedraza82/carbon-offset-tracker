@@ -175,6 +175,61 @@ def parse_car(row: pd.Series) -> BeneficiaryResult | None:
     return None
 
 
+_PURO_SKIP = {
+    "patch buyer", "patch customer", "hidden", "anonymous", "anonymous buyer",
+    "cnaught customers",
+}
+
+_PURO_GENERIC_PATTERNS = re.compile(
+    r"^(patch retiring on behalf of client|"
+    r"on behalf of patch|"
+    r"on behalf of cloverly|"
+    r"\d{8}-\d+ - customer of|"
+    r"climatefi.*on behalf of beneficiary|"
+    r"rvcmc on behalf of participant|"
+    r"2050 on behalf of customer)",
+    re.IGNORECASE,
+)
+
+
+def parse_puro(row: pd.Series) -> BeneficiaryResult | None:
+    """Extract beneficiary from Puro.earth retirement row.
+
+    Primary: 'beneficiary_name'
+    Fallback: 'account_holder'
+
+    Handles "Retired on behalf of X" patterns to extract actual beneficiary.
+    Skips generic placeholders (Patch buyer, Anonymous, etc.).
+    """
+    name = row.get("beneficiary_name", "")
+    if isinstance(name, str) and name.strip():
+        lower = name.strip().lower()
+        # Skip known placeholders
+        if lower in _PURO_SKIP:
+            pass
+        elif _PURO_GENERIC_PATTERNS.match(lower):
+            pass
+        else:
+            # Extract "Retired on behalf of X" / "On behalf of X"
+            obo = extract_on_behalf_of(name)
+            if obo:
+                cleaned = clean_raw_name(obo)
+                if cleaned:
+                    return BeneficiaryResult(raw_name=cleaned, source_field="beneficiary_name", registry="Puro")
+            else:
+                cleaned = clean_raw_name(name)
+                if cleaned:
+                    return BeneficiaryResult(raw_name=cleaned, source_field="beneficiary_name", registry="Puro")
+
+    holder = row.get("account_holder", "")
+    if isinstance(holder, str) and holder.strip():
+        cleaned = clean_raw_name(holder)
+        if cleaned:
+            return BeneficiaryResult(raw_name=cleaned, source_field="account_holder", registry="Puro")
+
+    return None
+
+
 # Registry parser dispatch
 PARSERS = {
     "verra": parse_verra,
@@ -183,6 +238,7 @@ PARSERS = {
     "car": parse_car,
     "ecoregistry": parse_ecoregistry,
     "biocarbon": parse_biocarbon,
+    "puro": parse_puro,
 }
 
 
@@ -240,6 +296,16 @@ _COLUMN_RENAMES = {
         "serial": "serialnumber",
         "project_id": "project_id",
         "project_name": "projectname",
+    },
+    "puro": {
+        "volume": "quantity",
+        "project_country": "country",
+        "completed_on": "retirement_date",
+        "project_name": "projectname",
+        "methodology": "projecttype",
+        "retirement_purpose": "retirement_reason",
+        "retirement_id": "project_id",
+        "vintage": "vintage",
     },
 }
 

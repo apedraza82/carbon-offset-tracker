@@ -1,10 +1,10 @@
 {
   "last_updated": "2026-05-01",
-  "total_retirements": 422791,
-  "matched_retirements": 33434,
+  "total_retirements": 424234,
+  "matched_retirements": 33616,
   "unique_firms": 1484,
-  "total_mtco2": 957.4,
-  "matched_mtco2": 291.7,
+  "total_mtco2": 958.4,
+  "matched_mtco2": 291.9,
   "registries": {
     "Verra": {
       "total": 235563,
@@ -41,6 +41,12 @@
       "matched": 7913,
       "total_mtco2": 2.2,
       "matched_mtco2": 2.0
+    },
+    "Puro": {
+      "total": 1443,
+      "matched": 182,
+      "total_mtco2": 1.0,
+      "matched_mtco2": 0.2
     }
   },
   "years": {
@@ -135,60 +141,60 @@
       "matched_mtco2": 12.3
     },
     "2019": {
-      "total": 25489,
+      "total": 25493,
       "matched": 1030,
       "total_mtco2": 51.0,
       "matched_mtco2": 10.3
     },
     "2020": {
-      "total": 28515,
-      "matched": 1319,
-      "total_mtco2": 70.9,
+      "total": 28552,
+      "matched": 1320,
+      "total_mtco2": 71.0,
       "matched_mtco2": 22.1
     },
     "2021": {
-      "total": 46820,
-      "matched": 3857,
+      "total": 46906,
+      "matched": 3869,
       "total_mtco2": 124.7,
-      "matched_mtco2": 37.1
+      "matched_mtco2": 37.2
     },
     "2022": {
-      "total": 42655,
-      "matched": 3252,
-      "total_mtco2": 114.0,
+      "total": 42858,
+      "matched": 3273,
+      "total_mtco2": 114.1,
       "matched_mtco2": 40.2
     },
     "2023": {
-      "total": 53333,
-      "matched": 5403,
-      "total_mtco2": 121.3,
-      "matched_mtco2": 40.9
+      "total": 53593,
+      "matched": 5441,
+      "total_mtco2": 121.4,
+      "matched_mtco2": 41.0
     },
     "2024": {
-      "total": 64738,
-      "matched": 6923,
-      "total_mtco2": 122.7,
-      "matched_mtco2": 44.5
+      "total": 65049,
+      "matched": 6984,
+      "total_mtco2": 122.9,
+      "matched_mtco2": 44.6
     },
     "2025": {
-      "total": 54135,
-      "matched": 5848,
-      "total_mtco2": 120.4,
-      "matched_mtco2": 35.1
+      "total": 54491,
+      "matched": 5882,
+      "total_mtco2": 120.8,
+      "matched_mtco2": 35.2
     },
     "2026": {
-      "total": 8086,
-      "matched": 1418,
-      "total_mtco2": 27.8,
+      "total": 8272,
+      "matched": 1433,
+      "total_mtco2": 27.9,
       "matched_mtco2": 12.0
     }
   },
   "match_methods": {
-    "unmatched": 389357,
+    "unmatched": 390618,
     "original": 21048,
-    "cache_exact": 4739,
-    "cache_normalized": 7647
+    "cache_exact": 4871,
+    "cache_normalized": 7697
   },
-  "project_countries": 96,
+  "project_countries": 116,
   "hq_countries": 55
 }

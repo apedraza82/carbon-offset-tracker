@@ -8,13 +8,13 @@ A public dataset matching voluntary carbon offset retirements to publicly listed
 
 | Metric | Value |
 |--------|-------|
-| Total retirements | 422,791 |
-| Matched to listed firms | 33,434 |
+| Total retirements | 424,234 |
+| Matched to listed firms | 33,616 |
 | Unique public firms | 1,484 |
-| Total volume | 957 MtCO2 |
+| Total volume | 958 MtCO2 |
 | Matched volume | 292 MtCO2 |
-| Registries | 6 |
-| Project countries | 94 |
+| Registries | 7 |
+| Project countries | 95 |
 | Coverage | 2004–2026 |
 
 ## Data Sources
@@ -27,6 +27,7 @@ A public dataset matching voluntary carbon offset retirements to publicly listed
 | American Carbon Registry (ACR) | [Berkeley Carbon Trading Project](https://gspp.berkeley.edu/research/osf-bctp/offsets-database) | 9,590 |
 | EcoRegistry (Cercarbono) | [EcoRegistry API](https://www.ecoregistry.io/) | 8,695 |
 | BioCarbon Registry | [Global CarbonTrace API](https://globalcarbontrace.io/) | 10,078 |
+| Puro.earth | [Puro Registry](https://registry.puro.earth/retirements) | 1,443 |
 
 ## Quick Start
 
@@ -44,9 +45,10 @@ python -m src.pipeline --skip-download
 # Run full pipeline (download + match)
 python -m src.pipeline
 
-# Download EcoRegistry and BioCarbon data
+# Download EcoRegistry, BioCarbon, and Puro data
 python -m src.download_ecoregistry
 python -m src.download_biocarbon
+python -m src.download_puro
 
 # Launch interactive dashboard
 streamlit run dashboard/app.py
@@ -61,6 +63,7 @@ carbon-offset-tracker/
 │   ├── download.py              # Download Berkeley VROD data
 │   ├── download_ecoregistry.py  # Download EcoRegistry (Cercarbono) data
 │   ├── download_biocarbon.py    # Download BioCarbon (Global CarbonTrace) data
+│   ├── download_puro.py         # Download Puro.earth Registry data
 │   ├── parse_beneficiary.py     # Registry-specific beneficiary extraction
 │   ├── match_firms.py           # Cache lookup + Claude API matching
 │   ├── pipeline.py              # End-to-end orchestration
@@ -92,6 +95,7 @@ carbon-offset-tracker/
    - CAR: `Account Holder` field
    - EcoRegistry: `final_user` field
    - BioCarbon: `beneficiary` field, with fallback to `final_user`
+   - Puro.earth: `beneficiary_name` field, with fallback to `account_holder`
 
 2. **Name normalization**: Strip legal suffixes (Inc, SA, SAS, Ltd, etc.), Colombian NIT tax IDs, CNPJ numbers; resolve subsidiary names to parent companies
 

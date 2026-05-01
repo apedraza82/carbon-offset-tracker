@@ -237,6 +237,7 @@ _SERIAL_COL = {
     "car": "Offset Credit Serial Numbers",
     "ecoregistry": "serial",
     "biocarbon": "serial",
+    "puro": "retirement_id",
 }
 
 # Unified output columns
@@ -357,6 +358,13 @@ def _load_additional_registries() -> dict[str, pd.DataFrame]:
             print(f"  Warning: {proj_path} not found — run download_biocarbon with --category projects")
 
         additional["biocarbon"] = df
+
+    # Puro.earth Registry
+    puro_path = Path("data/raw/puro/puro_retirements.csv")
+    if puro_path.exists():
+        df = pd.read_csv(puro_path, encoding="utf-8-sig")
+        print(f"  Loaded Puro: {len(df):,} retirements")
+        additional["puro"] = df
 
     return additional
 
