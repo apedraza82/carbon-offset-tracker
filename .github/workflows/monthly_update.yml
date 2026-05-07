@@ -1,10 +1,13 @@
 name: Monthly Carbon Offset Update
 
 on:
-  schedule:
-    # Run on the 5th of each month at 06:00 UTC
-    - cron: '0 6 5 * *'
-  workflow_dispatch:  # Allow manual trigger
+  # Cron disabled 2026-05-07: pipeline only handles Berkeley VROD's 4 registries
+  # (Verra/Gold/ACR/CAR) and clobbers the manually-added EcoRegistry/BioCarbon/
+  # Puro/CDM data plus prior LLM matches on each run. Re-enable only after the
+  # pipeline can incorporate all 8 registries and preserve LLM-matched rows.
+  # schedule:
+  #   - cron: '0 6 5 * *'
+  workflow_dispatch:  # Manual trigger only
 
 permissions:
   contents: write
