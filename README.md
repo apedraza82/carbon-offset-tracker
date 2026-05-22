@@ -124,7 +124,7 @@ carbon-offset-tracker/
 
 If you use this dataset, please cite:
 
-> Pedraza, Alvaro & Williams, Tomas & Zeni, Federica, 2026. "[Local Visibility vs. Global Integrity: Evidence from Corporate Carbon Offsetting](https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099338203162614529)," Policy Research Working Paper Series 11331, The World Bank.
+> Pedraza, Alvaro & Williams, Tomas & Zeni, Federica, 2026. "[Where Firms Retire Carbon Offsets: Operational Footprints and Offset Quality](https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099338203162614529)," Policy Research Working Paper Series 11331, The World Bank.
 
 ## License
 

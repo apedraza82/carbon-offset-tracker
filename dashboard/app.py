@@ -437,7 +437,7 @@ def main():
     st.info(
         "If you use this dataset in your research, please cite:\n\n"
         "> Pedraza, Alvaro & Williams, Tomas & Zeni, Federica, 2026. "
-        "\"[Local Visibility vs. Global Integrity: Evidence from Corporate Carbon Offsetting]"
+        "\"[Where Firms Retire Carbon Offsets: Operational Footprints and Offset Quality]"
         "(https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099338203162614529),\" "
         "Policy Research Working Paper Series 11331, The World Bank.\n\n"
         "Data sources: [Berkeley Carbon Trading Project](https://gspp.berkeley.edu/research/osf-bctp/offsets-database), "
