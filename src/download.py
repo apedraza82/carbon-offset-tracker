@@ -103,6 +103,24 @@ def _download_vrod_if_needed(version: str) -> Path:
     return dest
 
 
+def _coerce_mixed_excel_dates(s: pd.Series) -> pd.Series:
+    """Parse a column that mixes datetime cells, date strings, and raw Excel
+    serial integers. Without this, bare integers like 46142 are read as
+    pandas.to_datetime nanosecond epochs and collapse to 1970-01-01.
+
+    Approach: first try the normal parse; for anything that still looks wrong
+    (parse failed OR year <= 1970), retry as an Excel serial-date number
+    using Excel's 1899-12-30 epoch.
+    """
+    primary = pd.to_datetime(s, errors="coerce")
+    bad = s.notna() & (primary.isna() | (primary.dt.year <= 1970))
+    if bad.any():
+        nums = pd.to_numeric(s[bad], errors="coerce")
+        retry = pd.to_datetime(nums, origin="1899-12-30", unit="D", errors="coerce")
+        primary.loc[bad] = retry.values
+    return primary
+
+
 def download_berkeley_registry(version: str | None = None) -> dict[str, pd.DataFrame]:
     """Download Berkeley VROD raw registry file(s) and extract retirement sheets.
 
@@ -136,7 +154,13 @@ def download_berkeley_registry(version: str | None = None) -> dict[str, pd.DataF
         df = pd.read_excel(paths[v_ver], sheet_name=v_sheet)
         # Filter to retirements only if it's a mixed-transaction sheet
         if "Retirement/Cancellation Date" in df.columns:
-            df = df[df["Retirement/Cancellation Date"].notna()]
+            df = df[df["Retirement/Cancellation Date"].notna()].copy()
+            # Berkeley's Verra sheet stores a chunk of dates as bare Excel
+            # serial integers (e.g. 46142). Without an explicit fix these
+            # become 1970-01-01 via pd.to_datetime's nanosecond-epoch default.
+            df["Retirement/Cancellation Date"] = _coerce_mixed_excel_dates(
+                df["Retirement/Cancellation Date"]
+            )
         registry_data["verra"] = df
         print(f"  [VERRA] {len(df):,} rows (VROD {v_ver} pinned, '{v_sheet}')")
     except Exception as e:
