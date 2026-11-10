@@ -58,18 +58,18 @@ def clean_raw_name(name: str) -> str:
 def parse_verra(row: pd.Series) -> BeneficiaryResult | None:
     """Extract beneficiary from Verra retirement row.
 
-    Primary: 'Retirement Beneficiary'
-    Fallback: 'Retirement Details' (parse "on behalf of X")
+    Primary: 'Retirement Beneficiary' (old VROD) / 'Beneficial Owner' (VROD 2026-08+)
+    Fallback: 'Retirement Details' (old) / 'Retirement Reason Details' (VROD 2026-08+)
     """
-    # Primary field
-    beneficiary = row.get("Retirement Beneficiary", "")
+    # Primary field - try both old and new column names
+    beneficiary = row.get("Retirement Beneficiary", "") or row.get("Beneficial Owner", "")
     if isinstance(beneficiary, str) and beneficiary.strip():
         cleaned = clean_raw_name(beneficiary)
         if cleaned:
             return BeneficiaryResult(raw_name=cleaned, source_field="Retirement Beneficiary", registry="Verra")
 
-    # Fallback: parse from Retirement Details
-    details = row.get("Retirement Details", "")
+    # Fallback: parse from Retirement Details / Retirement Reason Details
+    details = row.get("Retirement Details", "") or row.get("Retirement Reason Details", "")
     if isinstance(details, str) and details.strip():
         name = extract_on_behalf_of(details)
         if name:
@@ -102,16 +102,16 @@ def parse_gold(row: pd.Series) -> BeneficiaryResult | None:
 def parse_acr(row: pd.Series) -> BeneficiaryResult | None:
     """Extract beneficiary from ACR retirement row.
 
-    Primary: 'Retired on Behalf of'
-    Fallback: 'Account Holder'
+    Primary: 'Retired on Behalf of' (old VROD) / 'Retired On Behalf Of' (VROD 2026-08+)
+    Fallback: 'Account Holder' (old) / 'Credit Holder' (VROD 2026-08+)
     """
-    behalf = row.get("Retired on Behalf of", "")
+    behalf = row.get("Retired on Behalf of", "") or row.get("Retired On Behalf Of", "")
     if isinstance(behalf, str) and behalf.strip():
         cleaned = clean_raw_name(behalf)
         if cleaned:
             return BeneficiaryResult(raw_name=cleaned, source_field="Retired on Behalf of", registry="ACR")
 
-    holder = row.get("Account Holder", "")
+    holder = row.get("Account Holder", "") or row.get("Credit Holder", "")
     if isinstance(holder, str) and holder.strip():
         cleaned = clean_raw_name(holder)
         if cleaned:
@@ -405,6 +405,11 @@ PARSERS = {
 # Column name harmonization: registry-specific -> unified names
 _COLUMN_RENAMES = {
     "verra": {
+        # Verra is pinned to VROD 2026-04 (see download.py BERKELEY_PINNED_VERSIONS)
+        # which uses the old column names. If Verra is ever unpinned, we would
+        # need the VROD 2026-08+ names here too — but adding them while on the
+        # old pinned version collides (both 'Project Type' and 'Methodology'
+        # would map to 'projecttype' because 2026-04 Verra VCUS has both).
         "Quantity Issued": "quantity",
         "Country/Area": "country",
         "Retirement/Cancellation Date": "retirement_date",
@@ -426,7 +431,8 @@ _COLUMN_RENAMES = {
         "Status Effective (GMT)": "retirement_date",
         "Project Name": "projectname",
         "Project Type": "projecttype",
-        "Project ID": "project_id",
+        "Project ID": "project_id",   # old VROD
+        "Project Id": "project_id",   # VROD 2026-08+ (lowercase 'd')
     },
     "car": {
         "Quantity of Offset Credits": "quantity",

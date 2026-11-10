@@ -13,7 +13,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from src.download import run_download_pipeline
+from src.download import download_berkeley_registry, run_download_pipeline
 from src.match_firms import FirmMatcher
 from src.parse_beneficiary import parse_retirements
 from src.utils import load_config
@@ -250,9 +250,14 @@ _OUTPUT_COLS = [
 ]
 
 
-def _load_base_dataset(config: dict) -> pd.DataFrame:
-    """Load the existing matched retirements as the base dataset."""
-    source_path = Path(config["sources"]["matched_retirements"])
+def _load_base_dataset(config: dict, base_path: Path | None = None) -> pd.DataFrame:
+    """Load the existing matched retirements as the base dataset.
+
+    If base_path is provided, loads from there directly (e.g. previous run's
+    output, which already includes manual registries + LLM matches).
+    Otherwise loads from config.sources.matched_retirements.
+    """
+    source_path = base_path if base_path is not None else Path(config["sources"]["matched_retirements"])
     if not source_path.exists():
         print("  No base dataset found, starting from scratch")
         return pd.DataFrame()
@@ -377,55 +382,50 @@ def _load_additional_registries() -> dict[str, pd.DataFrame]:
     return additional
 
 
-def run_pipeline(config: dict, skip_download: bool = False, skip_llm: bool = False):
+def run_pipeline(
+    config: dict,
+    skip_download: bool = False,
+    skip_llm: bool = False,
+    base_from_output: bool = False,
+):
     """Run the incremental pipeline.
 
     Loads the existing matched retirements as a base, downloads new data from
     Berkeley, finds new retirements not in the base, parses and matches them,
     then combines everything.
+
+    When base_from_output=True, uses the previous run's output parquet as the
+    base (preserving manually-added registries and prior LLM matches) and
+    skips re-loading EcoRegistry/BioCarbon/Puro/CDM raw files.
     """
 
     # Step 0: Load base dataset
     print("=== Loading base dataset ===")
-    base = _load_base_dataset(config)
+    if base_from_output:
+        base_path = Path(config["output"]["matched_retirements"])
+        print(f"  Using previous output as base: {base_path}")
+        base = _load_base_dataset(config, base_path=base_path)
+    else:
+        base = _load_base_dataset(config)
 
     # Step 1: Download new data
+    # Delegate to download_berkeley_registry() in both download and skip-download
+    # cases — _download_vrod_if_needed() reuses cached files automatically, so
+    # --skip-download is effectively "don't re-fetch what's already on disk."
+    # This keeps the Verra pinning + version-aware sheet names in one place.
+    version = config.get("sources", {}).get("berkeley_version")
     if skip_download:
         print("\n=== Skipping download (using local registry files) ===")
-        # Prefer VROD file in data/raw/ over individual Dropbox files
-        from src.download import BERKELEY_SHEETS
-        vrod_version = config.get("sources", {}).get("berkeley_version", "2026-02")
-        vrod_path = Path("data/raw") / f"VROD-registry-files--{vrod_version}.xlsx"
-        registry_data = {}
-        if vrod_path.exists():
-            print(f"  Using VROD file: {vrod_path}")
-            for sheet_name, registry_key in BERKELEY_SHEETS.items():
-                try:
-                    df = pd.read_excel(vrod_path, sheet_name=sheet_name)
-                    if registry_key == "verra" and "Retirement/Cancellation Date" in df.columns:
-                        df = df[df["Retirement/Cancellation Date"].notna()]
-                    registry_data[registry_key] = df
-                    print(f"  [{registry_key.upper()}] {len(df):,} rows")
-                except Exception as e:
-                    print(f"  [{registry_key.upper()}] Error: {e}")
-        else:
-            # Fallback to individual files from config
-            registry_dir = Path(config["sources"]["registry_dir"])
-            for reg, fname in config["sources"]["registry_files"].items():
-                fpath = registry_dir / fname
-                if fpath.exists():
-                    print(f"  Loading {reg} from {fpath}")
-                    registry_data[reg] = pd.read_excel(fpath)
-                else:
-                    print(f"  Warning: {fpath} not found")
-    else:
-        version = config.get("sources", {}).get("berkeley_version")
-        registry_data = run_download_pipeline(config, version=version)
+    registry_data = download_berkeley_registry(version=version)
 
-    # Load additional registries (EcoRegistry, BioCarbon)
-    print("\n=== Loading additional registries ===")
-    additional = _load_additional_registries()
-    registry_data.update(additional)
+    # Load additional registries (EcoRegistry, BioCarbon, Puro, CDM)
+    # Skipped when base_from_output=True since these are already in the base.
+    if base_from_output:
+        print("\n=== Skipping additional registries (already in base) ===")
+    else:
+        print("\n=== Loading additional registries ===")
+        additional = _load_additional_registries()
+        registry_data.update(additional)
 
     if not registry_data:
         print("No registry data to process.")
@@ -725,12 +725,23 @@ def main():
     parser.add_argument("--skip-llm", action="store_true", help="Skip LLM matching (cache only)")
     parser.add_argument("--version", type=str, default=None, help="Berkeley VROD version (e.g. 2026-02)")
     parser.add_argument("--config", type=str, default=None, help="Path to config.yaml")
+    parser.add_argument(
+        "--base-from-output",
+        action="store_true",
+        help="Use previous run's output parquet as base (preserves manual registries + LLM matches). "
+        "Skips re-loading EcoRegistry/BioCarbon/Puro/CDM raw files.",
+    )
     args = parser.parse_args()
 
     config = load_config(args.config)
     if args.version:
         config.setdefault("sources", {})["berkeley_version"] = args.version
-    run_pipeline(config, skip_download=args.skip_download, skip_llm=args.skip_llm)
+    run_pipeline(
+        config,
+        skip_download=args.skip_download,
+        skip_llm=args.skip_llm,
+        base_from_output=args.base_from_output,
+    )
 
 
 if __name__ == "__main__":

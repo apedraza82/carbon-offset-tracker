@@ -23,15 +23,36 @@ from src.utils import load_config
 BERKELEY_RAW_REGISTRY_URL = (
     "https://gspp.berkeley.edu/assets/uploads/page/VROD-registry-files--{version}.xlsx"
 )
-BERKELEY_LATEST_VERSION = "2026-02"
+BERKELEY_LATEST_VERSION = "2026-08"
 
-# Sheet name -> registry key mapping
-BERKELEY_SHEETS = {
-    "Verra VCUS": "verra",
-    "Gold Retirements": "gold",
-    "ACR Retirements": "acr",
-    "CAR Retirements": "car",
+# Verra is pinned to an older VROD because Berkeley dropped the rich
+# 'Retirement Details' free-text field in VROD 2026-08. Without that field
+# the Verra beneficiary parse rate drops from ~73% to ~55% of rows. The
+# 2026-04 Verra file still has the old structure and parses richly.
+# Reverse once Berkeley restores a usable fallback field.
+BERKELEY_PINNED_VERSIONS = {
+    "verra": "2026-04",
 }
+
+# Sheet-name map for the LATEST VROD (2026-08) for the non-pinned registries.
+# Verra sheet name is handled in _verra_sheet_name() because it depends on version.
+BERKELEY_SHEETS = {
+    "Gold Retirements": "gold",
+    "ACR Retirements":  "acr",
+    "CAR Retirements":  "car",
+}
+
+
+def _verra_sheet_name(version: str) -> str:
+    """Return the Verra retirements sheet name for the given VROD version.
+
+    Berkeley renamed 'Verra VCUS' to 'Verra VCS Retirements' starting in 2026-08.
+    """
+    try:
+        y, m = (int(x) for x in version.split("-"))
+    except ValueError:
+        return "Verra VCUS"
+    return "Verra VCS Retirements" if (y, m) >= (2026, 8) else "Verra VCUS"
 
 RAW_DIR = Path("data/raw")
 PREV_DIR = Path("data/previous")
@@ -68,38 +89,58 @@ def file_hash(path: Path) -> str:
     return h.hexdigest()
 
 
+def _download_vrod_if_needed(version: str) -> Path:
+    """Download the VROD xlsx for a given version if not already on disk; return path."""
+    url = BERKELEY_RAW_REGISTRY_URL.format(version=version)
+    dest = RAW_DIR / f"VROD-registry-files--{version}.xlsx"
+    RAW_DIR.mkdir(parents=True, exist_ok=True)
+    if not dest.exists():
+        print(f"Downloading Berkeley VROD v{version}...")
+        if not download_file(url, dest):
+            raise RuntimeError(f"Failed to download {url}")
+    else:
+        print(f"Using cached VROD v{version}: {dest.name}")
+    return dest
+
+
 def download_berkeley_registry(version: str | None = None) -> dict[str, pd.DataFrame]:
-    """Download Berkeley VROD raw registry file and extract retirement sheets.
+    """Download Berkeley VROD raw registry file(s) and extract retirement sheets.
 
-    Args:
-        version: VROD version string (e.g. '2026-02'). Uses latest if None.
-
-    Returns:
-        Dict mapping registry key to DataFrame of retirements.
+    Non-pinned registries (gold, acr, car) are loaded from the latest VROD
+    (`version` or BERKELEY_LATEST_VERSION). Pinned registries (see
+    BERKELEY_PINNED_VERSIONS) are loaded from their pinned version instead.
     """
     if version is None:
         version = BERKELEY_LATEST_VERSION
 
-    url = BERKELEY_RAW_REGISTRY_URL.format(version=version)
-    dest = RAW_DIR / f"VROD-registry-files--{version}.xlsx"
-    RAW_DIR.mkdir(parents=True, exist_ok=True)
-
-    print(f"Downloading Berkeley VROD v{version}...")
-    if not download_file(url, dest):
-        raise RuntimeError(f"Failed to download {url}")
+    # Pre-fetch all VROD versions we need (dedup to avoid re-downloading)
+    needed_versions = {version} | set(BERKELEY_PINNED_VERSIONS.values())
+    paths = {v: _download_vrod_if_needed(v) for v in needed_versions}
 
     print("Extracting retirement sheets...")
     registry_data = {}
+
+    # Latest-version registries
     for sheet_name, registry_key in BERKELEY_SHEETS.items():
         try:
-            df = pd.read_excel(dest, sheet_name=sheet_name)
-            # Filter to retirements only (Verra sheet has all transaction types)
-            if registry_key == "verra" and "Retirement/Cancellation Date" in df.columns:
-                df = df[df["Retirement/Cancellation Date"].notna()]
+            df = pd.read_excel(paths[version], sheet_name=sheet_name)
             registry_data[registry_key] = df
-            print(f"  [{registry_key.upper()}] {len(df):,} rows")
+            print(f"  [{registry_key.upper()}] {len(df):,} rows (VROD {version}, '{sheet_name}')")
         except Exception as e:
             print(f"  [{registry_key.upper()}] Error: {e}")
+
+    # Verra — pinned version
+    v_ver = BERKELEY_PINNED_VERSIONS.get("verra", version)
+    v_sheet = _verra_sheet_name(v_ver)
+    try:
+        df = pd.read_excel(paths[v_ver], sheet_name=v_sheet)
+        # Filter to retirements only if it's a mixed-transaction sheet
+        if "Retirement/Cancellation Date" in df.columns:
+            df = df[df["Retirement/Cancellation Date"].notna()]
+        registry_data["verra"] = df
+        print(f"  [VERRA] {len(df):,} rows (VROD {v_ver} pinned, '{v_sheet}')")
+    except Exception as e:
+        print(f"  [VERRA] Error: {e}")
 
     return registry_data
 

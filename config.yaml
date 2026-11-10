@@ -19,7 +19,7 @@ sources:
 
   # Berkeley Carbon Trading Project (VROD)
   berkeley_url: "https://gspp.berkeley.edu/berkeley-carbon-trading-project/offsets-database"
-  berkeley_version: "2026-02"  # Update to latest VROD version (YYYY-MM)
+  berkeley_version: "2026-08"  # Update to latest VROD version (YYYY-MM)
 
 # Output paths (relative to repo root)
 output:
